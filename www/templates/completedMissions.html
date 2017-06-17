@@ -1,0 +1,24 @@
+<ion-view view-title="Completed Missions" hide-nav-bar="false">
+  
+  <ion-content>
+    
+    <div  class="cardflat item-text-wrap"
+          ng-repeat="mission in user.missionList"
+          ng-if="mission.missionStatus === 'Completed'"
+          ng-init="missionInfo=getMissionInfo(mission.missionID)">
+
+      <div  class="pictureFrame" 
+            style="background-image: url({{missionInfo.missionCover}});" 
+            ui-sref="app.missionDetails({'missionID':missionInfo.$id})">
+
+        <img src={{missionInfo.missionCover}} style="visibility: hidden; width: 100%">
+        <div class="backgroundGradient"></div>
+        <div class="textShadow">{{missionInfo.missionLocation}}</div>
+
+      </div>
+
+    </div>
+
+  </ion-content>
+
+</ion-view>

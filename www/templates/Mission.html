@@ -1,0 +1,45 @@
+<ion-view view-title="Mission" hide-nav-bar="false">
+
+<ion-content>
+
+	<div class="card item-text-wrap">
+
+		<div class="oneThird"> <img src= 'img/squareFood1.jpg' style="width: 100%; padding: 0px" ng-click = "TokensList = UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token ; TokenNumber = SelectedMission + '_1' "> </div>
+		<div class="oneThird"> <img src= 'img/squareFood1.jpg' style="width: 100%; padding: 0px" ng-click = "TokensList = UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token ; TokenNumber = SelectedMission + '_2' "> </div>
+		<div class="oneThird"> <img src= 'img/squareFood1.jpg' style="width: 100%; padding: 0px" ng-click = "TokensList = UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token ; TokenNumber = SelectedMission + '_3' "> </div>
+		<div class="oneThird"> <img src= 'img/squareFood1.jpg' style="width: 100%; padding: 0px" ng-click = "TokensList = UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token ; TokenNumber = SelectedMission + '_4' "> </div>
+		<div class="oneThird"> <img src= 'img/squareFood1.jpg' style="width: 100%; padding: 0px" ng-click = "TokensList = UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token ; TokenNumber = SelectedMission + '_5' "> </div>
+		<div class="oneThird"> <img src= 'img/squareFood1.jpg' style="width: 100%; padding: 0px" ng-click = "TokensList = UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token ; TokenNumber = SelectedMission + '_6' "> </div>
+		
+	</div>
+
+
+	<div class="card item-text-wrap">
+
+		<div>
+			{{TokensList[TokenNumber].TokenMsg}} <br>
+			{{TokenNumber}}
+		</div>
+
+		<div class="half"> <img src= 'img/squareFood2.jpg' style="width: 100%; padding: 0px"></div>
+		<div class="half"> 
+
+				<button class="button button-block " ng-click="openHints(TokenNumber, TokenList[TokenNumber])" menu-close>Token Hints</button>
+
+ 
+				<button class="button button-block " ng-click='openTokenClaim(TokenNumber, TokenList[TokenNumber])'>Token Claim</button>
+
+		</div>
+
+	</div>
+
+
+		<div class="half"> 
+				<button class="button button-block " ng-click="openlogin()" menu-close>Skip Mission</button>
+    </div>
+
+    <div class="half"> 
+				<button class="button button-block " ng-click='nextMission(SelectedMission)'>Next Mission</button>
+		</div>
+
+</ion-content>

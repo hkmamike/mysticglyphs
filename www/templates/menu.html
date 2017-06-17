@@ -1,0 +1,79 @@
+<ion-side-menus enable-menu-with-back-views="true" >
+
+  <ion-side-menu-content drag-content="false">
+
+    <ion-nav-bar class="bar-stable bar-energized" icon="ion-navicon">
+
+      <ion-nav-back-button class="button"></ion-nav-back-button>
+
+      <ion-nav-buttons>
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="right" ng-click="toggleRightSideMenu()"></button>
+      </ion-nav-buttons>
+
+    </ion-nav-bar>
+
+
+<!-- TABS ===========================================================================================-->
+    <ion-tabs class="tabs-icon-top tabs-color-active-energized tabs-light">
+
+      <ion-tab title="List" icon-off="ion-android-create"" icon-on="ion-android-create"" ui-sref="app.List">
+        <ion-nav-view name="tab_List"></ion-nav-view>
+      </ion-tab>
+
+      <ion-tab title="City" icon-off="ion-android-create"" icon-on="ion-android-create"" ui-sref="app.City">
+        <ion-nav-view name="tab_City"></ion-nav-view>
+      </ion-tab>
+
+
+      <ion-tab title="Campaign" icon-off="ion-android-create"" icon-on="ion-android-create"" ui-sref="app.Campaign">
+        <ion-nav-view name="tab_Campaign"></ion-nav-view>
+      </ion-tab>
+
+      <ion-tab title="Mission" icon-off="ion-android-create"" icon-on="ion-android-create"" ui-sref="app.Mission">
+        <ion-nav-view name="tab_Mission"></ion-nav-view>
+      </ion-tab>
+
+      <ion-tab icon="ion-navicon" ng-click="toggleRightSideMenu()">
+      </ion-tab>
+
+    </ion-tabs>
+<!-- TABS ===========================================================================================-->
+
+  </ion-side-menu-content>
+
+<!-- SIDEMENU =======================================================================================-->
+  <ion-side-menu side="right">
+
+    <ion-content>
+
+      <div class="sidemenu-content" ui-sref="app.profile({'foodieKey':user.info.foodieID})" menu-close>
+        <div class="sidemenu-avatar" >
+          <img src= "{{UserInfo.UserPict}}">
+          <h3>{{UserInfo.UserName}}</h3>
+        </div>
+      </div>
+
+      <button class="button button-block " ng-click="openlogin()" menu-close>Login</button>
+
+
+      <ion-list>
+        <!-- <ion-item menu-close ui-sref="app.completedMissions">Activites</ion-item> -->
+        <!-- <ion-item menu-close ui-sref="app.selections">Editor's Selections</ion-item> -->
+        <!-- <ion-item menu-close ui-sref="app.favourites">Temp</ion-item> -->
+        <!-- <ion-item menu-close ui-sref="app.favourites">My Followings</ion-item> -->
+        <!-- <ion-item menu-close ui-sref="app.favourites">My Points</ion-item> -->
+        <!-- <ion-item menu-close ng-click="openNewArticle()">Recommand</ion-item> -->
+
+        <!-- <ion-item menu-close ng-click="openlogin()">Login</ion-item> -->
+        <!-- <ion-item menu-close ng-click="CopyDatabase()">CopyDatabase</ion-item> -->
+        <!-- <ion-item menu-close ng-click="updateDatabase()">UpdateDatabase</ion-item> -->
+
+
+      </ion-list>
+    </ion-content>
+
+  </ion-side-menu>
+<!-- SIDEMENU =======================================================================================-->
+
+</ion-side-menus>
+

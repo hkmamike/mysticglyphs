@@ -1,0 +1,151 @@
+<ion-view view-title="Profile" hide-nav-bar="false">
+
+<!-- <ion-nav-title>
+  <div class="bar bar-header item-input-inset">
+    <label class="item-input-wrapper">
+      <i class="icon ion-ios-search placeholder-icon"></i>
+      <input ng-model="search_text" type="text" placeholder="Profile Name" focus-me my-enter="search_model(search_text)" autofocus style="text-align: center;">
+    </label>
+  </div>
+</ion-nav-title> -->
+
+
+  <ion-content style="background-color: #ffc">
+
+    <div class="profile-background" style="background-image: url('img/profile-bg.jpg');"></div>
+    <div class="profile-content">
+      <img class="profile-img" src="{{selectedFoodie.info.foodieImg}}">
+      <div class="profile-text">
+        <h3>{{selectedFoodie.info.foodieName}}</h3>
+        <p>bahbahbah</p>
+      </div>
+    </div>
+
+
+      <div class="button-bar bar-balanced">
+            <a class="button ion-button" ng-click="slide(0)">Info</a>
+            <a class="button ion-button" ng-click="slide(1)">Articles</a>
+        </div>
+
+        <div>
+            <ion-slide-box class="delegate-handle" on-slide-changed="scrollTop()" on-slide-changed="activateTabs($index)"  show-pager="false" >
+                <ion-slide>
+                <!--ion-scroll style="height:auto; overflow:hidden;"-->
+                    <ion-item class="card item-text-wrap">
+                        Foodie Ranking: 5 Stars<br>
+                        Total 80 Followers<br>
+                        Predictive power: 100% <br>
+                        50 Recommendations <br>
+                    </ion-item>
+
+                    <div class="card chart-card">
+                    <div class="item item-text-wrap">
+                        <canvas id="line" class="chart chart-line" data="lineData" labels="lineLabels" legend="true" series="lineSeries" options="{showTooltips: false}"></canvas>
+                    </div>
+                    
+                    <div class="item item-text-wrap">   
+                       <canvas id="doughnut" data="pieData" labels="pieLabels" class="chart chart-doughnut" legend="true"  series="series" options="{showTooltips: false}">
+                       </canvas>
+                    </div>
+                    </div>
+
+                    <div>
+                                        <ion-item class="card item-text-wrap" style="padding: 0px">
+                    <div class="oneThird"> <img src= 'img/squareFood1.jpg' style="width: 100%; padding: 0px"> </div>
+                    <div class="oneThird"> <img src= 'img/squareFood2.jpg' style="width: 100%; padding: 0px"> </div>
+                    <div class="oneThird"> <img src= 'img/squareFood3.jpg' style="width: 100%; padding: 0px"> </div>
+                    <div class="oneThird"> <img src= 'img/squareFood1.jpg' style="width: 100%; padding: 0px"> </div>
+                    <div class="oneThird"> <img src= 'img/squareFood3.jpg' style="width: 100%; padding: 0px"> </div>
+                    <div class="oneThird"> <img src= 'img/squareFood2.jpg' style="width: 100%; padding: 0px"> </div>
+                    <div class="quarter"> <img src= 'img/squareFood1.jpg' style="width: 100%; padding: 0px"> </div>
+                    <div class="quarter"> <img src= 'img/squareFood2.jpg' style="width: 100%; padding: 0px"> </div>
+                    <div class="quarter"> <img src= 'img/squareFood3.jpg' style="width: 100%; padding: 0px"> </div>
+                    <div class="quarter"> <img src= 'img/squareFood1.jpg' style="width: 100%; padding: 0px"> </div>
+                    <div class="quarter"> <img src= 'img/squareFood1.jpg' style="width: 100%; padding: 0px"> </div>
+                    <div class="quarter"> <img src= 'img/squareFood2.jpg' style="width: 100%; padding: 0px"> </div>                    
+                    </ion-item>
+                    </div>
+
+                <!--/ion-scroll-->     
+                </ion-slide>
+                
+                <ion-slide>
+                <!--ion-scroll style="height:100vh; overflow:hidden;"-->   
+    <!-- <div class="cardflat item-text-wrap" ng-repeat="article in selectedArticle"> -->
+    <div class="cardflat item-text-wrap" ng-repeat="article in articles" ng-init='foodieInfo=getSelectedArticleFoodieInfo(article.author)'>
+
+      <div class="pictureFrame" style="background-image: url({{article.coverImage}});" ui-sref="app.article({'articleKey':article.key})">
+        <img src={{article.coverImage}} style="visibility: hidden; width: 100%">
+        <div class="backgroundGradient"></div>
+        <div class="textShadow">
+        {{article.name}}
+        </div>
+      </div>
+      <!-- </div> -->
+
+      <div style="height:50px; padding: 0px">
+
+      <div class="half" style="padding: 0px">
+        <button class="button icon ion-heart" ng-click="bookmarkArticle(article.key)"></button>
+        <button class="button icon ion-share" ui-sref="app.favourites"></button>
+      </div>
+
+      <div class="half" style="padding: 0px">
+        <span style="float: right; font-size: 12px">2 days ago<br></span>
+        <span style="float: right; font-size: 12px">{{article.upVote}} favoirites, {{article.articleRating}} positive</span>
+      </div>
+
+      </div>
+<!--       <div class="item" style="height:100%; padding: 0px">
+        <span style="float: right; font-size: 12px">{{article.upVote}} favoirites, {{article.articleRating}} positive</span>
+      </div>
+
+      <div class="button-bar no-padding">
+        <button class="button ion-thumbsup" href="#/app/favourites">Save</button>
+        <button class="button ion-share" ui-sref="app.favourites">Share</button>
+        <button class="button ion-ionic" href="#/app/activities/{{article.key}}">Rate</button>
+      </div> -->
+
+    </div>
+
+                </ion-slide>
+
+                <ion-slide>
+                <!--ion-scroll style="height:100vh; overflow:hidden;"-->
+                    <ion-item class="card item-text-wrap" ng-repeat="article in articles| filter:searchText">
+                        <div class="item item-divider" ng-click="toggleGroup(article)">
+                        <p>{{article.name}}</p>
+                        </div>
+                        
+                        <div class="item item-image" ng-click="toggleGroup(article)" ng-class="{active: isGroupShown(article)}">
+                        <img src= {{article.cover}}>
+                        </div>
+
+                        <div class="item-accordion" ng-show="isGroupShown(article)">
+                        {{article.details}}<br>
+                        {{article.details}}<br>
+                        <button class="button icon-left button-assertive icon ion-heart button-clear">Wanna Try</button>
+                        <button class="button icon-left button-positive icon ion-thumbsup button-clear">Like!</button>
+                        <button class="button icon-left button-positive icon ion-thumbsdown button-clear">Inaccruate</button>
+                        </div>
+
+                        <div class="item item-avatar-left">
+                        <img src= {{article.foodieimg}}>
+                        {{article.foodie}}<br>
+                        <i class="icon ion-clock"></i> {{article.age}}
+                        <i class="icon ion-stats-bars"></i> {{article.rating}} 
+                        </div>     
+                    </ion-item>
+                <!--/ion-scroll-->
+                </ion-slide>
+            </ion-slide-box>
+        </div>
+
+
+
+    </div>
+
+
+
+  </ion-content>
+</ion-view>

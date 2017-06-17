@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <!-- font style used in ionic material
+    <link href='https://fonts.googleapis.com/css?family=RobotoDraft:400,500,700,400italic' rel='stylesheet' type='text/css'> -->
+
+    <!-- un-comment this code to enable service worker
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.log('Error', err));
+      }
+    </script>-->
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- app's javascript -->
+    <script src="js/app.js"></script>
+    <script src="js/DatabaseUploader.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+
+    <!-- code for firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
+
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.2.0/angularfire.min.js"></script>
+    
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDNTVAMMz_BzP1HoRd_Ojy6AFfuv5jCDWA",
+        authDomain: "dreamertreasurehunt.firebaseapp.com",
+        databaseURL: "https://dreamertreasurehunt.firebaseio.com",
+        storageBucket: "dreamertreasurehunt.appspot.com",
+        messagingSenderId: "981382267082"
+      };
+
+      firebase.initializeApp(config);
+
+      //variables for firebase
+      var db = firebase.database();
+      var auth = firebase.auth();
+
+      //need a switch statement later if we use more federated logins
+      var provider = new firebase.auth.FacebookAuthProvider();
+      
+    </script>
+
+    <!--Addins-->    
+    <script src="lib/addins/chart.js"></script>
+    <script src="lib/addins/angular-chart.js"></script>
+
+  </head>
+
+  <body ng-app="starter">
+    <ion-nav-view></ion-nav-view>
+  </body>
+</html>
