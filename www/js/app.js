@@ -36,7 +36,7 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
   .state('app.List', {
     url: '/List',
     views: {
-      'tab_List': {
+      'menuContent': {
         templateUrl: 'templates/List.html',
       }
     }
@@ -46,7 +46,7 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
   .state('app.City', {
     url: '/List/City/:CityID',
     views: {
-      'tab_City': {
+      'menuContent': {
         templateUrl: 'templates/City.html',
         controller: 'ListCtrl'
       }
@@ -57,7 +57,7 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
   .state('app.Campaign', {
     url: '/List/City/:CityID/Campaign/:CampaignID',
     views: {
-      'tab_Campaign': {
+      'menuContent': {
         templateUrl: 'templates/Campaign.html',
         controller: 'ListCtrl'
       }
@@ -68,102 +68,32 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
   .state('app.Mission', {
     url: '/List/City/:CityID/Campaign/:CampaignID/Mission/:MissionID',
     views: {
-      'tab_Mission': {
+      'menuContent': {
         templateUrl: 'templates/Mission.html',
         controller: 'ListCtrl'
       }
     }
   })
 
-
-
-
-
-
-
-
-
-
   .state('app.completedMissions', {
     url: '/completedMissions',
     views: {
-      'tab_completedMissions': {
+      'menuContent': {
         templateUrl: 'templates/completedMissions.html',
       }
     }
   })
 
-
   .state('app.missionDetails', {
     url: '/missionDetails/:missionID',
     views: {
-      'tab_missionDetails': {
+      'menuContent': {
         templateUrl: 'templates/missionDetails.html',
         // controller: 'missionDetailsCtrl'
       }
     }
   })
 
-
-
-  .state('app.selections', {
-    url: '/selections',
-    views: {
-      'tab_selections': {
-        templateUrl: 'templates/selections.html',
-      }
-    }
-  })
-
-  .state('app.favourites', {
-    url: '/favourites',
-    views: {
-      'tab_favourites': {
-        templateUrl: 'templates/favourites.html',
-        controller: 'TempCtrl'
-      }
-    }
-  })
-
-  .state('app.profile', {
-    url: '/profile/:foodieKey',
-    views: {
-      'tab_profile': {
-        templateUrl: 'templates/profile.html',
-        // controller: 'profileCtrl'
-      }
-    }
-  })
-
-  .state('app.restaurant', {
-    url: '/restaurant',
-    views: {
-      'tab_restaurant': {
-        templateUrl: 'templates/restaurant.html',
-        // controller: 'restaurantCtrl'
-      }
-    }
-  })
-
-  .state('app.test', {
-    url: '/test',
-    views: {
-      'tab_test': {
-        templateUrl: 'templates/test.html',
-        // controller: 'testCtrl'
-      }
-    }
-  })
-
-  .state('app.article', {
-    url: '/article/:articleKey',
-    views: {
-      'page_article': {
-        templateUrl: 'templates/article.html',
-        // controller: 'articleCtrl'
-      }
-    }
-  })
 
   ;
   // if none of the above states are matched, use this as the fallback

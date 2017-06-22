@@ -6,42 +6,19 @@
 
       <ion-nav-back-button class="button"></ion-nav-back-button>
 
-      <ion-nav-buttons>
+      <ion-nav-buttons side="right">
         <button class="button button-icon button-clear ion-navicon" menu-toggle="right" ng-click="toggleRightSideMenu()"></button>
       </ion-nav-buttons>
 
     </ion-nav-bar>
 
-
-<!-- TABS ===========================================================================================-->
-    <ion-tabs class="tabs-icon-top tabs-color-active-energized tabs-light">
-
-      <ion-tab title="List" icon-off="ion-android-create"" icon-on="ion-android-create"" ui-sref="app.List">
-        <ion-nav-view name="tab_List"></ion-nav-view>
-      </ion-tab>
-
-      <ion-tab title="City" icon-off="ion-android-create"" icon-on="ion-android-create"" ui-sref="app.City">
-        <ion-nav-view name="tab_City"></ion-nav-view>
-      </ion-tab>
-
-
-      <ion-tab title="Campaign" icon-off="ion-android-create"" icon-on="ion-android-create"" ui-sref="app.Campaign">
-        <ion-nav-view name="tab_Campaign"></ion-nav-view>
-      </ion-tab>
-
-      <ion-tab title="Mission" icon-off="ion-android-create"" icon-on="ion-android-create"" ui-sref="app.Mission">
-        <ion-nav-view name="tab_Mission"></ion-nav-view>
-      </ion-tab>
-
-      <ion-tab icon="ion-navicon" ng-click="toggleRightSideMenu()">
-      </ion-tab>
-
-    </ion-tabs>
-<!-- TABS ===========================================================================================-->
+    <!-- MENUCONTENT FROM APP.JS ====================================================================-->
+    <ion-nav-view name="menuContent"></ion-nav-view>
+    <!-- MENUCONTENT FROM APP.JS ====================================================================-->
 
   </ion-side-menu-content>
 
-<!-- SIDEMENU =======================================================================================-->
+  <!-- SIDEMENU =======================================================================================-->
   <ion-side-menu side="right">
 
     <ion-content>
@@ -55,7 +32,6 @@
 
       <button class="button button-block " ng-click="openlogin()" menu-close>Login</button>
 
-
       <ion-list>
         <!-- <ion-item menu-close ui-sref="app.completedMissions">Activites</ion-item> -->
         <!-- <ion-item menu-close ui-sref="app.selections">Editor's Selections</ion-item> -->
@@ -67,13 +43,12 @@
         <!-- <ion-item menu-close ng-click="openlogin()">Login</ion-item> -->
         <!-- <ion-item menu-close ng-click="CopyDatabase()">CopyDatabase</ion-item> -->
         <!-- <ion-item menu-close ng-click="updateDatabase()">UpdateDatabase</ion-item> -->
-
-
       </ion-list>
+
     </ion-content>
 
   </ion-side-menu>
-<!-- SIDEMENU =======================================================================================-->
+  <!-- SIDEMENU =======================================================================================-->
 
 </ion-side-menus>
 
