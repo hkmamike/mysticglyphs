@@ -14,7 +14,7 @@ angular.module('starter.DatabaseUploader', [])
 
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Order' ] = '1';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/City' ] = 'HongKong';
-updates['/DatabaseInfo/CityCampaignInfo/HongKong/CoverImg' ] = 'https://www.google.com.hk/imgres?imgurl=https%3A%2F%2Fwww.makemytrip.com%2Fblog%2Fsites%2Fdefault%2Ffiles%2Fimages%2Fhong-kong-tourism-victoria-harbour.jpg&imgrefurl=https%3A%2F%2Fwww.makemytrip.com%2Fblog%2Fhong-kong-tourism&docid=kGTziC6jw72P8M&tbnid=TCbE9d5q23SMzM%3A&vet=10ahUKEwizuNrX-JLUAhUEG5QKHY-mDzQQMwg6KAEwAQ..i&w=1025&h=620&bih=702&biw=1301&q=hong%20kong%20tourism&ved=0ahUKEwizuNrX-JLUAhUEG5QKHY-mDzQQMwg6KAEwAQ&iact=mrc&uact=8';
+updates['/DatabaseInfo/CityCampaignInfo/HongKong/CoverImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/HongKong.png?alt=media&token=975ab3d8-db16-4520-90ef-477effea9a6a';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Description' ] = 'xxx';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Info' ] = 'xxx';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_1/Order' ] = '1';
@@ -1694,7 +1694,7 @@ updates['/DatabaseInfo/TokenInfo/HongKong_5_6_6/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_5_6_6/TokenCode' ] = 'xxx';
 updates['/DatabaseInfo/CityCampaignInfo/Taiwan/Order' ] = '1';
 updates['/DatabaseInfo/CityCampaignInfo/Taiwan/CityName' ] = 'Taiwan';
-updates['/DatabaseInfo/CityCampaignInfo/Taiwan/CoverImg' ] = 'https://www.google.com.hk/imgres?imgurl=https%3A%2F%2Fwww.makemytrip.com%2Fblog%2Fsites%2Fdefault%2Ffiles%2Fimages%2Fhong-kong-tourism-victoria-harbour.jpg&imgrefurl=https%3A%2F%2Fwww.makemytrip.com%2Fblog%2Fhong-kong-tourism&docid=kGTziC6jw72P8M&tbnid=TCbE9d5q23SMzM%3A&vet=10ahUKEwizuNrX-JLUAhUEG5QKHY-mDzQQMwg6KAEwAQ..i&w=1025&h=620&bih=702&biw=1301&q=hong%20kong%20tourism&ved=0ahUKEwizuNrX-JLUAhUEG5QKHY-mDzQQMwg6KAEwAQ&iact=mrc&uact=8';
+updates['/DatabaseInfo/CityCampaignInfo/Taiwan/CoverImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/Taiwan.png?alt=media&token=bd4befb3-cb49-40ba-9a52-dc712e6dcd03';
 updates['/DatabaseInfo/CityCampaignInfo/Taiwan/Description' ] = 'xxx';
 updates['/DatabaseInfo/CityCampaignInfo/Taiwan/Info' ] = 'xxx';
 updates['/DatabaseInfo/CityCampaignInfo/Taiwan/Campaign/Taiwan_1/Order' ] = '1';
