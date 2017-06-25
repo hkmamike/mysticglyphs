@@ -110,9 +110,6 @@
 }
 /* ---------------------------------------------------------*/
 
-
-
-
 /* SideMenu Page--------------------------------------------*/
 
 .sidemenu-content {
@@ -142,198 +139,17 @@
 
 /* ---------------------------------------------------------*/
 
-
-
-
-/* listitem Page--------------------------------------------*/
-
-.listitem-content {
-  position: relative;
-  width: 100%;
-  padding-top: 10px;
-  text-align: center;
-}
-
-.listitem-avatar,
-.listitem-avatar .item-content {
-  padding-left: 60px;
-  height: 60px; }
-  .listitem-avatar > img:first-child,
-  .listitem-avatar .listitem-image,
-  .listitem-avatar .listitem-content > img:first-child,
-  .listitem-avatar .listitem-content .sidemenu-image {
-    position: absolute;
-    border: 1px solid #fff;
-    top: 16px;
-    left: 16px;
-    max-width: 60px;
-    max-height: 60px;
-    width: 100%;
-    height: 100%;
-    border-radius: 100%; }
-
-/* ---------------------------------------------------------*/
-
-
-
-/* article -------------------------------------------------*/
+/* Basic ---------------------------------------------*/
 .cardflat {
-  margin-top: 10px; 
+  margin-top: 5px; 
   padding-top: 1px;
   padding-bottom: 1px;
-  margin-bottom: 20px; 
+  margin-bottom: 5px; 
+  margin-left: 5px;
+  margin-right: 5px;
   box-shadow: 0 0.5px 0px rgba(0, 0, 0, 0.3);
 }
 
-/* ---------------------------------------------------------*/
-
-
-
-/* Favourite Page--------------------------------------------*/
-
-.list.half {
-  display: inline-block;
-  float: left;
-  margin: 1%;
-  padding: 0;
-  width: 48%;
-}
-
-/* ---------------------------------------------------------*/
-
-
-/* General -------------------------------------------------*/
-
-/*.tabs {
-  height: 30px;
-  line-height: 30px; 
-}     
-*/
-.noTopPadding { 
-  padding-top: 0px;
-}
-
-.noButtomPadding { 
-  padding-bottom: 0px;
-}
-
-
-.avatarCircle {
-    position: relative;
-    border: 1px solid #fff;
-    max-width: 60px;
-    max-height: 60px;
-    width: 100%;
-    height: 100%;
-    border-radius: 100%; }
-
-.avatarCircle2 {
-    position: relative;
-    border: 1px solid #fff;
-    max-width: 45px;
-    max-height: 45px;
-    width: 100%;
-    height: 100%;
-    border-radius: 100%; }
-
-.vcenter {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* ---------------------------------------------------------*/
-
-
-
-
-/* Testing--------------------------------------------------*/
-
-.shrinkableSubheader {
-  top: 44px;
-  height: 44px; }
-}
-
-.shrinkableHeader {
-}
-
-.bar2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  position: absolute;
-  right: 0;
-  left: 0;
-  z-index: 9;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 5px;
-  width: 100%;
-  height: 84px;
-  border-width: 0;
-  border-style: solid;
-  border-top: 1px solid transparent;
-  border-bottom: 1px solid #ddd;
-  background-color: white;
-  /* border-width: 1px will actually create 2 device pixels on retina */
-  /* this nifty trick sets an actual 1px border on hi-res displays */
-  background-size: 0; 
-}
-
-.baritem-content {
-  
-  width: 100%;
-  padding-top: 0px;
-  padding-left: 16px;
-}
-
-.baritem-avatar,
-.baritem-avatar .baritem-content {
-  padding-left: 44px;
-  height: 44px; }
-  .baritem-avatar > img:first-child,
-  .baritem-avatar .baritem-image,
-  .baritem-avatar .baritem-content > img:first-child,
-  .baritem-avatar .baritem-content .baritem-image {
-    position: absolute;
-    border: 1px solid #fff;
-    top: 0px;
-    left: 16px;
-    max-width: 44px;
-    max-height: 44px;
-    width: 100%;
-    height: 100%;
-    border-radius: 100%; }
-
-.slider .slider-pager {
-  bottom: 0px;
-  font-size: 10px;
-} 
-
-
-.relative {
-  .pane,
-  .tabs,
-  .scroll-content{
-    position: relative; 
-    top:auto;
-  }
-}
-/* ---------------------------------------------------------*/
-
-
-
-/* Cover Image with overlay ---------------------------------*/
 .pictureFrame {
   position: relative;
   background-size: cover;
@@ -361,28 +177,18 @@
   left: 10px;
   text-shadow: 1px 1px 2px black, 0 0 10px black;
 }
-/* ---------------------------------------------------------*/
+/* ---------------------------------------------------*/
 
 
-/* Activities Page------------------------------------------*/
+/* Alignment------------------------------------------*/
 
-.articlesDetailsAbstract{
-  height:100%; 
-  padding-top: 0px; 
-  padding-bottom: 5px;  
-  margin-top: 0px; 
-  margin-bottom: 0px; 
-  border-bottom:0; 
-  border-top: 0;
-  font-size: 14px;
+.right-aligned {
+  position: absolute;
+  text-align: left;
+  bottom: 5px;
+  right: 5px;
 }
 
-
-
-
-/* ---------------------------------------------------------*/
-
-/* Restaurant Page------------------------------------------*/
 .half {
   display: inline-block;
   float: left;
@@ -410,7 +216,6 @@
   width: 32%;
 }
 
-
 .twoThird {
   display: inline-block;
   float: left;
@@ -419,26 +224,4 @@
   margin-bottom: 0%;
   padding: 0;
   width: 66%;
-}
-
-
-
-.item-thumbnailLarge-left,
-.item-thumbnailLarge-left .item-content {
-  padding-top: 8px;
-  padding-left: 160px;
-  min-height: 100px; }
-  .item-thumbnailLarge-left > img:first-child,
-  .item-thumbnailLarge-left .item-image,
-  .item-thumbnailLarge-left .item-content > img:first-child,
-  .item-thumbnailLarge-left .item-content .item-image {
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    bottom: 5px;
-    max-height: 100px;
-    max-width: 140px;
-    height: 100px;
-    width: 100%;}
-
 }
