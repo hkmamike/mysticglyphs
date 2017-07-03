@@ -93,6 +93,7 @@ angular.module('starter.controllers', [])
 		$scope.TokenClaim.hide();
 	};
 	$scope.openTokenClaim = function(TokenNumber) {
+		$scope.TokenClaim.code = '';
 		$scope.TokenClaim.show();
 		$scope.TokenNumber = TokenNumber;
 	};
