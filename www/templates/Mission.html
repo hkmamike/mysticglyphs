@@ -2,14 +2,33 @@
 
 <ion-content>
 
-	<div class="card item-text-wrap">
+	
+	<div class="card item-text-wrap" ng-cloak>
 
-		<div class="oneThird"> <img src= 'img/squareFood1.jpg' style="width: 100%; padding: 0px" ng-click = "TokensList = UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token ; TokenNumber = SelectedMission + '_1' "> </div>
-		<div class="oneThird"> <img src= 'img/squareFood1.jpg' style="width: 100%; padding: 0px" ng-click = "TokensList = UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token ; TokenNumber = SelectedMission + '_2' "> </div>
-		<div class="oneThird"> <img src= 'img/squareFood1.jpg' style="width: 100%; padding: 0px" ng-click = "TokensList = UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token ; TokenNumber = SelectedMission + '_3' "> </div>
-		<div class="oneThird"> <img src= 'img/squareFood1.jpg' style="width: 100%; padding: 0px" ng-click = "TokensList = UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token ; TokenNumber = SelectedMission + '_4' "> </div>
-		<div class="oneThird"> <img src= 'img/squareFood1.jpg' style="width: 100%; padding: 0px" ng-click = "TokensList = UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token ; TokenNumber = SelectedMission + '_5' "> </div>
-		<div class="oneThird"> <img src= 'img/squareFood1.jpg' style="width: 100%; padding: 0px" ng-click = "TokensList = UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token ; TokenNumber = SelectedMission + '_6' "> </div>
+		<div ng-click = "TokenNumber = SelectedMission + '_1' ">
+ 			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_1'].ClaimStatus.toString() == 'Unlocked' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenUnlocked.png?alt=media&token=535ff829-7809-47d7-a0da-bc501ff31de2' class='oneThird'>
+			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_1'].ClaimStatus.toString() == 'Pending' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenLocked.png?alt=media&token=bdf43d59-7fc5-4946-bd3e-18d301f6e332' class='oneThird'>
+		</div>
+		<div ng-click = "TokenNumber = SelectedMission + '_2' ">
+ 			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_2'].ClaimStatus.toString() == 'Unlocked' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenUnlocked.png?alt=media&token=535ff829-7809-47d7-a0da-bc501ff31de2' class='oneThird'>
+			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_2'].ClaimStatus.toString() == 'Pending' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenLocked.png?alt=media&token=bdf43d59-7fc5-4946-bd3e-18d301f6e332' class='oneThird'>
+		</div>
+		<div ng-click = "TokenNumber = SelectedMission + '_3' ">
+ 			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_3'].ClaimStatus.toString() == 'Unlocked' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenUnlocked.png?alt=media&token=535ff829-7809-47d7-a0da-bc501ff31de2' class='oneThird'>
+			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_3'].ClaimStatus.toString() == 'Pending' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenLocked.png?alt=media&token=bdf43d59-7fc5-4946-bd3e-18d301f6e332' class='oneThird'>
+		</div>
+		<div ng-click = "TokenNumber = SelectedMission + '_4' ">
+ 			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_4'].ClaimStatus.toString() == 'Unlocked' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenUnlocked.png?alt=media&token=535ff829-7809-47d7-a0da-bc501ff31de2' class='oneThird'>
+			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_4'].ClaimStatus.toString() == 'Pending' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenLocked.png?alt=media&token=bdf43d59-7fc5-4946-bd3e-18d301f6e332' class='oneThird'>
+		</div>
+		<div ng-click = "TokenNumber = SelectedMission + '_5' ">
+ 			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_5'].ClaimStatus.toString() == 'Unlocked' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenUnlocked.png?alt=media&token=535ff829-7809-47d7-a0da-bc501ff31de2' class='oneThird'>
+			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_5'].ClaimStatus.toString() == 'Pending' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenLocked.png?alt=media&token=bdf43d59-7fc5-4946-bd3e-18d301f6e332' class='oneThird'>
+		</div>
+		<div ng-click = "TokenNumber = SelectedMission + '_6' ">
+ 			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_6'].ClaimStatus.toString() == 'Unlocked' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenUnlocked.png?alt=media&token=535ff829-7809-47d7-a0da-bc501ff31de2' class='oneThird'>
+			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_6'].ClaimStatus.toString() == 'Pending' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenLocked.png?alt=media&token=bdf43d59-7fc5-4946-bd3e-18d301f6e332' class='oneThird'>
+		</div>
 		
 	</div>
 
@@ -17,8 +36,15 @@
 	<div class="card item-text-wrap">
 
 		<div>
-			{{TokensList[TokenNumber].TokenMsg}} <br>
-			{{TokenNumber}}
+			{{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].TokenMsg}} <br>
+			{{TokenNumber}} <br>
+			Token 1: {{UserUnlockedToken[SelectedMission + '_1']==null}} <br>
+			Token 2: {{UserUnlockedToken[SelectedMission + '_2']==null}} <br>
+			Token 3: {{UserUnlockedToken[SelectedMission + '_3']==null}} <br>
+			Token 4: {{UserUnlockedToken[SelectedMission + '_4']==null}} <br>
+			Token 5: {{UserUnlockedToken[SelectedMission + '_5']==null}} <br>
+			Token 6: {{UserUnlockedToken[SelectedMission + '_6']==null}} <br>
+			Token 1 Claim Status: {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_1'].ClaimStatus.toString()}} <br>
 		</div>
 
 		<div class="half"> <img src= 'img/squareFood2.jpg' style="width: 100%; padding: 0px"></div>

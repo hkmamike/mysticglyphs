@@ -46,7 +46,9 @@ angular.module('starter.controllers', [])
 		var FirebaseUser = firebase.auth().currentUser;
 		$scope.UserInfo = $firebaseObject(firebase.database().ref('/User/' + FirebaseUser.uid + '/UserInfo/'));
 		$scope.UserRecord = $firebaseObject(firebase.database().ref('/User/' + FirebaseUser.uid + '/Record/'));
+		$scope.UserUnlockedToken = $firebaseObject(firebase.database().ref('/User/' + FirebaseUser.uid + '/Unlocked/Token/'));
 		UserID = FirebaseUser.uid;
+
 	});
 // ---------------------------------------------------------------------------------
 
