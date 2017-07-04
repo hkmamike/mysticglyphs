@@ -14,7 +14,7 @@ angular.module('starter.DatabaseUploader', [])
 
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Order' ] = '1';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/City' ] = 'HongKong';
-updates['/DatabaseInfo/CityCampaignInfo/HongKong/CoverImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/HongKong.png?alt=media&token=975ab3d8-db16-4520-90ef-477effea9a6a';
+updates['/DatabaseInfo/CityCampaignInfo/HongKong/CoverImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/HongKong.png?alt=media&token=cf0d4098-8445-46b2-b317-15ec36de5c64';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Description' ] = 'xxx';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Info' ] = 'xxx';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_1/Order' ] = '1';
@@ -23,14 +23,14 @@ updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_1/Progress' ]
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_1/CampaignType' ] = 'Free';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_1/Duration' ] = '6 hours';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_1/Level' ] = '1';
-updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_1/CoverImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TsimShaTsui.png?alt=media&token=b9448cd0-2538-4a35-99f7-640d15958e11';
+updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_1/CoverImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TsimShaTsui.png?alt=media&token=4bcd4b95-0207-4845-9f92-dfe459f59da4';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_1/Description' ] = 'xxx';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_1/Category/ArtHistory' ] = '0_3';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_1/Category/DinningShopping' ] = '0_4';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_1/Category/SightSeeing' ] = '0_3';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_1/Order' ] = '1';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_1/Location' ] = 'HK History Museum';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_1/CoverImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/HKHistoryMuseum.png?alt=media&token=0043c1ec-3be7-4923-b3c0-0f385233997e';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_1/CoverImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/HKHistoryMuseum.png?alt=media&token=236a46a4-1061-4d6c-ac28-84333272b6c2';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_1/LocationDesc' ] = 'This is a museum which preserves Hong Kongs historical and cultural heritage';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_1/MissionStatus' ] = 'Current';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_1/OtherInfo' ] = 'Open Hours · 10AM–7PM';
@@ -84,7 +84,7 @@ updates['/DatabaseInfo/TokenInfo/HongKong_1_1_6/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_1_6/TokenCode' ] = 'xxx';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Order' ] = '2';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Location' ] = 'Kowloon Park';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/CoverImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/KowloonPark.png?alt=media&token=0930dc56-c6dd-4755-bbcd-69ef4f4e8a77';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_2/CoverImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/KowloonPark.png?alt=media&token=7312170f-ad52-4ab8-bde7-6818497c5461';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_2/LocationDesc' ] = 'This is a museum which preserves Hong Kongs historical and cultural heritage';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_2/MissionStatus' ] = 'Current';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_2/OtherInfo' ] = 'Open Hours · 10AM–7PM';
@@ -138,7 +138,7 @@ updates['/DatabaseInfo/TokenInfo/HongKong_1_2_6/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_2_6/TokenCode' ] = 'xxx';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Order' ] = '3';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Location' ] = 'Harbour Side';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_3/CoverImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/HarbourSide.png?alt=media&token=02026bcb-cdb9-4c3c-a9c5-ab310007e1df';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/CoverImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/HarbourSide.png?alt=media&token=c2f60641-0e5b-4a5b-ac1e-d1de42c66a2d';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_3/LocationDesc' ] = 'This is a museum which preserves Hong Kongs historical and cultural heritage';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_3/MissionStatus' ] = 'Current';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_3/OtherInfo' ] = 'Open Hours · 10AM–7PM';
@@ -358,7 +358,7 @@ updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_2/Progress' ]
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_2/CampaignType' ] = 'Free';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_2/Duration' ] = '6 hours';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_2/Level' ] = '1';
-updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_2/CoverImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/KowloonPark.png?alt=media&token=0930dc56-c6dd-4755-bbcd-69ef4f4e8a77';
+updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_2/CoverImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/LantauIsland.png?alt=media&token=261c37be-9dc5-4e3b-b21f-8baf4190b022';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_2/Description' ] = 'xxx';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_2/Category/Art & History' ] = '0_3';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_2/Category/Dinning & Shopping' ] = '0_4';
@@ -693,7 +693,7 @@ updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_3/Progress' ]
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_3/CampaignType' ] = 'Free';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_3/Duration' ] = '6 hours';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_3/Level' ] = '1';
-updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_3/CoverImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/ThePeakCentral.png?alt=media&token=a8a27708-d104-45f8-aa2b-334e09254463';
+updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_3/CoverImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/ThePeakCentral.png?alt=media&token=fedae7f2-f752-4524-84ad-5f053efc92ab';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_3/Description' ] = 'xxx';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_3/Category/Art & History' ] = '0_3';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_3/Category/Dinning & Shopping' ] = '0_4';
@@ -1694,8 +1694,8 @@ updates['/DatabaseInfo/TokenInfo/HongKong_5_6_6/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_5_6_6/TokenCode' ] = 'xxx';*/
 updates['/DatabaseInfo/CityCampaignInfo/Taiwan/Order' ] = '1';
 updates['/DatabaseInfo/CityCampaignInfo/Taiwan/CityName' ] = 'Taiwan';
-updates['/DatabaseInfo/CityCampaignInfo/Taiwan/CoverImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TaiwanComingSoon.png?alt=media&token=e140855c-5c16-481c-82b1-1d52d306e288';
-/*updates['/DatabaseInfo/CityCampaignInfo/Taiwan/CoverImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/Taiwan.png?alt=media&token=bd4befb3-cb49-40ba-9a52-dc712e6dcd03';*/
+updates['/DatabaseInfo/CityCampaignInfo/Taiwan/CoverImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TaiwanComingSoon.png?alt=media&token=b8cd436d-ff90-4cf8-ab18-dc7f96657eaa';
+/*updates['/DatabaseInfo/CityCampaignInfo/Taiwan/CoverImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/Taiwan.png?alt=media&token=4c58270e-1d88-43ea-90c8-611897a637a7';*/
 updates['/DatabaseInfo/CityCampaignInfo/Taiwan/Description' ] = 'xxx';
 updates['/DatabaseInfo/CityCampaignInfo/Taiwan/Info' ] = 'xxx';
 updates['/DatabaseInfo/CityCampaignInfo/Taiwan/Campaign/Taiwan_1/Order' ] = '1';
