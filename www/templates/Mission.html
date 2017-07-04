@@ -2,46 +2,57 @@
 
 <ion-content>
 
-	
+  <div class="cardflat item-text-wrap">
+    <div class="item item-text-wrap">
+      <div ng-class="isInfoShown(mission) ? 'item-expand active' : 'item-expand inactive'">
+        <h3>{{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].LocationDesc}}</h3>
+      </div>
+      <div ng-click="toggleInfo(mission)" class="item-expand-footer">
+        <i ng-class="isInfoShown(mission) ? 'ion-ios-minus-outline' : 'ion-ios-plus-outline'"></i>
+        {{isInfoShown(mission) ? 'Less' : 'More' }}
+      </div>
+    </div>
+  </div>
+
 	<div class="cardflat item-text-wrap">
-		<div ng-click = "TokenNumber = SelectedMission + '_1' ">
- 			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_1'].ClaimStatus.toString() == 'Unlocked' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenUnlocked.png?alt=media&token=cc970ad1-4cea-4964-943c-1e02eb9dd451' class='oneThird'>
-			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_1'].ClaimStatus.toString() == 'Pending' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenLocked.png?alt=media&token=cc5d4654-d4f7-430f-bf36-0f4c36fc5e8d' class='oneThird'>
+		<div ng-click = "TokenNumber = SelectedMission + '_1' ; selection = 1 ">
+ 			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_1'].ClaimStatus.toString() == 'Unlocked' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenUnlocked.png?alt=media&token=cc970ad1-4cea-4964-943c-1e02eb9dd451' class='oneThird' ng-class="{'selectedHighlight' : selection == 1, 'notSelected' : selection != 1}">
+			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_1'].ClaimStatus.toString() == 'Pending' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenLocked.png?alt=media&token=cc5d4654-d4f7-430f-bf36-0f4c36fc5e8d' class='oneThird' ng-class="{'selectedHighlight' : selection == 1, 'notSelected' : selection != 1}">
 		</div>
-		<div ng-click = "TokenNumber = SelectedMission + '_2' ">
- 			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_2'].ClaimStatus.toString() == 'Unlocked' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenUnlocked.png?alt=media&token=cc970ad1-4cea-4964-943c-1e02eb9dd451' class='oneThird'>
-			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_2'].ClaimStatus.toString() == 'Pending' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenLocked.png?alt=media&token=cc5d4654-d4f7-430f-bf36-0f4c36fc5e8d' class='oneThird'>
+		<div ng-click = "TokenNumber = SelectedMission + '_2' ; selection = 2 ">
+ 			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_2'].ClaimStatus.toString() == 'Unlocked' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenUnlocked.png?alt=media&token=cc970ad1-4cea-4964-943c-1e02eb9dd451' class='oneThird' ng-class="{'selectedHighlight' : selection == 2, 'notSelected' : selection != 2}">
+			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_2'].ClaimStatus.toString() == 'Pending' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenLocked.png?alt=media&token=cc5d4654-d4f7-430f-bf36-0f4c36fc5e8d' class='oneThird' ng-class="{'selectedHighlight' : selection == 2, 'notSelected' : selection != 2}">
 		</div>
-		<div ng-click = "TokenNumber = SelectedMission + '_3' ">
- 			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_3'].ClaimStatus.toString() == 'Unlocked' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenUnlocked.png?alt=media&token=cc970ad1-4cea-4964-943c-1e02eb9dd451' class='oneThird'>
-			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_3'].ClaimStatus.toString() == 'Pending' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenLocked.png?alt=media&token=cc5d4654-d4f7-430f-bf36-0f4c36fc5e8d' class='oneThird'>
+		<div ng-click = "TokenNumber = SelectedMission + '_3' ; selection = 3 ">
+ 			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_3'].ClaimStatus.toString() == 'Unlocked' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenUnlocked.png?alt=media&token=cc970ad1-4cea-4964-943c-1e02eb9dd451' class='oneThird' ng-class="{'selectedHighlight' : selection == 3, 'notSelected' : selection != 3}">
+			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_3'].ClaimStatus.toString() == 'Pending' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenLocked.png?alt=media&token=cc5d4654-d4f7-430f-bf36-0f4c36fc5e8d' class='oneThird' ng-class="{'selectedHighlight' : selection == 3, 'notSelected' : selection != 3}">
 		</div>
-		<div ng-click = "TokenNumber = SelectedMission + '_4' ">
- 			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_4'].ClaimStatus.toString() == 'Unlocked' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenUnlocked.png?alt=media&token=cc970ad1-4cea-4964-943c-1e02eb9dd451' class='oneThird'>
-			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_4'].ClaimStatus.toString() == 'Pending' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenLocked.png?alt=media&token=cc5d4654-d4f7-430f-bf36-0f4c36fc5e8d' class='oneThird'>
+		<div ng-click = "TokenNumber = SelectedMission + '_4' ; selection = 4 ">
+ 			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_4'].ClaimStatus.toString() == 'Unlocked' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenUnlocked.png?alt=media&token=cc970ad1-4cea-4964-943c-1e02eb9dd451' class='oneThird' ng-class="{'selectedHighlight' : selection == 4, 'notSelected' : selection != 4}">
+			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_4'].ClaimStatus.toString() == 'Pending' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenLocked.png?alt=media&token=cc5d4654-d4f7-430f-bf36-0f4c36fc5e8d' class='oneThird' ng-class="{'selectedHighlight' : selection == 4, 'notSelected' : selection != 4}">
 		</div>
-		<div ng-click = "TokenNumber = SelectedMission + '_5' ">
- 			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_5'].ClaimStatus.toString() == 'Unlocked' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenUnlocked.png?alt=media&token=cc970ad1-4cea-4964-943c-1e02eb9dd451' class='oneThird'>
-			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_5'].ClaimStatus.toString() == 'Pending' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenLocked.png?alt=media&token=cc5d4654-d4f7-430f-bf36-0f4c36fc5e8d' class='oneThird'>
+		<div ng-click = "TokenNumber = SelectedMission + '_5' ; selection = 5">
+ 			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_5'].ClaimStatus.toString() == 'Unlocked' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenUnlocked.png?alt=media&token=cc970ad1-4cea-4964-943c-1e02eb9dd451' class='oneThird' ng-class="{'selectedHighlight' : selection == 5, 'notSelected' : selection != 5}">
+			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_5'].ClaimStatus.toString() == 'Pending' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenLocked.png?alt=media&token=cc5d4654-d4f7-430f-bf36-0f4c36fc5e8d' class='oneThird' ng-class="{'selectedHighlight' : selection == 5, 'notSelected' : selection != 5}">
 		</div>
-		<div ng-click = "TokenNumber = SelectedMission + '_6' ">
- 			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_6'].ClaimStatus.toString() == 'Unlocked' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenUnlocked.png?alt=media&token=cc970ad1-4cea-4964-943c-1e02eb9dd451' class='oneThird'>
-			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_6'].ClaimStatus.toString() == 'Pending' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenLocked.png?alt=media&token=cc5d4654-d4f7-430f-bf36-0f4c36fc5e8d' class='oneThird'>
+		<div ng-click = "TokenNumber = SelectedMission + '_6' ; selection = 6">
+ 			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_6'].ClaimStatus.toString() == 'Unlocked' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenUnlocked.png?alt=media&token=cc970ad1-4cea-4964-943c-1e02eb9dd451' class='oneThird' ng-class="{'selectedHighlight' : selection == 6, 'notSelected' : selection != 6}">
+			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_6'].ClaimStatus.toString() == 'Pending' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenLocked.png?alt=media&token=cc5d4654-d4f7-430f-bf36-0f4c36fc5e8d' class='oneThird' ng-class="{'selectedHighlight' : selection == 6, 'notSelected' : selection != 6}">
 		</div>
 	</div>
 
 
 	<div class="cardflat item-text-wrap">
 
-		<h1 ng-if="TokenNumber == null">Select a token for information</h1>
+		<h3 ng-if="TokenNumber == null">Select a token for information</h3>
+
+		<div>
+			Token Message: {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].TokenMsg}} <br>
+			Token Number: {{TokenNumber}} <br>
+			Token Claim Status: {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].ClaimStatus.toString()}} <br>
+		</div>
 
 		<div ng-if="TokenNumber">
-
-			<div>
-				Token Message: {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].TokenMsg}} <br>
-				Token Number: {{TokenNumber}} <br>
-				Token Claim Status: {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].ClaimStatus.toString()}} <br>
-			</div>
 
 			<div class="half"> 
 					<button class="button button-block button-dark" ng-click="openHints(TokenNumber, TokenList[TokenNumber])" menu-close>Token Hints</button>

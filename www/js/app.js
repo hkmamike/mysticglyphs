@@ -23,6 +23,19 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
   });
 })
 
+.run(['$rootScope', '$state',function($rootScope, $state){
+
+  $rootScope.$on('$stateChangeStart',function(){
+      $rootScope.stateIsLoading = true;
+ });
+
+
+  $rootScope.$on('$stateChangeSuccess',function(){
+      $rootScope.stateIsLoading = false;
+ });
+
+}])
+
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 

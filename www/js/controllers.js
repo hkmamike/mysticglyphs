@@ -70,6 +70,19 @@ angular.module('starter.controllers', [])
 		console.log('complete mission check: ', MissionID);
 		firebase.database().ref('/User/'+ UserID +'/Input/' + '/MissionComplete/').set(MissionID);
 	};
+
+	$scope.toggleInfo = function(info) {
+    if ($scope.isInfoShown(info)) {
+      $scope.shownInfo = null;
+    } else {
+      $scope.shownInfo = info;
+    }
+  };
+
+  $scope.isInfoShown = function(info) {
+    return $scope.shownInfo === info;
+  };
+
 // ---------------------------------------------------------------------------------
 
 	$scope.CampaignList = $firebaseObject(firebase.database().ref('/DatabaseInfo/' + '/CityCampaignInfo/'));

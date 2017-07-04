@@ -85,7 +85,7 @@ updates['/DatabaseInfo/TokenInfo/HongKong_1_1_6/TokenCode' ] = 'xxx';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Order' ] = '2';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Location' ] = 'Kowloon Park';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_2/CoverImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/KowloonPark.png?alt=media&token=7312170f-ad52-4ab8-bde7-6818497c5461';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/LocationDesc' ] = 'This is a museum which preserves Hong Kongs historical and cultural heritage';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_2/LocationDesc' ] = 'Adventurer, Riddleman has placed a few glyphs in this museum. If our intel is correct, finding at least 4 of the 6 glyphs will give us the location of the next activation token, and that will bring us to Riddleman himself';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_2/MissionStatus' ] = 'Current';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_2/OtherInfo' ] = 'Open Hours · 10AM–7PM';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_2_1/Order' ] = '1';
