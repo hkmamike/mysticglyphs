@@ -2,8 +2,7 @@
 
 <ion-content>
 
-	<div class="cardflat item-text-wrap"
-		 ng-repeat="(CampaignID, Campaign) in CampaignList[SelectedCity].Campaign">
+	<div class="cardflat item-text-wrap" ng-repeat="(CampaignID, Campaign) in CampaignList[SelectedCity].Campaign" ng-cloak>
 
 		<div class="pictureFrame"
 			 style="background-image: url({{Campaign.CoverImg}});">

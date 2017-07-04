@@ -83,8 +83,8 @@ updates['/DatabaseInfo/MissionInfo/HongKong_1_1/Token/HongKong_1_1_6/ClaimStatus
 updates['/DatabaseInfo/TokenInfo/HongKong_1_1_6/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_1_6/TokenCode' ] = 'xxx';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Order' ] = '2';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Location' ] = 'xxx';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/CoverImg' ] = '<img>';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Location' ] = 'Kowloon Park';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_2/CoverImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/KowloonPark.png?alt=media&token=0930dc56-c6dd-4755-bbcd-69ef4f4e8a77';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_2/LocationDesc' ] = 'This is a museum which preserves Hong Kongs historical and cultural heritage';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_2/MissionStatus' ] = 'Current';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_2/OtherInfo' ] = 'Open Hours · 10AM–7PM';
@@ -137,8 +137,8 @@ updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_2_6/ClaimStatus
 updates['/DatabaseInfo/TokenInfo/HongKong_1_2_6/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_2_6/TokenCode' ] = 'xxx';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Order' ] = '3';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Location' ] = 'xxx';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_3/CoverImg' ] = '<img>';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Location' ] = 'Harbour Side';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/CoverImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/HarbourSide.png?alt=media&token=02026bcb-cdb9-4c3c-a9c5-ab310007e1df';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_3/LocationDesc' ] = 'This is a museum which preserves Hong Kongs historical and cultural heritage';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_3/MissionStatus' ] = 'Current';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_3/OtherInfo' ] = 'Open Hours · 10AM–7PM';
@@ -190,7 +190,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_6/SearchHints
 updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_6/ClaimStatus' ] = 'Pending';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_3_6/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_3_6/TokenCode' ] = 'xxx';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_4/Order' ] = '4';
+/*updates['/DatabaseInfo/MissionInfo/HongKong_1_4/Order' ] = '4';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_4/Location' ] = 'xxx';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_4/CoverImg' ] = '<img>';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_4/LocationDesc' ] = 'This is a museum which preserves Hong Kongs historical and cultural heritage';
@@ -351,7 +351,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong_1_6/Token/HongKong_1_6_6/TokenImg' ]
 updates['/DatabaseInfo/MissionInfo/HongKong_1_6/Token/HongKong_1_6_6/SearchHints' ] = 'xxx';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_6/Token/HongKong_1_6_6/ClaimStatus' ] = 'Pending';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_6_6/ClaimRecord' ] = 'xxx';
-updates['/DatabaseInfo/TokenInfo/HongKong_1_6_6/TokenCode' ] = 'xxx';
+updates['/DatabaseInfo/TokenInfo/HongKong_1_6_6/TokenCode' ] = 'xxx';*/
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_2/Order' ] = '2';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_2/Location' ] = 'xxx';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_2/Progress' ] = '0';
@@ -525,7 +525,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong_2_3/Token/HongKong_2_3_6/SearchHints
 updates['/DatabaseInfo/MissionInfo/HongKong_2_3/Token/HongKong_2_3_6/ClaimStatus' ] = 'Pending';
 updates['/DatabaseInfo/TokenInfo/HongKong_2_3_6/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_2_3_6/TokenCode' ] = 'xxx';
-updates['/DatabaseInfo/MissionInfo/HongKong_2_4/Order' ] = '4';
+/*updates['/DatabaseInfo/MissionInfo/HongKong_2_4/Order' ] = '4';
 updates['/DatabaseInfo/MissionInfo/HongKong_2_4/Location' ] = 'xxx';
 updates['/DatabaseInfo/MissionInfo/HongKong_2_4/CoverImg' ] = '<img>';
 updates['/DatabaseInfo/MissionInfo/HongKong_2_4/LocationDesc' ] = 'This is a museum which preserves Hong Kongs historical and cultural heritage';
@@ -686,7 +686,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong_2_6/Token/HongKong_2_6_6/TokenImg' ]
 updates['/DatabaseInfo/MissionInfo/HongKong_2_6/Token/HongKong_2_6_6/SearchHints' ] = 'xxx';
 updates['/DatabaseInfo/MissionInfo/HongKong_2_6/Token/HongKong_2_6_6/ClaimStatus' ] = 'Pending';
 updates['/DatabaseInfo/TokenInfo/HongKong_2_6_6/ClaimRecord' ] = 'xxx';
-updates['/DatabaseInfo/TokenInfo/HongKong_2_6_6/TokenCode' ] = 'xxx';
+updates['/DatabaseInfo/TokenInfo/HongKong_2_6_6/TokenCode' ] = 'xxx';*/
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_3/Order' ] = '3';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_3/Location' ] = 'xxx';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_3/Progress' ] = '0';
@@ -860,7 +860,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong_3_3/Token/HongKong_3_3_6/SearchHints
 updates['/DatabaseInfo/MissionInfo/HongKong_3_3/Token/HongKong_3_3_6/ClaimStatus' ] = 'Pending';
 updates['/DatabaseInfo/TokenInfo/HongKong_3_3_6/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_3_3_6/TokenCode' ] = 'xxx';
-updates['/DatabaseInfo/MissionInfo/HongKong_3_4/Order' ] = '4';
+/*updates['/DatabaseInfo/MissionInfo/HongKong_3_4/Order' ] = '4';
 updates['/DatabaseInfo/MissionInfo/HongKong_3_4/Location' ] = 'xxx';
 updates['/DatabaseInfo/MissionInfo/HongKong_3_4/CoverImg' ] = '<img>';
 updates['/DatabaseInfo/MissionInfo/HongKong_3_4/LocationDesc' ] = 'This is a museum which preserves Hong Kongs historical and cultural heritage';
@@ -1691,10 +1691,11 @@ updates['/DatabaseInfo/MissionInfo/HongKong_5_6/Token/HongKong_5_6_6/TokenImg' ]
 updates['/DatabaseInfo/MissionInfo/HongKong_5_6/Token/HongKong_5_6_6/SearchHints' ] = 'xxx';
 updates['/DatabaseInfo/MissionInfo/HongKong_5_6/Token/HongKong_5_6_6/ClaimStatus' ] = 'Pending';
 updates['/DatabaseInfo/TokenInfo/HongKong_5_6_6/ClaimRecord' ] = 'xxx';
-updates['/DatabaseInfo/TokenInfo/HongKong_5_6_6/TokenCode' ] = 'xxx';
+updates['/DatabaseInfo/TokenInfo/HongKong_5_6_6/TokenCode' ] = 'xxx';*/
 updates['/DatabaseInfo/CityCampaignInfo/Taiwan/Order' ] = '1';
 updates['/DatabaseInfo/CityCampaignInfo/Taiwan/CityName' ] = 'Taiwan';
-updates['/DatabaseInfo/CityCampaignInfo/Taiwan/CoverImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/Taiwan.png?alt=media&token=bd4befb3-cb49-40ba-9a52-dc712e6dcd03';
+updates['/DatabaseInfo/CityCampaignInfo/Taiwan/CoverImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TaiwanComingSoon.png?alt=media&token=e140855c-5c16-481c-82b1-1d52d306e288';
+/*updates['/DatabaseInfo/CityCampaignInfo/Taiwan/CoverImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/Taiwan.png?alt=media&token=bd4befb3-cb49-40ba-9a52-dc712e6dcd03';*/
 updates['/DatabaseInfo/CityCampaignInfo/Taiwan/Description' ] = 'xxx';
 updates['/DatabaseInfo/CityCampaignInfo/Taiwan/Info' ] = 'xxx';
 updates['/DatabaseInfo/CityCampaignInfo/Taiwan/Campaign/Taiwan_1/Order' ] = '1';

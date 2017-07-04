@@ -2,8 +2,7 @@
 
 <ion-content>
 
-	<div class="cardflat item-text-wrap"
-		 ng-repeat="(MissionID, Mission) in UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission">
+	<div class="cardflat item-text-wrap" ng-repeat="(MissionID, Mission) in UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission" ng-cloak>
 		
 		<div class="pictureFrame"
 			 style="background-image: url({{Mission.CoverImg}});"

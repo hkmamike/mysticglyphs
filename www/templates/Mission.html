@@ -3,9 +3,10 @@
 <ion-content>
 
 	
-	<div class="card item-text-wrap" ng-cloak>
+	<div class="cardflat item-text-wrap">
 
 		<div ng-click = "TokenNumber = SelectedMission + '_1' ">
+
  			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_1'].ClaimStatus.toString() == 'Unlocked' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenUnlocked.png?alt=media&token=535ff829-7809-47d7-a0da-bc501ff31de2' class='oneThird'>
 			<img ng-if="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_1'].ClaimStatus.toString() == 'Pending' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenLocked.png?alt=media&token=bdf43d59-7fc5-4946-bd3e-18d301f6e332' class='oneThird'>
 		</div>
@@ -33,7 +34,7 @@
 	</div>
 
 
-	<div class="card item-text-wrap">
+	<div class="cardflat item-text-wrap">
 
 		<div>
 			{{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].TokenMsg}} <br>
@@ -47,18 +48,17 @@
 			Token 1 Claim Status: {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_1'].ClaimStatus.toString()}} <br>
 		</div>
 
-		<div class="half"> <img src= 'img/squareFood2.jpg' style="width: 100%; padding: 0px"></div>
 		<div class="half"> 
 
 				<button class="button button-block " ng-click="openHints(TokenNumber, TokenList[TokenNumber])" menu-close>Token Hints</button>
-
+		</div>
  
+ 		<div class="half">
 				<button class="button button-block " ng-click='openTokenClaim(TokenNumber, TokenList[TokenNumber])'>Token Claim</button>
 
 		</div>
 
 	</div>
-
 
 		<div class="half"> 
 				<button class="button button-block " ng-click="openlogin()" menu-close>Skip Mission</button>
