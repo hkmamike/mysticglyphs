@@ -191,10 +191,19 @@
   right: 5px;
 }
 
+.center-align {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
 .half {
   display: inline-block;
   float: left;
-  margin: 0.1%;
+  margin-top: 0.1%;
+  margin-bottom: 0.1%;
+  margin-left: 1%;
+  margin-bottom: 1%;
   padding: 0;
   width: 48%;
 }

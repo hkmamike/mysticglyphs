@@ -353,12 +353,12 @@ updates['/DatabaseInfo/MissionInfo/HongKong_1_6/Token/HongKong_1_6_6/ClaimStatus
 updates['/DatabaseInfo/TokenInfo/HongKong_1_6_6/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_6_6/TokenCode' ] = 'xxx';*/
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_2/Order' ] = '2';
-updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_2/Location' ] = 'xxx';
+updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_2/Location' ] = 'Lantau Island';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_2/Progress' ] = '0';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_2/CampaignType' ] = 'Free';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_2/Duration' ] = '6 hours';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_2/Level' ] = '1';
-updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_2/CoverImg' ] = '<img>';
+updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_2/CoverImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/KowloonPark.png?alt=media&token=0930dc56-c6dd-4755-bbcd-69ef4f4e8a77';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_2/Description' ] = 'xxx';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_2/Category/Art & History' ] = '0_3';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_2/Category/Dinning & Shopping' ] = '0_4';
@@ -688,12 +688,12 @@ updates['/DatabaseInfo/MissionInfo/HongKong_2_6/Token/HongKong_2_6_6/ClaimStatus
 updates['/DatabaseInfo/TokenInfo/HongKong_2_6_6/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_2_6_6/TokenCode' ] = 'xxx';*/
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_3/Order' ] = '3';
-updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_3/Location' ] = 'xxx';
+updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_3/Location' ] = 'The Peak/Central';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_3/Progress' ] = '0';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_3/CampaignType' ] = 'Free';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_3/Duration' ] = '6 hours';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_3/Level' ] = '1';
-updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_3/CoverImg' ] = '<img>';
+updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_3/CoverImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/ThePeakCentral.png?alt=media&token=a8a27708-d104-45f8-aa2b-334e09254463';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_3/Description' ] = 'xxx';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_3/Category/Art & History' ] = '0_3';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_3/Category/Dinning & Shopping' ] = '0_4';

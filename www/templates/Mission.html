@@ -36,36 +36,31 @@
 
 	<div class="cardflat item-text-wrap">
 
-		<div>
-			{{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].TokenMsg}} <br>
-			{{TokenNumber}} <br>
-			Token 1: {{UserUnlockedToken[SelectedMission + '_1']==null}} <br>
-			Token 2: {{UserUnlockedToken[SelectedMission + '_2']==null}} <br>
-			Token 3: {{UserUnlockedToken[SelectedMission + '_3']==null}} <br>
-			Token 4: {{UserUnlockedToken[SelectedMission + '_4']==null}} <br>
-			Token 5: {{UserUnlockedToken[SelectedMission + '_5']==null}} <br>
-			Token 6: {{UserUnlockedToken[SelectedMission + '_6']==null}} <br>
-			Token 1 Claim Status: {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[SelectedMission + '_1'].ClaimStatus.toString()}} <br>
-		</div>
+		<h1 ng-if="TokenNumber == null">Select a token for information</h1>
 
-		<div class="half"> 
+		<div ng-if="TokenNumber">
 
-				<button class="button button-block " ng-click="openHints(TokenNumber, TokenList[TokenNumber])" menu-close>Token Hints</button>
-		</div>
- 
- 		<div class="half">
-				<button class="button button-block " ng-click='openTokenClaim(TokenNumber, TokenList[TokenNumber])'>Token Claim</button>
+			<div>
+				Token Message: {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].TokenMsg}} <br>
+				Token Number: {{TokenNumber}} <br>
+				Token Claim Status: {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].ClaimStatus.toString()}} <br>
+			</div>
+
+			<div class="half"> 
+					<button class="button button-block button-dark" ng-click="openHints(TokenNumber, TokenList[TokenNumber])" menu-close>Token Hints</button>
+			</div>
+
+	 		<div class="half">
+					<button class="button button-block button-dark" ng-click='openTokenClaim(TokenNumber, TokenList[TokenNumber])'>Token Claim</button>
+			</div>
 
 		</div>
 
 	</div>
 
-		<div class="half"> 
-				<button class="button button-block " ng-click="openlogin()" menu-close>Skip Mission</button>
-    </div>
+	<div> 
+			<button class="button center-align button-balanced" ng-click="nextMission(SelectedMission)" menu-close>Unlock Next Level</button>
+  </div>
 
-    <div class="half"> 
-				<button class="button button-block " ng-click='nextMission(SelectedMission)'>Next Mission</button>
-		</div>
 
 </ion-content>
