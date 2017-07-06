@@ -7,16 +7,58 @@ angular.module('starter.controllers', [])
 	};
 })
 
+.controller('IntroCtrl', function($scope, $rootScope, $ionicSlideBoxDelegate, $state) {
 
-.controller('AppCtrl', function($scope, $firebaseObject, $ionicModal, $ionicSideMenuDelegate) {
+	$rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
+		$ionicSlideBoxDelegate.slide(0);
+	});
 
+  // Called to navigate to the main app
+  $scope.startApp = function() {
+    $state.go('app.List');
+
+    // Set a flag that we finished the tutorial
+    window.localStorage['didTutorial'] = true;
+  };
+
+  // Check if the user already did the tutorial and skip it if so
+	if(window.localStorage['didTutorial'] === "true") {
+			console.log('Skip intro');
+			$scope.startApp();
+		}
+		//	If there is a splash screen
+		//	else{
+		//	setTimeout(function () {
+		//		navigator.splashscreen.hide();
+		//		}, 750); 
+		//	};
+
+  // Move to the next slide
+  $scope.next = function() {
+    $scope.$broadcast('slideBox.nextSlide');
+
+  };
+
+ })
+
+.controller('AppCtrl', function($scope, $state, $firebaseObject, $ionicModal, $ionicSideMenuDelegate) {
+
+// INTRO------------------------------------------------------------------------
+	//	For splash screen
+	//	setTimeout(function () {
+	//		navigator.splashscreen.hide();
+	//	}, 750);
+
+  $scope.toIntro = function(){
+    window.localStorage['didTutorial'] = "false";
+    $state.go('intro');
+  };
 
 // SIDE MENU------------------------------------------------------------------------
 	$scope.toggleRightSideMenu = function() {
 	$ionicSideMenuDelegate.toggleRight();
 	};
 // ---------------------------------------------------------------------------------
-
 
 // LOGIN MODAL----------------------------------------------------------------------
 	$scope.loginData = {};

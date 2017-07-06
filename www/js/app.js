@@ -39,6 +39,12 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
+  .state('intro', {
+    url: '/intro',
+    templateUrl: 'templates/intro.html',
+    controller: 'IntroCtrl'
+  })
+
   .state('app', {
     url: '/app',
     abstract: true,
