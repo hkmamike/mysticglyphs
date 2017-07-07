@@ -17,9 +17,11 @@ updates['/DatabaseInfo/CityCampaignInfo/HongKong/City' ] = 'HongKong';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/CoverImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/HongKong.png?alt=media&token=cf0d4098-8445-46b2-b317-15ec36de5c64';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Description' ] = 'xxx';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Info' ] = 'xxx';
+updates['/DatabaseInfo/CityCampaignInfo/HongKong/Enabled' ] = 'true';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_1/Order' ] = '1';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_1/Location' ] = 'Tsim Sha Tsui';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_1/Progress' ] = '0';
+updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_1/MissionCount' ] = '3';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_1/CampaignType' ] = 'Free';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_1/Duration' ] = '6 hours';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_1/Level' ] = '1';
@@ -355,6 +357,7 @@ updates['/DatabaseInfo/TokenInfo/HongKong_1_6_6/TokenCode' ] = 'xxx';*/
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_2/Order' ] = '2';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_2/Location' ] = 'Lantau Island';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_2/Progress' ] = '0';
+updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_2/MissionCount' ] = '3';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_2/CampaignType' ] = 'Free';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_2/Duration' ] = '6 hours';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_2/Level' ] = '1';
@@ -690,6 +693,7 @@ updates['/DatabaseInfo/TokenInfo/HongKong_2_6_6/TokenCode' ] = 'xxx';*/
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_3/Order' ] = '3';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_3/Location' ] = 'The Peak/Central';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_3/Progress' ] = '0';
+updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_3/MissionCount' ] = '3';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_3/CampaignType' ] = 'Free';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_3/Duration' ] = '6 hours';
 updates['/DatabaseInfo/CityCampaignInfo/HongKong/Campaign/HongKong_3/Level' ] = '1';
@@ -1698,9 +1702,11 @@ updates['/DatabaseInfo/CityCampaignInfo/Taiwan/CoverImg' ] = 'https://firebasest
 /*updates['/DatabaseInfo/CityCampaignInfo/Taiwan/CoverImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/Taiwan.png?alt=media&token=4c58270e-1d88-43ea-90c8-611897a637a7';*/
 updates['/DatabaseInfo/CityCampaignInfo/Taiwan/Description' ] = 'xxx';
 updates['/DatabaseInfo/CityCampaignInfo/Taiwan/Info' ] = 'xxx';
+updates['/DatabaseInfo/CityCampaignInfo/Taiwan/Enabled' ] = 'false';
 updates['/DatabaseInfo/CityCampaignInfo/Taiwan/Campaign/Taiwan_1/Order' ] = '1';
 updates['/DatabaseInfo/CityCampaignInfo/Taiwan/Campaign/Taiwan_1/Location' ] = 'xxx';
 updates['/DatabaseInfo/CityCampaignInfo/Taiwan/Campaign/Taiwan_1/Progress' ] = '0';
+updates['/DatabaseInfo/CityCampaignInfo/Taiwan/Campaign/Taiwan_1/MissionCount' ] = '3';
 updates['/DatabaseInfo/CityCampaignInfo/Taiwan/Campaign/Taiwan_1/CampaignType' ] = 'Free';
 updates['/DatabaseInfo/CityCampaignInfo/Taiwan/Campaign/Taiwan_1/Duration' ] = '6 hours';
 updates['/DatabaseInfo/CityCampaignInfo/Taiwan/Campaign/Taiwan_1/Level' ] = '1';
@@ -2703,7 +2709,7 @@ updates['/DatabaseInfo/MissionInfo/Taiwan_3_6/Token/Taiwan_3_6_6/SearchHints' ] 
 updates['/DatabaseInfo/MissionInfo/Taiwan_3_6/Token/Taiwan_3_6_6/ClaimStatus' ] = 'Pending';
 updates['/DatabaseInfo/TokenInfo/Taiwan_3_6_6/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/Taiwan_3_6_6/TokenCode' ] = 'xxx';
-updates['/DatabaseInfo/CityCampaignInfo/Taiwan/Campaign/Taiwan_4/Order' ] = '4';
+/*updates['/DatabaseInfo/CityCampaignInfo/Taiwan/Campaign/Taiwan_4/Order' ] = '4';
 updates['/DatabaseInfo/CityCampaignInfo/Taiwan/Campaign/Taiwan_4/Location' ] = 'xxx';
 updates['/DatabaseInfo/CityCampaignInfo/Taiwan/Campaign/Taiwan_4/Progress' ] = '0';
 updates['/DatabaseInfo/CityCampaignInfo/Taiwan/Campaign/Taiwan_4/CampaignType' ] = 'Free';
@@ -3373,7 +3379,7 @@ updates['/DatabaseInfo/MissionInfo/Taiwan_5_6/Token/Taiwan_5_6_6/TokenImg' ] = '
 updates['/DatabaseInfo/MissionInfo/Taiwan_5_6/Token/Taiwan_5_6_6/SearchHints' ] = 'xxx';
 updates['/DatabaseInfo/MissionInfo/Taiwan_5_6/Token/Taiwan_5_6_6/ClaimStatus' ] = 'Pending';
 updates['/DatabaseInfo/TokenInfo/Taiwan_5_6_6/ClaimRecord' ] = 'xxx';
-updates['/DatabaseInfo/TokenInfo/Taiwan_5_6_6/TokenCode' ] = 'xxx';
+updates['/DatabaseInfo/TokenInfo/Taiwan_5_6_6/TokenCode' ] = 'xxx';*/
 
 		return firebase.database().ref().update(updates);  },
 

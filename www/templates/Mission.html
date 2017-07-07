@@ -47,6 +47,7 @@
 		<h3 ng-if="TokenNumber == null">Select a token for information</h3>
 
 		<div>
+			Tokens Completed : {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].TokenUnlocked}} <br>
 			Token Message: {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].TokenMsg}} <br>
 			Token Number: {{TokenNumber}} <br>
 			Token Claim Status: {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].ClaimStatus.toString()}} <br>
@@ -66,8 +67,12 @@
 
 	</div>
 
-	<div> 
+	<div ng-show="SelectedMission.substr(length-1) < UserRecord[SelectedCity].Campaign[SelectedCampaign].MissionCount && UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].TokenUnlocked > 3">
 			<button class="button center-align button-balanced" ng-click="nextMission(SelectedMission)" menu-close>Unlock Next Level</button>
+  </div>
+
+  <div ng-show="SelectedMission.substr(length-1) == UserRecord[SelectedCity].Campaign[SelectedCampaign].MissionCount && UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].TokenUnlocked > 3">
+		<button class="button center-align button-balanced" ui-sref="app.City({CityID: SelectedCity})" href="#/app/List/City/{{SelectedCity}}" menu-close>Campaign Completed!</button>
   </div>
 
 

@@ -2,13 +2,9 @@
 
 <ion-content>
 
-	<div class="cardflat item-text-wrap" ng-repeat="(CityID, City) in CampaignList" ng-cloak>
+	<div class="cardflat item-text-wrap" ng-repeat="(CityID, City) in CampaignList">
 		
-		<div class="pictureFrame"
-			 style="background-image: url({{City.CoverImg}});"
-			 ui-sref="app.City({CityID: CityID})"
-			 href="#/app/List/City/{{CityID}}">
-			
+		<div class="pictureFrame" style="background-image: url({{City.CoverImg}});" ui-sref="app.City({CityID: CityID})" href="#/app/List/City/{{CityID}}">
 			<img src={{City.CoverImg}} style="visibility: hidden; width: 100%">
 			<div class="backgroundGradient"></div>
 			<div class="textShadow">{{City.CityName}}</div>
@@ -17,7 +13,7 @@
 
 	</div>
 
-  <div class="glyphsList" ng-show='userSignedOut'>
+  <div class="glyphsList" ng-show='userSignedOut' ng-cloak>
     <div class="introPNG"><img src="https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/GlyphsIntro.png?alt=media&token=367496ad-9dc7-4ec0-b6b4-513a66e1435b"></div>
     <p>Buddy, welcome to the hunt.</p> 
     <p>This is the mobile terminal where you will receive the latest intelligence from our glyphs search team.</p>
