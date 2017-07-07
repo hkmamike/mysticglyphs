@@ -1,0 +1,28 @@
+<ion-view view-title="{{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Location}}" hide-nav-bar="false">
+
+<ion-content>
+
+  <div class="cardflat item-text-wrap">
+    <div class="item item-text-wrap">
+      <div ng-class="isInfoShown(mission) ? 'item-expand active' : 'item-expand inactive'">
+        <h3>{{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].LocationDesc}}</h3>
+      </div>
+      <div ng-click="toggleInfo(mission)" class="item-expand-footer">
+        <i ng-class="isInfoShown(mission) ? 'ion-ios-minus-outline' : 'ion-ios-plus-outline'"></i>
+        {{isInfoShown(mission) ? 'Less' : 'More' }}
+      </div>
+    </div>
+  </div>
+
+	<div>
+		Selected City: {{SelectedCity}} <br>
+		Campaign ID: {{SelectedCampaign}} <br>
+		MissionID: {{SelectedMission}} <br>
+	</div>
+
+	<div> 
+			<button class="button center-align button-balanced" ui-sref="app.Mission({CityID: SelectedCity, CampaignID: SelectedCampaign, MissionID: SelectedMission})" href="#/app/List/City/{{SelectedCity}}/Campaign/{{SelectedCampaign}}/Mission/{{MissionID}}">I am ready!</button>
+  </div>
+
+
+</ion-content>

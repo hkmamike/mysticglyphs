@@ -7,16 +7,10 @@ angular.module('starter.controllers', [])
 	};
 })
 
-.controller('IntroCtrl', function($scope, $rootScope, $ionicSlideBoxDelegate, $state) {
-
-	$rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
-		$ionicSlideBoxDelegate.slide(0);
-	});
-
+.controller('IntroCtrl', function($scope, $ionicSlideBoxDelegate, $state) {
   // Called to navigate to the main app
   $scope.startApp = function() {
     $state.go('app.List');
-
     // Set a flag that we finished the tutorial
     window.localStorage['didTutorial'] = true;
   };
@@ -33,15 +27,18 @@ angular.module('starter.controllers', [])
 		//		}, 750); 
 		//	};
 
+	$scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
+		$ionicSlideBoxDelegate.slide(0);
+	});
+
   // Move to the next slide
   $scope.next = function() {
     $scope.$broadcast('slideBox.nextSlide');
-
   };
 
  })
 
-.controller('AppCtrl', function($scope, $state, $firebaseObject, $ionicModal, $ionicSideMenuDelegate) {
+.controller('AppCtrl', function($scope, $rootScope, $state, $firebaseObject, $ionicModal, $ionicSideMenuDelegate) {
 
 // INTRO------------------------------------------------------------------------
 	//	For splash screen
@@ -76,6 +73,9 @@ angular.module('starter.controllers', [])
 	$scope.authPopup = function () {
 		auth.signInWithRedirect(provider);
 	};
+	$scope.signOut = function () {
+		auth.signOut();
+	};
 
 	firebase.auth().getRedirectResult().then(function(result) {
 		userData.setUser(auth.currentUser);
@@ -84,12 +84,24 @@ angular.module('starter.controllers', [])
 // ---------------------------------------------------------------------------------
 
 // USER INFO------------------------------------------------------------------------
-	firebase.auth().onAuthStateChanged(function () {
+
+	$rootScope.userSignedIn = false;
+	$rootScope.userSignedOut = true;
+
+	firebase.auth().onAuthStateChanged(function (user) {
 		var FirebaseUser = firebase.auth().currentUser;
 		$scope.UserInfo = $firebaseObject(firebase.database().ref('/User/' + FirebaseUser.uid + '/UserInfo/'));
 		$scope.UserRecord = $firebaseObject(firebase.database().ref('/User/' + FirebaseUser.uid + '/Record/'));
 		$scope.UserUnlockedToken = $firebaseObject(firebase.database().ref('/User/' + FirebaseUser.uid + '/Unlocked/Token/'));
 		UserID = FirebaseUser.uid;
+
+		if (user) {
+			$rootScope.userSignedIn = true;
+			$rootScope.userSignedOut = false;
+		} else {
+			$rootScope.userSignedIn = false;
+			$rootScope.userSignedOut = true;
+		}
 
 	});
 // ---------------------------------------------------------------------------------

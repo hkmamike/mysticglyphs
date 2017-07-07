@@ -23,7 +23,7 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
   });
 })
 
-.run(['$rootScope', '$state',function($rootScope, $state){
+.run(['$rootScope', '$state', function($rootScope, $state){
 
   $rootScope.$on('$stateChangeStart',function(){
       $rootScope.stateIsLoading = true;
@@ -31,20 +31,23 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
 
 
   $rootScope.$on('$stateChangeSuccess',function(){
-      $rootScope.stateIsLoading = false;
- });
+    $rootScope.stateIsLoading = false;
+  });
+
 
 }])
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
+  //Intro Page
   .state('intro', {
     url: '/intro',
     templateUrl: 'templates/intro.html',
     controller: 'IntroCtrl'
   })
 
+  //App Abstract
   .state('app', {
     url: '/app',
     abstract: true,
@@ -52,6 +55,7 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
     controller: 'AppCtrl'
   })
 
+  //Cities List
   .state('app.List', {
     url: '/List',
     views: {
@@ -78,6 +82,17 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
     views: {
       'menuContent': {
         templateUrl: 'templates/Campaign.html',
+        controller: 'ListCtrl'
+      }
+    }
+  })
+
+  //Mission Info
+  .state('app.MissionInfo', {
+    url: '/List/City/:CityID/Campaign/:CampaignID/MissionInfo/:MissionID',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/MissionInfo.html',
         controller: 'ListCtrl'
       }
     }
@@ -116,5 +131,5 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
 
   ;
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/List');
+  $urlRouterProvider.otherwise('/intro');
 });
