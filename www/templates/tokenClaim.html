@@ -20,22 +20,24 @@
     </div>
 
     <div class="card">
-      <div class="item item-text-wrap">
 
-        <label class="item item-input item-floating-label">
-          <span class="input-label">Token code</span>
-          <input type="text" ng-model="TokenClaim.code" placeholder="enter token code...">
-        </label>
-
-        <button type="submit" class="button button-block button-balanced" ng-click="claimToken(TokenNumber, TokenClaim.code); closeTokenClaim()"> Claim Token 
-        </button>
-
+      <div ng-show="glyphCodeSubmitMessage">
+        <h4 class="center-align">Glyph code submitted. Glyph status will update if it is correct.</h4>
       </div>
+
+      <div class="item item-text-wrap" ng-show="!glyphCodeSubmitMessage">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Glyph code</span>
+          <input type="text" ng-model="TokenClaim.code" placeholder="enter glyph code...">
+        </label>
+        <button type="submit" class="button button-block button-balanced" ng-click="claimToken(TokenNumber, TokenClaim.code); codeSubmitMessage();"> Claim Glyph</button>
+      </div>
+
     </div>
 
     <div class="card">
       <div class="item item-text-wrap">
-        <button class="button button-block button-dark" ng-click="closeTokenClaim(); openHints(TokenNumber)" menu-close>Token Hints</button>
+        <button class="button button-block button-dark" ng-click="closeTokenClaim(); openHints(TokenNumber)" menu-close>Glyph Hints</button>
       </div>
     </div>
 

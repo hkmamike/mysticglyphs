@@ -2,7 +2,9 @@
 
 <ion-content>
 
-	<h5 class="cardflat item-text-wrap" ng-cloak>Tips: Completing a mission unlocks the next mission. The search team has identified {{CampaignList[SelectedCity].Campaign[SelectedCampaign].MissionCount}} missions have in this campaign so far.</h5>
+	<div class="cardflat item-text-wrap" ng-cloak>
+		<p><strong>Tips:</strong> Completing a mission unlocks the next mission. The search team has identified {{CampaignList[SelectedCity].Campaign[SelectedCampaign].MissionCount}} missions in this campaign.</p>
+	</div>
 
 	<div class="cardflat item-text-wrap" ng-repeat="(MissionID, Mission) in UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission" ng-cloak>
 		

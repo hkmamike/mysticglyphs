@@ -75,6 +75,8 @@ angular.module('starter.controllers', [])
 	};
 	$scope.signOut = function () {
 		auth.signOut();
+		$rootScope.userSignedIn = false;
+		$rootScope.userSignedOut = true;
 	};
 
 	firebase.auth().getRedirectResult().then(function(result) {
@@ -86,7 +88,6 @@ angular.module('starter.controllers', [])
 // USER INFO------------------------------------------------------------------------
 
 	$rootScope.userSignedIn = false;
-	$rootScope.userSignedOut = true;
 
 	firebase.auth().onAuthStateChanged(function (user) {
 		var FirebaseUser = firebase.auth().currentUser;
@@ -97,10 +98,8 @@ angular.module('starter.controllers', [])
 
 		if (user) {
 			$rootScope.userSignedIn = true;
-			$rootScope.userSignedOut = false;
 		} else {
 			$rootScope.userSignedIn = false;
-			$rootScope.userSignedOut = true;
 		}
 
 	});
@@ -109,20 +108,21 @@ angular.module('starter.controllers', [])
 
 // USER ACTION----------------------------------------------------------------------
 
-	$scope.EnrollCampaign= function(CampaignID) {
-		console.log(CampaignID);
-		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollCampaign/').set(CampaignID);
-	};
-
-	$scope.claimToken= function(TokenID, TokenPW) {
+	$scope.claimToken = function(TokenID, TokenPW) {
 		console.log('Claim this token: ', TokenID, TokenPW);
 		console.log('UserID: ', UserID);
 		firebase.database().ref('/User/'+ UserID +'/Input/' + '/ClaimToken/').set(TokenID + ',' + TokenPW);
 	};
 
-	$scope.nextMission= function(MissionID) {
+	$scope.EnrollCampaign = function(CampaignID) {
+		console.log(CampaignID);
+		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollCampaign/').set(CampaignID);
+	};
+
+	$scope.nextMission = function(MissionID) {
 		console.log('complete mission check: ', MissionID);
 		firebase.database().ref('/User/'+ UserID +'/Input/' + '/MissionComplete/').set(MissionID);
+		$state.go('');
 	};
 
 	$scope.toggleInfo = function(info) {
@@ -144,7 +144,7 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('ListCtrl', function($scope, $stateParams, $ionicModal) {
+.controller('ListCtrl', function($scope, $timeout, $stateParams, $ionicModal) {
 	$scope.SelectedCity = $stateParams.CityID;
 	$scope.SelectedCampaign = $stateParams.CampaignID;
 	$scope.SelectedMission = $stateParams.MissionID;
@@ -163,6 +163,15 @@ angular.module('starter.controllers', [])
 		$scope.TokenClaim.code = '';
 		$scope.TokenClaim.show();
 		$scope.TokenNumber = TokenNumber;
+	};
+
+	$scope.glyphCodeSubmitMessage = false;
+	$scope.codeSubmitMessage = function() {
+		$scope.glyphCodeSubmitMessage = true;
+		$timeout( function(){
+			$scope.glyphCodeSubmitMessage = false;
+			$scope.closeTokenClaim();
+		},3000);
 	};
 	// ---------------------------------------------------------------------------------
 

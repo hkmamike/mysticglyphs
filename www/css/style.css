@@ -183,6 +183,13 @@ body {
   text-align: center;
 }
 
+.list-align {
+  text-align: left;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 .half {
   display: inline-block;
   margin-top: 0.1%;

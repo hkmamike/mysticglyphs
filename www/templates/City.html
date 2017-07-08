@@ -2,20 +2,19 @@
 
 <ion-content>
 
-	<div class="cardflat item-text-wrap" ng-repeat="(CampaignID, Campaign) in CampaignList[SelectedCity].Campaign" ng-cloak>
+	<div class="cardflat item-text-wrap" ng-cloak>
+		<p><strong>Tips:</strong> These are the campaigns the search team has identified in {{SelectedCity}}.</p>
+	</div>
 
-		<div class="pictureFrame" style="background-image: url({{Campaign.CoverImg}});">
-			
+	<div class="cardflat item-text-wrap" ng-repeat="(CampaignID, Campaign) in CampaignList[SelectedCity].Campaign" ng-cloak>
+		<div class="pictureFrame" style="background-image: url({{Campaign.CoverImg}});">			
 			<img src={{Campaign.CoverImg}} style="visibility: hidden; width: 100%">
 			<div class="backgroundGradient"></div>
 			<div class="textShadow">{{CampaignList[SelectedCity].Campaign[CampaignID].Location}}</div>
 
 			<div>
-
 				<button ng-if="UserRecord[SelectedCity].Campaign[CampaignID] != null" class="button button-cross positive right-aligned" ui-sref="app.Campaign({CityID: SelectedCity, CampaignID: CampaignID})" href="#/app/List/City/{{SelectedCity}}/Campaign/{{CampaignID}}">Check Progress</button>
-
 				<button ng-if="UserRecord[SelectedCity].Campaign[CampaignID] == null" class="button button-cross assertive right-aligned" ng-click="EnrollCampaign(CampaignID)">Enroll Now</button>
-
 			</div>
 
 		</div>
