@@ -1,7 +1,7 @@
 /* Empty. Add your own CSS if you like */
 
 
-/* Token Claim Page Page Info Section--------------------------------------------------*/
+/* Intro Page Info--------------------------------------------------*/
 
 body {
   cursor: url('https://ionicframework.com/img/finger.png'), auto;
@@ -17,7 +17,9 @@ body {
 
 .button-intro {
   position: absolute;
-  bottom: 50px;
+  left: 10% !important;
+  bottom: 40px;
+  width: 80% !important;
 }
 
 .slider-slide, .glyphsList {
@@ -35,7 +37,7 @@ body {
 
 /* ---------------------------------------------------------*/
 
-/* Token Claim Page Page Info Section--------------------------------------------------*/
+/* Token Claim Page Info Section--------------------------------------------------*/
 
 .item-expand {
   position: relative;
@@ -186,8 +188,8 @@ body {
 .list-align {
   text-align: left;
   margin-top: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .half {

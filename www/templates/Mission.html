@@ -3,15 +3,15 @@
 <ion-content>
 
   <div class="cardflat item-text-wrap">
-    <div class="item item-text-wrap">
-      <div ng-class="isInfoShown(mission) ? 'item-expand active' : 'item-expand inactive'">
-        <h3>{{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].LocationDesc}}</h3>
-      </div>
-      <div ng-click="toggleInfo(mission)" class="item-expand-footer">
-        <i ng-class="isInfoShown(mission) ? 'ion-ios-minus-outline' : 'ion-ios-plus-outline'"></i>
-        {{isInfoShown(mission) ? 'Less' : 'More' }}
-      </div>
+
+    <div ng-class="isInfoShown(mission) ? 'item-expand active' : 'item-expand inactive'">
+      <h5>{{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].LocationDesc}}</h5>
     </div>
+    <div ng-click="toggleInfo(mission)" class="item-expand-footer">
+      <i ng-class="isInfoShown(mission) ? 'ion-ios-minus-outline' : 'ion-ios-plus-outline'"></i>
+      {{isInfoShown(mission) ? 'Less' : 'More' }}
+    </div>
+
   </div>
 
 	<div class="cardflat item-text-wrap">
