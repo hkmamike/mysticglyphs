@@ -46,7 +46,7 @@
     <div><strong>Tips:</strong> {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].Tips}}</div>
   </div>
 
-	<div class="cardflat item-text-wrap">
+	<div class="cardflat item-text-wrap lastcard">
 
 		<h4 ng-show="TokenNumber == null">Select a glyph for information</h4>
 
@@ -85,7 +85,7 @@
 	</div>
 
 	<div ng-show="SelectedMission.substr(length-1) < UserRecord[SelectedCity].Campaign[SelectedCampaign].MissionCount && UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].TokenUnlocked > 3">
-			<button class="button center-align button-balanced" ng-click="nextMission(SelectedMission)" menu-close>Unlock Next Level</button>
+			<button class="button center-align button-balanced" ng-click="nextMission(SelectedMission, SelectedCity, SelectedCampaign)" menu-close>Unlock Next Level</button>
   </div>
 
   <div ng-show="SelectedMission.substr(length-1) == UserRecord[SelectedCity].Campaign[SelectedCampaign].MissionCount && UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].TokenUnlocked > 3">

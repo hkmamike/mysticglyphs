@@ -7,7 +7,7 @@ angular.module('starter.controllers', [])
 	};
 })
 
-.controller('AppCtrl', function($scope, $rootScope, $state, $firebaseObject, $ionicSlideBoxDelegate, $ionicModal, $ionicSideMenuDelegate) {
+.controller('AppCtrl', function($scope, $rootScope, $state, $stateParams, $firebaseObject, $ionicSlideBoxDelegate, $ionicModal, $ionicSideMenuDelegate) {
 
 // INTRO------------------------------------------------------------------------
 	//	For splash screen
@@ -95,10 +95,12 @@ angular.module('starter.controllers', [])
 		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollCampaign/').set(CampaignID);
 	};
 
-	$scope.nextMission = function(MissionID) {
+	$scope.nextMission = function(MissionID, SelectedCity, SelectedCampaign) {
 		console.log('complete mission check: ', MissionID);
+		console.log (SelectedCity);
+		console.log (SelectedCampaign);
 		firebase.database().ref('/User/'+ UserID +'/Input/' + '/MissionComplete/').set(MissionID);
-		$state.go('app.Campaign');
+		$state.go('^.Campaign',{CityID: SelectedCity, CampaignID: SelectedCampaign});
 	};
 
 	$scope.toggleInfo = function(info) {
