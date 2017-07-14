@@ -97,8 +97,6 @@ angular.module('starter.controllers', [])
 
 	$scope.nextMission = function(MissionID, SelectedCity, SelectedCampaign) {
 		console.log('complete mission check: ', MissionID);
-		console.log (SelectedCity);
-		console.log (SelectedCampaign);
 		firebase.database().ref('/User/'+ UserID +'/Input/' + '/MissionComplete/').set(MissionID);
 		$state.go('^.Campaign',{CityID: SelectedCity, CampaignID: SelectedCampaign});
 	};
@@ -138,6 +136,7 @@ angular.module('starter.controllers', [])
 		//Warm up firebase functions
 		$scope.claimToken('xxx','xxx');
 		$scope.EnrollCampaign('xxx');
+		$scope.nextMission('xxx','xxx','xxx');
 
 	});
 // ---------------------------------------------------------------------------------

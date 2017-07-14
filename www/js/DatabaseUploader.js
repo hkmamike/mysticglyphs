@@ -118,7 +118,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong_1_1/Token/HongKong_1_1_5/HintD' ] = 
 updates['/DatabaseInfo/MissionInfo/HongKong_1_1/Token/HongKong_1_1_5/HintE' ] = 'Pay attention to grey colored objects for glyph #6';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_1/Token/HongKong_1_1_5/Tips' ] = 'Get a friend to cover you if possible when you access the glyphs';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_1_5/ClaimRecord' ] = 'xxx';
-updates['/DatabaseInfo/TokenInfo/HongKong_1_1_5/TokenCode' ] = 'Garment';
+updates['/DatabaseInfo/TokenInfo/HongKong_1_1_5/TokenCode' ] = 'Tram';
 
 
 updates['/DatabaseInfo/MissionInfo/HongKong_1_1/Token/HongKong_1_1_6/Order' ] = '6';
@@ -277,12 +277,12 @@ updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_1/TokenMsg' ]
 updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_1/TokenImg' ] = '<img>';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_1/SearchHints' ] = 'Search the south side of the cruise pier for a hanging case glyph, between the star ferry pier and Harbour City';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_1/ClaimStatus' ] = 'Pending';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_1/HintA' ] = 'Jet Li';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_1/HintB' ] = 'Search rightside handrail for the escalator glyph';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_1/HintC' ] = 'Glyph #5 is on the upper floor';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_1/HintD' ] = 'There are two hanging case glyphs';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_1/HintE' ] = '';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_1/Tips' ] = 'Pay attention to white robes';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_1/HintA' ] = 'Jet Li';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_1/HintB' ] = 'Search rightside handrail for the escalator glyph';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_1/HintC' ] = 'Glyph #5 is on the upper floor';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_1/HintD' ] = 'There are two hanging case glyphs';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_1/HintE' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_1/Tips' ] = 'Pay attention to white robes';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_3_1/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_3_1/TokenCode' ] = 'Ferriesfront';
 
@@ -293,12 +293,12 @@ updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_2/TokenMsg' ]
 updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_2/TokenImg' ] = '<img>';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_2/SearchHints' ] = 'Search the under the chairs';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_2/ClaimStatus' ] = 'Pending';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_2/HintA' ] = 'Directly behind the cruise butt for glyph #1';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_2/HintB' ] = 'Search the escalator from lv3 to lv2';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_2/HintC' ] = 'There are 3 magnetic case glyphs';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_2/HintD' ] = 'Only ferries A2671, A2971, and A31 have copies of glyph #5';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_2/HintE' ] = 'Each star ferry has a unique code printed on its side';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_2/Tips' ] = 'This glyph is 10 mins of walking away from the others. The other glyphs are quite clustered up together.';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_2/HintA' ] = 'Directly behind the cruise butt for glyph #1';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_2/HintB' ] = 'Search the escalator from lv3 to lv2';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_2/HintC' ] = 'There are 3 magnetic case glyphs';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_2/HintD' ] = 'Only ferries A2671, A2971, and A31 have copies of glyph #5';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_2/HintE' ] = 'Each star ferry has a unique code printed on its side';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_2/Tips' ] = 'This glyph is 10 mins of walking away from the others. The other glyphs are quite clustered up together.';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_3_2/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_3_2/TokenCode' ] = 'Whiterobe';
 
@@ -309,12 +309,12 @@ updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_3/TokenMsg' ]
 updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_3/TokenImg' ] = '<img>';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_3/SearchHints' ] = 'Behind the torch';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_3/ClaimStatus' ] = 'Pending';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_3/HintA' ] = 'Both sides of the Harbour City can park cruises, glyph #1 is on the south side';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_3/HintB' ] = 'Only ferries A2671, A2971, and A31 have copies of glyph #5';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_3/HintC' ] = 'Glyph #5 is on the upper floor of the ferry';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_3/HintD' ] = '';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_3/HintE' ] = '';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_3/Tips' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_3/HintA' ] = 'Both sides of the Harbour City can park cruises, glyph #1 is on the south side';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_3/HintB' ] = 'Only ferries A2671, A2971, and A31 have copies of glyph #5';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_3/HintC' ] = 'Glyph #5 is on the upper floor of the ferry';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_3/HintD' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_3/HintE' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_3/Tips' ] = '';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_3_3/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_3_3/TokenCode' ] = 'Signal';
 
@@ -325,12 +325,12 @@ updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_4/TokenMsg' ]
 updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_4/TokenImg' ] = '<img>';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_4/SearchHints' ] = 'This glyph is near the Typhoon Signals exhibition. We have got a geometric hint but dont know what it means.';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_4/ClaimStatus' ] = 'Pending';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_4/HintA' ] = 'Search the front of the ferry';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_4/HintB' ] = 'Search the escalators at the end of Harbour City for glyph #6';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_4/HintC' ] = 'Each star ferry has a unique code printed on its side';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_4/HintD' ] = 'Glyph #5 is on the upper floor of the ferry';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_4/HintE' ] = '';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_4/Tips' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_4/HintA' ] = 'Search the front of the ferry';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_4/HintB' ] = 'Search the escalators at the end of Harbour City for glyph #6';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_4/HintC' ] = 'Each star ferry has a unique code printed on its side';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_4/HintD' ] = 'Glyph #5 is on the upper floor of the ferry';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_4/HintE' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_4/Tips' ] = '';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_3_4/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_3_4/TokenCode' ] = 'Jetli';
 
@@ -341,12 +341,12 @@ updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_5/TokenMsg' ]
 updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_5/TokenImg' ] = '<img>';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_5/SearchHints' ] = 'Some of the star ferries have a copy of this glyph and you will have to board and find them. This might take a few try!';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_5/ClaimStatus' ] = 'Pending';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_5/HintA' ] = 'Both hanging case glyphs use white robes';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_5/HintB' ] = 'Search the escalator from lv3 to lv2';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_5/HintC' ] = '';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_5/HintD' ] = '';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_5/HintE' ] = '';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_5/Tips' ] = 'Make sure you know which ferries have the glyphs and where to search before attempting this glyph.';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_5/HintA' ] = 'Both hanging case glyphs use white robes';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_5/HintB' ] = 'Search the escalator from lv3 to lv2';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_5/HintC' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_5/HintD' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_5/HintE' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_5/Tips' ] = 'Make sure you know which ferries have the glyphs and where to search before attempting this glyph.';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_3_5/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_3_5/TokenCode' ] = 'Escalator6';
 
@@ -357,12 +357,12 @@ updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_6/TokenMsg' ]
 updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_6/TokenImg' ] = '<img>';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_6/SearchHints' ] = 'There is a great place at the end of the Harbour City where you can enjoy a great sunset view. Search the escalators';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_6/ClaimStatus' ] = 'Pending';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_6/HintA' ] = 'Only ferries A2671, A2971, and A31 have copies of glyph #5';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_6/HintB' ] = 'Both hanging case glyphs are right on the harbour side';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_6/HintC' ] = '';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_6/HintD' ] = '';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_6/HintE' ] = '';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_3_6/Tips' ] = 'This glyph is not a case! It is a sticker with a code that starts with Mg';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_6/HintA' ] = 'Only ferries A2671, A2971, and A31 have copies of glyph #5';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_6/HintB' ] = 'Both hanging case glyphs are right on the harbour side';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_6/HintC' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_6/HintD' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_6/HintE' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_3/Token/HongKong_1_3_6/Tips' ] = 'This glyph is not a case! It is a sticker with a code that starts with Mg';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_3_6/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_3_6/TokenCode' ] = 'Mg3206';
 /*updates['/DatabaseInfo/MissionInfo/HongKong_1_4/Order' ] = '4';
