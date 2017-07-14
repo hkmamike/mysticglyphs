@@ -7,8 +7,15 @@ angular.module('starter.controllers', [])
 	};
 })
 
-.controller('IntroCtrl', function($scope, $ionicSlideBoxDelegate, $state) {
-  // Called to navigate to the main app
+.controller('AppCtrl', function($scope, $rootScope, $state, $firebaseObject, $ionicSlideBoxDelegate, $ionicModal, $ionicSideMenuDelegate) {
+
+// INTRO------------------------------------------------------------------------
+	//	For splash screen
+	//	setTimeout(function () {
+	//		navigator.splashscreen.hide();
+	//	}, 750);
+
+   // Called to navigate to the main app
   $scope.startApp = function() {
     $state.go('app.List');
     // Set a flag that we finished the tutorial
@@ -31,24 +38,14 @@ angular.module('starter.controllers', [])
 		$ionicSlideBoxDelegate.slide(0);
 	});
 
-  // Move to the next slide
-  $scope.next = function() {
-    $scope.$broadcast('slideBox.nextSlide');
-  };
-
- })
-
-.controller('AppCtrl', function($scope, $rootScope, $state, $firebaseObject, $ionicModal, $ionicSideMenuDelegate) {
-
-// INTRO------------------------------------------------------------------------
-	//	For splash screen
-	//	setTimeout(function () {
-	//		navigator.splashscreen.hide();
-	//	}, 750);
-
   $scope.toIntro = function(){
     window.localStorage['didTutorial'] = "false";
     $state.go('intro');
+  };
+
+  // Move to the next slide
+  $scope.next = function() {
+    $scope.$broadcast('slideBox.nextSlide');
   };
 
 // SIDE MENU------------------------------------------------------------------------
@@ -85,27 +82,6 @@ angular.module('starter.controllers', [])
 	});
 // ---------------------------------------------------------------------------------
 
-// USER INFO------------------------------------------------------------------------
-
-	$rootScope.userSignedIn = false;
-
-	firebase.auth().onAuthStateChanged(function (user) {
-		var FirebaseUser = firebase.auth().currentUser;
-		$scope.UserInfo = $firebaseObject(firebase.database().ref('/User/' + FirebaseUser.uid + '/UserInfo/'));
-		$scope.UserRecord = $firebaseObject(firebase.database().ref('/User/' + FirebaseUser.uid + '/Record/'));
-		$scope.UserUnlockedToken = $firebaseObject(firebase.database().ref('/User/' + FirebaseUser.uid + '/Unlocked/Token/'));
-		UserID = FirebaseUser.uid;
-
-		if (user) {
-			$rootScope.userSignedIn = true;
-		} else {
-			$rootScope.userSignedIn = false;
-		}
-
-	});
-// ---------------------------------------------------------------------------------
-
-
 // USER ACTION----------------------------------------------------------------------
 
 	$scope.claimToken = function(TokenID, TokenPW) {
@@ -122,7 +98,7 @@ angular.module('starter.controllers', [])
 	$scope.nextMission = function(MissionID) {
 		console.log('complete mission check: ', MissionID);
 		firebase.database().ref('/User/'+ UserID +'/Input/' + '/MissionComplete/').set(MissionID);
-		$state.go('');
+		$state.go('app.Campaign');
 	};
 
 	$scope.toggleInfo = function(info) {
@@ -137,6 +113,31 @@ angular.module('starter.controllers', [])
     return $scope.shownInfo === info;
   };
 
+// ---------------------------------------------------------------------------------
+
+// USER INFO------------------------------------------------------------------------
+
+	$rootScope.userSignedIn = false;
+
+	firebase.auth().onAuthStateChanged(function (user) {
+		var FirebaseUser = firebase.auth().currentUser;
+		$scope.UserInfo = $firebaseObject(firebase.database().ref('/User/' + FirebaseUser.uid + '/UserInfo/'));
+		$scope.UserRecord = $firebaseObject(firebase.database().ref('/User/' + FirebaseUser.uid + '/Record/'));
+		$scope.UserUnlockedToken = $firebaseObject(firebase.database().ref('/User/' + FirebaseUser.uid + '/Unlocked/Token/'));
+		UserID = FirebaseUser.uid;
+
+		//Flag for user's login status
+		if (user) {
+			$rootScope.userSignedIn = true;
+		} else {
+			$rootScope.userSignedIn = false;
+		}
+
+		//Warm up firebase functions
+		$scope.claimToken('xxx','xxx');
+		$scope.EnrollCampaign('xxx');
+
+	});
 // ---------------------------------------------------------------------------------
 
 	$scope.CampaignList = $firebaseObject(firebase.database().ref('/DatabaseInfo/' + '/CityCampaignInfo/'));

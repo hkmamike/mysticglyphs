@@ -3,20 +3,23 @@
   <ion-header-bar>
     <h1 class="title">Token Claim</h1>
     <div class="buttons">
-      <button class="button button-cross" ng-click="closeTokenClaim()">Close</button>
+      <button class="button button-cross button-dark" ng-click="closeTokenClaim()">Close</button>
     </div>
   </ion-header-bar>
 
   <ion-content>
 
-    <div class="card">
-      <div class="item item-text-wrap">
-        <div class="item">
-          Token: {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].TokenName}} <br>
-          Info: {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].TokenMsg}} <br>
-          Status: {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].ClaimStatus}}
-        </div>
+    <div class="cardflat item-text-wrap">
+
+      <h2>Glyph Information</h2>
+
+      <div>
+        <strong>Glyph Name :</strong> {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].TokenName}} <br>
+        <strong>Glyph Message :</strong> {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].TokenMsg}} <br>
+        <strong>Search Hints :</strong> {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].SearchHints}} <br>
+        <br>
       </div>
+
     </div>
 
     <div class="card">
@@ -31,13 +34,6 @@
           <input type="text" ng-model="TokenClaim.code" placeholder="enter glyph code...">
         </label>
         <button type="submit" class="button button-block button-balanced" ng-click="claimToken(TokenNumber, TokenClaim.code); codeSubmitMessage();"> Claim Glyph</button>
-      </div>
-
-    </div>
-
-    <div class="card">
-      <div class="item item-text-wrap">
-        <button class="button button-block button-dark" ng-click="closeTokenClaim(); openHints(TokenNumber)" menu-close>Glyph Hints</button>
       </div>
     </div>
 

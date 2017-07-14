@@ -2,10 +2,15 @@
 
 <ion-content>
 
+  <div class="cardflat item-text-wrap" ng-cloak>
+    <div><strong>Tips:</strong> {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Tips}}</div>
+  </div>
+
   <div class="cardflat item-text-wrap">
     <div class="item item-text-wrap">
+        <h2>Mission Introduction</h2>
       <div ng-class="isInfoShown(mission) ? 'item-expand active' : 'item-expand inactive'">
-        <h3>{{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].LocationDesc}}</h3>
+        <p>{{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].LocationDesc}}</p>
       </div>
       <div ng-click="toggleInfo(mission)" class="item-expand-footer">
         <i ng-class="isInfoShown(mission) ? 'ion-ios-minus-outline' : 'ion-ios-plus-outline'"></i>
@@ -14,14 +19,22 @@
     </div>
   </div>
 
-	<div>
-		Selected City: {{SelectedCity}} <br>
-		Campaign ID: {{SelectedCampaign}} <br>
-		MissionID: {{SelectedMission}} <br>
-	</div>
+  <div class="cardflat item-text-wrap">
+    <div class="item item-text-wrap">
+      <h2>Mission Information</h2>
+      <div>
+        Opening Hours: {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Hours}} <br>
+        Estimated Duration: {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].EstimatedDuration}} <br>
+        Terrain: {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Terrain}} <br>
+        Glyphs Difficulty: {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].GlyphsDifficulty}} <br>
+        Stealth Difficulty: {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].StealthDifficulty}} <br>
+        Direction: {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Direction}} <br>
+      </div>
+    </div>
+  </div>
 
 	<div> 
-			<button class="button center-align button-balanced" ui-sref="app.Mission({CityID: SelectedCity, CampaignID: SelectedCampaign, MissionID: SelectedMission})" href="#/app/List/City/{{SelectedCity}}/Campaign/{{SelectedCampaign}}/Mission/{{MissionID}}">I am ready!</button>
+			<button class="button center-align button-dark" ui-sref="app.Mission({CityID: SelectedCity, CampaignID: SelectedCampaign, MissionID: SelectedMission})" href="#/app/List/City/{{SelectedCity}}/Campaign/{{SelectedCampaign}}/Mission/{{MissionID}}">Begin Mission</button>
   </div>
 
 

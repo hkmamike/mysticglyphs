@@ -40,11 +40,19 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
+  //Update Database
+  .state('updateDatabase', {
+    url: '/updatedatabase',
+    templateUrl: 'templates/updatedatabase.html',
+    controller: 'TempCtrl'
+  })
+
+
   //Intro Page
   .state('intro', {
     url: '/intro',
     templateUrl: 'templates/intro.html',
-    controller: 'IntroCtrl'
+    controller: 'AppCtrl'
   })
 
   //App Abstract

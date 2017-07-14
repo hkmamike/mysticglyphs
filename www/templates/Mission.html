@@ -3,15 +3,16 @@
 <ion-content>
 
   <div class="cardflat item-text-wrap">
-
-    <div ng-class="isInfoShown(mission) ? 'item-expand active' : 'item-expand inactive'">
-      <h5>{{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].LocationDesc}}</h5>
+    <div class="item item-text-wrap">
+        <h2>Mission Introduction</h2>
+      <div ng-class="isInfoShown(mission) ? 'item-expand inactive' : 'item-expand active'">
+        <p>{{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].LocationDesc}}</p>
+      </div>
+      <div ng-click="toggleInfo(mission)" class="item-expand-footer">
+        <i ng-class="isInfoShown(mission) ? 'ion-ios-minus-outline' : 'ion-ios-plus-outline'"></i>
+        {{isInfoShown(mission) ? 'Less' : 'More' }}
+      </div>
     </div>
-    <div ng-click="toggleInfo(mission)" class="item-expand-footer">
-      <i ng-class="isInfoShown(mission) ? 'ion-ios-minus-outline' : 'ion-ios-plus-outline'"></i>
-      {{isInfoShown(mission) ? 'Less' : 'More' }}
-    </div>
-
   </div>
 
 	<div class="cardflat item-text-wrap">
@@ -41,28 +42,44 @@
 		</div>
 	</div>
 
+  <div class="cardflat item-text-wrap" ng-show="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].Tips">
+    <div><strong>Tips:</strong> {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].Tips}}</div>
+  </div>
 
 	<div class="cardflat item-text-wrap">
 
-		<h3 ng-if="TokenNumber == null">Select a token for information</h3>
+		<h4 ng-show="TokenNumber == null">Select a glyph for information</h4>
 
-		<div>
-			Tokens Completed : {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].TokenUnlocked}} <br>
-			Token Message: {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].TokenMsg}} <br>
-			Token Number: {{TokenNumber}} <br>
-			Token Claim Status: {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].ClaimStatus.toString()}} <br>
+		<div ng-show="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].ClaimStatus == 'Pending'">
+			<strong>Glyph Name :</strong> {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].TokenName}} <br>
+			<strong>Glyph Message :</strong> {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].TokenMsg}} <br>
+			<strong>Search Hints :</strong> {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].SearchHints}} <br>
+			<br>
+		</div>
+
+		<div ng-show="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].ClaimStatus == 'Unlocked'">
+				<p>Good job! These are the additional hints you unlocked for finding this glyph:</p>
+        <div ng-show"UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].HintA">
+        	<strong>Hint:</strong> {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].HintA}}
+        </div>
+        <div ng-show"UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].HintB">
+        	<strong>Hint:</strong> {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].HintB}}
+      	</div>
+      	<div ng-show"UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].HintC">
+        	<strong>Hint:</strong> {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].HintC}}
+      	</div>
+      	<div ng-show"UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].HintD">
+        	<strong>Hint:</strong> {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].HintD}}
+        </div>
+        <div ng-show"UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].HintE">
+        	<strong>Hint:</strong> {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].HintE}}
+        </div>
 		</div>
 
 		<div ng-if="TokenNumber">
-
-			<div class="half"> 
-					<button class="button button-block button-dark" ng-click="openHints(TokenNumber, TokenList[TokenNumber])" menu-close>Glyph Hints</button>
+	 		<div ng-show="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].ClaimStatus == 'Pending'">
+					<button class="button center-align button-dark" ng-click='openTokenClaim(TokenNumber, TokenList[TokenNumber])'>Glyph Claim</button>
 			</div>
-
-	 		<div class="half">
-					<button class="button button-block button-dark" ng-click='openTokenClaim(TokenNumber, TokenList[TokenNumber])'>Glyph Claim</button>
-			</div>
-
 		</div>
 
 	</div>
