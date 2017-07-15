@@ -10,7 +10,7 @@
       </div>
       <div ng-click="toggleInfo(mission)" class="item-expand-footer">
         <i ng-class="isInfoShown(mission) ? 'ion-ios-minus-outline' : 'ion-ios-plus-outline'"></i>
-        {{isInfoShown(mission) ? 'Less' : 'More' }}
+        {{isInfoShown(mission) ? 'More' : 'Less' }}
       </div>
     </div>
   </div>
@@ -59,19 +59,19 @@
 
 		<div ng-show="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].ClaimStatus == 'Unlocked'">
 				<p>Good job! These are the additional hints you unlocked for finding this glyph:</p>
-        <div ng-show"UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].HintA">
+        <div ng-show="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].HintA">
         	<strong>Hint:</strong> {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].HintA}}
         </div>
-        <div ng-show"UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].HintB">
+        <div ng-show="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].HintB">
         	<strong>Hint:</strong> {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].HintB}}
       	</div>
-      	<div ng-show"UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].HintC">
+      	<div ng-show="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].HintC">
         	<strong>Hint:</strong> {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].HintC}}
       	</div>
-      	<div ng-show"UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].HintD">
+      	<div ng-show="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].HintD">
         	<strong>Hint:</strong> {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].HintD}}
         </div>
-        <div ng-show"UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].HintE">
+        <div ng-show="UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].HintE">
         	<strong>Hint:</strong> {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].HintE}}
         </div>
 		</div>

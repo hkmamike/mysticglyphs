@@ -133,10 +133,10 @@ angular.module('starter.controllers', [])
 			$rootScope.userSignedIn = false;
 		}
 
-		//Warm up firebase functions
-		$scope.claimToken('xxx','xxx');
-		$scope.EnrollCampaign('xxx');
-		$scope.nextMission('xxx','xxx','xxx');
+		//Warm up firebase functions by input triggers
+		firebase.database().ref('/User/'+ UserID +'/Input/' + '/ClaimToken/').set('warm up');
+		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollCampaign/').set('warm up');
+		firebase.database().ref('/User/'+ UserID +'/Input/' + '/MissionComplete/').set('warm up');
 
 	});
 // ---------------------------------------------------------------------------------
