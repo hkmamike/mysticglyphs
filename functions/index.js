@@ -32,7 +32,7 @@ admin.initializeApp(functions.config().firebase);
 // 	});
 // });
 
-exports.EnrollMission = functions.database.ref('/User/{UserID}/Input/EnrollMission/').onWrite(event >= {
+exports.EnrollMission = functions.database.ref('/User/{UserID}/Input/EnrollMission/').onWrite(event => {
 
 	var UserID = event.params.UserID;
 	var Input = event.data.val();
