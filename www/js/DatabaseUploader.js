@@ -238,7 +238,7 @@ updates['/DatabaseInfo/TokenInfo/HongKong_1_2_5/TokenCode' ] = 'Wetfloor';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_2_6/Order' ] = '6';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_2_6/TokenName' ] = 'Chinese Garden';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_2_6/TokenMsg' ] = 'To be honest, this looks nothing like a traditional Chinese garden. The typical Chinese garden has many artificial landscape made from rocks.';
-updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_2_6/TokenImg' ] = '<img>';
+updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_2_6/TokenImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/GlyphClues%2FChineseGarden.png?alt=media&token=f434c841-08b4-4c21-8a26-62d1e20a408f';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_2_6/SearchHints' ] = 'Search the mini forest for a hanging glyph. The fountain water does not shoot straight up, if we call where it shoots the 12th o&rsquoclock, the glyph is toward the 10 direction';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_2_6/ClaimStatus' ] = 'Pending';
 updates['/DatabaseInfo/MissionInfo/HongKong_1_2/Token/HongKong_1_2_6/HintA' ] = 'No climbing in the playground?';

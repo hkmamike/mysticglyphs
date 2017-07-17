@@ -1,0 +1,42 @@
+<ion-modal-view>
+
+  <ion-header-bar>
+    <h1 class="title"></h1>
+    <div class="buttons">
+      <button class="button button-cross button-dark" ng-click="closeTokenClaim()">Close</button>
+    </div>
+  </ion-header-bar>
+
+  <ion-content>
+
+    <div class="cardflat item-text-wrap">
+
+      <h2>Glyph Information</h2>
+
+      <div>
+        <strong>Glyph Name :</strong> {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].TokenName}} <br>
+        <strong>Glyph Message :</strong> {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].TokenMsg}} <br>
+        <strong>Search Hints :</strong> {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].SearchHints}} <br>
+        <br>
+      </div>
+
+    </div>
+
+    <div class="card">
+
+      <div ng-show="glyphCodeSubmitMessage">
+        <h4 class="center-align">Glyph code submitted. Glyph status will update if it is correct.</h4>
+      </div>
+
+      <div class="item item-text-wrap" ng-show="!glyphCodeSubmitMessage">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Glyph code</span>
+          <input type="text" ng-model="TokenClaim.code" placeholder="enter glyph code...">
+        </label>
+        <button type="submit" class="button button-block button-balanced" ng-click="claimToken(TokenNumber, TokenClaim.code); codeSubmitMessage();"> Claim Glyph</button>
+      </div>
+    </div>
+
+  </ion-content>
+
+</ion-modal-view>
