@@ -37,7 +37,31 @@ body {
 
 /* ---------------------------------------------------------*/
 
-/* Token Claim Page Info Section--------------------------------------------------*/
+/* Mission Enroll & Play--------------------------------------------------*/
+
+.enroll-bar{
+  border-color: transparent;
+  background-color: #D9534F;
+  color: #fff;
+  font-weight: bold;  
+  height: 30px;
+  text-align: center;
+  padding: 5px;
+}
+
+.play-bar {
+  border-color: transparent;
+  background-color: #428BCA;
+  color: #fff;
+  font-weight: bold;
+  height: 30px;
+  text-align: center;
+  padding: 5px;
+}
+
+/* ---------------------------------------------------------*/
+
+/* Info Section--------------------------------------------------*/
 
 .item-expand {
   position: relative;
@@ -176,6 +200,10 @@ body {
 
 /* Alignment------------------------------------------*/
 
+li {
+  margin-left: 10px;
+}
+
 .right-aligned {
   position: absolute;
   text-align: left;
@@ -245,13 +273,6 @@ body {
   margin: auto;
   text-align: center;
 }
-
-li {
-  margin-left: 10px;
-}
-/* ---------------------------------------------------*/
-
-/* Alignment------------------------------------------*/
 
 .button-fbblue {
   border-color: transparent;

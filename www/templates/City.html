@@ -2,25 +2,15 @@
 
 <ion-content>
 
-	<div class="cardflat item-text-wrap" ng-cloak>
-		<div><strong>Tips:</strong> These are the campaigns the search team has identified in {{SelectedCity}}.</div>
-	</div>
-
 	<div class="cardflat item-text-wrap" ng-repeat="(MissionID, Mission) in MissionList[SelectedCity]" ng-cloak>
 		<div class="pictureFrame" style="background-image: url({{Mission.CoverImg}});">			
 			<img src={{Mission.CoverImg}} style="visibility: hidden; width: 100%">
 			<div class="backgroundGradient"></div>
 			<div class="textShadow">{{Mission.Location}}</div>
-
-			<div>
-
-				<button ng-if="UserRecord[SelectedCity].Mission[MissionID] != null" class="button button-cross positive right-aligned" ui-sref="app.MissionInfo({CityID: SelectedCity, MissionID: MissionID})" href="#/app/List/City/{{SelectedCity}}/MissionInfo/{{MissionID}}">Play</button>
-
-				<button ng-if="UserRecord[SelectedCity].Mission[MissionID] == null" class="button button-cross assertive right-aligned" ng-click="EnrollMission(MissionID)">Enroll</button>
-
-			</div>
-
 		</div>
+
+		<div ng-if="UserRecord[SelectedCity].Mission[MissionID] != null" ui-sref="app.MissionInfo({CityID: SelectedCity, MissionID: MissionID})" href="#/app/List/City/{{SelectedCity}}/MissionInfo/{{MissionID}}"class="play-bar">Begin Mission</div>
+		<div ng-if="UserRecord[SelectedCity].Mission[MissionID] == null" ng-click="EnrollMission(MissionID)" class="enroll-bar">Enroll Now</div>
 
 	</div>
 
