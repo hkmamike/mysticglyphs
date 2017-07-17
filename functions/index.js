@@ -47,7 +47,7 @@ exports.EnrollMission = functions.database.ref('/User/{UserID}/Input/EnrollMissi
 
 		if (snapshot.val()==null) {
 			//Copy Mission
-			admin.database().ref('/DatabaseInfo/MissionInfo/' + City + Mission).on('value', function(snapshot) {
+			admin.database().ref('/DatabaseInfo/MissionInfo/' + City + '/' + Mission).on('value', function(snapshot) {
 				console.log('EnrollMission - mission to be copied', snapshot.val());
 				admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission).set(snapshot.val());
 			});
