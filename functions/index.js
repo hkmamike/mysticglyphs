@@ -199,11 +199,11 @@ exports.UnlockToken = functions.database.ref('/User/{UserID}/Input/ClaimToken/')
 	admin.database().ref('/DatabaseInfo/TokenInfo/' + Token + '/TokenCode/' ).on('value', function(snapshot) {
 		//Check Token Validaty
 		if (snapshot.val() == TokenCode) {
-			admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Campaign/' + Campaign + '/Mission/' + Mission).on('value', function(snapshot) {
+			admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission).on('value', function(snapshot) {
 				//Check Mission Exist
 				if (snapshot.val() !== null) {
 					var AllToken = snapshot.val().Token;
-					admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Campaign/' + Campaign + '/Mission/' + Mission +'/Token/'+ Token + '/ClaimStatus').set('Unlocked');
+					admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission +'/Token/'+ Token + '/ClaimStatus').set('Unlocked');
 					admin.database().ref('/User/'+ UserID +'/Unlocked/Token/' + Token).set(Date());
 					
 					var TokenUnlocked = 0
@@ -215,7 +215,7 @@ exports.UnlockToken = functions.database.ref('/User/{UserID}/Input/ClaimToken/')
 					if (AllToken[Mission + '_6'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1};
 					
 					//Record Unlock
-					admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Campaign/' + Campaign + '/Mission/' + Mission +'/TokenUnlocked/').set(TokenUnlocked);					
+					admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission +'/TokenUnlocked/').set(TokenUnlocked);					
 				} 
 			});
 		}
