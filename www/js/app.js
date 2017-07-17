@@ -73,7 +73,7 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
     }
   })
 
-  //Campaign List in City
+  //Mission List in City
   .state('app.City', {
     url: '/List/City/:CityID',
     views: {
@@ -84,20 +84,9 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
     }
   })
 
-  //Mission List in Campaign
-  .state('app.Campaign', {
-    url: '/List/City/:CityID/Campaign/:CampaignID',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/Campaign.html',
-        controller: 'ListCtrl'
-      }
-    }
-  })
-
   //Mission Info
   .state('app.MissionInfo', {
-    url: '/List/City/:CityID/Campaign/:CampaignID/MissionInfo/:MissionID',
+    url: '/List/City/:CityID/MissionInfo/:MissionID',
     views: {
       'menuContent': {
         templateUrl: 'templates/MissionInfo.html',
@@ -106,9 +95,9 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
     }
   })
 
-  //Mission Details
+  //Mission Page
   .state('app.Mission', {
-    url: '/List/City/:CityID/Campaign/:CampaignID/Mission/:MissionID',
+    url: '/List/City/:CityID/Mission/:MissionID',
     views: {
       'menuContent': {
         templateUrl: 'templates/Mission.html',
@@ -116,26 +105,6 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
       }
     }
   })
-
-  .state('app.completedMissions', {
-    url: '/completedMissions',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/completedMissions.html',
-      }
-    }
-  })
-
-  .state('app.missionDetails', {
-    url: '/missionDetails/:missionID',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/missionDetails.html',
-        // controller: 'missionDetailsCtrl'
-      }
-    }
-  })
-
 
   ;
   // if none of the above states are matched, use this as the fallback

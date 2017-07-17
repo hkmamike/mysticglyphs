@@ -232,6 +232,19 @@ body {
   width: 66%;
 }
 
+.oneSixth {
+  display: inline-block;
+  float: left;
+  margin: 2px;
+  padding: 0;
+  width: 15%;
+}
+
+.oneSixthCenter {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
 /* ---------------------------------------------------*/
 
 /* Alignment------------------------------------------*/

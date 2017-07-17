@@ -106,7 +106,7 @@ angular.module('starter.controllers', [])
 			};
 
 	$scope.EnrollMission = function(MissionID) {
-		console.log('Enroll Mission: ', MissionID);
+		console.log('Enroll Mission: ', ID);
 		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollMission/').set(MissionID);
 	};
 
@@ -120,6 +120,11 @@ angular.module('starter.controllers', [])
 
   $scope.isInfoShown = function(info) {
     return $scope.shownInfo === info;
+  };
+
+  $scope.selectGlyph = function(SelectedMission, n) {
+		$scope.TokenNumber = SelectedMission + '_' + n;
+		$scope.glyphSelection = n;
   };
 
 // ---------------------------------------------------------------------------------

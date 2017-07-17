@@ -14,7 +14,7 @@
 
 			<div>
 
-<!-- 				<button ng-if="UserRecord[SelectedCity].Campaign[CampaignID] != null" class="button button-cross positive right-aligned" ui-sref="app.Campaign({CityID: SelectedCity, CampaignID: CampaignID})" href="#/app/List/City/{{SelectedCity}}/Campaign/{{CampaignID}}">Play</button> -->
+				<button ng-if="UserRecord[SelectedCity].Mission[MissionID] != null" class="button button-cross positive right-aligned" ui-sref="app.MissionInfo({CityID: SelectedCity, MissionID: MissionID})" href="#/app/List/City/{{SelectedCity}}/MissionInfo/{{MissionID}}">Play</button>
 
 				<button ng-if="UserRecord[SelectedCity].Mission[MissionID] == null" class="button button-cross assertive right-aligned" ng-click="EnrollMission(MissionID)">Enroll</button>
 
