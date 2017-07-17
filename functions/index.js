@@ -17,7 +17,7 @@ admin.initializeApp(functions.config().firebase);
 
 // 		console.log(snapshot.val());
 
-// 		if (snapshot.val()===null) {
+// 		if (snapshot.val()==null) {
 // 			//Copy Compaign
 // 			admin.database().ref('/DatabaseInfo/CityCampaignInfo/' + City +'/Campaign/' + Campaign ).on('value', function(snapshot) {
 // 				admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Campaign/' + Campaign).set(snapshot.val());
@@ -41,11 +41,14 @@ exports.EnrollMission = functions.database.ref('/User/{UserID}/Input/EnrollMissi
 
 	admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission).on('value', function(snapshot) {
 
-		console.log('EnrollMission Check: ', snapshot.val());
+		console.log('EnrollMission - City: ', City);
+		console.log('EnrollMission - Mission: ', Mission);
+		console.log('EnrollMission - user node snapshot: ', snapshot.val());
 
 		if (snapshot.val()==null) {
 			//Copy Mission
 			admin.database().ref('/DatabaseInfo/MissionInfo/' + City + Mission).on('value', function(snapshot) {
+				console.log('EnrollMission - mission to be copied', snapshot.val());
 				admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission).set(snapshot.val());
 			});
 		}
