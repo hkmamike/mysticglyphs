@@ -6,15 +6,18 @@
 		<div><strong>Tips:</strong> These are the campaigns the search team has identified in {{SelectedCity}}.</div>
 	</div>
 
-	<div class="cardflat item-text-wrap" ng-repeat="(CampaignID, Campaign) in CampaignList[SelectedCity].Campaign" ng-cloak>
-		<div class="pictureFrame" style="background-image: url({{Campaign.CoverImg}});">			
-			<img src={{Campaign.CoverImg}} style="visibility: hidden; width: 100%">
+	<div class="cardflat item-text-wrap" ng-repeat="(MissionID, Mission) in MissionList[SelectedCity]" ng-cloak>
+		<div class="pictureFrame" style="background-image: url({{Mission.CoverImg}});">			
+			<img src={{Mission.CoverImg}} style="visibility: hidden; width: 100%">
 			<div class="backgroundGradient"></div>
-			<div class="textShadow">{{CampaignList[SelectedCity].Campaign[CampaignID].Location}}</div>
+			<div class="textShadow">{{Mission.Location}}</div>
 
 			<div>
+
 				<button ng-if="UserRecord[SelectedCity].Campaign[CampaignID] != null" class="button button-cross positive right-aligned" ui-sref="app.Campaign({CityID: SelectedCity, CampaignID: CampaignID})" href="#/app/List/City/{{SelectedCity}}/Campaign/{{CampaignID}}">Play</button>
-				<button ng-if="UserRecord[SelectedCity].Campaign[CampaignID] == null" class="button button-cross assertive right-aligned" ng-click="EnrollCampaign(CampaignID)">Enroll</button>
+
+				<button ng-if="UserRecord[SelectedCity].Mission[MissionID] == null" class="button button-cross assertive right-aligned" ng-click="EnrollMission(MissionID)">Enroll</button>
+
 			</div>
 
 		</div>

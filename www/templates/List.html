@@ -2,7 +2,7 @@
 
 <ion-content>
 
-	<div class="cardflat item-text-wrap" ng-repeat="(CityID, City) in CampaignList">
+	<div class="cardflat item-text-wrap" ng-repeat="(CityID, City) in CityList">
 		
 		<div class="pictureFrame" style="background-image: url({{City.CoverImg}});" ui-sref="app.City({CityID: CityID})" href="#/app/List/City/{{CityID}}">
 			<img src={{City.CoverImg}} style="visibility: hidden; width: 100%">

@@ -8,8 +8,12 @@ angular.module('starter.controllers', [])
 })
 
 .controller('AppCtrl', function($scope, $rootScope, $state, $stateParams, $firebaseObject, $ionicSlideBoxDelegate, $ionicModal, $ionicSideMenuDelegate) {
+	// City & Mission List Objects------------------------------------------------------
+	$scope.CityList = $firebaseObject(firebase.database().ref('/DatabaseInfo/' + '/CityCampaignInfo/'));
+	$scope.MissionList = $firebaseObject(firebase.database().ref('/DatabaseInfo/' + '/MissionInfo/'));
+	// ---------------------------------------------------------------------------------
 
-// INTRO------------------------------------------------------------------------
+	// INTRO------------------------------------------------------------------------
 	//	For splash screen
 	//	setTimeout(function () {
 	//		navigator.splashscreen.hide();
@@ -90,15 +94,20 @@ angular.module('starter.controllers', [])
 		firebase.database().ref('/User/'+ UserID +'/Input/' + '/ClaimToken/').set(TokenID + ',' + TokenPW);
 	};
 
-	$scope.EnrollCampaign = function(CampaignID) {
-		console.log(CampaignID);
-		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollCampaign/').set(CampaignID);
-	};
+			$scope.EnrollCampaign = function(CampaignID) {
+				console.log(CampaignID);
+				firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollCampaign/').set(CampaignID);
+			};
 
-	$scope.nextMission = function(MissionID, SelectedCity, SelectedCampaign) {
-		console.log('complete mission check: ', MissionID);
-		firebase.database().ref('/User/'+ UserID +'/Input/' + '/MissionComplete/').set(MissionID);
-		$state.go('^.Campaign',{CityID: SelectedCity, CampaignID: SelectedCampaign});
+			$scope.nextMission = function(MissionID, SelectedCity, SelectedCampaign) {
+				console.log('complete mission check: ', MissionID);
+				firebase.database().ref('/User/'+ UserID +'/Input/' + '/MissionComplete/').set(MissionID);
+				$state.go('^.Campaign',{CityID: SelectedCity, CampaignID: SelectedCampaign});
+			};
+
+	$scope.EnrollMission = function(MissionID) {
+		console.log(CampaignID);
+		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollMission/').set(MissionID);
 	};
 
 	$scope.toggleInfo = function(info) {
@@ -140,8 +149,6 @@ angular.module('starter.controllers', [])
 
 	});
 // ---------------------------------------------------------------------------------
-
-	$scope.CampaignList = $firebaseObject(firebase.database().ref('/DatabaseInfo/' + '/CityCampaignInfo/'));
 
 })
 

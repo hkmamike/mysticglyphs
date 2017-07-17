@@ -5,27 +5,48 @@ const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
 
 
-exports.EnrollCampaign = functions.database.ref('/User/{UserID}/Input/EnrollCampaign/').onWrite(event => {
+// exports.EnrollCampaign = functions.database.ref('/User/{UserID}/Input/EnrollCampaign/').onWrite(event => {
+
+// 	var UserID = event.params.UserID;
+// 	var Input = event.data.val();
+// 	var City = Input.substring(0, Input.indexOf('_'));
+// 	var Campaign = Input;
+// 	var Mission = Input + '_1';
+
+// 	admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Campaign/' + Campaign).on('value', function(snapshot) {
+
+// 		console.log(snapshot.val());
+
+// 		if (snapshot.val()===null) {
+// 			//Copy Compaign
+// 			admin.database().ref('/DatabaseInfo/CityCampaignInfo/' + City +'/Campaign/' + Campaign ).on('value', function(snapshot) {
+// 				admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Campaign/' + Campaign).set(snapshot.val());
+// 			});
+
+// 			//Copy Mission1
+// 			admin.database().ref('/DatabaseInfo/MissionInfo/' + Mission).on('value', function(snapshot) {
+// 				admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Campaign/' + Campaign + '/Mission/' + Mission).set(snapshot.val());
+// 			});
+// 		}
+
+// 	});
+// });
+
+exports.EnrollMission = functions.database.ref('/User/{UserID}/Input/EnrollMission/').onWrite(event >= {
 
 	var UserID = event.params.UserID;
 	var Input = event.data.val();
 	var City = Input.substring(0, Input.indexOf('_'));
-	var Campaign = Input;
-	var Mission = Input + '_1';
+	var Mission = Input;
 
-	admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Campaign/' + Campaign).on('value', function(snapshot) {
+	admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission).on('value', function(snapshot) {
 
-		console.log(snapshot.val());
+		console.log('EnrollMission Check: ', snapshot.val());
 
-		if (snapshot.val()==null) {
-			//Copy Compaign
-			admin.database().ref('/DatabaseInfo/CityCampaignInfo/' + City +'/Campaign/' + Campaign ).on('value', function(snapshot) {
-				admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Campaign/' + Campaign).set(snapshot.val());
-			});
-
-			//Copy Mission1
-			admin.database().ref('/DatabaseInfo/MissionInfo/' + Mission).on('value', function(snapshot) {
-				admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Campaign/' + Campaign + '/Mission/' + Mission).set(snapshot.val());
+		if (snapshot.val()===null) {
+			//Copy Mission
+			admin.database().ref('/DatabaseInfo/MissionInfo/' + City + Mission).on('value', function(snapshot) {
+				admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission).set(snapshot.val());
 			});
 		}
 
