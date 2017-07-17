@@ -92,22 +92,17 @@ angular.module('starter.controllers', [])
 		console.log('Claim this token: ', TokenID, TokenPW);
 		console.log('UserID: ', UserID);
 		firebase.database().ref('/User/'+ UserID +'/Input/' + '/ClaimToken/').set(TokenID + ',' + TokenPW);
+
+		//Warm up firebase functions by input triggers
+		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollMission/').set('warm up @:' + Date());
 	};
 
-			$scope.EnrollCampaign = function(CampaignID) {
-				console.log(CampaignID);
-				firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollCampaign/').set(CampaignID);
-			};
-
-			$scope.nextMission = function(MissionID, SelectedCity, SelectedCampaign) {
-				console.log('complete mission check: ', MissionID);
-				firebase.database().ref('/User/'+ UserID +'/Input/' + '/MissionComplete/').set(MissionID);
-				$state.go('^.Campaign',{CityID: SelectedCity, CampaignID: SelectedCampaign});
-			};
-
 	$scope.EnrollMission = function(MissionID) {
-		console.log('Enroll Mission: ', ID);
+		console.log('Enroll Mission: ', MissionID);
 		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollMission/').set(MissionID);
+
+		//Warm up firebase functions by input triggers
+		firebase.database().ref('/User/'+ UserID +'/Input/' + '/ClaimToken/').set('warm up @:' + Date());
 	};
 
 	$scope.toggleInfo = function(info) {
@@ -148,9 +143,8 @@ angular.module('starter.controllers', [])
 		}
 
 		//Warm up firebase functions by input triggers
-		firebase.database().ref('/User/'+ UserID +'/Input/' + '/ClaimToken/').set('warm up');
-		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollCampaign/').set('warm up');
-		firebase.database().ref('/User/'+ UserID +'/Input/' + '/MissionComplete/').set('warm up');
+		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollMission/').set('warm up @:' + Date());
+		firebase.database().ref('/User/'+ UserID +'/Input/' + '/ClaimToken/').set('warm up @:' + Date());
 
 	});
 // ---------------------------------------------------------------------------------

@@ -10,7 +10,7 @@
 
 		<div ng-repeat="n in [1,2,3,4,5,6]" ng-init = "glyphSelection">
 			<div ng-click = "selectGlyph(SelectedMission, n)">
-				<img ng-if="UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].ClaimStatus.toString() == 'Unlocked' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenLocked.png?alt=media&token=cc5d4654-d4f7-430f-bf36-0f4c36fc5e8d' class='oneSixth' ng-class="{'selectedHighlight' : glyphSelection == n, 'notSelected' : glyphSelection != n}">
+				<img ng-if="UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].ClaimStatus.toString() == 'Unlocked' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenUnlocked.png?alt=media&token=cc970ad1-4cea-4964-943c-1e02eb9dd451' class='oneSixth' ng-class="{'selectedHighlight' : glyphSelection == n, 'notSelected' : glyphSelection != n}">
 				<img ng-if="UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].ClaimStatus.toString() == 'Pending' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenLocked.png?alt=media&token=cc5d4654-d4f7-430f-bf36-0f4c36fc5e8d' class='oneSixth' ng-class="{'selectedHighlight' : glyphSelection == n, 'notSelected' : glyphSelection != n}">
 			</div>
 		</div>
@@ -38,28 +38,19 @@
 		</div>
 	</div>
 
-	<div class="cardflat item-text-wrap lastcard">
+	<div class="cardflat item-text-wrap lastcard" ng-show="TokenNumber != null">
 
-		<strong ng-show="TokenNumber == !null">Solved glyphs unlock additional hints:</strong>
+		<div><strong>Solved glyphs unlock additional hints:</strong></div>
 
 		<div ng-repeat="n in [1,2,3,4,5,6]">
-				<div ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintA && UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].ClaimStatus == 'Unlocked'">
-	      	<strong>Hint:</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintA}}
-	      </div>
-	      <div ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintB && UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].ClaimStatus == 'Unlocked'">
-	      	<strong>Hint:</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintB}}
-	    	</div>
-	    	<div ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintC && UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].ClaimStatus == 'Unlocked'">
-	      	<strong>Hint:</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintC}}
-	    	</div>
-	    	<div ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintD && UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].ClaimStatus == 'Unlocked'">
-	      	<strong>Hint:</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintD}}
-	      </div>
-	      <div ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintE && UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].ClaimStatus == 'Unlocked'">
-	      	<strong>Hint:</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintE}}
-	      </div>
-    	</div>
-    </div>
+			<li ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintA && UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].ClaimStatus == 'Unlocked'">{{UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintA}}</li>
+      <li ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintB && UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].ClaimStatus == 'Unlocked'">{{UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintB}}</li>
+    	<li ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintC && UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].ClaimStatus == 'Unlocked'">{{UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintC}}</li>
+    	<li ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintD && UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].ClaimStatus == 'Unlocked'">{{UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintD}}</li>
+      <li ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintE && UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].ClaimStatus == 'Unlocked'">{{UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintE}}</li>
+  	</div>
+
+  </div>
 
 	</div>
 
