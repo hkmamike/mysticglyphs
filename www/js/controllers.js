@@ -106,7 +106,7 @@ angular.module('starter.controllers', [])
 			};
 
 	$scope.EnrollMission = function(MissionID) {
-		console.log(CampaignID);
+		console.log('Enroll Mission: ', MissionID);
 		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollMission/').set(MissionID);
 	};
 
