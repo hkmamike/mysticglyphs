@@ -8,6 +8,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('AppCtrl', function($scope, $rootScope, $state, $stateParams, $firebaseObject, $ionicSlideBoxDelegate, $ionicModal, $ionicSideMenuDelegate) {
+	
 	// City & Mission List Objects------------------------------------------------------
 	$scope.CityList = $firebaseObject(firebase.database().ref('/DatabaseInfo/' + '/CityCampaignInfo/'));
 	$scope.MissionList = $firebaseObject(firebase.database().ref('/DatabaseInfo/' + '/MissionInfo/'));
@@ -52,13 +53,13 @@ angular.module('starter.controllers', [])
     $scope.$broadcast('slideBox.nextSlide');
   };
 
-// SIDE MENU------------------------------------------------------------------------
+	// SIDE MENU------------------------------------------------------------------------
 	$scope.toggleRightSideMenu = function() {
 	$ionicSideMenuDelegate.toggleRight();
 	};
-// ---------------------------------------------------------------------------------
+	// ---------------------------------------------------------------------------------
 
-// LOGIN MODAL----------------------------------------------------------------------
+	// LOGIN MODAL----------------------------------------------------------------------
 	$scope.loginData = {};
 	$ionicModal.fromTemplateUrl('templates/login.html', {
 		scope: $scope
@@ -84,10 +85,33 @@ angular.module('starter.controllers', [])
 		userData.setUser(auth.currentUser);
 	}).catch(function(error) {
 	});
-// ---------------------------------------------------------------------------------
+	// ---------------------------------------------------------------------------------
 
-// USER ACTION----------------------------------------------------------------------
+	// USER INFO------------------------------------------------------------------------
+	$rootScope.userSignedIn = false;
 
+	firebase.auth().onAuthStateChanged(function (user) {
+		var FirebaseUser = firebase.auth().currentUser;
+		$scope.UserInfo = $firebaseObject(firebase.database().ref('/User/' + FirebaseUser.uid + '/UserInfo/'));
+		$scope.UserRecord = $firebaseObject(firebase.database().ref('/User/' + FirebaseUser.uid + '/Record/'));
+		$scope.UserUnlockedToken = $firebaseObject(firebase.database().ref('/User/' + FirebaseUser.uid + '/Unlocked/Token/'));
+		UserID = FirebaseUser.uid;
+
+		//Flag for user's login status
+		if (user) {
+			$rootScope.userSignedIn = true;
+		} else {
+			$rootScope.userSignedIn = false;
+		}
+
+		//Warm up firebase functions by input triggers
+		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollMission/').set('warm up @:' + Date());
+		firebase.database().ref('/User/'+ UserID +'/Input/' + '/ClaimToken/').set('warm up @:' + Date());
+
+	});
+	// ---------------------------------------------------------------------------------
+
+	// USER ACTION----------------------------------------------------------------------
 	$scope.claimToken = function(TokenID, TokenPW) {
 		console.log('Claim this token: ', TokenID, TokenPW);
 		console.log('UserID: ', UserID);
@@ -122,32 +146,7 @@ angular.module('starter.controllers', [])
 		$scope.glyphSelection = n;
   };
 
-// ---------------------------------------------------------------------------------
-
-// USER INFO------------------------------------------------------------------------
-
-	$rootScope.userSignedIn = false;
-
-	firebase.auth().onAuthStateChanged(function (user) {
-		var FirebaseUser = firebase.auth().currentUser;
-		$scope.UserInfo = $firebaseObject(firebase.database().ref('/User/' + FirebaseUser.uid + '/UserInfo/'));
-		$scope.UserRecord = $firebaseObject(firebase.database().ref('/User/' + FirebaseUser.uid + '/Record/'));
-		$scope.UserUnlockedToken = $firebaseObject(firebase.database().ref('/User/' + FirebaseUser.uid + '/Unlocked/Token/'));
-		UserID = FirebaseUser.uid;
-
-		//Flag for user's login status
-		if (user) {
-			$rootScope.userSignedIn = true;
-		} else {
-			$rootScope.userSignedIn = false;
-		}
-
-		//Warm up firebase functions by input triggers
-		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollMission/').set('warm up @:' + Date());
-		firebase.database().ref('/User/'+ UserID +'/Input/' + '/ClaimToken/').set('warm up @:' + Date());
-
-	});
-// ---------------------------------------------------------------------------------
+	// ---------------------------------------------------------------------------------
 
 })
 
@@ -182,6 +181,22 @@ angular.module('starter.controllers', [])
 		},3000);
 	};
 	// ---------------------------------------------------------------------------------
+
+	// CLOUD FUNCTION RESPONSES------------------------------------------------------
+	firebase.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').on('value', function(snapshot) {
+ 
+		var Output = snapshot.val();
+		var Result = Output.substring(0,Output.indexOf(","));
+
+		if (Result==1) {
+			console.log('GLyph Unlock Successful');
+		} else if (Result==0) {
+			console.log('GLyph Unlock Unsuccessful');
+		}
+
+	});
+	// ---------------------------------------------------------------------------------
+
 
 	// SEE TOKEN HINTS MODAL----------------------------------------------------------------
 	$scope.TokenHintsData = {};

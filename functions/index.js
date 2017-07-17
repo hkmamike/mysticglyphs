@@ -197,8 +197,14 @@ exports.UnlockToken = functions.database.ref('/User/{UserID}/Input/ClaimToken/')
 	var Mission = Token.substring(0, Token.indexOf("_") + 4);
 
 	admin.database().ref('/DatabaseInfo/TokenInfo/' + Token + '/TokenCode/' ).on('value', function(snapshot) {
+
 		//Check Token Validaty
 		if (snapshot.val() == TokenCode) {
+			console.log ('Mission:', Mission, 'Token:', Token, 'Result: Valid GlyphCode');
+
+			//Let client know the code works
+			admin.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').set('1,'+ Date());
+
 			admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission).on('value', function(snapshot) {
 				//Check Mission Exist
 				if (snapshot.val() !== null) {
@@ -220,8 +226,8 @@ exports.UnlockToken = functions.database.ref('/User/{UserID}/Input/ClaimToken/')
 			});
 		}
 		else{
-			// Console.log ('Invalid TokenCode')
-			// admin.database().ref('/User/'+ UserID +'/Trial/Token/' + Token).set('Invalid TokenCode');
+			console.log ('Mission:', Mission, 'Token:', Token, 'Result: Invalid GlyphCode');
+			admin.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').set('0,'+ Date());
 		};
 	});
 

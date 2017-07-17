@@ -9,7 +9,7 @@
 			<div class="textShadow">{{Mission.Location}}</div>
 		</div>
 
-		<div ng-if="UserRecord[SelectedCity].Mission[MissionID] != null" ui-sref="app.MissionInfo({CityID: SelectedCity, MissionID: MissionID})" href="#/app/List/City/{{SelectedCity}}/MissionInfo/{{MissionID}}"class="play-bar">Begin Mission</div>
+		<div ng-if="UserRecord[SelectedCity].Mission[MissionID] != null" ui-sref="app.MissionInfo({CityID: SelectedCity, MissionID: MissionID})" href="#/app/List/City/{{SelectedCity}}/MissionInfo/{{MissionID}}"class="play-bar">Play</div>
 		<div ng-if="UserRecord[SelectedCity].Mission[MissionID] == null" ng-click="EnrollMission(MissionID)" class="enroll-bar">Enroll Now</div>
 
 	</div>
