@@ -139,10 +139,6 @@ angular.module('starter.controllers', [])
 	$scope.glyphCodeSubmitMessage = 'ready';
 	$scope.codeSubmitMessage = function() {
 		$scope.glyphCodeSubmitMessage = 'submitting';
-		// $timeout( function(){
-		// $scope.glyphCodeSubmitMessage = 2;
-		// $scope.closeTokenClaim();
-		// },3000);
 	};
 	// ---------------------------------------------------------------------------------
 
@@ -180,8 +176,8 @@ angular.module('starter.controllers', [])
 				$timeout( function(){
 					/*Reset Output node*/
 					firebase.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').set('2,'+ Date());
+					$scope.closeTokenClaim();
 				},3000);
-
 			} else if (Result==0) {
 				$scope.glyphCodeSubmitMessage = 'unsuccessful';
 				$scope.$apply();
@@ -190,13 +186,9 @@ angular.module('starter.controllers', [])
 					/*Reset Output node*/
 					firebase.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').set('2,'+ Date());
 				},3000);
-
 			} else {
 				$scope.glyphCodeSubmitMessage = 'ready';
 				$scope.$apply();
-				$timeout( function(){
-					$scope.closeTokenClaim();
-				},2000);
 			}
 		});
 	});

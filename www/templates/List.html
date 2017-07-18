@@ -2,18 +2,28 @@
 
 <ion-content>
 
-	<div class="cardflat item-text-wrap" ng-repeat="(CityID, City) in CityList">
-		
+<!-- Angularjs loads too slowly -->
+<!-- 	<div class="cardflat item-text-wrap" ng-repeat="(CityID, City) in CityList">
 		<div class="pictureFrame" style="background-image: url({{City.CoverImg}});" ui-sref="app.City({CityID: CityID})" href="#/app/List/City/{{CityID}}">
 			<img src={{City.CoverImg}} style="visibility: hidden; width: 100%">
 			<div class="backgroundGradient"></div>
 			<div class="textShadow">{{City.CityName}}</div>
 		</div>
+	</div> -->
+
+	<!--Available Cities-->
+	<div class="cardflat item-text-wrap" ng-show='userSignedIn'>
+		
+		<div class="pictureFrame" style="background-image: url(https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/HongKong.png?alt=media&token=cf0d4098-8445-46b2-b317-15ec36de5c64);" ui-sref="app.City({CityID:'HongKong'})" href="#/app/List/City/HongKong">
+			<img src="https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/HongKong.png?alt=media&token=cf0d4098-8445-46b2-b317-15ec36de5c64" style="visibility: hidden; width: 100%">
+			<div class="backgroundGradient"></div>
+			<div class="textShadow">Hong Kong</div>
+		</div>
 
 	</div>
 
 	<!--Upcoming-->
-	<div class="cardflat item-text-wrap opaque">
+	<div class="cardflat item-text-wrap opaque" ng-show='userSignedIn'>
 		
 		<div class="pictureFrame" style="background-image: url(https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TaiwanComingSoon.png?alt=media&token=b8cd436d-ff90-4cf8-ab18-dc7f96657eaa);">
 			<img src="https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TaiwanComingSoon.png?alt=media&token=b8cd436d-ff90-4cf8-ab18-dc7f96657eaa" style="visibility: hidden; width: 100%">
@@ -23,13 +33,15 @@
 
 	</div>
 
+	<!--If not logged in-->
   <div class="glyphsList" ng-show='!userSignedIn' ng-cloak>
     <div class="introPNG"><img src="https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/GlyphsIntro.png?alt=media&token=367496ad-9dc7-4ec0-b6b4-513a66e1435b"></div>
-    <p>Buddy, welcome to the hunt.</p> 
     <p>This is the mobile terminal where you will receive the latest intelligence from our glyphs search team.</p>
-    <p>Login to access intelligence...</p>
-    <button class="button button-block button-dark button-intro" ng-click="openlogin()" menu-close>Login</button>
+    <p>Login to access intelligence.</p>
+    <button class="button button-block button-positive button-intro" ng-click="openlogin()" menu-close>Login</button>
   </div>
+
+<!--   <div class="loader" ng-show="loadingLogin==true"></div> -->
 
 </ion-content>
 

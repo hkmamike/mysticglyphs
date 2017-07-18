@@ -3,7 +3,7 @@
   <ion-header-bar>
     <h1 class="title">Login</h1>
     <div class="buttons">
-      <button class="button button-cross button-dark" ng-click="closeLogin()">Close</button>
+      <button class="button button-cross button-positive" ng-click="closeLogin()">Close</button>
     </div>
   </ion-header-bar>
 
@@ -26,7 +26,7 @@
   <div class="cardflat">
 
     <label class="item item-text wrap">
-      <button class="button button-block button-fbblue" ng-click="authPopup()">Facebook Login</button>
+      <button class="button button-block button-fbblue" ng-click="authPopup(); loadingLogin()">Facebook Login</button>
     </label>
 
     <div class ="item item-divider">

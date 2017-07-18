@@ -24,12 +24,15 @@
 
     <div class="card">
 
-      <div class="item item-text-wrap" ng-class="{'glyph-claim-white' : glyphCodeSubmitMessage == 'ready', 'glyph-claim-green' : glyphCodeSubmitMessage == 'unlocked', 'glyph-claim-red' : glyphCodeSubmitMessage == 'unsuccessful'}">
+      <div class="item item-text-wrap" ng-class="{'glyph-claim-white' : glyphCodeSubmitMessage == 'ready' || glyphCodeSubmitMessage == 'submitting', 'glyph-claim-green' : glyphCodeSubmitMessage == 'unlocked', 'glyph-claim-red' : glyphCodeSubmitMessage == 'unsuccessful'}">
         <label class="item item-input item-floating-label">
-          <span class="input-label">Glyph code</span>
+          <div class="input-label no-wrap">Glyph code</div>
           <input type="text" ng-model="TokenClaim.code" placeholder="enter glyph code...">
         </label>
         <button type="submit" class="button button-block button-positive" ng-click="claimToken(TokenNumber, TokenClaim.code); codeSubmitMessage();"> Claim Glyph</button>
+         <div ng-show="glyphCodeSubmitMessage == 'ready'">
+          <h4 class="center-align"><br></h4>
+        </div>       
         <div ng-show="glyphCodeSubmitMessage == 'submitting'">
           <h4 class="center-align">Submitting</h4>
         </div>

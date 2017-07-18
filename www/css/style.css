@@ -1,5 +1,9 @@
 /* Empty. Add your own CSS if you like */
 
+/* Allow angular.js to be loaded in body, hiding cloaked elements until templates compile.  The !important is important given that there may be other selectors that are more specific or come later and might alter display. */
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
 
 /* Intro Page Info--------------------------------------------------*/
 
@@ -61,24 +65,24 @@ body {
 
 /* ---------------------------------------------------------*/
 
-/* Mission Enroll & Play--------------------------------------------------*/
+/* Glyph Claim Response--------------------------------------------------*/
 
 .glyph-claim-white {
-  border-style: solid;
-  border-width: 10px;
-  border-color: white;
+  border-style: solid !important;
+  border-width: 10px !important;
+  border-color: white !important;
 }
 
 .glyph-claim-red {
-  border-style: solid;
-  border-width: 10px;
-  border-color: red;
+  border-style: solid !important;
+  border-width: 10px !important;
+  border-color: red !important;
 }
 
 .glyph-claim-green {
-  border-style: solid;
-  border-width: 10px;
-  border-color: green;
+  border-style: solid !important;
+  border-width: 10px !important;
+  border-color: green !important;
 }
 
 /* ---------------------------------------------------------*/
@@ -161,6 +165,27 @@ body {
 /* ---------------------------------------------------------*/
 
 /* Basic ---------------------------------------------*/
+
+.no-wrap {
+  white-space: nowrap !important;
+}
+
+.loader {
+    margin: auto;
+    border: 16px solid #444 ;
+    border-top: 16px solid #387ef5;
+    border-bottom: 16px solid #387ef5;
+    border-radius: 50%;
+    width: 25%;
+    height: 15%;
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 .cardflat {
   padding-top: 1px;
   padding-bottom: 1px;
