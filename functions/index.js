@@ -39,21 +39,22 @@ exports.EnrollMission = functions.database.ref('/User/{UserID}/Input/EnrollMissi
 	var City = Input.substring(0, Input.indexOf('_'));
 	var Mission = Input;
 
-	admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission).on('value', function(snapshot) {
-
-		console.log('EnrollMission - City: ', City);
-		console.log('EnrollMission - Mission: ', Mission);
-		console.log('EnrollMission - user node snapshot: ', snapshot.val());
-
-		if (snapshot.val()==null) {
-			//Copy Mission
-			admin.database().ref('/DatabaseInfo/MissionInfo/' + City + '/' + Mission).on('value', function(snapshot) {
-				console.log('EnrollMission - mission to be copied', snapshot.val());
-				admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission).set(snapshot.val());
+	if (City=='warmUp') {
+		return 'warming up function - EnrollMission';
+	} else {
+			admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission).on('value', function(snapshot) {
+				console.log('EnrollMission - City: ', City);
+				console.log('EnrollMission - Mission: ', Mission);
+				console.log('EnrollMission - user node snapshot: ', snapshot.val());
+				if (snapshot.val()==null) {
+					//Copy Mission
+					admin.database().ref('/DatabaseInfo/MissionInfo/' + City + '/' + Mission).on('value', function(snapshot) {
+						console.log('EnrollMission - mission to be copied', snapshot.val());
+						admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission).set(snapshot.val());
+					});
+				}
 			});
 		}
-
-	});
 });
 
 // exports.NextMission = functions.database.ref('/User/{UserID}/Input/NextMission/').onWrite(event => {
@@ -196,39 +197,44 @@ exports.UnlockToken = functions.database.ref('/User/{UserID}/Input/ClaimToken/')
 	var Campaign = Token.substring(0, Token.indexOf("_") + 2);
 	var Mission = Token.substring(0, Token.indexOf("_") + 4);
 
-	admin.database().ref('/DatabaseInfo/TokenInfo/' + Token + '/TokenCode/' ).on('value', function(snapshot) {
+	if (Token=='warmUp') {
+		return 'warming up function - UnlockToken';
+	} else {
+			admin.database().ref('/DatabaseInfo/TokenInfo/' + Token + '/TokenCode/' ).on('value', function(snapshot) {
 
-		//Check Token Validaty
-		if (snapshot.val() == TokenCode) {
-			console.log ('Mission:', Mission, 'Token:', Token, 'Result: Valid GlyphCode');
+				//Check Token Validaty
+				if (snapshot.val() == TokenCode) {
+					console.log ('Mission:', Mission, 'Token:', Token, 'Result: Valid GlyphCode');
 
-			//Let client know the code works
-			admin.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').set('1,'+ Date());
+					//Let client know the code works
+					admin.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').set('1,'+ Date());
 
-			admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission).on('value', function(snapshot) {
-				//Check Mission Exist
-				if (snapshot.val() !== null) {
-					var AllToken = snapshot.val().Token;
-					admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission +'/Token/'+ Token + '/ClaimStatus').set('Unlocked');
-					admin.database().ref('/User/'+ UserID +'/Unlocked/Token/' + Token).set(Date());
-					
-					var TokenUnlocked = 0
-					if (AllToken[Mission + '_1'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1};
-					if (AllToken[Mission + '_2'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1};
-					if (AllToken[Mission + '_3'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1};
-					if (AllToken[Mission + '_4'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1};
-					if (AllToken[Mission + '_5'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1};
-					if (AllToken[Mission + '_6'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1};
-					
-					//Record Unlock
-					admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission +'/TokenUnlocked/').set(TokenUnlocked);					
-				} 
+					admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission).on('value', function(snapshot) {
+						//Check Mission Exist
+						if (snapshot.val() !== null) {
+							var AllToken = snapshot.val().Token;
+							admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission +'/Token/'+ Token + '/ClaimStatus').set('Unlocked');
+							admin.database().ref('/User/'+ UserID +'/Unlocked/Token/' + Token).set(Date());
+							
+							var TokenUnlocked = 0
+							if (AllToken[Mission + '_1'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1};
+							if (AllToken[Mission + '_2'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1};
+							if (AllToken[Mission + '_3'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1};
+							if (AllToken[Mission + '_4'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1};
+							if (AllToken[Mission + '_5'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1};
+							if (AllToken[Mission + '_6'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1};
+							
+							//Record Unlock
+							admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission +'/TokenUnlocked/').set(TokenUnlocked);					
+						} 
+					});
+				}
+				else {
+					console.log ('Mission:', Mission, 'Token:', Token, 'Result: Invalid GlyphCode');
+					admin.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').set('0_'+ Date());
+				};
 			});
 		}
-		else{
-			console.log ('Mission:', Mission, 'Token:', Token, 'Result: Invalid GlyphCode');
-			admin.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').set('0,'+ Date());
-		};
-	});
+});
 
 });
