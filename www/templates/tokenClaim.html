@@ -18,17 +18,26 @@
         <strong>Glyph Message :</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].TokenMsg}} <br>
         <strong>Search Hints :</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].SearchHints}} <br>
         <br>
+        {{glyphCodeSubmitMessage}}
       </div>
 
     </div>
 
     <div class="card">
 
-      <div ng-show="glyphCodeSubmitMessage">
+      <div ng-show="glyphCodeSubmitMessage=='submitting'">
         <h4 class="center-align">Glyph code submitted. Glyph status will update if it is correct.</h4>
       </div>
 
-      <div class="item item-text-wrap" ng-show="!glyphCodeSubmitMessage">
+      <div ng-show="glyphCodeSubmitMessage=='unlocked'">
+        <h4 class="center-align">Unlocked</h4>
+      </div>
+
+      <div ng-show="glyphCodeSubmitMessage=='unsuccessful'">
+        <h4 class="center-align">Try Again</h4>
+      </div>
+
+      <div class="item item-text-wrap" ng-show="glyphCodeSubmitMessage=='ready'">
         <label class="item item-input item-floating-label">
           <span class="input-label">Glyph code</span>
           <input type="text" ng-model="TokenClaim.code" placeholder="enter glyph code...">

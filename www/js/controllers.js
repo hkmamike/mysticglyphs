@@ -7,8 +7,8 @@ angular.module('starter.controllers', [])
 	};
 })
 
-.controller('AppCtrl', function($scope, $rootScope, $state, $stateParams, $firebaseObject, $ionicSlideBoxDelegate, $ionicModal, $ionicSideMenuDelegate) {
-	
+.controller('AppCtrl', function($scope, $timeout, $rootScope, $state, $stateParams, $firebaseObject, $ionicSlideBoxDelegate, $ionicModal, $ionicSideMenuDelegate) {
+
 	// City & Mission List Objects------------------------------------------------------
 	$scope.CityList = $firebaseObject(firebase.database().ref('/DatabaseInfo/' + '/CityCampaignInfo/'));
 	$scope.MissionList = $firebaseObject(firebase.database().ref('/DatabaseInfo/' + '/MissionInfo/'));
@@ -105,8 +105,55 @@ angular.module('starter.controllers', [])
 		}
 
 		//Warm up firebase functions by input triggers
-		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollMission/').set('warm up @:' + Date());
-		firebase.database().ref('/User/'+ UserID +'/Input/' + '/ClaimToken/').set('warm up @:' + Date());
+		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollMission/').set('warmUp_' + Date());
+		firebase.database().ref('/User/'+ UserID +'/Input/' + '/ClaimToken/').set('warmUp,' + Date());
+
+		// CLOUD FUNCTION RESPONSES FOR GLYPH UNLOCK--------------------------------------------
+		firebase.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').on('value', function(snapshot) {
+	 
+			var Output = snapshot.val();
+			var Result = Output.substring(0,Output.indexOf(","));
+			console.log ('Result is:', Result);
+
+			if (Result==1) {
+
+				console.log('Glyph Unlock Successful');
+				$scope.glyphCodeSubmitMessage = 'unlocked';
+				$timeout( function(){
+					$scope.glyphCodeSubmitMessage = 'ready';
+
+					$timeout( function(){
+						/*Reset Output node*/
+						firebase.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').set('2,'+ Date());
+					}, 3000);
+					// $scope.closeTokenClaim();
+
+				},10000);
+
+			} else if (Result==0) {
+
+				console.log('Glyph Unlock Unsuccessful');
+				$scope.glyphCodeSubmitMessage = 'unsuccessful';
+
+				$timeout( function(){
+					$scope.glyphCodeSubmitMessage = 'ready';
+
+
+					$timeout( function(){
+						/*Reset Output node*/
+						firebase.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').set('2,'+ Date());
+					}, 3000);
+					// $scope.closeTokenClaim();
+
+
+				},10000);
+
+			} else {
+
+			}
+
+		});
+		// ---------------------------------------------------------------------------------
 
 	});
 	// ---------------------------------------------------------------------------------
@@ -115,20 +162,17 @@ angular.module('starter.controllers', [])
 	$scope.claimToken = function(TokenID, TokenPW) {
 		console.log('Claim this token: ', TokenID, TokenPW);
 		console.log('UserID: ', UserID);
-		firebase.database().ref('/User/'+ UserID +'/Input/' + '/ClaimToken/').set(TokenID + ',' + TokenPW);
+		firebase.database().ref('/User/'+ UserID +'/Input/' + '/ClaimToken/').set(TokenID + ',' + TokenPW + '@' + Date());
 
 		//Warm up firebase functions by input triggers
-		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollMission/').set('warm up @:' + Date());
+		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollMission/').set('warmUp_' + Date());
 	};
-
 	$scope.EnrollMission = function(MissionID) {
 		console.log('Enroll Mission: ', MissionID);
 		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollMission/').set(MissionID);
-
 		//Warm up firebase functions by input triggers
-		firebase.database().ref('/User/'+ UserID +'/Input/' + '/ClaimToken/').set('warm up @:' + Date());
+		firebase.database().ref('/User/'+ UserID +'/Input/' + '/ClaimToken/').set('warmUp,' + Date());
 	};
-
 	$scope.toggleInfo = function(info) {
     if ($scope.isInfoShown(info)) {
       $scope.shownInfo = null;
@@ -136,25 +180,14 @@ angular.module('starter.controllers', [])
       $scope.shownInfo = info;
     }
   };
-
   $scope.isInfoShown = function(info) {
     return $scope.shownInfo === info;
   };
-
   $scope.selectGlyph = function(SelectedMission, n) {
 		$scope.TokenNumber = SelectedMission + '_' + n;
 		$scope.glyphSelection = n;
   };
-
 	// ---------------------------------------------------------------------------------
-
-})
-
-
-.controller('ListCtrl', function($scope, $timeout, $stateParams, $ionicModal) {
-	$scope.SelectedCity = $stateParams.CityID;
-	$scope.SelectedCampaign = $stateParams.CampaignID;
-	$scope.SelectedMission = $stateParams.MissionID;
 
 	// CLAIM TOKEN MODAL----------------------------------------------------------------
 	$scope.TokenClaimData = {};
@@ -172,31 +205,14 @@ angular.module('starter.controllers', [])
 		$scope.TokenNumber = TokenNumber;
 	};
 
-	$scope.glyphCodeSubmitMessage = false;
 	$scope.codeSubmitMessage = function() {
-		$scope.glyphCodeSubmitMessage = true;
-		$timeout( function(){
-			$scope.glyphCodeSubmitMessage = false;
-			$scope.closeTokenClaim();
-		},3000);
+		$scope.glyphCodeSubmitMessage = 'submitting';
+		// $timeout( function(){
+		// $scope.glyphCodeSubmitMessage = 2;
+		// $scope.closeTokenClaim();
+		// },3000);
 	};
 	// ---------------------------------------------------------------------------------
-
-	// CLOUD FUNCTION RESPONSES------------------------------------------------------
-	firebase.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').on('value', function(snapshot) {
- 
-		var Output = snapshot.val();
-		var Result = Output.substring(0,Output.indexOf(","));
-
-		if (Result==1) {
-			console.log('GLyph Unlock Successful');
-		} else if (Result==0) {
-			console.log('GLyph Unlock Unsuccessful');
-		}
-
-	});
-	// ---------------------------------------------------------------------------------
-
 
 	// SEE TOKEN HINTS MODAL----------------------------------------------------------------
 	$scope.TokenHintsData = {};
@@ -214,6 +230,12 @@ angular.module('starter.controllers', [])
 	};
 	// ---------------------------------------------------------------------------------
 
+})
+
+.controller('ListCtrl', function($scope, $stateParams) {
+	$scope.SelectedCity = $stateParams.CityID;
+	$scope.SelectedCampaign = $stateParams.CampaignID;
+	$scope.SelectedMission = $stateParams.MissionID;
 });
 
 

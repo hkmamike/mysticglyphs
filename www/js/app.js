@@ -68,7 +68,7 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
     url: '/List',
     views: {
       'menuContent': {
-        templateUrl: 'templates/List.html',
+        templateUrl: 'templates/List.html'
       }
     }
   })
