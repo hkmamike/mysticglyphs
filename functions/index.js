@@ -242,5 +242,3 @@ exports.UnlockToken = functions.database.ref('/User/{UserID}/Input/ClaimToken/')
 			});
 		}
 });
-
-});
