@@ -39,7 +39,10 @@ exports.EnrollMission = functions.database.ref('/User/{UserID}/Input/EnrollMissi
 	var City = Input.substring(0, Input.indexOf('_'));
 	var Mission = Input;
 
+	console.log('City is: ' , City);
+
 	if (City=='warmUp') {
+		console.log ('warm up condition')
 		return 'warming up function - EnrollMission';
 	} else {
 			admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission).on('value', function(snapshot) {
@@ -197,7 +200,10 @@ exports.UnlockToken = functions.database.ref('/User/{UserID}/Input/ClaimToken/')
 	var Campaign = Token.substring(0, Token.indexOf("_") + 2);
 	var Mission = Token.substring(0, Token.indexOf("_") + 4);
 
+	console.log('Token is: ', Token);
+
 	if (Token=='warmUp') {
+		console.log ('warm up condition')
 		return 'warming up function - UnlockToken';
 	} else {
 			admin.database().ref('/DatabaseInfo/TokenInfo/' + Token + '/TokenCode/' ).on('value', function(snapshot) {
