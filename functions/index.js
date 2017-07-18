@@ -140,7 +140,7 @@ exports.UnlockToken = functions.database.ref('/User/{UserID}/Input/ClaimToken/')
 				}
 				else {
 					console.log ('Mission:', Mission, 'Token:', Token, 'Result: Invalid GlyphCode');
-					admin.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').set('0_'+ Date());
+					admin.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').set('0,'+ Date());
 				};
 			});
 		}

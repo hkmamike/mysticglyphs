@@ -199,10 +199,12 @@ angular.module('starter.controllers', [])
 	$scope.closeTokenClaim = function() {
 		$scope.TokenClaim.hide();
 	};
-	$scope.openTokenClaim = function(TokenNumber) {
+	$scope.openTokenClaim = function(TokenNumber, SelectedMission, SelectedCity) {
 		$scope.TokenClaim.code = '';
 		$scope.TokenClaim.show();
 		$scope.TokenNumber = TokenNumber;
+		$scope.SelectedMission = SelectedMission;
+		$scope.SelectedCity = SelectedCity;
 	};
 
 	$scope.glyphCodeSubmitMessage = 'ready';
@@ -235,7 +237,6 @@ angular.module('starter.controllers', [])
 
 .controller('ListCtrl', function($scope, $stateParams) {
 	$scope.SelectedCity = $stateParams.CityID;
-	$scope.SelectedCampaign = $stateParams.CampaignID;
 	$scope.SelectedMission = $stateParams.MissionID;
 });
 
