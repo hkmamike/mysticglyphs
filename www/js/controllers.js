@@ -205,6 +205,7 @@ angular.module('starter.controllers', [])
 		$scope.TokenNumber = TokenNumber;
 	};
 
+	$scope.glyphCodeSubmitMessage = 'ready';
 	$scope.codeSubmitMessage = function() {
 		$scope.glyphCodeSubmitMessage = 'submitting';
 		// $timeout( function(){
