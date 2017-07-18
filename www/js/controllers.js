@@ -87,77 +87,6 @@ angular.module('starter.controllers', [])
 	});
 	// ---------------------------------------------------------------------------------
 
-	// USER INFO------------------------------------------------------------------------
-	$rootScope.userSignedIn = false;
-
-	firebase.auth().onAuthStateChanged(function (user) {
-		var FirebaseUser = firebase.auth().currentUser;
-		$scope.UserInfo = $firebaseObject(firebase.database().ref('/User/' + FirebaseUser.uid + '/UserInfo/'));
-		$scope.UserRecord = $firebaseObject(firebase.database().ref('/User/' + FirebaseUser.uid + '/Record/'));
-		$scope.UserUnlockedToken = $firebaseObject(firebase.database().ref('/User/' + FirebaseUser.uid + '/Unlocked/Token/'));
-		UserID = FirebaseUser.uid;
-
-		//Flag for user's login status
-		if (user) {
-			$rootScope.userSignedIn = true;
-		} else {
-			$rootScope.userSignedIn = false;
-		}
-
-		//Warm up firebase functions by input triggers
-		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollMission/').set('warmUp_' + Date());
-		firebase.database().ref('/User/'+ UserID +'/Input/' + '/ClaimToken/').set('warmUp,' + Date());
-
-		// CLOUD FUNCTION RESPONSES FOR GLYPH UNLOCK--------------------------------------------
-		firebase.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').on('value', function(snapshot) {
-	 
-			var Output = snapshot.val();
-			var Result = Output.substring(0,Output.indexOf(","));
-			console.log ('Result is:', Result);
-
-			if (Result==1) {
-
-				console.log('Glyph Unlock Successful');
-				$scope.glyphCodeSubmitMessage = 'unlocked';
-				$timeout( function(){
-					$scope.glyphCodeSubmitMessage = 'ready';
-
-					$timeout( function(){
-						/*Reset Output node*/
-						firebase.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').set('2,'+ Date());
-					}, 3000);
-					// $scope.closeTokenClaim();
-
-				},10000);
-
-			} else if (Result==0) {
-
-				console.log('Glyph Unlock Unsuccessful');
-				$scope.glyphCodeSubmitMessage = 'unsuccessful';
-
-				$timeout( function(){
-					$scope.glyphCodeSubmitMessage = 'ready';
-
-
-					$timeout( function(){
-						/*Reset Output node*/
-						firebase.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').set('2,'+ Date());
-					}, 3000);
-					// $scope.closeTokenClaim();
-
-
-				},10000);
-
-			} else {
-
-			}
-
-		});
-		// ---------------------------------------------------------------------------------
-
-	});
-	// ---------------------------------------------------------------------------------
-
 	// USER ACTION----------------------------------------------------------------------
 	$scope.claimToken = function(TokenID, TokenPW) {
 		console.log('Claim this token: ', TokenID, TokenPW);
@@ -215,6 +144,62 @@ angular.module('starter.controllers', [])
 		// $scope.closeTokenClaim();
 		// },3000);
 	};
+	// ---------------------------------------------------------------------------------
+
+	// USER INFO------------------------------------------------------------------------
+	$rootScope.userSignedIn = false;
+
+	firebase.auth().onAuthStateChanged(function (user) {
+		var FirebaseUser = firebase.auth().currentUser;
+		$scope.UserInfo = $firebaseObject(firebase.database().ref('/User/' + FirebaseUser.uid + '/UserInfo/'));
+		$scope.UserRecord = $firebaseObject(firebase.database().ref('/User/' + FirebaseUser.uid + '/Record/'));
+		$scope.UserUnlockedToken = $firebaseObject(firebase.database().ref('/User/' + FirebaseUser.uid + '/Unlocked/Token/'));
+		UserID = FirebaseUser.uid;
+
+		//Flag for user's login status
+		if (user) {
+			$rootScope.userSignedIn = true;
+		} else {
+			$rootScope.userSignedIn = false;
+		}
+
+		//Warm up firebase functions by input triggers
+		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollMission/').set('warmUp_' + Date());
+		firebase.database().ref('/User/'+ UserID +'/Input/' + '/ClaimToken/').set('warmUp,' + Date());
+
+		// CLOUD FUNCTION RESPONSES FOR GLYPH UNLOCK--------------------------------------------
+		firebase.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').on('value', function(snapshot) {
+			var Output = snapshot.val();
+			var Result = Output.substring(0,Output.indexOf(","));
+			console.log ('Result is:', Result);
+
+			if (Result==1) {
+				$scope.glyphCodeSubmitMessage = 'unlocked';
+				$scope.$apply();
+				console.log('Glyph Unlock Successful');
+				$timeout( function(){
+					/*Reset Output node*/
+					firebase.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').set('2,'+ Date());
+				},3000);
+
+			} else if (Result==0) {
+				$scope.glyphCodeSubmitMessage = 'unsuccessful';
+				$scope.$apply();
+				console.log('Glyph Unlock Unsuccessful, glyphCodeSubmitMessage: ', $scope.glyphCodeSubmitMessage);
+				$timeout( function(){
+					/*Reset Output node*/
+					firebase.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').set('2,'+ Date());
+				},3000);
+
+			} else {
+				$scope.glyphCodeSubmitMessage = 'ready';
+				$scope.$apply();
+				$timeout( function(){
+					$scope.closeTokenClaim();
+				},3000);
+			}
+		});
+	});
 	// ---------------------------------------------------------------------------------
 
 	// SEE TOKEN HINTS MODAL----------------------------------------------------------------

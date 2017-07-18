@@ -104,9 +104,8 @@ exports.UnlockToken = functions.database.ref('/User/{UserID}/Input/ClaimToken/')
 		return 'warming up function - UnlockToken';
 	} else {
 			var UserID= event.params.UserID;
-			var TokenCode = Input.substring(Input.indexOf(",") + 1, Input.indexOf(",") + 20);
+			var TokenCode = Input.substring(Input.indexOf(",") + 1, Input.indexOf("@"));
 			var City = Token.substring(0, Token.indexOf("_"));
-			var Campaign = Token.substring(0, Token.indexOf("_") + 2);
 			var Mission = Token.substring(0, Token.indexOf("_") + 4);
 
 			admin.database().ref('/DatabaseInfo/TokenInfo/' + Token + '/TokenCode/' ).on('value', function(snapshot) {
