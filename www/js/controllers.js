@@ -196,7 +196,7 @@ angular.module('starter.controllers', [])
 				$scope.$apply();
 				$timeout( function(){
 					$scope.closeTokenClaim();
-				},3000);
+				},2000);
 			}
 		});
 	});
