@@ -44,6 +44,8 @@ body {
 /* Mission Enroll & Play--------------------------------------------------*/
 
 .enroll-bar{
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
   border-color: transparent;
   background-color: #D9534F;
   color: #fff;
@@ -54,13 +56,14 @@ body {
 }
 
 .play-bar {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
   border-color: transparent;
   background-color: #428BCA;
   color: #fff;
   font-weight: bold;
   height: 30px;
   text-align: center;
-  padding: 5px;
 }
 
 /* ---------------------------------------------------------*/
@@ -170,14 +173,20 @@ body {
   white-space: nowrap !important;
 }
 
+.loader-container {
+  margin-top: 15px;
+  width: 100%;
+  height: inherit;
+}
+
 .loader {
     margin: auto;
-    border: 16px solid #444 ;
-    border-top: 16px solid #387ef5;
-    border-bottom: 16px solid #387ef5;
+    border: 12px solid #444 ;
+    border-top: 12px solid #387ef5;
+    border-bottom: 12px solid #387ef5;
     border-radius: 50%;
-    width: 25%;
-    height: 15%;
+    width: 20%;
+    height: 12%;
     animation: spin 1.5s linear infinite;
 }
 
@@ -187,8 +196,6 @@ body {
 }
 
 .cardflat {
-  padding-top: 1px;
-  padding-bottom: 1px;
   margin-top: 5px; 
   margin-bottom: 5px; 
   margin-left: 5px;

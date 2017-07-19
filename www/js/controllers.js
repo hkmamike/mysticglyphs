@@ -15,10 +15,6 @@ angular.module('starter.controllers', [])
 	// ---------------------------------------------------------------------------------
 
 	// INTRO------------------------------------------------------------------------
-	//	For splash screen
-	//	setTimeout(function () {
-	//		navigator.splashscreen.hide();
-	//	}, 750);
 
    // Called to navigate to the main app
   $scope.startApp = function() {
@@ -32,12 +28,7 @@ angular.module('starter.controllers', [])
 			console.log('Skip intro');
 			$scope.startApp();
 		}
-		//	If there is a splash screen
-		//	else{
-		//	setTimeout(function () {
-		//		navigator.splashscreen.hide();
-		//		}, 750); 
-		//	};
+
 
 	$scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
 		$ionicSlideBoxDelegate.slide(0);
@@ -77,8 +68,19 @@ angular.module('starter.controllers', [])
 	};
 	$scope.signOut = function () {
 		auth.signOut();
+		window.localStorage['hideLogin'] = false;
 		$rootScope.userSignedIn = false;
-		$rootScope.userSignedOut = true;
+		$rootScope.hideLogin = false;
+	};
+
+  // Check if the user is logging in
+	if(window.localStorage['hideLogin'] === "true") {
+			console.log('Hide Login');
+			$rootScope.hideLogin = true;
+		}
+
+	$scope.loadingLogin = function () {
+		window.localStorage['hideLogin'] = true;
 	};
 
 	firebase.auth().getRedirectResult().then(function(result) {
@@ -143,7 +145,6 @@ angular.module('starter.controllers', [])
 	// ---------------------------------------------------------------------------------
 
 	// USER INFO------------------------------------------------------------------------
-	$rootScope.userSignedIn = false;
 
 	firebase.auth().onAuthStateChanged(function (user) {
 		var FirebaseUser = firebase.auth().currentUser;
