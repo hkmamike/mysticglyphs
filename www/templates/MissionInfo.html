@@ -1,4 +1,4 @@
-<ion-view view-title="{{MissionList[SelectedCity].Mission[SelectedMission].Location}}" hide-nav-bar="false">
+<ion-view view-title="{{MissionList[SelectedCity][SelectedMission].Location}}" hide-nav-bar="false">
 
 <ion-content>
 
@@ -28,7 +28,7 @@
         Terrain: {{MissionList[SelectedCity][SelectedMission].Terrain}} <br>
         Glyphs Difficulty: {{MissionList[SelectedCity][SelectedMission].GlyphsDifficulty}} <br>
         Stealth Difficulty: {{MissionList[SelectedCity][SelectedMission].StealthDifficulty}} <br>
-        Direction: {{UMissionList[SelectedCity][SelectedMission].Direction}} <br>
+        Direction: {{MissionList[SelectedCity][SelectedMission].Direction}} <br>
       </div>
     </div>
   </div>

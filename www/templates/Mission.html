@@ -4,6 +4,10 @@
 
 	<div class="cardflat item-text-wrap">
 
+  <div class="cardflat item-text-wrap" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].Tips">
+    <div><strong>Tips:</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].Tips}}</div>
+  </div>
+  
 		<div class ='oneSixth' ng-repeat="n in [1,2,3,4,5,6]" >
 			<div class='oneSixthCenter'><strong>{{n}}</strong></div>
 		</div>
@@ -15,10 +19,6 @@
 			</div>
 		</div>
 	</div> 
-
-  <div class="cardflat item-text-wrap" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].Tips">
-    <div><strong>Tips:</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].Tips}}</div>
-  </div>
 
 	<div class="cardflat item-text-wrap">
 		<h4 ng-show="TokenNumber == null">Select a glyph for information</h4>
