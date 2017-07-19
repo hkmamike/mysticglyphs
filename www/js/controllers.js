@@ -167,8 +167,9 @@ angular.module('starter.controllers', [])
 		// CLOUD FUNCTION RESPONSES FOR GLYPH UNLOCK--------------------------------------------
 		firebase.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').on('value', function(snapshot) {
 			var Output = snapshot.val();
+			console.log ('GlyphValidation Output is:', Output);
 			var Result = Output.substring(0,Output.indexOf(","));
-			console.log ('Result is:', Result);
+			console.log ('GlyphValidation Result is:', Result);
 
 			if (Result==1) {
 				$scope.glyphCodeSubmitMessage = 'unlocked';
@@ -192,8 +193,47 @@ angular.module('starter.controllers', [])
 				$scope.$apply();
 			}
 		});
+
+		// CLOUD FUNCTION RESPONSES FOR ENROLL MISSION--------------------------------------------
+		firebase.database().ref('/User/'+ UserID +'/Output/EnrollMission').on('value', function(snapshot) {
+			var Output = snapshot.val();
+			console.log ('EnrollMission Output is:', Output);
+			var Result = Output.substring(0,Output.indexOf(","));
+			console.log ('EnrollMission Result is:', Result);
+
+			if (Result==1) {
+				$scope.enrollMessage = 'processing';
+				$scope.$apply();
+				console.log('Checking mission availability');
+				$timeout( function(){
+					/*Reset Output node*/
+					firebase.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('0,'+ Date());
+				},3000);
+			} else if (Result==2) {
+				$scope.glyphCodeSubmitMessage = 'unlocked';
+				$scope.$apply();
+				console.log('Mission enrollment has been completed');
+				$timeout( function(){
+					/*Reset Output node*/
+					firebase.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('0,'+ Date());
+				},3000);
+			} else if (Result==3) {
+				$scope.glyphCodeSubmitMessage = 'unsuccessful';
+				$scope.$apply();
+				console.log('Mission enrollment unsuccessful');
+				$timeout( function(){
+					/*Reset Output node*/
+					firebase.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('0,'+ Date());
+				},3000);
+			} else {
+				$scope.glyphCodeSubmitMessage = 'ready';
+				$scope.$apply();
+			}
+		});
 	});
 	// ---------------------------------------------------------------------------------
+
+
 
 	// SEE TOKEN HINTS MODAL----------------------------------------------------------------
 	$scope.TokenHintsData = {};

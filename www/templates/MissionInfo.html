@@ -1,16 +1,16 @@
-<ion-view view-title="{{UserRecord[SelectedCity].Mission[SelectedMission].Location}}" hide-nav-bar="false">
+<ion-view view-title="{{MissionList[SelectedCity].Mission[SelectedMission].Location}}" hide-nav-bar="false">
 
 <ion-content>
 
   <div class="cardflat item-text-wrap" ng-cloak>
-    <div><strong>Tips:</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Tips}}</div>
+    <div><strong>Tips:</strong> {{MissionList[SelectedCity][SelectedMission].Tips}}</div>
   </div>
 
   <div class="cardflat item-text-wrap">
     <div class="item item-text-wrap">
         <h2>Mission Introduction</h2>
       <div ng-class="isInfoShown(mission) ? 'item-expand active' : 'item-expand inactive'">
-        <p>{{UserRecord[SelectedCity].Mission[SelectedMission].LocationDesc}}</p>
+        <p>{{MissionList[SelectedCity][SelectedMission].LocationDesc}}</p>
       </div>
       <div ng-click="toggleInfo(mission)" class="item-expand-footer">
         <i ng-class="isInfoShown(mission) ? 'ion-ios-minus-outline' : 'ion-ios-plus-outline'"></i>
@@ -23,19 +23,21 @@
     <div class="item item-text-wrap">
       <h2>Mission Information</h2>
       <div>
-        Opening Hours: {{UserRecord[SelectedCity].Mission[SelectedMission].Hours}} <br>
-        Estimated Duration: {{UserRecord[SelectedCity].Mission[SelectedMission].EstimatedDuration}} <br>
-        Terrain: {{UserRecord[SelectedCity].Mission[SelectedMission].Terrain}} <br>
-        Glyphs Difficulty: {{UserRecord[SelectedCity].Mission[SelectedMission].GlyphsDifficulty}} <br>
-        Stealth Difficulty: {{UserRecord[SelectedCity].Mission[SelectedMission].StealthDifficulty}} <br>
-        Direction: {{UserRecord[SelectedCity].Mission[SelectedMission].Direction}} <br>
+        Opening Hours: {{MissionList[SelectedCity][SelectedMission].Hours}} <br>
+        Estimated Duration: {{MissionList[SelectedCity][SelectedMission].EstimatedDuration}} <br>
+        Terrain: {{MissionList[SelectedCity][SelectedMission].Terrain}} <br>
+        Glyphs Difficulty: {{MissionList[SelectedCity][SelectedMission].GlyphsDifficulty}} <br>
+        Stealth Difficulty: {{MissionList[SelectedCity][SelectedMission].StealthDifficulty}} <br>
+        Direction: {{UMissionList[SelectedCity][SelectedMission].Direction}} <br>
       </div>
     </div>
   </div>
 
-	<div> 
-			<button class="button center-align button-positive" ui-sref="app.Mission({CityID: SelectedCity, CampaignID: SelectedCampaign, MissionID: SelectedMission})" href="#/app/List/City/{{SelectedCity}}/Mission/{{MissionID}}">Begin Mission</button>
+  <div class="card">
+    <div class="item item-text-wrap" ng-class="{'validation-white' : enrollMessage == 'ready' || enrollMessage == 'processing', 'validation-green' : enrollMessage == 'unlocked', 'validation-red' : enrollMessage == 'unsuccessful'}">
+      <div ng-if="UserRecord[SelectedCity].Mission[SelectedMission] != null" ui-sref="app.Mission({CityID: SelectedCity, MissionID: SelectedMission})" href="#/app/List/City/{{SelectedCity}}/MissionInfo/{{SelectedMission}}"class="button button-block button-positive"><strong>Play</strong></div>
+      <div ng-if="UserRecord[SelectedCity].Mission[SelectedMission] == null" ng-click="EnrollMission(SelectedMission)" class="button button-block button-assertive"><strong>Enroll Now</strong></div>
+    </div>
   </div>
-
 
 </ion-content>

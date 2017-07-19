@@ -23,8 +23,7 @@
     </div>
 
     <div class="card">
-
-      <div class="item item-text-wrap" ng-class="{'glyph-claim-white' : glyphCodeSubmitMessage == 'ready' || glyphCodeSubmitMessage == 'submitting', 'glyph-claim-green' : glyphCodeSubmitMessage == 'unlocked', 'glyph-claim-red' : glyphCodeSubmitMessage == 'unsuccessful'}">
+      <div class="item item-text-wrap" ng-class="{'validation-white' : glyphCodeSubmitMessage == 'ready' || glyphCodeSubmitMessage == 'submitting', 'validation-green' : glyphCodeSubmitMessage == 'unlocked', 'validation-red' : glyphCodeSubmitMessage == 'unsuccessful'}">
         <label class="item item-input item-floating-label">
           <div class="input-label no-wrap">Glyph code</div>
           <input type="text" ng-model="TokenClaim.code" placeholder="enter glyph code...">

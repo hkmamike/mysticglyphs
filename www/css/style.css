@@ -50,7 +50,8 @@ body {
   background-color: #D9534F;
   color: #fff;
   font-weight: bold;  
-  height: 30px;
+  height: 20px;
+  line-height: 20px;
   text-align: center;
   padding: 5px;
 }
@@ -62,7 +63,8 @@ body {
   background-color: #428BCA;
   color: #fff;
   font-weight: bold;
-  height: 30px;
+  height: 20px;
+  line-height: 20px;
   text-align: center;
 }
 
@@ -70,19 +72,19 @@ body {
 
 /* Glyph Claim Response--------------------------------------------------*/
 
-.glyph-claim-white {
+.validation-white {
   border-style: solid !important;
   border-width: 10px !important;
   border-color: white !important;
 }
 
-.glyph-claim-red {
+.validation-red {
   border-style: solid !important;
   border-width: 10px !important;
   border-color: red !important;
 }
 
-.glyph-claim-green {
+.validation-green {
   border-style: solid !important;
   border-width: 10px !important;
   border-color: green !important;

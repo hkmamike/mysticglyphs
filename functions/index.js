@@ -10,8 +10,6 @@ exports.EnrollMission = functions.database.ref('/User/{UserID}/Input/EnrollMissi
 	var City = Input.substring(0, Input.indexOf('_'));
 	var Mission = Input;
 
-	console.log('City is: ' , City);
-
 	if (City=='warmUp') {
 		console.log ('warm up condition');
 		return 'warming up function - EnrollMission';
@@ -22,12 +20,23 @@ exports.EnrollMission = functions.database.ref('/User/{UserID}/Input/EnrollMissi
 				console.log('EnrollMission - City: ', City);
 				console.log('EnrollMission - Mission: ', Mission);
 				console.log('EnrollMission - user node snapshot: ', snapshot.val());
+
+				//Let client know request is being processed
+				admin.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('1,'+ Date());
+
 				if (snapshot.val()==null) {
+
 					//Copy Mission
 					admin.database().ref('/DatabaseInfo/MissionInfo/' + City + '/' + Mission).on('value', function(snapshot) {
 						console.log('EnrollMission - mission to be copied', snapshot.val());
 						admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission).set(snapshot.val());
+
+						//Let the client know mission is ready
+						admin.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('2,'+ Date());
 					});
+				} else {
+						//Let the client know mission is not available
+						admin.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('3,'+ Date());
 				}
 			});
 		}
@@ -136,11 +145,10 @@ exports.UnlockToken = functions.database.ref('/User/{UserID}/Input/ClaimToken/')
 							admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission +'/TokenUnlocked/').set(TokenUnlocked);
 						}
 					});
+				} else {
+						console.log ('Mission:', Mission, 'Token:', Token, 'Result: Invalid GlyphCode');
+						admin.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').set('0,'+ Date());
 				}
-				else {
-					console.log ('Mission:', Mission, 'Token:', Token, 'Result: Invalid GlyphCode');
-					admin.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').set('0,'+ Date());
-				};
 			});
 		}
 });
