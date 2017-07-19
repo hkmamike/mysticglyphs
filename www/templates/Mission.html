@@ -9,7 +9,7 @@
 		</div>
 
 		<div ng-repeat="n in [1,2,3,4,5,6]" ng-init = "glyphSelection">
-			<div ng-click = "selectGlyph(SelectedMission, n)">
+			<div ng-click = "selectGlyph(SelectedMission, n); scrollResize()">
 				<img ng-if="UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].ClaimStatus.toString() == 'Unlocked' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenUnlocked.png?alt=media&token=cc970ad1-4cea-4964-943c-1e02eb9dd451' class='oneSixth' ng-class="{'selectedHighlight' : glyphSelection == n, 'notSelected' : glyphSelection != n}">
 				<img ng-if="UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].ClaimStatus.toString() == 'Pending' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenLocked.png?alt=media&token=cc5d4654-d4f7-430f-bf36-0f4c36fc5e8d' class='oneSixth' ng-class="{'selectedHighlight' : glyphSelection == n, 'notSelected' : glyphSelection != n}">
 			</div>

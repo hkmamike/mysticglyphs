@@ -7,7 +7,7 @@ angular.module('starter.controllers', [])
 	};
 })
 
-.controller('AppCtrl', function($scope, $timeout, $rootScope, $state, $stateParams, $firebaseObject, $ionicSlideBoxDelegate, $ionicModal, $ionicSideMenuDelegate) {
+.controller('AppCtrl', function($scope, $timeout, $rootScope, $state, $stateParams, $firebaseObject, $ionicScrollDelegate, $ionicSlideBoxDelegate, $ionicModal, $ionicSideMenuDelegate) {
 
 	// City & Mission List Objects------------------------------------------------------
 	$scope.CityList = $firebaseObject(firebase.database().ref('/DatabaseInfo/' + '/CityCampaignInfo/'));
@@ -123,6 +123,12 @@ angular.module('starter.controllers', [])
   $scope.selectGlyph = function(SelectedMission, n) {
 		$scope.TokenNumber = SelectedMission + '_' + n;
 		$scope.glyphSelection = n;
+  };
+  $scope.scrollResize = function() {
+		$timeout( function(){
+			/*Resize the Scroll Area*/
+			$ionicScrollDelegate.resize();
+		},200);
   };
 	// ---------------------------------------------------------------------------------
 
