@@ -98,12 +98,18 @@ angular.module('starter.controllers', [])
 		//Warm up firebase functions by input triggers
 		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollMission/').set('warmUp_' + Date());
 	};
-	$scope.EnrollMission = function(MissionID) {
+	$scope.enrollMission = function(MissionID) {
 		console.log('Enroll Mission: ', MissionID);
 		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollMission/').set(MissionID);
 		//Warm up firebase functions by input triggers
 		firebase.database().ref('/User/'+ UserID +'/Input/' + '/ClaimToken/').set('warmUp,' + Date());
 	};
+
+	$scope.enrollMissionMessage = 'ready';
+	$scope.enrollMessage = function() {
+		$scope.enrollMissionMessage = 'processing';
+	};
+
 	$scope.toggleInfo = function(info) {
     if ($scope.isInfoShown(info)) {
       $scope.shownInfo = null;
@@ -202,7 +208,7 @@ angular.module('starter.controllers', [])
 			console.log ('EnrollMission Result is:', Result);
 
 			if (Result==1) {
-				$scope.enrollMessage = 'processing';
+				$scope.enrollMissionMessage = 'processing';
 				$scope.$apply();
 				console.log('Checking mission availability');
 				$timeout( function(){
@@ -210,7 +216,7 @@ angular.module('starter.controllers', [])
 					firebase.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('0,'+ Date());
 				},3000);
 			} else if (Result==2) {
-				$scope.glyphCodeSubmitMessage = 'unlocked';
+				$scope.enrollMissionMessage = 'unlocked';
 				$scope.$apply();
 				console.log('Mission enrollment has been completed');
 				$timeout( function(){
@@ -218,7 +224,7 @@ angular.module('starter.controllers', [])
 					firebase.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('0,'+ Date());
 				},3000);
 			} else if (Result==3) {
-				$scope.glyphCodeSubmitMessage = 'unsuccessful';
+				$scope.enrollMissionMessage = 'unsuccessful';
 				$scope.$apply();
 				console.log('Mission enrollment unsuccessful');
 				$timeout( function(){
@@ -226,7 +232,7 @@ angular.module('starter.controllers', [])
 					firebase.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('0,'+ Date());
 				},3000);
 			} else {
-				$scope.glyphCodeSubmitMessage = 'ready';
+				$scope.enrollMissionMessage = 'ready';
 				$scope.$apply();
 			}
 		});

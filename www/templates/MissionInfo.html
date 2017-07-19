@@ -34,9 +34,21 @@
   </div>
 
   <div class="card">
-    <div class="item item-text-wrap" ng-class="{'validation-white' : enrollMessage == 'ready' || enrollMessage == 'processing', 'validation-green' : enrollMessage == 'unlocked', 'validation-red' : enrollMessage == 'unsuccessful'}">
+    <div class="item item-text-wrap" ng-class="{'validation-white' : enrollMissionMessage == 'ready' || enrollMissionMessage == 'processing', 'validation-green' : enrollMissionMessage == 'unlocked', 'validation-red' : enrollMissionMessage == 'unsuccessful'}">
       <div ng-if="UserRecord[SelectedCity].Mission[SelectedMission] != null" ui-sref="app.Mission({CityID: SelectedCity, MissionID: SelectedMission})" href="#/app/List/City/{{SelectedCity}}/MissionInfo/{{SelectedMission}}"class="button button-block button-positive"><strong>Play</strong></div>
-      <div ng-if="UserRecord[SelectedCity].Mission[SelectedMission] == null" ng-click="EnrollMission(SelectedMission)" class="button button-block button-assertive"><strong>Enroll Now</strong></div>
+      <div ng-if="UserRecord[SelectedCity].Mission[SelectedMission] == null" ng-click="enrollMission(SelectedMission)" class="button button-block button-assertive"><strong>Enroll Now</strong></div>
+      <div ng-show="enrollMissionMessage == 'ready'">
+        <h4 class="center-align"><br></h4>
+      </div>       
+      <div ng-show="enrollMissionMessage == 'processing'">
+        <h4 class="center-align">Checking availability</h4>
+      </div>
+      <div ng-show="enrollMissionMessage == 'unlocked'">
+        <h4 class="center-align">Success!</h4>
+      </div>
+      <div ng-show="enrollMissionMessage == 'unsuccessful'">
+        <h4 class="center-align">Mission is not available</h4>
+      </div>
     </div>
   </div>
 

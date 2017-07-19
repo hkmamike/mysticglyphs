@@ -29,7 +29,7 @@
           <input type="text" ng-model="TokenClaim.code" placeholder="enter glyph code...">
         </label>
         <button type="submit" class="button button-block button-positive" ng-click="claimToken(TokenNumber, TokenClaim.code); codeSubmitMessage();"> Claim Glyph</button>
-         <div ng-show="glyphCodeSubmitMessage == 'ready'">
+        <div ng-show="glyphCodeSubmitMessage == 'ready'">
           <h4 class="center-align"><br></h4>
         </div>       
         <div ng-show="glyphCodeSubmitMessage == 'submitting'">

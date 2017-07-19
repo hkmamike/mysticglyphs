@@ -34,9 +34,6 @@ exports.EnrollMission = functions.database.ref('/User/{UserID}/Input/EnrollMissi
 						//Let the client know mission is ready
 						admin.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('2,'+ Date());
 					});
-				} else {
-						//Let the client know mission is not available
-						admin.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('3,'+ Date());
 				}
 			});
 		}
@@ -46,15 +43,17 @@ exports.NewUser = functions.auth.user().onCreate(event => {
 	const userInfo = event.data;
 	console.log (userInfo)
 
-	admin.database().ref('/User/'+ userInfo.uid+'/'+ 'UserInfo' + '/' + 'UserEmail'+'/').set(userInfo.email);
-	admin.database().ref('/User/'+ userInfo.uid+'/'+ 'UserInfo' + '/'+ 'UserName'+'/').set(userInfo.displayName);
-	admin.database().ref('/User/'+ userInfo.uid+'/'+ 'UserInfo' + '/'+ 'UserPict'+'/').set(userInfo.photoURL);
-	admin.database().ref('/User/'+ userInfo.uid+'/'+ 'UserInfo' + '/'+ 'UserFB'+'/').set(userInfo.providerData.uid);
+	admin.database().ref('/User/'+ userInfo.uid +'/'+ 'UserInfo' + '/' + 'UserEmail'+'/').set(userInfo.email);
+	admin.database().ref('/User/'+ userInfo.uid +'/'+ 'UserInfo' + '/'+ 'UserName'+'/').set(userInfo.displayName);
+	admin.database().ref('/User/'+ userInfo.uid +'/'+ 'UserInfo' + '/'+ 'UserPict'+'/').set(userInfo.photoURL);
+	admin.database().ref('/User/'+ userInfo.uid +'/'+ 'UserInfo' + '/'+ 'UserFB'+'/').set(userInfo.providerData.uid);
 
-	admin.database().ref('/User/'+ userInfo.uid+'/'+ 'Input'+'/' + 'ClaimToken').set('null');
-	admin.database().ref('/User/'+ userInfo.uid+'/'+ 'Input'+'/' + 'EnrollCampaign').set('null');
-	admin.database().ref('/User/'+ userInfo.uid+'/'+ 'Input'+'/' + 'MissionComplete').set('null');
+	admin.database().ref('/User/'+ userInfo.uid +'/'+ 'Input'+'/' + 'ClaimToken').set('null');
+	admin.database().ref('/User/'+ userInfo.uid +'/'+ 'Input'+'/' + 'EnrollCampaign').set('null');
+	admin.database().ref('/User/'+ userInfo.uid +'/'+ 'Input'+'/' + 'MissionComplete').set('null');
 
+	admin.database().ref('/User/'+ userInfo.uid +'/Output/GlyphUnlock').set('2,'+ Date());
+	admin.database().ref('/User/'+ userInfo.uid +'/Output/EnrollMission').set('0,'+ Date());
 });
 
 
