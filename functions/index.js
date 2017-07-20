@@ -176,6 +176,7 @@ exports.UnlockToken = functions.database.ref('/User/{UserID}/Input/ClaimToken/')
 										admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/StartTimeStamp/').once('value', function(snapshot) {
 											var StartTime = new Date(snapshot.val());
 											var Duration = (EndTime - StartTime)/(1000);
+											admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/Duration/').set(Duration);
 										});
 									}
 								});
