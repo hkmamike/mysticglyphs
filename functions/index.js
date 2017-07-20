@@ -16,7 +16,7 @@ exports.EnrollMission = functions.database.ref('/User/{UserID}/Input/EnrollMissi
 	} else {
 			var UserID = event.params.UserID;
 
-			admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission).on('value', function(snapshot) {
+			admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission).once('value', function(snapshot) {
 				console.log('EnrollMission - City: ', City);
 				console.log('EnrollMission - Mission: ', Mission);
 				console.log('EnrollMission - user node snapshot: ', snapshot.val());
@@ -27,7 +27,7 @@ exports.EnrollMission = functions.database.ref('/User/{UserID}/Input/EnrollMissi
 				if (snapshot.val()==null) {
 
 					//Copy Mission
-					admin.database().ref('/DatabaseInfo/MissionInfo/' + City + '/' + Mission).on('value', function(snapshot) {
+					admin.database().ref('/DatabaseInfo/MissionInfo/' + City + '/' + Mission).once('value', function(snapshot) {
 						console.log('EnrollMission - mission to be copied', snapshot.val());
 						admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission).set(snapshot.val());
 
@@ -39,7 +39,26 @@ exports.EnrollMission = functions.database.ref('/User/{UserID}/Input/EnrollMissi
 		}
 });
 
-// exports.BeginMission = functions.database.ref('/User/{UserID}/Input/BeginMission/').onWrite()
+exports.StartTimer = functions.database.ref('/User/{UserID}/Input/TimerStart/').onWrite(event => {
+
+	var Input = event.data.val();
+	var Mission = Input.substring(0, Input.indexOf(','));
+	var TimeStamp = Input.substring(Input.indexOf(',') + 1,Input.length);
+
+	if (Mission=='warmUp') {
+		console.log ('warm up condition');
+		return 'warming up function - StartTimer';
+	} else {
+			var UserID = event.params.UserID;
+
+			admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/StartTimeStamp/').once('value', function(snapshot) {
+				if (snapshot.val()==null) {
+					//Make Time Stamp
+					admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/StartTimeStamp/').set(Date());
+				}
+			});
+		}
+});
 
 exports.NewUser = functions.auth.user().onCreate(event => {
 	const userInfo = event.data;
@@ -59,48 +78,48 @@ exports.NewUser = functions.auth.user().onCreate(event => {
 });
 
 
-exports.MissionComplete = functions.database.ref('/User/{UserID}/Input/MissionComplete/').onWrite(event => {
+// exports.MissionComplete = functions.database.ref('/User/{UserID}/Input/MissionComplete/').onWrite(event => {
 
-	var UserID= event.params.UserID;
-	var Input = event.data.val();
-	var City = Input.substring(0, Input.indexOf('_'));
-	var Campaign = Input.substring(0, Input.indexOf('_') + 2);
-	var CurrentMission = Input;
-	var CurrentMissionNumber = Input.substring(Input.indexOf('_') + 3, Input.indexOf('_') + 4);
-	var NextMissionNumber = parseInt(CurrentMissionNumber) + 1;
-	var NextMission = Campaign + '_' + NextMissionNumber;
+// 	var UserID= event.params.UserID;
+// 	var Input = event.data.val();
+// 	var City = Input.substring(0, Input.indexOf('_'));
+// 	var Campaign = Input.substring(0, Input.indexOf('_') + 2);
+// 	var CurrentMission = Input;
+// 	var CurrentMissionNumber = Input.substring(Input.indexOf('_') + 3, Input.indexOf('_') + 4);
+// 	var NextMissionNumber = parseInt(CurrentMissionNumber) + 1;
+// 	var NextMission = Campaign + '_' + NextMissionNumber;
 
-	//Check if 4 token Unlocked for Pending Mission
-	admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Campaign/' + Campaign + '/Mission/' + CurrentMission).on('value', function(snapshot) {
-		var MissionStatus = snapshot.val().MissionStatus;
-		var AllToken = snapshot.val().Token;
-		var TokenUnlocked = 0
-		if (AllToken[CurrentMission + '_1'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1};
-		if (AllToken[CurrentMission + '_2'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1};
-		if (AllToken[CurrentMission + '_3'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1};
-		if (AllToken[CurrentMission + '_4'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1};
-		if (AllToken[CurrentMission + '_5'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1};
-		if (AllToken[CurrentMission + '_6'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1};
+// 	//Check if 4 token Unlocked for Pending Mission
+// 	admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Campaign/' + Campaign + '/Mission/' + CurrentMission).on('value', function(snapshot) {
+// 		var MissionStatus = snapshot.val().MissionStatus;
+// 		var AllToken = snapshot.val().Token;
+// 		var TokenUnlocked = 0
+// 		if (AllToken[CurrentMission + '_1'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1};
+// 		if (AllToken[CurrentMission + '_2'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1};
+// 		if (AllToken[CurrentMission + '_3'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1};
+// 		if (AllToken[CurrentMission + '_4'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1};
+// 		if (AllToken[CurrentMission + '_5'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1};
+// 		if (AllToken[CurrentMission + '_6'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1};
 		
-		if (TokenUnlocked >= 4 && MissionStatus == 'Current'){
-			//Update Current Mission Status to Completed
-			admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Campaign/' + Campaign + '/Mission/' + CurrentMission + '/MissionStatus/').set('Completed');
-			//Check Compaign Paid Status
-			admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Campaign/' + Campaign + '/CampaignType/').on('value', function(snapshot) {
-				if (snapshot.val() == 'Free' || snapshot.val() == 'Paid Unlocked'){
-					//Copy Next Mission to User Database
-					admin.database().ref('/User/'+ UserID +'/Unlocked/Mission/' + CurrentMission).set(Date());
-					admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Campaign/' + Campaign + '/MissionCompleted/').set(CurrentMissionNumber);
-					admin.database().ref('/DatabaseInfo/MissionInfo/' + NextMission ).on('value', function(snapshot) {	
-						admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Campaign/' + Campaign + '/Mission/' + NextMission).set(snapshot.val());
-					});
-				}
-			});
-		}
+// 		if (TokenUnlocked >= 4 && MissionStatus == 'Current'){
+// 			//Update Current Mission Status to Completed
+// 			admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Campaign/' + Campaign + '/Mission/' + CurrentMission + '/MissionStatus/').set('Completed');
+// 			//Check Compaign Paid Status
+// 			admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Campaign/' + Campaign + '/CampaignType/').on('value', function(snapshot) {
+// 				if (snapshot.val() == 'Free' || snapshot.val() == 'Paid Unlocked'){
+// 					//Copy Next Mission to User Database
+// 					admin.database().ref('/User/'+ UserID +'/Unlocked/Mission/' + CurrentMission).set(Date());
+// 					admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Campaign/' + Campaign + '/MissionCompleted/').set(CurrentMissionNumber);
+// 					admin.database().ref('/DatabaseInfo/MissionInfo/' + NextMission ).on('value', function(snapshot) {	
+// 						admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Campaign/' + Campaign + '/Mission/' + NextMission).set(snapshot.val());
+// 					});
+// 				}
+// 			});
+// 		}
 
-	});
+// 	});
 
-});
+// });
 
 exports.UnlockToken = functions.database.ref('/User/{UserID}/Input/ClaimToken/').onWrite(event => {
 
@@ -118,7 +137,7 @@ exports.UnlockToken = functions.database.ref('/User/{UserID}/Input/ClaimToken/')
 			var City = Token.substring(0, Token.indexOf("_"));
 			var Mission = Token.substring(0, Token.indexOf("_") + 4);
 
-			admin.database().ref('/DatabaseInfo/TokenInfo/' + Token + '/TokenCode/' ).on('value', function(snapshot) {
+			admin.database().ref('/DatabaseInfo/TokenInfo/' + Token + '/TokenCode/' ).once('value', function(snapshot) {
 
 				//Check Token Validaty
 				if (snapshot.val() == TokenCode) {
@@ -127,7 +146,7 @@ exports.UnlockToken = functions.database.ref('/User/{UserID}/Input/ClaimToken/')
 					//Let client know the code works
 					admin.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').set('1,'+ Date());
 
-					admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission).on('value', function(snapshot) {
+					admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission).once('value', function(snapshot) {
 						//Check Mission Exist
 						if (snapshot.val() !== null) {
 							var AllToken = snapshot.val().Token;
@@ -144,6 +163,22 @@ exports.UnlockToken = functions.database.ref('/User/{UserID}/Input/ClaimToken/')
 							
 							//Record Unlock
 							admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission +'/TokenUnlocked/').set(TokenUnlocked);
+
+							//If TokenUnlocked >= 4 and EndTimeStamp is null, make EndTimeStamp
+							if (TokenUnlocked >= 4) {
+								admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/EndTimeStamp/').once('value', function(snapshot) {
+									if (snapshot.val()==null) {
+										var EndTime = Date();
+										//Make Time Stamp
+										admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/EndTimeStamp/').set(EndTime);
+										//Calculate Duration
+										admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/StartTimeStamp/').once('value', function(snapshot) {
+											var StartTime = new Date(snapshot.val());
+											var Duration = (EndTime - StartTime)/(1000):
+										});
+									}
+								});
+							}
 						}
 					});
 				} else {
