@@ -110,6 +110,10 @@ angular.module('starter.controllers', [])
 		$scope.enrollMissionMessage = 'processing';
 	};
 
+	$scope.startTimer = function (SelectedMission) {
+		console.log ('Timer for Mission ', SelectedMission, ' starts now at ', Date());
+	};
+
 	$scope.toggleInfo = function(info) {
     if ($scope.isInfoShown(info)) {
       $scope.shownInfo = null;

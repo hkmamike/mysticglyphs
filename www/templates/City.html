@@ -9,6 +9,7 @@
 			<div class="textShadow">{{Mission.Location}}</div>
 		</div>
 
+		<div ng-if="UserRecord[SelectedCity].Mission[MissionID].MissionStatus == 'Complete'" class="play-bar">Complete</div>
 		<div ng-if="UserRecord[SelectedCity].Mission[MissionID].MissionStatus == 'Current'" class="play-bar">Available</div>
 		<div ng-if="UserRecord[SelectedCity].Mission[MissionID] == null" class="enroll-bar">Enroll Now</div>
 
