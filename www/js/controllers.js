@@ -112,6 +112,7 @@ angular.module('starter.controllers', [])
 
 	$scope.startTimer = function (SelectedMission) {
 		console.log ('Timer for Mission ', SelectedMission, ' starts now at ', Date());
+		firebase.database().ref('/User/'+ UserID +'/Input/' + '/TimerStart/').set(SelectedMission + ', ' + Date());
 	};
 
 	$scope.toggleInfo = function(info) {
@@ -169,9 +170,8 @@ angular.module('starter.controllers', [])
 	$scope.closeUnlockedHints = function() {
 		$scope.unlockedHints.hide();
 	};
-	$scope.openUnlockedHints = function(TokenNumber, SelectedMission, SelectedCity) {
+	$scope.openUnlockedHints = function(SelectedMission, SelectedCity) {
 		$scope.unlockedHints.show();
-		$scope.TokenNumber = TokenNumber;
 		$scope.SelectedMission = SelectedMission;
 		$scope.SelectedCity = SelectedCity;
 	};
@@ -188,6 +188,7 @@ angular.module('starter.controllers', [])
 	};
 	$scope.openImageHint = function(TokenNumber, SelectedMission, SelectedCity) {
 		$scope.imageHint.show();
+		$scope.TokenNumber = TokenNumber;
 		$scope.SelectedMission = SelectedMission;
 		$scope.SelectedCity = SelectedCity;
 	};
