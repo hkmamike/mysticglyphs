@@ -42,6 +42,7 @@ exports.EnrollMission = functions.database.ref('/User/{UserID}/Input/EnrollMissi
 exports.StartTimer = functions.database.ref('/User/{UserID}/Input/TimerStart/').onWrite(event => {
 
 	var Input = event.data.val();
+	var City = Input.substring(0, Input.indexOf('_'));
 	var Mission = Input.substring(0, Input.indexOf(','));
 	var TimeStamp = Input.substring(Input.indexOf(',') + 1,Input.length);
 
