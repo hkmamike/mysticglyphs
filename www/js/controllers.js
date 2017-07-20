@@ -156,6 +156,27 @@ angular.module('starter.controllers', [])
 	};
 	// ---------------------------------------------------------------------------------
 
+	// UNLOCKED HINTS MODAL----------------------------------------------------------------
+	$ionicModal.fromTemplateUrl('templates/unlockedHints.html', {
+		scope: $scope
+	}).then(function(modal) {
+		$scope.unlockedHints = modal;
+	});
+	$scope.closeUnlockedHints = function() {
+		$scope.unlockedHints.hide();
+	};
+	$scope.openUnlockedHints = function(SelectedMission, SelectedCity) {
+		$scope.unlockedHints.show();
+		$scope.SelectedMission = SelectedMission;
+		$scope.SelectedCity = SelectedCity;
+	};
+
+	$scope.glyphCodeSubmitMessage = 'ready';
+	$scope.codeSubmitMessage = function() {
+		$scope.glyphCodeSubmitMessage = 'submitting';
+	};
+	// ---------------------------------------------------------------------------------
+
 	// USER INFO------------------------------------------------------------------------
 
 	firebase.auth().onAuthStateChanged(function (user) {
@@ -243,24 +264,6 @@ angular.module('starter.controllers', [])
 			}
 		});
 	});
-	// ---------------------------------------------------------------------------------
-
-
-
-	// SEE TOKEN HINTS MODAL----------------------------------------------------------------
-	$scope.TokenHintsData = {};
-	$ionicModal.fromTemplateUrl('templates/tokenHints.html', {
-		scope: $scope
-	}).then(function(modal) {
-		$scope.Hints = modal;
-	});
-	$scope.closeHints = function() {
-		$scope.Hints.hide();
-	};
-	$scope.openHints = function(TokenNumber) {
-		$scope.Hints.show();
-		$scope.TokenNumber = TokenNumber;
-	};
 	// ---------------------------------------------------------------------------------
 
 })

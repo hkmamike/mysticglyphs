@@ -1,13 +1,13 @@
-<ion-view view-title="{{UserRecord[SelectedCity].Mission[SelectedMission].Location}}" hide-nav-bar="false">
+<ion-view view-title="{{UserRecord[SelectedCity][SelectedMission].Location}}" hide-nav-bar="false">
 
 <ion-content>
-
-	<div class="cardflat item-text-wrap">
 
   <div class="cardflat item-text-wrap" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].Tips">
     <div><strong>Tips:</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].Tips}}</div>
   </div>
-  
+
+  <div class="cardflat item-text-wrap">
+
 		<div class ='oneSixth' ng-repeat="n in [1,2,3,4,5,6]" >
 			<div class='oneSixthCenter'><strong>{{n}}</strong></div>
 		</div>
@@ -33,25 +33,17 @@
 
 		<div ng-if="TokenNumber">
 	 		<div ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].ClaimStatus == 'Pending'">
-					<button class="button center-align button-positive" ng-click='openTokenClaim(TokenNumber,SelectedMission, SelectedCity)'>Glyph Claim</button>
+					<button class="button center-align button-positive" ng-click='openTokenClaim(TokenNumber,SelectedMission, SelectedCity)'>Claim Glyph</button>
+			</div>
+			<div ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].TokenImg != '<img>'">
+				<button class="button center-align button-positive" ng-click='openTokenClaim(TokenNumber,SelectedMission, SelectedCity)'>See Image Hint</button>
 			</div>
 		</div>
 	</div>
 
-	<div class="cardflat item-text-wrap lastcard" ng-show="TokenNumber != null">
-
-		<div><strong>Solved glyphs unlock additional hints:</strong></div>
-
-		<div ng-repeat="n in [1,2,3,4,5,6]">
-			<li ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintA && UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].ClaimStatus == 'Unlocked'">{{UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintA}}</li>
-      <li ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintB && UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].ClaimStatus == 'Unlocked'">{{UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintB}}</li>
-    	<li ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintC && UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].ClaimStatus == 'Unlocked'">{{UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintC}}</li>
-    	<li ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintD && UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].ClaimStatus == 'Unlocked'">{{UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintD}}</li>
-      <li ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintE && UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].ClaimStatus == 'Unlocked'">{{UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintE}}</li>
-  	</div>
-
-  </div>
-
+	<div class="cardflat item-text-wrap" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].ClaimStatus == 'Unlocked'">
+		<p>Good Job! Solving each glyph unlocks clues for other glyphs.</p>
+		<button class="button center-align button-positive" ng-click='openUnlockedHints(SelectedMission, SelectedCity)'> See Unlocked Hints</button>
 	</div>
 
 <!-- 

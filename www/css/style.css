@@ -186,8 +186,8 @@ body {
     border-top: 12px solid #387ef5;
     border-bottom: 12px solid #387ef5;
     border-radius: 50%;
-    width: 20%;
-    height: 12%;
+    width: 65px;
+    height: 65px;
     animation: spin 1.5s linear infinite;
 }
 
