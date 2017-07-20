@@ -1,42 +1,22 @@
 <ion-modal-view>
 
   <ion-header-bar>
-    <h1 class="title"></h1>
+    <h1 class="title">Image Hint</h1>
     <div class="buttons">
-      <button class="button button-cross button-dark" ng-click="closeTokenClaim()">Close</button>
+      <button class="button button-cross button-positive" ng-click="closeImageHint()">Close</button>
     </div>
   </ion-header-bar>
 
   <ion-content>
 
     <div class="cardflat item-text-wrap">
-
-      <h2>Glyph Information</h2>
-
-      <div>
-        <strong>Glyph Name :</strong> {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].TokenName}} <br>
-        <strong>Glyph Message :</strong> {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].TokenMsg}} <br>
-        <strong>Search Hints :</strong> {{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].SearchHints}} <br>
-        <br>
+      <div class="pictureFrame" style="background-image: url({{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].TokenImg}});">
+        <img src={{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].TokenImg}} style="visibility: hidden; width: 100%">
       </div>
-
-      <img src={{UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].Token[TokenNumber].SearchHints}} style="visibility: hidden; width: 100%">
-
     </div>
 
-    <div class="card">
-
-      <div ng-show="glyphCodeSubmitMessage">
-        <h4 class="center-align">Glyph code submitted. Glyph status will update if it is correct.</h4>
-      </div>
-
-      <div class="item item-text-wrap" ng-show="!glyphCodeSubmitMessage">
-        <label class="item item-input item-floating-label">
-          <span class="input-label">Glyph code</span>
-          <input type="text" ng-model="TokenClaim.code" placeholder="enter glyph code...">
-        </label>
-        <button type="submit" class="button button-block button-balanced" ng-click="claimToken(TokenNumber, TokenClaim.code); codeSubmitMessage();"> Claim Glyph</button>
-      </div>
+    <div class="cardflat item-text-wrap">
+      <div><strong>Message:</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].TokenImgMessage}}</div>
     </div>
 
   </ion-content>

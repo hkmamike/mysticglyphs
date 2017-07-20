@@ -2,9 +2,9 @@
 
   <ion-header-bar>
     <h1 class="title">Unlocked Hints</h1>
-<!--     <div class="buttons">
+    <div class="buttons">
       <button class="button button-cross button-positive" ng-click="closeUnlockedHints()">Close</button>
-    </div> -->
+    </div>
   </ion-header-bar>
 
   <ion-content>
@@ -17,11 +17,9 @@
         <li ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintD && UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].ClaimStatus == 'Unlocked'">{{UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintD}}</li>
         <li ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintE && UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].ClaimStatus == 'Unlocked'">{{UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintE}}</li>
       </div>
-
     </div>
 
     <button class="button center-align button-positive" ng-click='closeUnlockedHints()'>Close</button>
-
 
   </ion-content>
 

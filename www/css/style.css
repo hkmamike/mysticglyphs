@@ -285,6 +285,17 @@ li {
   margin-right: 10%;
 }
 
+.inline-block-container {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.inline-block {
+  display: inline-block;
+  margin: 10px;
+  height: 30px;
+}
+
 .half {
   display: inline-block;
   margin-top: 0.1%;

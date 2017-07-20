@@ -165,15 +165,27 @@ angular.module('starter.controllers', [])
 	$scope.closeUnlockedHints = function() {
 		$scope.unlockedHints.hide();
 	};
-	$scope.openUnlockedHints = function(SelectedMission, SelectedCity) {
+	$scope.openUnlockedHints = function(TokenNumber, SelectedMission, SelectedCity) {
 		$scope.unlockedHints.show();
+		$scope.TokenNumber = TokenNumber;
 		$scope.SelectedMission = SelectedMission;
 		$scope.SelectedCity = SelectedCity;
 	};
+	// ---------------------------------------------------------------------------------
 
-	$scope.glyphCodeSubmitMessage = 'ready';
-	$scope.codeSubmitMessage = function() {
-		$scope.glyphCodeSubmitMessage = 'submitting';
+	// Image HINTS MODAL----------------------------------------------------------------
+	$ionicModal.fromTemplateUrl('templates/imageHint.html', {
+		scope: $scope
+	}).then(function(modal) {
+		$scope.imageHint = modal;
+	});
+	$scope.closeImageHint = function() {
+		$scope.imageHint.hide();
+	};
+	$scope.openImageHint = function(TokenNumber, SelectedMission, SelectedCity) {
+		$scope.imageHint.show();
+		$scope.SelectedMission = SelectedMission;
+		$scope.SelectedCity = SelectedCity;
 	};
 	// ---------------------------------------------------------------------------------
 
@@ -212,6 +224,7 @@ angular.module('starter.controllers', [])
 					/*Reset Output node*/
 					firebase.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').set('2,'+ Date());
 					$scope.closeTokenClaim();
+					$scope.openUnlockedHints($scope.SelectedMission, $scope.SelectedCity);
 				},3000);
 			} else if (Result==0) {
 				$scope.glyphCodeSubmitMessage = 'unsuccessful';

@@ -39,6 +39,8 @@ exports.EnrollMission = functions.database.ref('/User/{UserID}/Input/EnrollMissi
 		}
 });
 
+// exports.BeginMission = functions.database.ref('/User/{UserID}/Input/BeginMission/').onWrite()
+
 exports.NewUser = functions.auth.user().onCreate(event => {
 	const userInfo = event.data;
 	console.log (userInfo)

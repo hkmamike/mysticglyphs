@@ -1,4 +1,4 @@
-<ion-view view-title="{{UserRecord[SelectedCity][SelectedMission].Location}}" hide-nav-bar="false">
+<ion-view view-title="{{UserRecord[SelectedCity].Mission[SelectedMission].Location}}" hide-nav-bar="false">
 
 <ion-content>
 
@@ -31,12 +31,12 @@
 			<br>
 		</div>
 
-		<div ng-if="TokenNumber">
-	 		<div ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].ClaimStatus == 'Pending'">
-					<button class="button center-align button-positive" ng-click='openTokenClaim(TokenNumber,SelectedMission, SelectedCity)'>Claim Glyph</button>
+		<div ng-if="TokenNumber" class="inline-block-container">
+	 		<div ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].ClaimStatus == 'Pending'" class="inline-block">
+					<button class="button button-positive" ng-click='openTokenClaim(TokenNumber,SelectedMission, SelectedCity)'>Claim Glyph</button>
 			</div>
-			<div ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].TokenImg != '<img>'">
-				<button class="button center-align button-positive" ng-click='openTokenClaim(TokenNumber,SelectedMission, SelectedCity)'>See Image Hint</button>
+			<div ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].TokenImg != '<img>'" class="inline-block">
+				<button class="button button-positive" ng-click='openImageHint(TokenNumber,SelectedMission, SelectedCity)'>See Image Hint</button>
 			</div>
 		</div>
 	</div>
