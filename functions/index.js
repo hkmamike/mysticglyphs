@@ -169,6 +169,8 @@ exports.UnlockToken = functions.database.ref('/User/{UserID}/Input/ClaimToken/')
 										var EndTimeString = Date();
 										//Make Time Stamp
 										admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/EndTimeStamp/').set(EndTimeString);
+										//Make Time Stamp
+										admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/MissionStatus/').set('Complete');
 										//Calculate Duration
 										admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/StartTimeStamp/').once('value', function(snapshot) {
 											var StartTime = new Date(snapshot.val());
