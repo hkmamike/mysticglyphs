@@ -20,7 +20,7 @@
 		</div>
 	</div> 
 
-	<div class="cardflat item-text-wrap">
+	<div class="cardflat item-text-wrap" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].ClaimStatus == 'Pending'">
 		<h4 ng-show="TokenNumber == null">Select a glyph for information</h4>
 
 		<div ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].ClaimStatus == 'Pending'">
