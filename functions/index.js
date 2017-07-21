@@ -170,7 +170,7 @@ exports.UnlockToken = functions.database.ref('/User/{UserID}/Input/ClaimToken/')
 										//Calculate Duration
 										admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/StartTimeStamp/').once('value', function(snapshot) {
 											var StartTime = new Date(snapshot.val());
-											var Duration = Math.floor((EndTime - StartTime/1000);
+											var Duration = Math.floor((EndTime - StartTime)/1000);
 											admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/Duration/').set(Duration);
 										});
 									}
