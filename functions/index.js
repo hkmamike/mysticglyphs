@@ -22,7 +22,7 @@ exports.EnrollMission = functions.database.ref('/User/{UserID}/Input/EnrollMissi
 				console.log('EnrollMission - user node snapshot: ', snapshot.val());
 
 				//Let client know request is being processed
-				admin.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('1,'+ Date());
+				admin.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('1,'+ Date.now());
 
 				if (snapshot.val()==null) {
 
@@ -32,7 +32,7 @@ exports.EnrollMission = functions.database.ref('/User/{UserID}/Input/EnrollMissi
 						admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission).set(snapshot.val());
 
 						//Let the client know mission is ready
-						admin.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('2,'+ Date());
+						admin.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('2,'+ Date.now());
 					});
 				}
 			});
@@ -55,7 +55,7 @@ exports.StartTimer = functions.database.ref('/User/{UserID}/Input/TimerStart/').
 			admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/StartTimeStamp/').once('value', function(snapshot) {
 				if (snapshot.val()==null) {
 					//Make Time Stamp
-					admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/StartTimeStamp/').set(Date());
+					admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/StartTimeStamp/').set(Date.now());
 				}
 			});
 		}
@@ -68,8 +68,8 @@ exports.NewUser = functions.auth.user().onCreate(event => {
 	admin.database().ref('/User/'+ userInfo.uid +'/'+ 'UserInfo' + '/' + 'UserEmail'+'/').set(userInfo.email);
 	admin.database().ref('/User/'+ userInfo.uid +'/'+ 'UserInfo' + '/'+ 'UserName'+'/').set(userInfo.displayName);
 	admin.database().ref('/User/'+ userInfo.uid +'/'+ 'UserInfo' + '/'+ 'UserPict'+'/').set(userInfo.photoURL);
-	admin.database().ref('/User/'+ userInfo.uid +'/' + 'Output' + '/' + 'GlyphUnlock' + '/').set('2,'+ Date());
-	admin.database().ref('/User/'+ userInfo.uid +'/' + 'Output' + '/' + 'EnrollMission' + '/').set('0,'+ Date());
+	admin.database().ref('/User/'+ userInfo.uid +'/' + 'Output' + '/' + 'GlyphUnlock' + '/').set('2,'+ Date.now());
+	admin.database().ref('/User/'+ userInfo.uid +'/' + 'Output' + '/' + 'EnrollMission' + '/').set('0,'+ Date.now());
 
 });
 
@@ -140,13 +140,13 @@ exports.UnlockToken = functions.database.ref('/User/{UserID}/Input/ClaimToken/')
 					console.log ('Mission:', Mission, 'Token:', Token, 'Result: Valid GlyphCode');
 
 					//Let client know the code works
-					admin.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').set('1,'+ Date());
+					admin.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').set('1,'+ Date.now());
 
 					admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission).once('value', function(snapshot) {
 						//Check Mission Exist
 						if (snapshot.val() !== null) {
 							var AllToken = snapshot.val().Token;
-							admin.database().ref('/User/'+ UserID +'/Unlocked/Token/' + Token).set(Date());
+							admin.database().ref('/User/'+ UserID +'/Unlocked/Token/' + Token).set(Date.now());
 							admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission +'/Token/'+ Token + '/ClaimStatus').set('Unlocked')
 						
 							//Initial value is set to 1 because snapshot is taken before Unlocking
@@ -165,10 +165,9 @@ exports.UnlockToken = functions.database.ref('/User/{UserID}/Input/ClaimToken/')
 							if (TokenUnlocked >= 4) {
 								admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/EndTimeStamp/').once('value', function(snapshot) {
 									if (snapshot.val()==null) {
-										var EndTime = new Date();
-										var EndTimeString = Date();
+										var EndTime = Date.now();
 										//Make Time Stamp
-										admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/EndTimeStamp/').set(EndTimeString);
+										admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/EndTimeStamp/').set(EndTime);
 										//Make Time Stamp
 										admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/MissionStatus/').set('Complete');
 										//Calculate Duration
@@ -184,7 +183,7 @@ exports.UnlockToken = functions.database.ref('/User/{UserID}/Input/ClaimToken/')
 					});
 				} else {
 						console.log ('Mission:', Mission, 'Token:', Token, 'Result: Invalid GlyphCode');
-						admin.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').set('0,'+ Date());
+						admin.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').set('0,'+ Date.now());
 				}
 			});
 		}

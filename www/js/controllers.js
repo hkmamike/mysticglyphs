@@ -93,16 +93,16 @@ angular.module('starter.controllers', [])
 	$scope.claimToken = function(TokenID, TokenPW) {
 		console.log('Claim this token: ', TokenID, TokenPW);
 		console.log('UserID: ', UserID);
-		firebase.database().ref('/User/'+ UserID +'/Input/' + '/ClaimToken/').set(TokenID + ',' + TokenPW + '@' + Date());
+		firebase.database().ref('/User/'+ UserID +'/Input/' + '/ClaimToken/').set(TokenID + ',' + TokenPW + '@' + Date.now());
 
 		//Warm up firebase functions by input triggers
-		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollMission/').set('warmUp_' + Date());
+		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollMission/').set('warmUp_' + Date.now());
 	};
 	$scope.enrollMission = function(MissionID) {
 		console.log('Enroll Mission: ', MissionID);
 		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollMission/').set(MissionID);
 		//Warm up firebase functions by input triggers
-		firebase.database().ref('/User/'+ UserID +'/Input/' + '/ClaimToken/').set('warmUp,' + Date());
+		firebase.database().ref('/User/'+ UserID +'/Input/' + '/ClaimToken/').set('warmUp,' + Date.now());
 	};
 
 	$scope.enrollMissionMessage = 'ready';
@@ -111,8 +111,8 @@ angular.module('starter.controllers', [])
 	};
 
 	$scope.startTimer = function (SelectedMission) {
-		console.log ('Timer for Mission ', SelectedMission, ' starts now at ', Date());
-		firebase.database().ref('/User/'+ UserID +'/Input/' + '/TimerStart/').set(SelectedMission + ', ' + Date());
+		console.log ('Timer for Mission ', SelectedMission, ' starts now at ', Date.now());
+		firebase.database().ref('/User/'+ UserID +'/Input/' + '/TimerStart/').set(SelectedMission + ', ' + Date.now());
 	};
 
 	$scope.toggleInfo = function(info) {
@@ -211,8 +211,8 @@ angular.module('starter.controllers', [])
 		}
 
 		//Warm up firebase functions by input triggers
-		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollMission/').set('warmUp_' + Date());
-		firebase.database().ref('/User/'+ UserID +'/Input/' + '/ClaimToken/').set('warmUp,' + Date());
+		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollMission/').set('warmUp_' + Date.now());
+		firebase.database().ref('/User/'+ UserID +'/Input/' + '/ClaimToken/').set('warmUp,' + Date.now());
 
 		// CLOUD FUNCTION RESPONSES FOR GLYPH UNLOCK--------------------------------------------
 		firebase.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').on('value', function(snapshot) {
@@ -227,7 +227,7 @@ angular.module('starter.controllers', [])
 				console.log('Glyph Unlock Successful');
 				$timeout( function(){
 					/*Reset Output node*/
-					firebase.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').set('2,'+ Date());
+					firebase.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').set('2,'+ Date.now());
 					$scope.closeTokenClaim();
 				},3000);
 			} else if (Result==0) {
@@ -236,7 +236,7 @@ angular.module('starter.controllers', [])
 				console.log('Glyph Unlock Unsuccessful, glyphCodeSubmitMessage: ', $scope.glyphCodeSubmitMessage);
 				$timeout( function(){
 					/*Reset Output node*/
-					firebase.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').set('2,'+ Date());
+					firebase.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').set('2,'+ Date.now());
 				},3000);
 			} else {
 				$scope.glyphCodeSubmitMessage = 'ready';
@@ -257,7 +257,7 @@ angular.module('starter.controllers', [])
 				console.log('Checking mission availability');
 				$timeout( function(){
 					/*Reset Output node*/
-					firebase.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('0,'+ Date());
+					firebase.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('0,'+ Date.now());
 				},3000);
 			} else if (Result==2) {
 				$scope.enrollMissionMessage = 'unlocked';
@@ -265,7 +265,7 @@ angular.module('starter.controllers', [])
 				console.log('Mission enrollment has been completed');
 				$timeout( function(){
 					/*Reset Output node*/
-					firebase.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('0,'+ Date());
+					firebase.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('0,'+ Date.now());
 				},3000);
 			} else if (Result==3) {
 				$scope.enrollMissionMessage = 'unsuccessful';
@@ -273,7 +273,7 @@ angular.module('starter.controllers', [])
 				console.log('Mission enrollment unsuccessful');
 				$timeout( function(){
 					/*Reset Output node*/
-					firebase.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('0,'+ Date());
+					firebase.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('0,'+ Date.now());
 				},3000);
 			} else {
 				$scope.enrollMissionMessage = 'ready';
@@ -285,9 +285,44 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('ListCtrl', function($scope, $stateParams) {
+.controller('ListCtrl', function($scope, $interval, $stateParams) {
 	$scope.SelectedCity = $stateParams.CityID;
 	$scope.SelectedMission = $stateParams.MissionID;
+
+	var startTime;
+	firebase.auth().onAuthStateChanged(function (user) {
+		var UserID = firebase.auth().currentUser.uid;
+
+		//Get mission start time		
+		firebase.database().ref('/User/'+ UserID +'/Record/' + $scope.SelectedCity + '/Mission/' + $scope.SelectedMission + '/StartTimeStamp/').once('value', function(snapshot) {
+			startTime = new Date(snapshot.val());
+			console.log('startTime: ',startTime);
+		});
+
+		//Get mission Duration
+		firebase.database().ref('/User/'+ UserID +'/Record/' + $scope.SelectedCity + '/Mission/' + $scope.SelectedMission + '/Duration/').once('value', function(snapshot) {
+			var duration = snapshot.val();
+			if (duration !== null) {
+				// Time calculations for days, hours, minutes and seconds
+				$scope.days = Math.floor(duration / (60 * 60 * 24));
+				$scope.hours = Math.floor((duration % (60 * 60 * 24)) / (60 * 60));
+				$scope.minutes = Math.floor((duration % (60 * 60)) / 60);
+				$scope.seconds = Math.floor(duration % 60);
+
+			}
+		});
+
+	});
+
+	//Running clock
+	var tick = function () {
+		var clock = Date.now();
+
+		$scope.timer = clock - startTime;
+	};
+	tick();
+	$interval(tick, 1000);
+
 });
 
 

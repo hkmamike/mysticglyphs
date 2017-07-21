@@ -2,6 +2,14 @@
 
 <ion-content>
 
+  <div class="cardflat item-text-wrap">
+    <div><strong>Timer:</strong> {{timer | date: 'HH:mm:ss'}}</div>
+  </div>
+
+  <div class="cardflat item-text-wrap">
+    <div><strong>Duration:</strong> {{days}}d{{hours}}h{{minutes}}m{{seconds}}s</div>
+  </div>
+
   <div class="cardflat item-text-wrap" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].Tips">
     <div><strong>Tips:</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].Tips}}</div>
   </div>
@@ -20,7 +28,7 @@
 		</div>
 	</div> 
 
-	<div class="cardflat item-text-wrap" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].ClaimStatus == 'Pending'">
+	<div class="cardflat item-text-wrap" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].ClaimStatus == 'Pending' || TokenNumber == null">
 		<h4 ng-show="TokenNumber == null">Select a glyph for information</h4>
 
 		<div ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].ClaimStatus == 'Pending'">
