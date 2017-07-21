@@ -150,12 +150,12 @@ exports.UnlockToken = functions.database.ref('/User/{UserID}/Input/ClaimToken/')
 							admin.database().ref('/User/'+ UserID +'/Unlocked/Token/' + Token).set(Date());
 							
 							var TokenUnlocked = 0;
-							if (AllToken[Mission + '_1'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1}
-							if (AllToken[Mission + '_2'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1}
-							if (AllToken[Mission + '_3'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1}
-							if (AllToken[Mission + '_4'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1}
-							if (AllToken[Mission + '_5'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1}
-							if (AllToken[Mission + '_6'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1}
+							if (AllToken[Mission + '_1'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1;}
+							if (AllToken[Mission + '_2'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1;}
+							if (AllToken[Mission + '_3'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1;}
+							if (AllToken[Mission + '_4'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1;}
+							if (AllToken[Mission + '_5'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1;}
+							if (AllToken[Mission + '_6'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1;}
 							
 							//Record Unlock
 							admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission +'/TokenUnlocked/').set(TokenUnlocked);
@@ -164,13 +164,13 @@ exports.UnlockToken = functions.database.ref('/User/{UserID}/Input/ClaimToken/')
 							if (TokenUnlocked >= 4) {
 								admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/EndTimeStamp/').once('value', function(snapshot) {
 									if (snapshot.val()==null) {
-										var EndTime = Date();
+										var EndTime = new Date();
 										//Make Time Stamp
 										admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/EndTimeStamp/').set(EndTime);
 										//Calculate Duration
 										admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/StartTimeStamp/').once('value', function(snapshot) {
 											var StartTime = new Date(snapshot.val());
-											var Duration = (EndTime - StartTime)/(1000);
+											var Duration = Math.floor((EndTime - StartTime/1000);
 											admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/Duration/').set(Duration);
 										});
 									}
