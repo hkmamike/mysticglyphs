@@ -70,12 +70,11 @@ exports.NewUser = functions.auth.user().onCreate(event => {
 	admin.database().ref('/User/'+ userInfo.uid +'/'+ 'UserInfo' + '/'+ 'UserPict'+'/').set(userInfo.photoURL);
 	admin.database().ref('/User/'+ userInfo.uid +'/'+ 'UserInfo' + '/'+ 'UserFB'+'/').set(userInfo.providerData.uid);
 
-	admin.database().ref('/User/'+ userInfo.uid +'/'+ 'Input'+'/' + 'ClaimToken').set('null');
-	admin.database().ref('/User/'+ userInfo.uid +'/'+ 'Input'+'/' + 'EnrollCampaign').set('null');
-	admin.database().ref('/User/'+ userInfo.uid +'/'+ 'Input'+'/' + 'MissionComplete').set('null');
+	admin.database().ref('/User/'+ userInfo.uid +'/Input/' + 'ClaimToken/').set('null');
+	admin.database().ref('/User/'+ userInfo.uid +'/Input/' + 'EnrollCampaign/').set('null');
 
-	admin.database().ref('/User/'+ userInfo.uid +'/Output/GlyphUnlock').set('2,'+ Date());
-	admin.database().ref('/User/'+ userInfo.uid +'/Output/EnrollMission').set('0,'+ Date());
+	admin.database().ref('/User/'+ userInfo.uid +'/Output/GlyphUnlock/').set('2,'+ Date());
+	admin.database().ref('/User/'+ userInfo.uid +'/Output/EnrollMission/').set('0,'+ Date());
 });
 
 
