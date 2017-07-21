@@ -149,35 +149,35 @@ exports.UnlockToken = functions.database.ref('/User/{UserID}/Input/ClaimToken/')
 							admin.database().ref('/User/'+ UserID +'/Unlocked/Token/' + Token).set(Date());
 							admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission +'/Token/'+ Token + '/ClaimStatus').set('Unlocked').then(function(){
 										
-										var TokenUnlocked = 0;
-										if (AllToken[Mission + '_1'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1;}
-										if (AllToken[Mission + '_2'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1;}
-										if (AllToken[Mission + '_3'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1;}
-										if (AllToken[Mission + '_4'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1;}
-										if (AllToken[Mission + '_5'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1;}
-										if (AllToken[Mission + '_6'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1;}
-										
-										//Record Unlock
-										admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission +'/TokenUnlocked/').set(TokenUnlocked);
+								var TokenUnlocked = 0;
+								if (AllToken[Mission + '_1'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1;}
+								if (AllToken[Mission + '_2'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1;}
+								if (AllToken[Mission + '_3'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1;}
+								if (AllToken[Mission + '_4'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1;}
+								if (AllToken[Mission + '_5'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1;}
+								if (AllToken[Mission + '_6'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1;}
+								
+								//Record Unlock
+								admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission +'/TokenUnlocked/').set(TokenUnlocked);
 
-										//If TokenUnlocked >= 4 and EndTimeStamp is null, make EndTimeStamp
-										if (TokenUnlocked >= 4) {
-											admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/EndTimeStamp/').once('value', function(snapshot) {
-												if (snapshot.val()==null) {
-													var EndTime = new Date();
-													//Make Time Stamp
-													admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/EndTimeStamp/').set(EndTime);
-													//Calculate Duration
-													admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/StartTimeStamp/').once('value', function(snapshot) {
-														var StartTime = new Date(snapshot.val());
-														var Duration = Math.floor((EndTime - StartTime)/1000);
-														admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/Duration/').set(Duration);
-													});
-												}
+								//If TokenUnlocked >= 4 and EndTimeStamp is null, make EndTimeStamp
+								if (TokenUnlocked >= 4) {
+									admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/EndTimeStamp/').once('value', function(snapshot) {
+										if (snapshot.val()==null) {
+											var EndTime = new Date();
+											//Make Time Stamp
+											admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/EndTimeStamp/').set(EndTime);
+											//Calculate Duration
+											admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/StartTimeStamp/').once('value', function(snapshot) {
+												var StartTime = new Date(snapshot.val());
+												var Duration = Math.floor((EndTime - StartTime)/1000);
+												admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/Duration/').set(Duration);
 											});
 										}
-									}
-						});		
+									});
+								}
+							});		
+						}
 					});
 				} else {
 						console.log ('Mission:', Mission, 'Token:', Token, 'Result: Invalid GlyphCode');
