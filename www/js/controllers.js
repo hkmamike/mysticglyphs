@@ -229,9 +229,6 @@ angular.module('starter.controllers', [])
 					/*Reset Output node*/
 					firebase.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').set('2,'+ Date());
 					$scope.closeTokenClaim();
-					console.log ('SelectedMission is : ' , $scope.SelectedMission);
-					console.log ('SelectedCity is : ' ,$scope.SelectedCity);
-					$scope.openUnlockedHints($scope.SelectedMission, $scope.SelectedCity);
 				},3000);
 			} else if (Result==0) {
 				$scope.glyphCodeSubmitMessage = 'unsuccessful';
