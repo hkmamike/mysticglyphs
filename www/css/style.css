@@ -55,11 +55,23 @@ body {
   text-align: center;
 }
 
-.play-bar {
+.complete-bar{
   margin-top: 0 !important;
   margin-bottom: 0 !important;
   border-color: transparent;
   background-color: #428BCA;
+  color: #fff;
+  font-weight: bold;  
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.play-bar {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  border-color: transparent;
+  background-color: #78AB46;
   color: #fff;
   font-weight: bold;
   height: 20px;

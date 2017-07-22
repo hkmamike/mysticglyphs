@@ -295,30 +295,33 @@ angular.module('starter.controllers', [])
 
 		//Get mission start time		
 		firebase.database().ref('/User/'+ UserID +'/Record/' + $scope.SelectedCity + '/Mission/' + $scope.SelectedMission + '/StartTimeStamp/').once('value', function(snapshot) {
-			startTime = new Date(snapshot.val());
+			startTime = snapshot.val();
 			console.log('startTime: ',startTime);
 		});
 
 		//Get mission Duration
 		firebase.database().ref('/User/'+ UserID +'/Record/' + $scope.SelectedCity + '/Mission/' + $scope.SelectedMission + '/Duration/').once('value', function(snapshot) {
 			var duration = snapshot.val();
+			console.log ('duration: ', duration);
 			if (duration !== null) {
 				// Time calculations for days, hours, minutes and seconds
-				$scope.days = Math.floor(duration / (60 * 60 * 24));
-				$scope.hours = Math.floor((duration % (60 * 60 * 24)) / (60 * 60));
-				$scope.minutes = Math.floor((duration % (60 * 60)) / 60);
-				$scope.seconds = Math.floor(duration % 60);
-
+				$scope.durationDays = Math.floor(duration / (60 * 60 * 24));
+				$scope.durationHours = Math.floor((duration % (60 * 60 * 24)) / (60 * 60));
+				$scope.durationMinutes = Math.floor((duration % (60 * 60)) / 60);
+				$scope.durationSeconds = duration % 60;
 			}
 		});
-
 	});
 
 	//Running clock
 	var tick = function () {
 		var clock = Date.now();
-
-		$scope.timer = clock - startTime;
+		var timer = (clock - startTime);
+		// Time calculations for days, hours, minutes and seconds
+		$scope.timerDays = Math.floor(timer / (60 * 60 * 24 * 1000));
+		$scope.timerHours = Math.floor((timer % (60 * 60 * 24 * 1000)) / (60 * 60 * 1000));
+		$scope.timerMinutes = Math.floor((timer % (60 * 60 * 1000)) / (60 * 1000));
+		$scope.timerSeconds = Math.floor((timer % (60 * 1000))/1000);
 	};
 	tick();
 	$interval(tick, 1000);

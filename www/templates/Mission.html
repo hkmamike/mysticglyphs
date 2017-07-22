@@ -2,12 +2,12 @@
 
 <ion-content>
 
-  <div class="cardflat item-text-wrap">
-    <div><strong>Timer:</strong> {{timer | date: 'HH:mm:ss'}}</div>
+  <div class="cardflat item-text-wrap" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Duration==null" ng-cloak>
+    <div><strong>Time :</strong> {{timerDays}} <strong>D</strong> {{timerHours}} <strong>H</strong> {{timerMinutes}} <strong>m</strong> {{timerSeconds}} <strong>s</strong></div>
   </div>
 
-  <div class="cardflat item-text-wrap">
-    <div><strong>Duration:</strong> {{days}}d{{hours}}h{{minutes}}m{{seconds}}s</div>
+  <div class="cardflat item-text-wrap" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Duration" ng-cloak>
+    <div><strong>Mission Completed:</strong> {{durationDays}} <strong>D</strong> {{durationHours}} <strong>H</strong> {{durationMinutes}} <strong>m</strong> {{durationSeconds}} <strong>s</strong></div>
   </div>
 
   <div class="cardflat item-text-wrap" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].Tips">
@@ -32,7 +32,6 @@
 		<h4 ng-show="TokenNumber == null">Select a glyph for information</h4>
 
 		<div ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].ClaimStatus == 'Pending'">
-			<strong>TokenNumber :</strong> {{TokenNumber}} <br>
 			<strong>Glyph Name :</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].TokenName}} <br>
 			<strong>Glyph Message :</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].TokenMsg}} <br>
 			<strong>Search Hints :</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].SearchHints}} <br>
