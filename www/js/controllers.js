@@ -93,7 +93,8 @@ angular.module('starter.controllers', [])
 	$scope.claimToken = function(TokenID, TokenPW) {
 		console.log('Claim this token: ', TokenID, TokenPW);
 		console.log('UserID: ', UserID);
-		firebase.database().ref('/User/'+ UserID +'/Input/' + '/ClaimToken/').set(TokenID + ',' + TokenPW + '@' + Date.now());
+		var TokenPWClean = TokenPW.toLowerCase().replace(/\s+/g,'');
+		firebase.database().ref('/User/'+ UserID +'/Input/' + '/ClaimToken/').set(TokenID + ',' + TokenPWClean + '@' + Date.now());
 
 		//Warm up firebase functions by input triggers
 		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollMission/').set('warmUp_' + Date.now());
@@ -211,7 +212,7 @@ angular.module('starter.controllers', [])
 		}
 
 		//Warm up firebase functions by input triggers
-		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollMission/').set('warmUp_' + Date.now());
+		firebase.database().ref('/User'+ UserID +'/Input/' + '/EnrollMission/').set('warmUp_' + Date.now());
 		firebase.database().ref('/User/'+ UserID +'/Input/' + '/ClaimToken/').set('warmUp,' + Date.now());
 
 		// CLOUD FUNCTION RESPONSES FOR GLYPH UNLOCK--------------------------------------------

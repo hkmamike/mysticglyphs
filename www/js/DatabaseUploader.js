@@ -26,7 +26,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/CoverImg' ] = 'https://
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/LocationDesc' ] = 'The Riddle Master has placed a few glyphs in this museum. This seems to be an introductory mission that the Master prepared for us. Dont alert the guards and you should be fine. Finding at least 4 of the 6 glyphs will unlock the next mission.';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/MissionStatus' ] = 'Current';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Area' ] = 'Tsim Sha Tsui';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/OtherInfo' ] = 'Be careful and do not alert the guards';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/OtherInfo' ] = 'Visit the "HK Story" exhibition for this mission. Be careful not to alert the guards.';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Tips' ] = 'The Museum closes every Tuesday. Get a map at the Museum entrance.';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/EstimatedDuration' ] = '90-120 minutes';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/GlyphsDifficulty' ] = '2';
@@ -39,11 +39,11 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/MissionType' ] = 'Free'
 
 /*HK History Museum Glyph #1*/
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_1/Order' ] = '1';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_1/TokenName' ] = 'Glyph in the House';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_1/TokenMsg' ] = 'This is a pretty cool mock-up traditional Chinese house.';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_1/TokenImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/GlyphClues%2FHakkaHouse.png?alt=media&token=cd0568f4-a2a1-482f-8997-7c1b9542e63e';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_1/TokenImgMessage' ] = 'This is the correct room';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_1/SearchHints' ] = 'This one is on the first floor, in one of the small rooms of the abandoned house';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_1/TokenName' ] = 'Mystic Glyph?';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_1/TokenMsg' ] = 'We have got this image but we dont know what it means.';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_1/TokenImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/GlyphClues%2FWinnowing.png?alt=media&token=187840d7-6180-4332-8a6f-4934771b0c46';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_1/TokenImgMessage' ] = 'Find out what this process is called';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_1/SearchHints' ] = 'This one is on the first floor, near an abandoned Chinese house. Investigate the Image.';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_1/ClaimStatus' ] = 'Pending';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_1/HintA' ] = 'Search the last row for glyph #2';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_1/HintB' ] = 'Search above the steering wheels for glyph #4';
@@ -52,41 +52,43 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_1/Hi
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_1/HintE' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_1/Tips' ] = 'You dont have to solve glyphs in order';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_1_1/ClaimRecord' ] = 'xxx';
-updates['/DatabaseInfo/TokenInfo/HongKong_1_1_1/TokenCode' ] = 'Theatre';
+updates['/DatabaseInfo/TokenInfo/HongKong_1_1_1/TokenCode' ] = 'winnowing';
 
 /*HK History Museum Glyph #2*/
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/Order' ] = '2';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/TokenName' ] = 'Folk Culture Theatre';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/TokenMsg' ] = 'There is a theatre near the end of the first floor. A great place to relax or even sleep :)';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/TokenImg' ] = '<img>';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/TokenImgMessage' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/TokenImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/GlyphClues%2FGlyphCase.png?alt=media&token=204a8d94-6e2a-42e5-a43f-f8ab8205c858';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/TokenImgMessage' ] = 'The image shows a typical glyph case that you are looking for';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/SearchHints' ] = 'Search the rightmost seat of the last row (Use right hand), or the leftmost seat of the last row (Use left hand)';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/ClaimStatus' ] = 'Pending';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/HintA' ] = 'Search the 2nd room to the left for glyph #1';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/HintA' ] = 'Search handrails for glyph #5';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/HintB' ] = 'Go up the wooden upstairs for glyph #3';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/HintC' ] = 'Glyph #4 is hidden behind something black';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/HintD' ] = 'Search handrails for glyph #5';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/HintD' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/HintE' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/Tips' ] = 'Sometimes, glyph codes are hints for other glyphs';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_1_2/ClaimRecord' ] = 'xxx';
-updates['/DatabaseInfo/TokenInfo/HongKong_1_1_2/TokenCode' ] = 'Hakka';
+updates['/DatabaseInfo/TokenInfo/HongKong_1_1_2/TokenCode' ] = 'hakka';
 
 /*HK History Museum Glyph #3*/
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_3/Order' ] = '3';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_3/TokenName' ] = 'Where people go to get some air';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_3/TokenMsg' ] = 'It is quite empty here. Where could the glyph be?';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_3/TokenImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/GlyphClues%2FBalcony.png?alt=media&token=88b2c47a-7925-4b60-9129-60ebdc1a4add';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_3/TokenImgMessage' ] = 'Taken from the location of the glyph';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_3/SearchHints' ] = 'This one is in the second part of the museum, after going up the escalator';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_3/TokenName' ] = 'Mysterious Man';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_3/TokenMsg' ] = 'Apparently he is one of the important people from colonial Hong Kong, we need his last name to solve this glyph';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_3/TokenImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/GlyphClues%2FBalcony.png?alt=media&token=70fbba92-45f3-4db0-afa6-44e7dcbff3c8';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_3/TokenImgMessage' ] = 'What is his surname?';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_3/TokenImg2' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/GlyphClues%2FBalcony2.png?alt=media&token=341e487f-d564-4652-a701-516faeea9dd4';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_3/TokenImgMessage2' ] = 'Taken from the glyph location';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_3/SearchHints' ] = 'The glyph location is a good vantage point to look at the pier. See the Images.';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_3/ClaimStatus' ] = 'Pending';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_3/HintA' ] = 'Notice anything with the ladder for glyph #1?';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_3/HintA' ] = 'Vist the Hakka area on the first floor if you have not solved glyph #1';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_3/HintB' ] = 'To take out glyph #2, you would have to pull down';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_3/HintC' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_3/HintD' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_3/HintE' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_3/Tips' ] = 'Solving 4 glyphs complete a mission. The timer stops once you complete 4 glyphs.';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_1_3/ClaimRecord' ] = 'xxx';
-updates['/DatabaseInfo/TokenInfo/HongKong_1_1_3/TokenCode' ] = 'Return';
+updates['/DatabaseInfo/TokenInfo/HongKong_1_1_3/TokenCode' ] = 'bowen';
 
 /*HK History Museum Glyph #4*/
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_4/Order' ] = '4';
@@ -96,14 +98,14 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_4/To
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_4/TokenImgMessage' ] = 'Search here';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_4/SearchHints' ] = 'Be extra careful with the guards when you search for this one. Our intelligence tells us that it is heavily guarded!';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_4/ClaimStatus' ] = 'Pending';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_4/HintA' ] = 'Glyph #1 is in a bucket';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_4/HintB' ] = 'Glyph #5 is not hidden among the seats';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_4/HintC' ] = 'Glyph #6 is behind an exhibition board';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_4/HintA' ] = 'Glyph #5 is not hidden among the seats';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_4/HintB' ] = 'The solution to glyph #6 can be found on an exhibition board';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_4/HintC' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_4/HintD' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_4/HintE' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_4/Tips' ] = 'Magnetic glyphs only stick to metal parts';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_1_4/ClaimRecord' ] = 'xxx';
-updates['/DatabaseInfo/TokenInfo/HongKong_1_1_4/TokenCode' ] = 'Garment';
+updates['/DatabaseInfo/TokenInfo/HongKong_1_1_4/TokenCode' ] = 'garment';
 
 /*HK History Museum Glyph #5*/
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_5/Order' ] = '5';
@@ -113,31 +115,31 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_5/To
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_5/TokenImgMessage' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_5/SearchHints' ] = 'Search the right side of the theatre. You probably cannot see it, use your hands to feel';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_5/ClaimStatus' ] = 'Pending';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_5/HintA' ] = 'Pull on the fish line';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_5/HintB' ] = 'Glyph #2 is near the theatre exit';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_5/HintC' ] = 'Outside the balustrade';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_5/HintD' ] = 'Search the front for glyph #4. Oh, remember there are two fronts!';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_5/HintE' ] = 'Pay attention to grey colored objects for glyph #6';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_5/HintA' ] = 'Search the front for glyph #4. Oh, remember there are two fronts!';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_5/HintB' ] = 'Glyph #6 has something to do with the industires in Hong Kong';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_5/HintC' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_5/HintD' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_5/HintE' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_5/Tips' ] = 'Get a friend to cover you if possible when you access the glyphs';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_1_5/ClaimRecord' ] = 'xxx';
-updates['/DatabaseInfo/TokenInfo/HongKong_1_1_5/TokenCode' ] = 'Tram';
+updates['/DatabaseInfo/TokenInfo/HongKong_1_1_5/TokenCode' ] = 'tram';
 
 /*HK History Museum Glyph #6*/
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_6/Order' ] = '6';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_6/TokenName' ] = '1960s';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_6/TokenMsg' ] = 'You will learn about the Hong Kong industries and the labour conditions here. ';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_6/TokenMsg' ] = 'We have to find a number. The glyph asks: How many factory workers were there by late 1960s?';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_6/TokenImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/GlyphClues%2FGarment.png?alt=media&token=ee4cfe10-1fb5-4a31-9936-5e05f8c13b72';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_5/TokenImgMessage' ] = '';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_6/SearchHints' ] = 'Search the near the garment factory for this glyph';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_6/SearchHints' ] = 'Search the the garment factory for this glyph';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_6/ClaimStatus' ] = 'Pending';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_6/HintA' ] = 'Glyph #1 is in the Hakka area';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_6/HintB' ] = 'There is a compartment on the right side of the seat, with an opening downward';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_6/HintC' ] = 'Look down but dont look too down for glyph #3';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_6/HintD' ] = 'Under the newspapers';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_6/HintA' ] = 'Search below the newspapers for glyph #5';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_6/HintB' ] = 'For glyph #2, there is a compartment on the right side of the seat, with an opening downward';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_6/HintC' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_6/HintD' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_6/HintE' ] = '';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_6/Tips' ] = 'There is a guard that patrols between the glyph location and the nearby theatre. Watch out!';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_6/Tips' ] = 'The museum is generally organized chronologically';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_1_6/ClaimRecord' ] = 'xxx';
-updates['/DatabaseInfo/TokenInfo/HongKong_1_1_6/TokenCode' ] = 'Balcony';
+updates['/DatabaseInfo/TokenInfo/HongKong_1_1_6/TokenCode' ] = '561563';
 
 
 
@@ -173,7 +175,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_1/Hi
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_1/HintE' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_1/Tips' ] = 'Read all the available glyph hints and solve the easiest ones first';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_2_1/ClaimRecord' ] = 'xxx';
-updates['/DatabaseInfo/TokenInfo/HongKong_1_2_1/TokenCode' ] = 'Noclimbing';
+updates['/DatabaseInfo/TokenInfo/HongKong_1_2_1/TokenCode' ] = 'noclimbing';
 
 /*Kowloon Park Glyph #2*/
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_2/Order' ] = '2';
@@ -190,7 +192,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_2/Hi
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_2/HintE' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_2/Tips' ] = 'Ropes are not magnetic but sometimes they magnetic parts are attached to them';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_2_2/ClaimRecord' ] = 'xxx';
-updates['/DatabaseInfo/TokenInfo/HongKong_1_2_2/TokenCode' ] = 'Cannon';
+updates['/DatabaseInfo/TokenInfo/HongKong_1_2_2/TokenCode' ] = 'cannon';
 
 /*Kowloon Park Glyph #3*/
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_3/Order' ] = '3';
@@ -207,7 +209,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_3/Hi
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_3/HintE' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_3/Tips' ] = 'Taking photos might help you remember the surroundings of found glyphs';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_2_3/ClaimRecord' ] = 'xxx';
-updates['/DatabaseInfo/TokenInfo/HongKong_1_2_3/TokenCode' ] = 'Prehistoric';
+updates['/DatabaseInfo/TokenInfo/HongKong_1_2_3/TokenCode' ] = 'prehistoric';
 
 /*Kowloon Park Glyph #4*/
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_4/Order' ] = '4';
@@ -224,7 +226,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_4/Hi
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_4/HintE' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_4/Tips' ] = 'Magnetic cases only stick to metals';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_2_4/ClaimRecord' ] = 'xxx';
-updates['/DatabaseInfo/TokenInfo/HongKong_1_2_4/TokenCode' ] = 'Cagenorth';
+updates['/DatabaseInfo/TokenInfo/HongKong_1_2_4/TokenCode' ] = 'cagenorth';
 
 /*Kowloon Park Glyph #5*/
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_5/Order' ] = '5';
@@ -241,7 +243,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_5/Hi
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_5/HintE' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_5/Tips' ] = 'Be careful and dont alert the guards when you approach the glyph';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_2_5/ClaimRecord' ] = 'xxx';
-updates['/DatabaseInfo/TokenInfo/HongKong_1_2_5/TokenCode' ] = 'Wetfloor';
+updates['/DatabaseInfo/TokenInfo/HongKong_1_2_5/TokenCode' ] = 'wetfloor';
 
 /*Kowloon Park Glyph #6*/
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_6/Order' ] = '6';
@@ -258,7 +260,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_6/Hi
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_6/HintE' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_6/Tips' ] = 'Some unlocked hints are duplicates of eachother';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_2_6/ClaimRecord' ] = 'xxx';
-updates['/DatabaseInfo/TokenInfo/HongKong_1_2_6/TokenCode' ] = 'Shadow';
+updates['/DatabaseInfo/TokenInfo/HongKong_1_2_6/TokenCode' ] = 'shadow';
 
 
 
@@ -283,8 +285,8 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/MissionType' ] = 'Free'
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_1/Order' ] = '1';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_1/TokenName' ] = 'Cruise pier';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_1/TokenMsg' ] = 'This is one of the two major piers where people board cruises in Hong Kong. Cruises are so big! I have never been on one :(';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_1/TokenImg' ] = '<img>';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_1/TokenImgMessage' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_1/TokenImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/GlyphClues%2FHarbourSide.png?alt=media&token=f6a77ee3-01a5-4392-a293-b2e4355baa04';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_1/TokenImgMessage' ] = 'The glyph says this image "contains" the glyph. What does it mean?';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_1/SearchHints' ] = 'Search the south side of the cruise pier for a hanging case glyph, between the star ferry pier and Harbour City';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_1/ClaimStatus' ] = 'Pending';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_1/HintA' ] = 'Jet Li';
@@ -294,14 +296,14 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_1/Hi
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_1/HintE' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_1/Tips' ] = 'Pay attention to white ropes';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_3_1/ClaimRecord' ] = 'xxx';
-updates['/DatabaseInfo/TokenInfo/HongKong_1_3_1/TokenCode' ] = 'Ferriesfront';
+updates['/DatabaseInfo/TokenInfo/HongKong_1_3_1/TokenCode' ] = 'ferriesfront';
 
 /*Harbour Side MIssion #2*/
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_2/Order' ] = '2';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_2/TokenName' ] = 'Garden of Stars';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_2/TokenMsg' ] = 'The Hong Kong version of Hollywood Walk of Fame. There is also a kiosk here for you to get some snacks. It is quite expensive though.';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_2/TokenImg' ] = '<img>';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_2/TokenImgMessage' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_2/TokenImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/GlyphClues%2FGardenOfStars.png?alt=media&token=68654cb5-2414-4feb-a602-d4909de23ccc';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_2/TokenImgMessage' ] = 'The glyph says that the goddess statue faces its location';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_2/SearchHints' ] = 'Search beneath the chairs. Collect more clues to pinpoint which chair.';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_2/ClaimStatus' ] = 'Pending';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_2/HintA' ] = 'Search directly behind the cruise butt for glyph #1';
@@ -328,7 +330,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_3/Hi
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_3/HintE' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_3/Tips' ] = '';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_3_3/ClaimRecord' ] = 'xxx';
-updates['/DatabaseInfo/TokenInfo/HongKong_1_3_3/TokenCode' ] = 'Signal';
+updates['/DatabaseInfo/TokenInfo/HongKong_1_3_3/TokenCode' ] = 'signal';
 
 /*Harbour Side MIssion #4*/
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_4/Order' ] = '4';
@@ -345,14 +347,14 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_4/Hi
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_4/HintE' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_4/Tips' ] = '';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_3_4/ClaimRecord' ] = 'xxx';
-updates['/DatabaseInfo/TokenInfo/HongKong_1_3_4/TokenCode' ] = 'Jetli';
+updates['/DatabaseInfo/TokenInfo/HongKong_1_3_4/TokenCode' ] = 'jetli';
 
 /*Harbour Side MIssion #5*/
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_5/Order' ] = '5';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_5/TokenName' ] = 'Star Ferry';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_5/TokenMsg' ] = 'Ferry is the cheapest way to cross the harbour, and the most fun way! You can ride the ferry to Central and Wan Chai from Tsim Sha Tsui';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_5/TokenImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/GlyphClues%2FFerriesfront.png?alt=media&token=b7966244-e28e-4869-b773-aa6c871e2a2d';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_5/TokenImgMessage' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_5/TokenImgMessage' ] = 'The force is strong with these chairs';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_5/SearchHints' ] = 'Some of the star ferries have a copy of this glyph and you will have to board and find them. This might take a few try!';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_5/ClaimStatus' ] = 'Pending';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_5/HintA' ] = 'Both hanging case glyphs use white ropes';
@@ -362,24 +364,24 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_5/Hi
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_5/HintE' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_5/Tips' ] = 'Make sure you know which ferries have the glyphs and where to search before attempting this glyph.';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_3_5/ClaimRecord' ] = 'xxx';
-updates['/DatabaseInfo/TokenInfo/HongKong_1_3_5/TokenCode' ] = 'Escalator6';
+updates['/DatabaseInfo/TokenInfo/HongKong_1_3_5/TokenCode' ] = 'escalator6';
 
 /*Harbour Side MIssion #6*/
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_6/Order' ] = '6';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_6/TokenName' ] = 'Harbour City';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_6/TokenMsg' ] = 'Harbour City is where rich people shop. Sometimes you can even see people pulling suitcases of branded items around :O';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_6/TokenImg' ] = '<img>';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_6/TokenImgMessage' ] = '';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_6/SearchHints' ] = 'There is a great place at the end of the Harbour City where you can enjoy a great sunset view. Search the escalators';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_6/TokenImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/GlyphClues%2FHarbourCity.png?alt=media&token=57b49789-32be-4daa-b4ec-329902c89dac';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_6/TokenImgMessage' ] = 'The glyph says that this image "contains" the glyph. What does that mean?';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_6/SearchHints' ] = 'There is a great place at the very end of the Harbour City where you can enjoy a great sunset view. Look up for the glyph.';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_6/ClaimStatus' ] = 'Pending';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_6/HintA' ] = 'Only ferries A2671, A2971, and A31 have copies of glyph #5';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_6/HintB' ] = 'There are two hanging case glyphs';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_6/HintC' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_6/HintD' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_6/HintE' ] = '';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_6/Tips' ] = 'This glyph is not a case! It is a sticker with a code that starts with Mg';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_6/Tips' ] = 'This glyph is not a case! It is a sticker with a code that starts with MG';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_3_6/ClaimRecord' ] = 'xxx';
-updates['/DatabaseInfo/TokenInfo/HongKong_1_3_6/TokenCode' ] = 'Mg3206';
+updates['/DatabaseInfo/TokenInfo/HongKong_1_3_6/TokenCode' ] = 'mg3206';
 
 
 		return firebase.database().ref().update(updates);  },
