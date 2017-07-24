@@ -95,37 +95,15 @@ angular.module('starter.controllers', [])
 		console.log('UserID: ', UserID);
 		var TokenPWClean = TokenPW.toLowerCase().replace(/\s+/g,'');
 		firebase.database().ref('/User/'+ UserID +'/Input/' + '/ClaimToken/').set(TokenID + ',' + TokenPWClean + '@' + Date.now());
-
-		//Warm up firebase functions by input triggers
-		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollMission/').set('warmUp_' + Date.now());
 	};
 	$scope.enrollMission = function(MissionID) {
 		console.log('Enroll Mission: ', MissionID);
 		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollMission/').set(MissionID);
-		//Warm up firebase functions by input triggers
-		firebase.database().ref('/User/'+ UserID +'/Input/' + '/ClaimToken/').set('warmUp,' + Date.now());
 	};
-
-	$scope.enrollMissionMessage = 'ready';
-	$scope.enrollMessage = function() {
-		$scope.enrollMissionMessage = 'processing';
-	};
-
 	$scope.startTimer = function (SelectedMission) {
 		console.log ('Timer for Mission ', SelectedMission, ' starts now at ', Date.now());
 		firebase.database().ref('/User/'+ UserID +'/Input/' + '/TimerStart/').set(SelectedMission + ', ' + Date.now());
 	};
-
-	$scope.toggleInfo = function(info) {
-    if ($scope.isInfoShown(info)) {
-      $scope.shownInfo = null;
-    } else {
-      $scope.shownInfo = info;
-    }
-  };
-  $scope.isInfoShown = function(info) {
-    return $scope.shownInfo === info;
-  };
   $scope.selectGlyph = function(SelectedMission, n) {
 		$scope.TokenNumber = SelectedMission + '_' + n;
 		$scope.glyphSelection = n;
@@ -136,6 +114,29 @@ angular.module('starter.controllers', [])
 			$ionicScrollDelegate.resize();
 		},200);
   };
+  //For mission info section
+	$scope.shownGroup = 0;
+	$scope.toggleGroup = function(group) {
+		if ($scope.isGroupShown(group)) {
+			$scope.shownGroup = null;
+		} else {
+			$scope.shownGroup = group;
+		}
+	};
+	$scope.isGroupShown = function(group) {
+		return $scope.shownGroup === group;
+	};
+	//For mission intro section
+	// $scope.toggleInfo = function(info) {
+	//	if ($scope.isInfoShown(info)) {
+	//		$scope.shownInfo = null;
+	//	} else {
+	//			$scope.shownInfo = info;
+	//	}
+	// };
+	// $scope.isInfoShown = function(info) {
+	//		return $scope.shownInfo === info;
+	// };
 	// ---------------------------------------------------------------------------------
 
 	// CLAIM TOKEN MODAL----------------------------------------------------------------

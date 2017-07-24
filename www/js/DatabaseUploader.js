@@ -50,7 +50,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_1/Hi
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_1/HintC' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_1/HintD' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_1/HintE' ] = '';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_1/Tips' ] = 'You dont have to solve glyphs in order';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_1/Tips' ] = 'You dont have to solve glyphs in order. Solving glyphs unlock additional clues for other glyphs.';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_1_1/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_1_1/TokenCode' ] = 'winnowing';
 
