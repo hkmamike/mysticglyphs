@@ -60,7 +60,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/To
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/TokenMsg' ] = 'There is a theatre near the end of the first floor. A great place to relax or even sleep :)';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/TokenImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/GlyphClues%2FGlyphCase.png?alt=media&token=204a8d94-6e2a-42e5-a43f-f8ab8205c858';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/TokenImgMessage' ] = 'The image shows a typical glyph case that you are looking for';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/SearchHints' ] = 'Search the rightmost seat of the last row (Use right hand), or the leftmost seat of the last row (Use left hand)';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/SearchHints' ] = 'Search the rightmost seat of the last row (Use right hand), or the leftmost seat of the last row (Use left hand). Dont act out of place, you can find this sitting down.';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/ClaimStatus' ] = 'Pending';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/HintA' ] = 'Search handrails for glyph #5';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/HintB' ] = 'Go up the wooden upstairs for glyph #3';
