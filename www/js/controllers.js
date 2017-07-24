@@ -212,7 +212,7 @@ angular.module('starter.controllers', [])
 		}
 
 		//Warm up firebase functions by input triggers
-		firebase.database().ref('/User'+ UserID +'/Input/' + '/EnrollMission/').set('warmUp_' + Date.now());
+		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollMission/').set('warmUp_' + Date.now());
 		firebase.database().ref('/User/'+ UserID +'/Input/' + '/ClaimToken/').set('warmUp,' + Date.now());
 
 		// CLOUD FUNCTION RESPONSES FOR GLYPH UNLOCK--------------------------------------------
