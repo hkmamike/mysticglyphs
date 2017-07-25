@@ -35,7 +35,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Direction' ] = 'MTR @ T
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Terrain' ] = 'Indoor';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Hours' ] = '10:00 - 18:00';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/GlyphTypes' ] = 'Magnetic Case, Hanging Case';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/MissionType' ] = 'Free';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/MissionType' ] = '80';
 
 /*HK History Museum Glyph #1*/
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_1/Order' ] = '1';
@@ -158,7 +158,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Direction' ] = '15 mins
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Terrain' ] = 'Outdoor (easy)';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Hours' ] = '10:00 - 18:00 (some glyphs can be found 24/7)';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/GlyphTypes' ] = 'Magnetic Case, Hanging Case';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/MissionType' ] = 'Free';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/MissionType' ] = '80';
 
 /*Kowloon Park Glyph #1*/
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_1/Order' ] = '1';

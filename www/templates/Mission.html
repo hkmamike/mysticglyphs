@@ -5,21 +5,17 @@
   <div class="cardflat item-text-wrap highlight-positive" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].Tips">
     <div><strong>Tips:</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].Tips}}</div>
   </div>
-
-  <div class="cardflat item-text-wrap" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Duration==null" ng-cloak>
-    <div><strong>Time :</strong> {{timerDays}} <strong>D</strong> {{timerHours}} <strong>H</strong> {{timerMinutes}} <strong>m</strong> {{timerSeconds}} <strong>s</strong></div>
+  <div class="cardflat item-text-wrap" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Duration==null && timerDays <= 2" ng-cloak>
+    <div><strong>Timer:</strong> {{timerDays}} <strong>D</strong> {{timerHours}} <strong>H</strong> {{timerMinutes}} <strong>m</strong> {{timerSeconds}} <strong>s</strong></div>
   </div>
-
   <div class="cardflat item-text-wrap" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Duration" ng-cloak>
     <div><strong>Mission Completed:</strong> {{durationDays}} <strong>D</strong> {{durationHours}} <strong>H</strong> {{durationMinutes}} <strong>m</strong> {{durationSeconds}} <strong>s</strong></div>
   </div>
 
   <div class="cardflat item-text-wrap">
-
 		<div class ='oneSixth' ng-repeat="n in [1,2,3,4,5,6]" >
 			<div class='oneSixthCenter'><strong>{{n}}</strong></div>
 		</div>
-
 		<div ng-repeat="n in [1,2,3,4,5,6]" ng-init = "glyphSelection">
 			<div ng-click = "selectGlyph(SelectedMission, n); scrollResize()">
 				<img ng-if="UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].ClaimStatus.toString() == 'Unlocked' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenUnlocked.png?alt=media&token=cc970ad1-4cea-4964-943c-1e02eb9dd451' class='oneSixth' ng-class="{'selectedHighlight' : glyphSelection == n, 'notSelected' : glyphSelection != n}">

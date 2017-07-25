@@ -6,46 +6,52 @@
       <button class="button button-cross button-positive" ng-click="closePayment()">Close</button>
     </div>
   </ion-header-bar>
-
   <ion-content>
+    <div class="cardflat item item-text-wrap" ng-class="{'validation-white' : enrollMissionMessage == 'ready' || enrollMissionMessage == 'processing' || enrollMissionMessage == 'requestingServer' || enrollMissionMessage == 'copyingMission', 'validation-green' : enrollMissionMessage == 'unlocked'}">
+      <label class="item item-input">
+        <span class="input-label">Card number</span>
+        <input type="text" size="20" ng-model="FormData.number" placeholder="4242 4242 4242 4242"/>
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Exp. Mth (MM)</span>
+        <input type="text" size="2" ng-model="FormData.exp_month"/ placeholder="01">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Exp. Year (YYYY)</span>
+        <input type="text" size="4" ng-model="FormData.exp_year"/ placeholder="2020">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Sec. Code (CVC)</span>
+        <input type="text" size="4" ng-model="FormData.cvc"/ placeholder="123">
+      </label>
+      <div class="padding center">
+        <button class="button button-block button-balanced" ng-click="createToken(SelectedMission, FormData)">Submit</button>
+      </div>
 
-        <label class="item item-input">
-          <span class="input-label">Card number</span>
-          <input type="text" size="20" ng-model="FormData.number" placeholder="4242 4242 4242 4242"/>
-        </label>
-        
-        <label class="item item-input">
-          <span class="input-label">Exp. Mth (MM)</span>
-          <input type="text" size="2" ng-model="FormData.exp_month"/ placeholder="01">
-        </label>
-        
-        <label class="item item-input">
-          <span class="input-label">Exp. Year (YYYY)</span>
-          <input type="text" size="4" ng-model="FormData.exp_year"/ placeholder="2020">
-        </label>
-        
-        <label class="item item-input">
-          <span class="input-label">Sec. Code (CVC)</span>
-          <input type="text" size="4" ng-model="FormData.cvc"/ placeholder="123">
-        </label>
-      
-
-        <div class="padding center">
-          <button class="button button-block button-balanced" ng-click="createToken()">Submit</button>
-        </div>
-        
-        <div class="padding center">
-          <p ng-show="ResponseData.loading">
-            Loading...
-          </p>
-          <p ng-show="ResponseData.token">
-            Token: <strong>{{ResponseData.token}}</strong>
-          </p>
-          <p ng-show="ResponseData.paymentId">
-            Payment Id: <strong>{{ResponseData.paymentId}}</strong>
-          </p>
-        </div>
-
+      <div ng-show="ResponseData.loading">
+        <h4 class="center-align">Validating card info...</h4>
+      </div>
+      <div ng-show="ResponseData.token && !ResponseData.paymentId">
+        <h4 class="center-align">Requesting transaction...</h4>
+      </div>
+      <div ng-show="ResponseData.paymentId && enrollMissionMessage == 'ready'">
+        <h4 class="center-align">Transaction completed. Requesting mission...</h4>
+      </div>
+      <div ng-show="enrollMissionMessage == 'ready'">
+        <h4 class="center-align"><br></h4>
+      </div>
+      <div ng-show="enrollMissionMessage == 'requestingServer'">
+        <h4 class="center-align">Connecting to server...</h4>
+      </div>
+      <div ng-show="enrollMissionMessage == 'processing'">
+        <h4 class="center-align">Checking availability...</h4>
+      </div>
+      <div ng-show="enrollMissionMessage == 'copyingMission'">
+        <h4 class="center-align">Copying mission from DB...</h4>
+      </div>
+      <div ng-show="enrollMissionMessage == 'unlocked'">
+        <h4 class="center-align">Success!</h4>
+      </div>
+    </div>
   </ion-content>
-
 </ion-modal-view>

@@ -14,12 +14,14 @@ angular.module('starter.controllers', [])
   $http.defaults.headers.common['Content-Type']   = 'application/x-www-form-urlencoded';
   $http.defaults.headers.common['Accept']         = 'application/json';
 
-  $scope.FormData = {};
-  $scope.createToken = function() {
+  $scope.FormData = {test: TEST_MODE,};
+  $scope.createToken = function(SelectedMission, FormData) {
     // init for the DOM
     $scope.ResponseData = {
       loading: true
     };
+    console.log ('scope FormData is : ', $scope.FormData);
+    console.log ('Input FormData is : ', FormData);
     // create a token and validate the credit card details
     $http.post(NOODLIO_PAY_API_URL + "/tokens/create", $scope.FormData).success(
       function(response){
@@ -27,21 +29,21 @@ angular.module('starter.controllers', [])
 					console.log('Token creation success: ', response);
 					var token = response.id;
           $scope.ResponseData['token'] = token;
-          proceedCharge(token);
+          proceedCharge(SelectedMission, token);
         } else {
-          $scope.ResponseData['token'] = 'Error, see console';
+          $scope.ResponseData['token'] = 'Error 1, see console';
           $scope.ResponseData['loading'] = false;
         }
       }
     ).error(
 				function(response){
 					console.log('Token creation error: ', response);
-					$scope.ResponseData['token'] = 'Error, see console';
+					$scope.ResponseData['token'] = 'Error 2, see console';
 					$scope.ResponseData['loading'] = false;
 				}
 			);
   };
-  function proceedCharge(token) {
+  function proceedCharge(SelectedMission, token) {
     var param = {
       source: token,
       amount: 8000,
@@ -57,14 +59,15 @@ angular.module('starter.controllers', [])
 					console.log('Charge has been registered, response: ', response);
           var paymentId = response.id;
           $scope.ResponseData['paymentId'] = paymentId;
+          $scope.enrollMission(SelectedMission);
         } else {
-          $scope.ResponseData['paymentId'] = 'Error, see console';
+          $scope.ResponseData['paymentId'] = 'Error 3, see console';
         }
       }
     ).error(
 				function(response){
 					console.log(response);
-					$scope.ResponseData['paymentId'] = 'Error, see console';
+					$scope.ResponseData['paymentId'] = 'Error 4, see console';
 					$scope.ResponseData['loading'] = false;
 				}
 			);
@@ -343,6 +346,7 @@ angular.module('starter.controllers', [])
 				$scope.$apply();
 				console.log('Mission enrollment has been completed');
 				$timeout( function(){
+					$scope.closePayment();
 					/*Reset Output node*/
 					firebase.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('0,'+ Date.now());
 				},3000);
@@ -369,13 +373,13 @@ angular.module('starter.controllers', [])
 		var UserID = firebase.auth().currentUser.uid;
 
 		//Get mission start time		
-		firebase.database().ref('/User/'+ UserID +'/Record/' + $scope.SelectedCity + '/Mission/' + $scope.SelectedMission + '/StartTimeStamp/').once('value', function(snapshot) {
+		firebase.database().ref('/User/'+ UserID +'/Record/' + $scope.SelectedCity + '/Mission/' + $scope.SelectedMission + '/StartTimeStamp/').on('value', function(snapshot) {
 			startTime = snapshot.val();
 			console.log('startTime: ',startTime);
 		});
 
 		//Get mission Duration
-		firebase.database().ref('/User/'+ UserID +'/Record/' + $scope.SelectedCity + '/Mission/' + $scope.SelectedMission + '/Duration/').once('value', function(snapshot) {
+		firebase.database().ref('/User/'+ UserID +'/Record/' + $scope.SelectedCity + '/Mission/' + $scope.SelectedMission + '/Duration/').on('value', function(snapshot) {
 			var duration = snapshot.val();
 			console.log ('duration: ', duration);
 			if (duration !== null) {

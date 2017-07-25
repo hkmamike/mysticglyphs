@@ -4,3 +4,37 @@
     ".write": "auth != null"
   }
 }
+
+// {
+//   "rules": {
+    
+//     	"DatabaseInfo": {
+        
+//       	"CityCampaignInfo": {
+//           ".read": "auth != null"
+// 				},
+        
+//         "MissionInfo": {
+//             ".read": "auth != null"
+//         }
+		
+//       },
+        
+//     "User": {
+      
+//       "$uid": {
+//         ".read": "$uid === auth.uid",
+          
+//         "Input" : {
+//           ".write": "$uid === auth.uid"
+          
+//         },
+//         "Output" : {
+//           ".write": "$uid === auth.uid",
+//         },
+//       }
+      
+//   	}
+    
+//   }
+// }
