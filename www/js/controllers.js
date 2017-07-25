@@ -161,6 +161,7 @@ angular.module('starter.controllers', [])
 	};
 	$scope.enrollMission = function(MissionID) {
 		console.log('Enroll Mission: ', MissionID);
+		$scope.enrollMissionMessage = 'requestingServer';
 		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollMission/').set(MissionID);
 	};
 	$scope.startTimer = function (SelectedMission) {
@@ -328,34 +329,19 @@ angular.module('starter.controllers', [])
 		// CLOUD FUNCTION RESPONSES FOR ENROLL MISSION--------------------------------------------
 		firebase.database().ref('/User/'+ UserID +'/Output/EnrollMission').on('value', function(snapshot) {
 			var Output = snapshot.val();
-			console.log ('EnrollMission Output is:', Output);
 			var Result = Output.substring(0,Output.indexOf(","));
-			console.log ('EnrollMission Result is:', Result);
-
 			if (Result==1) {
 				$scope.enrollMissionMessage = 'processing';
 				$scope.$apply();
 				console.log('Checking mission availability');
-				$timeout( function(){
-					/*Reset Output node*/
-					firebase.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('0,'+ Date.now());
-				},3000);
 			} else if (Result==2) {
 				$scope.enrollMissionMessage = 'unlocked';
 				$scope.$apply();
 				console.log('Mission enrollment has been completed');
-				$timeout( function(){
-					/*Reset Output node*/
-					firebase.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('0,'+ Date.now());
-				},3000);
 			} else if (Result==3) {
 				$scope.enrollMissionMessage = 'unsuccessful';
 				$scope.$apply();
 				console.log('Mission enrollment unsuccessful');
-				$timeout( function(){
-					/*Reset Output node*/
-					firebase.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('0,'+ Date.now());
-				},3000);
 			} else {
 				$scope.enrollMissionMessage = 'ready';
 				$scope.$apply();

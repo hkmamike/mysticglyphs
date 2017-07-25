@@ -17,9 +17,9 @@ exports.EnrollMission = functions.database.ref('/User/{UserID}/Input/EnrollMissi
 			var UserID = event.params.UserID;
 
 			admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission).once('value', function(snapshot) {
-				console.log('EnrollMission - City: ', City);
-				console.log('EnrollMission - Mission: ', Mission);
-				console.log('EnrollMission - user node snapshot: ', snapshot.val());
+				// console.log('EnrollMission - City: ', City);
+				// console.log('EnrollMission - Mission: ', Mission);
+				// console.log('EnrollMission - user node snapshot: ', snapshot.val());
 
 				//Let client know request is being processed
 				admin.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('1,'+ Date.now());
@@ -33,6 +33,11 @@ exports.EnrollMission = functions.database.ref('/User/{UserID}/Input/EnrollMissi
 
 						//Let the client know mission is ready
 						admin.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('2,'+ Date.now());
+
+						$timeout( function(){
+							/*Reset Output node*/
+							firebase.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('0,'+ Date.now());
+						},3000);
 					});
 				}
 			});
