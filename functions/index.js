@@ -17,27 +17,19 @@ exports.EnrollMission = functions.database.ref('/User/{UserID}/Input/EnrollMissi
 			var UserID = event.params.UserID;
 
 			admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission).once('value', function(snapshot) {
-				// console.log('EnrollMission - City: ', City);
-				// console.log('EnrollMission - Mission: ', Mission);
-				// console.log('EnrollMission - user node snapshot: ', snapshot.val());
 
 				//Let client know request is being processed
 				admin.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('1,'+ Date.now());
 
 				if (snapshot.val()==null) {
 
+					//Let the client know mission is ready
+					admin.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('2,'+ Date.now());
+
 					//Copy Mission
 					admin.database().ref('/DatabaseInfo/MissionInfo/' + City + '/' + Mission).once('value', function(snapshot) {
 						console.log('EnrollMission - mission to be copied', snapshot.val());
 						admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission).set(snapshot.val());
-
-						//Let the client know mission is ready
-						admin.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('2,'+ Date.now());
-
-						$timeout( function(){
-							/*Reset Output node*/
-							firebase.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('0,'+ Date.now());
-						},3000);
 					});
 				}
 			});
@@ -137,23 +129,18 @@ exports.UnlockToken = functions.database.ref('/User/{UserID}/Input/ClaimToken/')
 			var TokenCode = Input.substring(Input.indexOf(",") + 1, Input.indexOf("@"));
 			var City = Token.substring(0, Token.indexOf("_"));
 			var Mission = Token.substring(0, Token.indexOf("_") + 4);
-
 			admin.database().ref('/DatabaseInfo/TokenInfo/' + Token + '/TokenCode/' ).once('value', function(snapshot) {
-
 				//Check Token Validaty
 				if (snapshot.val() == TokenCode) {
 					console.log ('Mission:', Mission, 'Token:', Token, 'Result: Valid GlyphCode');
-
 					//Let client know the code works
 					admin.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').set('1,'+ Date.now());
-
 					admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission).once('value', function(snapshot) {
-						//Check Mission Exist
+						//Check if Mission Exist
 						if (snapshot.val() !== null) {
 							var AllToken = snapshot.val().Token;
 							admin.database().ref('/User/'+ UserID +'/Unlocked/Token/' + Token).set(Date.now());
-							admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission +'/Token/'+ Token + '/ClaimStatus').set('Unlocked')
-						
+							admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission +'/Token/'+ Token + '/ClaimStatus').set('Unlocked');
 							//Initial value is set to 1 because snapshot is taken before Unlocking
 							var TokenUnlocked = 1;
 							if (AllToken[Mission + '_1'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1;}
@@ -162,10 +149,8 @@ exports.UnlockToken = functions.database.ref('/User/{UserID}/Input/ClaimToken/')
 							if (AllToken[Mission + '_4'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1;}
 							if (AllToken[Mission + '_5'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1;}
 							if (AllToken[Mission + '_6'].ClaimStatus == 'Unlocked') { TokenUnlocked = TokenUnlocked + 1;}
-							
 							//Record Unlock
 							admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission +'/TokenUnlocked/').set(TokenUnlocked);
-
 							//If TokenUnlocked >= 4 and EndTimeStamp is null, make EndTimeStamp
 							if (TokenUnlocked >= 4) {
 								admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/EndTimeStamp/').once('value', function(snapshot) {

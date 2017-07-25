@@ -331,22 +331,22 @@ angular.module('starter.controllers', [])
 			var Output = snapshot.val();
 			var Result = Output.substring(0,Output.indexOf(","));
 			if (Result==1) {
-				console.log ('state = 1: processing');
 				$scope.enrollMissionMessage = 'processing';
 				$scope.$apply();
 				console.log('Checking mission availability');
 			} else if (Result==2) {
-				console.log ('state = 2: unlocked');
 				$scope.enrollMissionMessage = 'unlocked';
 				$scope.$apply();
 				console.log('Mission enrollment has been completed');
+				$timeout( function(){
+					/*Reset Output node*/
+					firebase.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('0,'+ Date.now());
+				},3000);
 			} else if (Result==3) {
-				console.log ('state = 3: unsuccessful');
 				$scope.enrollMissionMessage = 'unsuccessful';
 				$scope.$apply();
 				console.log('Mission enrollment unsuccessful');
 			} else {
-				console.log ('state = 0: ready');
 				$scope.enrollMissionMessage = 'ready';
 				$scope.$apply();
 			}
