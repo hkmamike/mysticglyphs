@@ -15,21 +15,16 @@ exports.EnrollMission = functions.database.ref('/User/{UserID}/Input/EnrollMissi
 		return 'warming up function - EnrollMission';
 	} else {
 			var UserID = event.params.UserID;
-
 			admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission).once('value', function(snapshot) {
-
 				//Let client know request is being processed
 				admin.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('1,'+ Date.now());
-
 				if (snapshot.val()==null) {
-
-					//Let the client know mission is ready
 					admin.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('2,'+ Date.now());
-
 					//Copy Mission
 					admin.database().ref('/DatabaseInfo/MissionInfo/' + City + '/' + Mission).once('value', function(snapshot) {
-						console.log('EnrollMission - mission to be copied', snapshot.val());
 						admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission).set(snapshot.val());
+						//Let the client know mission is ready
+						admin.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('3,'+ Date.now());
 					});
 				}
 			});

@@ -335,6 +335,10 @@ angular.module('starter.controllers', [])
 				$scope.$apply();
 				console.log('Checking mission availability');
 			} else if (Result==2) {
+				$scope.enrollMissionMessage = 'copyingMission';
+				$scope.$apply();
+				console.log('copying mission from database');
+			} else if (Result==3) {
 				$scope.enrollMissionMessage = 'unlocked';
 				$scope.$apply();
 				console.log('Mission enrollment has been completed');
@@ -342,7 +346,7 @@ angular.module('starter.controllers', [])
 					/*Reset Output node*/
 					firebase.database().ref('/User/'+ UserID +'/Output/EnrollMission').set('0,'+ Date.now());
 				},3000);
-			} else if (Result==3) {
+			} else if (Result==4) {
 				$scope.enrollMissionMessage = 'unsuccessful';
 				$scope.$apply();
 				console.log('Mission enrollment unsuccessful');
