@@ -1,9 +1,19 @@
 // Ionic Starter App
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.controllers' is found in controllers.js
+
+// Obtain your unique Mashape ID from here:
+// https://market.mashape.com/noodlio/noodlio-pay-smooth-payments-with-stripe
+var NOODLIO_PAY_API_URL         = "https://noodlio-pay.p.mashape.com";
+var NOODLIO_PAY_API_KEY         = "KWM88xJZ4fmshN1FqiBLznS8Vn0vp1Oc0CSjsnYuBNgnk5wUHa";
+
+// Obtain your unique Stripe Account Id from here:
+// https://www.noodl.io/pay/connect
+// Please also connect your account on this address
+// https://www.noodl.io/pay/connect/test
+var STRIPE_ACCOUNT_ID           = "acct_1A9Z68HnE9ndDvpX";
+
+// Define whether you are in development mode (TEST_MODE: true) or production mode (TEST_MODE: false)
+var TEST_MODE = true;
 
 angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.services', 'starter.DatabaseUploader', 'firebase'])
 

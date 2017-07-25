@@ -7,7 +7,70 @@ angular.module('starter.controllers', [])
 	};
 })
 
-.controller('AppCtrl', function($scope, $timeout, $rootScope, $state, $stateParams, $firebaseObject, $ionicScrollDelegate, $ionicSlideBoxDelegate, $ionicModal, $ionicSideMenuDelegate) {
+.controller('AppCtrl', function($scope, $http, $timeout, $rootScope, $state, $stateParams, $firebaseObject, $ionicScrollDelegate, $ionicSlideBoxDelegate, $ionicModal, $ionicSideMenuDelegate) {
+
+	//Payment
+  $http.defaults.headers.common['X-Mashape-Key']  = NOODLIO_PAY_API_KEY;
+  $http.defaults.headers.common['Content-Type']   = 'application/x-www-form-urlencoded';
+  $http.defaults.headers.common['Accept']         = 'application/json';
+
+  $scope.FormData = {};
+  $scope.createToken = function() {
+    // init for the DOM
+    $scope.ResponseData = {
+      loading: true
+    };
+    // create a token and validate the credit card details
+    $http.post(NOODLIO_PAY_API_URL + "/tokens/create", $scope.FormData).success(
+      function(response){
+        if(response.hasOwnProperty('id')) {
+					console.log('Token creation success: ', response);
+					var token = response.id;
+          $scope.ResponseData['token'] = token;
+          proceedCharge(token);
+        } else {
+          $scope.ResponseData['token'] = 'Error, see console';
+          $scope.ResponseData['loading'] = false;
+        }
+      }
+    ).error(
+				function(response){
+					console.log('Token creation error: ', response);
+					$scope.ResponseData['token'] = 'Error, see console';
+					$scope.ResponseData['loading'] = false;
+				}
+			);
+  };
+  function proceedCharge(token) {
+    var param = {
+      source: token,
+      amount: 8000,
+      currency: "hkd",
+      description: "mission enrollment",
+      stripe_account: STRIPE_ACCOUNT_ID,
+      test: TEST_MODE,
+    };
+    $http.post(NOODLIO_PAY_API_URL + "/charge/token", param).success(
+      function(response){
+        $scope.ResponseData['loading'] = false;
+        if(response.hasOwnProperty('id')) {
+					console.log('Charge has been registered, response: ', response);
+          var paymentId = response.id;
+          $scope.ResponseData['paymentId'] = paymentId;
+        } else {
+          $scope.ResponseData['paymentId'] = 'Error, see console';
+        }
+      }
+    ).error(
+				function(response){
+					console.log(response);
+					$scope.ResponseData['paymentId'] = 'Error, see console';
+					$scope.ResponseData['loading'] = false;
+				}
+			);
+  }
+
+  // ---------------------------------------------------------
 
 	// City & Mission List Objects------------------------------------------------------
 	$scope.CityList = $firebaseObject(firebase.database().ref('/DatabaseInfo/' + '/CityCampaignInfo/'));
@@ -191,6 +254,22 @@ angular.module('starter.controllers', [])
 	$scope.openImageHint = function(TokenNumber, SelectedMission, SelectedCity) {
 		$scope.imageHint.show();
 		$scope.TokenNumber = TokenNumber;
+		$scope.SelectedMission = SelectedMission;
+		$scope.SelectedCity = SelectedCity;
+	};
+	// ---------------------------------------------------------------------------------
+
+	// Payment MODAL----------------------------------------------------------------
+	$ionicModal.fromTemplateUrl('templates/payment.html', {
+		scope: $scope
+	}).then(function(modal) {
+		$scope.paymentModal = modal;
+	});
+	$scope.closePayment = function() {
+		$scope.paymentModal.hide();
+	};
+	$scope.openPayment = function(SelectedMission, SelectedCity) {
+		$scope.paymentModal.show();
 		$scope.SelectedMission = SelectedMission;
 		$scope.SelectedCity = SelectedCity;
 	};
