@@ -5,7 +5,7 @@ var STRIPE_ACCOUNT_ID           = "acct_1A9Z68HnE9ndDvpX";
 // development mode (TEST_MODE: true) or production mode (TEST_MODE: false)
 var TEST_MODE = true;
 
-angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.services', 'starter.DatabaseUploader', 'firebase'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.DatabaseUploader', 'firebase'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {

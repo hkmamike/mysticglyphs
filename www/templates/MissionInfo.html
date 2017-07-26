@@ -67,7 +67,7 @@
       <div ng-if="UserRecord[SelectedCity].Mission[SelectedMission] != null && UserRecord[SelectedCity].Mission[SelectedMission].StartTimeStamp" ui-sref="app.Mission({CityID: SelectedCity, MissionID: SelectedMission})" href="#/app/List/City/{{SelectedCity}}/MissionInfo/{{SelectedMission}}"class="button button-block button-positive" ng-click="TokenNumber = null"><strong>Play</strong></div>
       <div ng-if="UserRecord[SelectedCity].Mission[SelectedMission] != null && UserRecord[SelectedCity].Mission[SelectedMission].StartTimeStamp == null" ui-sref="app.Mission({CityID: SelectedCity, MissionID: SelectedMission})" href="#/app/List/City/{{SelectedCity}}/MissionInfo/{{SelectedMission}}"class="button button-block button-positive" ng-click="startTimer(SelectedMission)"><strong>Begin Mission (start timer)</strong></div>
 
-      <div ng-if="UserRecord[SelectedCity].Mission[SelectedMission] == null && MissionList[SelectedCity][SelectedMission].MissionType == 'Free'" ng-click="enrollMission(SelectedMission)" class="button button-block button-assertive"><strong>Enroll Now</strong></div>
+      <div ng-if="UserRecord[SelectedCity].Mission[SelectedMission] == null && MissionList[SelectedCity][SelectedMission].MissionType == 'Free'" ng-click="enrollMission(SelectedMission)" class="button button-block button-assertive"><strong>Enroll Now [Free]</strong></div>
 
       <div ng-if="UserRecord[SelectedCity].Mission[SelectedMission] == null && MissionList[SelectedCity][SelectedMission].MissionType == '80'" ng-click="openPayment(SelectedMission, SelectedCity)" class="button button-block button-positive"><strong>Enroll Now [HK$80.0]</strong></div>
 

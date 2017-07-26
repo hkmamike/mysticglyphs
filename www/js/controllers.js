@@ -7,73 +7,7 @@ angular.module('starter.controllers', [])
 	};
 })
 
-.controller('AppCtrl', function($scope, $http, $timeout, $rootScope, $state, $stateParams, $firebaseObject, $ionicScrollDelegate, $ionicSlideBoxDelegate, $ionicModal, $ionicSideMenuDelegate) {
-
-	//Payment
-  $http.defaults.headers.common['X-Mashape-Key']  = NOODLIO_PAY_API_KEY;
-  $http.defaults.headers.common['Content-Type']   = 'application/x-www-form-urlencoded';
-  $http.defaults.headers.common['Accept']         = 'application/json';
-
-  $scope.FormData = {test: TEST_MODE,};
-  $scope.createToken = function(SelectedMission, FormData) {
-    // init for the DOM
-    $scope.ResponseData = {
-      loading: true
-    };
-    console.log ('scope FormData is : ', $scope.FormData);
-    console.log ('Input FormData is : ', FormData);
-    // create a token and validate the credit card details
-    $http.post(NOODLIO_PAY_API_URL + "/tokens/create", $scope.FormData).success(
-      function(response){
-        if(response.hasOwnProperty('id')) {
-					console.log('Token creation success: ', response);
-					var token = response.id;
-          $scope.ResponseData['token'] = token;
-          proceedCharge(SelectedMission, token);
-        } else {
-          $scope.ResponseData['token'] = 'Error 1, see console';
-          $scope.ResponseData['loading'] = false;
-        }
-      }
-    ).error(
-				function(response){
-					console.log('Token creation error: ', response);
-					$scope.ResponseData['token'] = 'Error 2, see console';
-					$scope.ResponseData['loading'] = false;
-				}
-			);
-  };
-  function proceedCharge(SelectedMission, token) {
-    var param = {
-      source: token,
-      amount: 8000,
-      currency: "hkd",
-      description: "mission enrollment",
-      stripe_account: STRIPE_ACCOUNT_ID,
-      test: TEST_MODE,
-    };
-    $http.post(NOODLIO_PAY_API_URL + "/charge/token", param).success(
-      function(response){
-        $scope.ResponseData['loading'] = false;
-        if(response.hasOwnProperty('id')) {
-					console.log('Charge has been registered, response: ', response);
-          var paymentId = response.id;
-          $scope.ResponseData['paymentId'] = paymentId;
-          $scope.enrollMission(SelectedMission);
-        } else {
-          $scope.ResponseData['paymentId'] = 'Error 3, see console';
-        }
-      }
-    ).error(
-				function(response){
-					console.log(response);
-					$scope.ResponseData['paymentId'] = 'Error 4, see console';
-					$scope.ResponseData['loading'] = false;
-				}
-			);
-  }
-
-  // ---------------------------------------------------------
+.controller('AppCtrl', function($scope, $timeout, $rootScope, $state, $stateParams, $firebaseObject, $ionicScrollDelegate, $ionicSlideBoxDelegate, $ionicModal, $ionicSideMenuDelegate) {
 
 	// City & Mission List Objects------------------------------------------------------
 	$scope.CityList = $firebaseObject(firebase.database().ref('/DatabaseInfo/' + '/CityCampaignInfo/'));
@@ -364,7 +298,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('ListCtrl', function($scope, $interval, $stateParams) {
+.controller('ListCtrl', function($scope, $http, $interval, $stateParams) {
 	$scope.SelectedCity = $stateParams.CityID;
 	$scope.SelectedMission = $stateParams.MissionID;
 
@@ -404,6 +338,142 @@ angular.module('starter.controllers', [])
 	};
 	tick();
 	$interval(tick, 1000);
+
+
+	//Payment UI
+
+	// var card = elements.create('card', {
+	//   iconStyle: 'solid',
+	//   style: {
+	//     base: {
+	//       iconColor: '#8898AA',
+	//       color: 'white',
+	//       lineHeight: '36px',
+	//       fontWeight: 300,
+	//       fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+	//       fontSize: '19px',
+
+	//       '::placeholder': {
+	//         color: '#8898AA',
+	//       },
+	//     },
+	//     invalid: {
+	//       iconColor: '#e85746',
+	//       color: '#e85746',
+	//     }
+	//   },
+	//   classes: {
+	//     focus: 'is-focused',
+	//     empty: 'is-empty',
+	//   },
+	// });
+	// card.mount('#card-element');
+
+	// function setOutcome(result) {
+	//   var successElement = document.querySelector('.success');
+	//   var errorElement = document.querySelector('.error');
+	//   successElement.classList.remove('visible');
+	//   errorElement.classList.remove('visible');
+
+	//   if (result.token) {
+	//     // Use the token to create a charge or a customer
+	//     // https://stripe.com/docs/charges
+	//     successElement.querySelector('.token').textContent = result.token.id;
+	//     successElement.classList.add('visible');
+	//   } else if (result.error) {
+	//     errorElement.textContent = result.error.message;
+	//     errorElement.classList.add('visible');
+	//   }
+	// }
+
+	// card.on('change', function(event) {
+	//   setOutcome(event);
+	// });
+
+	// document.querySelector('form').addEventListener('submit', function(e) {
+	//   e.preventDefault();
+	//   var form = document.querySelector('form');
+	//   var extraDetails = {
+	//     name: form.querySelector('input[name=cardholder-name]').value,
+	//   };
+	//   stripe.createToken(card, extraDetails).then(setOutcome);
+	// });
+	//----------------------------------------
+
+
+	//Payment
+  $http.defaults.headers.common['X-Mashape-Key']  = NOODLIO_PAY_API_KEY;
+  $http.defaults.headers.common['Content-Type']   = 'application/x-www-form-urlencoded';
+  $http.defaults.headers.common['Accept']         = 'application/json';
+  $scope.FormData = {test: TEST_MODE,};
+  $scope.createToken = function(SelectedMission, FormData) {
+    // init for the DOM
+    $scope.ResponseData = {
+      loading: true
+    };
+    console.log ('scope FormData is : ', $scope.FormData);
+    console.log ('Input FormData is : ', FormData);
+    // create a token and validate the credit card details
+    $http.post(NOODLIO_PAY_API_URL + "/tokens/create", $scope.FormData).success(
+      function(response){
+        if(response.hasOwnProperty('id')) {
+        	$scope.txnStatus = 'tokenCreated';
+					console.log('Token creation success: ', response);
+					var token = response.id;
+          $scope.ResponseData['token'] = token;
+          proceedCharge(SelectedMission, token);
+        } else {
+        	$scope.txnStatus = 'Error1';
+          $scope.ResponseData['token'] = 'Error 1, see console';
+          $scope.ResponseData['loading'] = false;
+        }
+      }
+    ).error(
+				function(response){
+					$scope.txnStatus = 'Error2';
+					console.log('Token creation error: ', response);
+					$scope.ResponseData['token'] = 'Error 2, see console';
+					$scope.ResponseData['loading'] = false;
+				}
+			);
+  };
+
+  //proceedCharge is to be moved to server side
+  function proceedCharge(SelectedMission, token) {
+    var param = {
+      source: token,
+      amount: 8000,
+      currency: "hkd",
+      description: "mission enrollment",
+      stripe_account: STRIPE_ACCOUNT_ID,
+      test: TEST_MODE,
+    };
+    $http.post(NOODLIO_PAY_API_URL + "/charge/token", param).success(
+      function(response){
+        $scope.ResponseData['loading'] = false;
+        if(response.hasOwnProperty('id')) {
+        	$scope.txnStatus = 'txnRegistered';
+					console.log('Charge has been registered, response: ', response);
+          var paymentId = response.id;
+          $scope.ResponseData['paymentId'] = paymentId;
+          $scope.enrollMission(SelectedMission);
+        } else {
+          $scope.ResponseData['paymentId'] = 'Error 3, see console';
+          $scope.txnStatus = '';
+        }
+      }
+    ).error(
+				function(response){
+					console.log(response);
+					$scope.ResponseData['paymentId'] = 'Error 4, see console';
+					$scope.ResponseData['loading'] = false;
+					$scope.txnStatus = 'Error4';
+				}
+			);
+  }
+
+  // ---------------------------------------------------------
+
 
 });
 
