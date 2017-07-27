@@ -110,11 +110,8 @@ exports.NewUser = functions.auth.user().onCreate(event => {
 // });
 
 exports.UnlockToken = functions.database.ref('/User/{UserID}/Input/ClaimToken/').onWrite(event => {
-
 	var Input = event.data.val();
 	var Token = Input.substring(0, Input.indexOf(","));
-
-	console.log('Token is: ', Token);
 
 	if (Token=='warmUp') {
 		console.log ('warm up condition');
@@ -127,7 +124,6 @@ exports.UnlockToken = functions.database.ref('/User/{UserID}/Input/ClaimToken/')
 			admin.database().ref('/DatabaseInfo/TokenInfo/' + Token + '/TokenCode/' ).once('value', function(snapshot) {
 				//Check Token Validaty
 				if (snapshot.val() == TokenCode) {
-					console.log ('Mission:', Mission, 'Token:', Token, 'Result: Valid GlyphCode');
 					//Let client know the code works
 					admin.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').set('1,'+ Date.now());
 					admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission).once('value', function(snapshot) {
@@ -164,7 +160,7 @@ exports.UnlockToken = functions.database.ref('/User/{UserID}/Input/ClaimToken/')
 									}
 								});
 							}
-							var newPostKey = admin.database.ref().child('/AllTokenClaimRecord/').push().key;
+							var newPostKey = admin.database().ref().child('/AllTokenClaimRecord/').push().key;
 							var updates = {};
 							updates['/AllTokenClaimRecord/' + Token + '/' + newPostKey] = new Date();
 							admin.database().ref().update(updates);
