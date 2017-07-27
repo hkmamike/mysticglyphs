@@ -32,6 +32,9 @@
 //         "Output" : {
 //           ".write": "$uid === auth.uid",
 //         },
+//         "Transactions" : {
+//           ".write": "$uid === auth.uid",
+//         },
 //       }
       
 //   	}

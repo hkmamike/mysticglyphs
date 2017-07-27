@@ -358,10 +358,10 @@ angular.module('starter.controllers', [])
           firebase.database().ref().update(transactionRecord);
 
           var transactionRecordAll = {};
-          transactionRecordAll[paymentID + '/Type/'] = response.object;
-          transactionRecordAll[paymentID + '/Amount/'] = response.amount;
-          transactionRecordAll[paymentID + '/Mission/'] = SelectedMission;
-          transactionRecordAll[paymentID + '/User/'] = UserID;
+          transactionRecordAll['/AllTransactions/' + paymentID + '/Type/'] = response.object;
+          transactionRecordAll['/AllTransactions/' + paymentID + '/Amount/'] = response.amount;
+          transactionRecordAll['/AllTransactions/' + paymentID + '/Mission/'] = SelectedMission;
+          transactionRecordAll['/AllTransactions/' + paymentID + '/User/'] = UserID;
           firebase.database().ref().update(transactionRecordAll);
 
           $scope.enrollMission(SelectedMission);
