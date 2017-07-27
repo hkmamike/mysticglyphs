@@ -1,72 +1,88 @@
 <ion-modal-view>
 
   <ion-header-bar>
-    <h1 class="title">Mission Enrollment</h1>
+    <h1 class="title">Enroll</h1>
     <div class="buttons">
       <button class="button button-cross button-positive" ng-click="closePayment()">Close</button>
     </div>
   </ion-header-bar>
   <ion-content>
-    <form class="payment-form" ng-class="{'validation-white' : enrollMissionMessage == 'ready' || enrollMissionMessage == 'processing' || enrollMissionMessage == 'requestingServer' || enrollMissionMessage == 'copyingMission', 'validation-green' : enrollMissionMessage == 'unlocked'}">
-  
 
-      <label class="payment-label" ng-class="{'is-focused': nameFocused==true}">
-       <!--  <i class="icon ion-calendar"></i> -->
-        <input type="text" type="tel" class="payment-field" max="2" ng-model="FormData.name" ng-focus="nameFocused=true" ng-blur="nameFocused=false" placeholder="Jane Doe"/>
-        <span><span>Name</span></span>
-      </label>
+    <div class="item-text-wrap" ng-class="{'validation-white' : enrollMissionMessage == 'ready' || enrollMissionMessage == 'processing' || enrollMissionMessage == 'requestingServer' || enrollMissionMessage == 'copyingMission', 'validation-green' : enrollMissionMessage == 'unlocked', 'validation-red' : ResponseData.tokenCreationFailed || ResponseData.chargeFailed}">
 
-      <label class="payment-label" ng-class="{'is-focused': cardFocused==true}">
-       <!--  <i class="icon ion-calendar"></i> -->
-        <input type="text" class="payment-field" max="16" ng-model="FormData.number" ng-focus="cardFocused=true" ng-blur="cardFocused=false" placeholder="1234-1234-1234-1234"/>
-        <span><span>Card</span></span>
-      </label>
-
-<!--       <label class="item item-input">
-        <i class="icon ion-card"></i>
-        <input type="text" class="left-margin" max="16" ng-model="FormData.number" placeholder="Card number"/>
-      </label>
-      <label class="payment-form-item">
-        <i class="icon ion-calendar"></i>
-        <input type="text" class="left-margin" max="2" ng-model="FormData.exp_month" placeholder="MM">
-      </label>
-      <label class="item item-input">
-        <i class="icon ion-calendar"></i>
-        <input type="text" class="left-margin" ng-model="FormData.exp_year"/ placeholder="YYYY">
-      </label>
-      <label class="item item-input">
-        <i class="icon ion-locked"></i>
-        <input type="text" class="left-margin" ng-model="FormData.cvc"/ placeholder="CVC">
-      </label>
-      <div class="padding center">
-        <button class="button button-block button-balanced" ng-click="createToken(SelectedMission, FormData)">Pay HK$80.0</button>
+<!--       <div class ="item item-divider">
+        <p class="payment-stripe">Secured Payment by © Stripe</p>
       </div> -->
 
-      <div ng-show="ResponseData.loading">
-        <h4 class="center-align">Validating card info...</h4>
-      </div>
-      <div ng-show="txnStatus == 'tokenCreated'">
-        <h4 class="center-align">Requesting transaction...</h4>
-      </div>
-      <div ng-show="txnStatus == 'txnRegistered' && enrollMissionMessage =='ready'">
-        <h4 class="center-align">Transaction completed. Requesting mission...</h4>
-      </div>
-      <div ng-show="enrollMissionMessage == 'ready'">
-        <h4 class="center-align"><br></h4>
-      </div>
-      <div ng-show="enrollMissionMessage == 'requestingServer'">
-        <h4 class="center-align">Connecting to server...</h4>
-      </div>
-      <div ng-show="enrollMissionMessage == 'processing'">
-        <h4 class="center-align">Checking availability...</h4>
-      </div>
-      <div ng-show="enrollMissionMessage == 'copyingMission'">
-        <h4 class="center-align">Copying mission from DB...</h4>
-      </div>
-      <div ng-show="enrollMissionMessage == 'unlocked'">
-        <h4 class="center-align">Success!</h4>
-      </div>
-    </form>
+      <form class="payment-form" name="paymentForm" novalidate>
+        <label class="payment-label" ng-class="{'is-focused': cardFocused==true}">
+          <i class="icon ion-card payment-icon"></i>
+          <div class="card-type">{{FormData.type}}</div>
+          <input type="text" class="payment-field" name="creditCard" ng-model="FormData.number" ng-focus="cardFocused=true" ng-blur="cardFocused=false" placeholder="4012 8888 8888 1881" required data-credit-card-type data-ng-pattern="/^[0-9]+$/" data-ng-minlength="15" maxlength="19"/>
+          <span><span>Card Number</span></span>
+        </label>
+        <label class="payment-label" ng-class="{'is-focused': cvcFocused==true}">
+         <i class="icon ion-locked payment-icon"></i>
+          <input type="text" class="payment-field" name="securityCode" ng-model="FormData.cvc" ng-focus="cvcFocused=true" ng-blur="cvcFocused=false" placeholder="007" required data-ng-pattern="/^[0-9]+$/" data-ng-minlength="3" maxlength="4"/>
+          <span><span>CVC</span></span>
+        </label>
+        <label class="payment-label" ng-class="{'is-focused': monthFocused==true}">
+         <i class="icon ion-calendar payment-icon"></i>
+          <input type="text" class="payment-field" name="month" ng-model="FormData.exp_month" ng-focus="monthFocused=true" ng-blur="monthFocused=false" placeholder="MM" required data-ng-pattern="/^[0-9]+$/" data-ng-minlength="2" maxlength="2"/>
+          <span><span>Expiring Month</span></span>
+        </label>
+        <label class="payment-label" ng-class="{'is-focused': yearFocused==true}">
+         <i class="icon ion-calendar payment-icon"></i>
+          <input type="text" class="payment-field" name="year" ng-model="FormData.exp_year" ng-focus="yearFocused=true" ng-blur="yearFocused=false" placeholder="YYYY" required data-ng-pattern="/^[0-9]+$/" data-ng-minlength="4" maxlength="4"/>
+          <span><span>Expiring Year</span></span>
+        </label>
+        <button class="button button-block button-balanced" ng-click="submitAttemptFunction(); savePaymentForm(paymentForm.$valid, SelectedMission, FormData)" type="submit"><i class="icon ion-checkmark-circled button-icon"></i><strong>Pay HK$80.0</strong></button>
+        <ul ng-if="submitAttempt && !paymentForm.$valid">
+          <li ng-show="paymentForm.creditCard.$error.minlength">Credit card must be 15-19 digits.</li>
+          <li ng-show="paymentForm.creditCard.$error.pattern">Credit card must consist of only numbers.</li>
+          <li ng-show="paymentForm.creditCard.$error.invalid">Credit card must be a valid Amex, Visa, Discover, or Master Card.</li>
+          <li ng-show="paymentForm.creditCard.$error.required">Credit card required.</li>
+          <li ng-show="paymentForm.securityCode.$error.pattern">Security code must contain only numbers.</li>
+          <li ng-show="paymentForm.securityCode.$error.minlength">Security code must be 3-4 digits.</li>
+          <li ng-show="paymentForm.securityCode.$error.required">Security code required.</li>
+          <li ng-show="paymentForm.month.$error.required">Expiration month required.</li>
+          <li ng-show="paymentForm.year.$error.required">Expiration year required.</li>
+          <li ng-show="paymentForm.month.$error.invalid">Provided expiration date is invalid.</li>
+        </ul>
 
+        <div ng-show="ResponseData.loading && !ResponseData.closingWindow">
+          <h5 class="center-align">Validating card info...</h4>
+        </div>
+        <div ng-show="ResponseData.tokenCreationFailed || ResponseData.chargeFailed && !ResponseData.closingWindow">
+          <h5 class="center-align">{{ResponseData.responseMessage}}</h4>
+        </div>
+        <div ng-show="txnStatus == 'tokenCreated' && !ResponseData.closingWindow">
+          <h5 class="center-align">Requesting transaction...</h4>
+        </div>
+        <div ng-show="txnStatus == 'txnRegistered' && enrollMissionMessage =='ready' && !ResponseData.closingWindow">
+          <h5 class="center-align">Transaction completed. Requesting mission...</h4>
+        </div>
+        <div ng-show="enrollMissionMessage == 'ready' && !ResponseData.closingWindow">
+          <h5 class="center-align"><br></h4>
+        </div>
+        <div ng-show="enrollMissionMessage == 'requestingServer' && !ResponseData.closingWindow">
+          <h5 class="center-align">Requesting Mission...</h4>
+        </div>
+        <div ng-show="enrollMissionMessage == 'processing' && !ResponseData.closingWindow">
+          <h5 class="center-align">Checking availability...</h4>
+        </div>
+        <div ng-show="enrollMissionMessage == 'copyingMission' && !ResponseData.closingWindow">
+          <h5 class="center-align">Copying mission from DB...</h4>
+        </div>
+        <div ng-show="enrollMissionMessage == 'unlocked' && !ResponseData.closingWindow">
+          <h5 class="center-align">Success!</h4>
+        </div>
+        <div ng-show="ResponseData.closingWindow">
+          <h5 class="center-align">{{ResponseData.closingWindow}}</h4>
+        </div>
+      </div>
+    
+      </form>
+    </div>
   </ion-content>
 </ion-modal-view>

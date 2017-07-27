@@ -7,7 +7,7 @@ angular.module('starter.controllers', [])
 	};
 })
 
-.controller('AppCtrl', function($scope, $timeout, $rootScope, $state, $stateParams, $firebaseObject, $ionicScrollDelegate, $ionicSlideBoxDelegate, $ionicModal, $ionicSideMenuDelegate) {
+.controller('AppCtrl', function($scope, $http, $locale, $timeout, $rootScope, $state, $stateParams, $firebaseObject, $ionicScrollDelegate, $ionicSlideBoxDelegate, $ionicModal, $ionicSideMenuDelegate) {
 
 	// City & Mission List Objects------------------------------------------------------
 	$scope.CityList = $firebaseObject(firebase.database().ref('/DatabaseInfo/' + '/CityCampaignInfo/'));
@@ -15,35 +15,28 @@ angular.module('starter.controllers', [])
 	// ---------------------------------------------------------------------------------
 
 	// INTRO------------------------------------------------------------------------
-
-   // Called to navigate to the main app
+  // Called to navigate to the main app
   $scope.startApp = function() {
     $state.go('app.List');
     // Set a flag that we finished the tutorial
     window.localStorage['didTutorial'] = true;
   };
-
   // Check if the user already did the tutorial and skip it if so
 	if(window.localStorage['didTutorial'] === "true") {
-			console.log('Skip intro');
+			console.log('localStorage didTutorial = true, Skip intro');
 			$scope.startApp();
 		}
-
-
 	$scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
 		$ionicSlideBoxDelegate.slide(0);
 	});
-
   $scope.toIntro = function(){
     window.localStorage['didTutorial'] = "false";
     $state.go('intro');
   };
-
   // Move to the next slide
   $scope.next = function() {
     $scope.$broadcast('slideBox.nextSlide');
   };
-
 	// SIDE MENU------------------------------------------------------------------------
 	$scope.toggleRightSideMenu = function() {
 	$ionicSideMenuDelegate.toggleRight();
@@ -75,7 +68,7 @@ angular.module('starter.controllers', [])
 
   // Check if the user is logging in
 	if(window.localStorage['hideLogin'] === "true") {
-			console.log('Hide Login');
+			console.log('localStroage hideLogin = true, hiding Login');
 			$rootScope.hideLogin = true;
 		}
 
@@ -203,13 +196,24 @@ angular.module('starter.controllers', [])
 	}).then(function(modal) {
 		$scope.paymentModal = modal;
 	});
-	$scope.closePayment = function() {
-		$scope.paymentModal.hide();
-	};
 	$scope.openPayment = function(SelectedMission, SelectedCity) {
 		$scope.paymentModal.show();
 		$scope.SelectedMission = SelectedMission;
 		$scope.SelectedCity = SelectedCity;
+	};
+	$scope.closePayment = function() {
+		$scope.ResponseData = {closingWindow: 'wiping private data...'};
+		$scope.FormData = {number: '', cvc: '', exp_year: '', exp_month: ''};
+		$scope.submitAttempt = false;
+		$timeout( function(){
+			//Reset form
+			$scope.ResponseData['closingWindow'] = null;
+			$scope.paymentModal.hide();
+			$scope.FormData = {};
+		},1000);
+	};
+	$scope.submitAttemptFunction = function() {
+		$scope.submitAttempt = true;
 	};
 	// ---------------------------------------------------------------------------------
 
@@ -236,7 +240,6 @@ angular.module('starter.controllers', [])
 		// CLOUD FUNCTION RESPONSES FOR GLYPH UNLOCK--------------------------------------------
 		firebase.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').on('value', function(snapshot) {
 			var Output = snapshot.val();
-			console.log ('GlyphValidation Output is:', Output);
 			var Result = Output.substring(0,Output.indexOf(","));
 			console.log ('GlyphValidation Result is:', Result);
 
@@ -296,9 +299,106 @@ angular.module('starter.controllers', [])
 	});
 	// ---------------------------------------------------------------------------------
 
+	//Payment --------------------------------------------------------------------------
+  $http.defaults.headers.common['X-Mashape-Key']  = NOODLIO_PAY_API_KEY;
+  $http.defaults.headers.common['Content-Type']   = 'application/x-www-form-urlencoded';
+  $http.defaults.headers.common['Accept']         = 'application/json';
+  $scope.FormData = {test: TEST_MODE,};
+  $scope.createToken = function(SelectedMission, FormData) {
+    // init for the DOM
+    $scope.ResponseData = {loading: true};
+    console.log ('sending token creation request');
+    // create a token and validate the credit card details
+    $http.post(NOODLIO_PAY_API_URL + "/tokens/create", FormData).success(
+      function(response){
+        if(response.hasOwnProperty('id')) {
+					$scope.txnStatus = 'tokenCreated';
+					var token = response.id;
+          $scope.ResponseData['token'] = token;
+          console.log('token created, proceeding to charge.');
+          proceedCharge(SelectedMission, token);
+        } else {
+          console.log ('token creation failed.');
+					$scope.txnStatus = 'Error at token creation response';
+          $scope.ResponseData['responseMessage'] = response.message;
+          $scope.ResponseData['loading'] = false;
+          $scope.ResponseData['tokenCreationFailed'] = true;
+					console.log('Response is :', response);
+					$timeout( function(){
+						$scope.ResponseData['tokenCreationFailed'] = false;
+					},3000);
+        }
+      }
+    ).error(
+				function(response){
+					$scope.txnStatus = 'Error2';
+					$scope.ResponseData['error'] = 'Unknown error occured, please contact developer';
+					$scope.ResponseData['loading'] = false;
+				}
+			);
+  };
+  //Payment Continued - proceedCharge is to be moved to server side
+  function proceedCharge (SelectedMission, token) {
+    var param = {
+      source: token,
+      amount: 8000,
+      currency: "hkd",
+      description: "mission enrollment",
+      stripe_account: STRIPE_ACCOUNT_ID,
+      test: TEST_MODE,
+    };
+    $http.post(NOODLIO_PAY_API_URL + "/charge/token", param).success(
+      function(response){
+        $scope.ResponseData['loading'] = false;
+        if(response.hasOwnProperty('id')) {
+        	console.log('stripe charge is successful.');
+					$scope.txnStatus = 'txnRegistered';
+          var paymentId = response.id;
+          $scope.ResponseData['paymentId'] = paymentId;
+          $scope.enrollMission(SelectedMission);
+					$timeout( function(){
+						$scope.txnStatus = '';
+					},3000);
+        } else {
+          console.log ('stripe charge failed.');
+					$scope.txnStatus = 'Error at token charge response';
+          $scope.ResponseData['responseMessage'] = response.message;
+          $scope.ResponseData['loading'] = false;
+          $scope.ResponseData['chargeFailed'] = true;
+					console.log('Response is :', response);
+					$timeout( function(){
+						$scope.ResponseData['chargeFailed'] = false;
+					},3000);
+        }
+      }
+    ).error(
+				function(response){
+					console.log(response);
+					$scope.ResponseData['paymentId'] = 'Error 4, see console';
+					$scope.ResponseData['loading'] = false;
+					$scope.txnStatus = 'Error4';
+				}
+			);
+  };
+  //Payment UI
+	$scope.currentYear = new Date().getFullYear();
+	$scope.currentMonth = new Date().getMonth() + 1;
+	$scope.months = $locale.DATETIME_FORMATS.MONTH;
+	$scope.FormData.type = undefined;
+  // ---------------------------------------------------------
+	$scope.savePaymentForm = function(validity, SelectedMission, FormData){
+		if (validity){
+			console.log('PaymentForm data is valid, creating payment token');
+			$scope.createToken(SelectedMission, FormData);
+		} else {
+			console.log('PaymentForm data is invalid');
+		}
+	};
+
+	// ---------------------------------------------------------
 })
 
-.controller('ListCtrl', function($scope, $http, $interval, $stateParams) {
+.controller('ListCtrl', function($scope, $interval, $stateParams) {
 	$scope.SelectedCity = $stateParams.CityID;
 	$scope.SelectedMission = $stateParams.MissionID;
 
@@ -338,81 +438,45 @@ angular.module('starter.controllers', [])
 	};
 	tick();
 	$interval(tick, 1000);
-
-	//Payment
-  $http.defaults.headers.common['X-Mashape-Key']  = NOODLIO_PAY_API_KEY;
-  $http.defaults.headers.common['Content-Type']   = 'application/x-www-form-urlencoded';
-  $http.defaults.headers.common['Accept']         = 'application/json';
-  $scope.FormData = {test: TEST_MODE,};
-  $scope.createToken = function(SelectedMission, FormData) {
-    // init for the DOM
-    $scope.ResponseData = {
-      loading: true
-    };
-    console.log ('scope FormData is : ', $scope.FormData);
-    console.log ('Input FormData is : ', FormData);
-    // create a token and validate the credit card details
-    $http.post(NOODLIO_PAY_API_URL + "/tokens/create", $scope.FormData).success(
-      function(response){
-        if(response.hasOwnProperty('id')) {
-        	$scope.txnStatus = 'tokenCreated';
-					console.log('Token creation success: ', response);
-					var token = response.id;
-          $scope.ResponseData['token'] = token;
-          proceedCharge(SelectedMission, token);
-        } else {
-        	$scope.txnStatus = 'Error1';
-          $scope.ResponseData['token'] = 'Error 1, see console';
-          $scope.ResponseData['loading'] = false;
-        }
-      }
-    ).error(
-				function(response){
-					$scope.txnStatus = 'Error2';
-					console.log('Token creation error: ', response);
-					$scope.ResponseData['token'] = 'Error 2, see console';
-					$scope.ResponseData['loading'] = false;
-				}
-			);
-  };
-
-  //proceedCharge is to be moved to server side
-  function proceedCharge(SelectedMission, token) {
-    var param = {
-      source: token,
-      amount: 8000,
-      currency: "hkd",
-      description: "mission enrollment",
-      stripe_account: STRIPE_ACCOUNT_ID,
-      test: TEST_MODE,
-    };
-    $http.post(NOODLIO_PAY_API_URL + "/charge/token", param).success(
-      function(response){
-        $scope.ResponseData['loading'] = false;
-        if(response.hasOwnProperty('id')) {
-        	$scope.txnStatus = 'txnRegistered';
-					console.log('Charge has been registered, response: ', response);
-          var paymentId = response.id;
-          $scope.ResponseData['paymentId'] = paymentId;
-          $scope.enrollMission(SelectedMission);
-        } else {
-          $scope.ResponseData['paymentId'] = 'Error 3, see console';
-          $scope.txnStatus = '';
-        }
-      }
-    ).error(
-				function(response){
-					console.log(response);
-					$scope.ResponseData['paymentId'] = 'Error 4, see console';
-					$scope.ResponseData['loading'] = false;
-					$scope.txnStatus = 'Error4';
-				}
-			);
-  }
-
-  // ---------------------------------------------------------
-
-
 });
 
+angular.module('starter').directive('creditCardType', function(){
+  var directive = { require: 'ngModel', link: function(scope, elm, attrs, ctrl){
+        ctrl.$parsers.unshift(function(value){
+          scope.FormData.type =
+            (/^5[1-5]/.test(value)) ? "mastercard"
+            : (/^4/.test(value)) ? "visa"
+            : (/^3[47]/.test(value)) ? 'amex'
+            : (/^6011|65|64[4-9]|622(1(2[6-9]|[3-9]\d)|[2-8]\d{2}|9([01]\d|2[0-5]))/.test(value)) ? 'discover'
+            : undefined;
+          ctrl.$setValidity('invalid', !!scope.FormData.type);
+          return value;
+        });
+      }
+    };
+  return directive;
+});
 
+// Currently not used
+// angular.module('starter').directive('cardExpiration', function(){
+//   var directive = { require: 'ngModel', link: function(scope, elm, attrs, ctrl){
+//         scope.$watch('[FormData.exp_month,FormData.exp_year]',function(value){
+//           ctrl.$setValidity('invalid',true);
+//           if ( scope.FormData.exp_year == scope.currentYear && scope.FormData.exp_month <= scope.currentMonth) {
+//             ctrl.$setValidity('invalid',false);
+//           }
+//           return value;
+//         },true);
+//       }
+//     };
+//   return directive;
+// });
+
+// Currently not used
+// angular.module('starter').filter( 'range', function() {
+//       var filter = function(arr, lower, upper) {
+//							for (var i = lower; i <= upper; i++) arr.push(i);
+//							return arr;
+//						};
+//       return filter;
+// });

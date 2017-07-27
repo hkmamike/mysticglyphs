@@ -4,9 +4,21 @@
 }
 
 /* Payment Form--------------------------------------------------*/
+input.ng-invalid.ng-dirty {
+  background-color: #FFEBE6;
+}
+input.ng-valid.ng-dirty {
+  background-color: #E6FFEE;
+}
+ul {
+ margin:0;
+}
+.button-icon {
+  margin-left: -10%;
+}
 .payment-form {
-  width: 70%;
-  margin: 15%;
+  width: 74%;
+  margin: 13%;
 }
 .payment-label {
   height: 35px;
@@ -14,6 +26,26 @@
   display: block;
   margin-top: 30px;
   margin-bottom: 20px;
+}
+.payment-form > ul {
+  display: block;
+}
+.payment-form > ul > li {
+  display: block;
+  color: red;
+  text-align: center;
+  line-height: 140%;
+  font-size: 90%;
+}
+.payment-form > div > h5 {
+  font-size: 90%;
+}
+.payment-label > .card-type {
+  position: absolute;
+  right: 5%;
+  font-weight: 900;
+  line-height: 32px;
+  color: #387EF5;
 }
 .payment-label > span {
   position: absolute;
@@ -37,11 +69,11 @@
 }
 .payment-label.is-focused > span span, .payment-field:not(.ng-empty) + span span {
   transform: scale(0.68) translateY(-36px);
+  color: #387EF5;
 }
 .payment-label.is-focused > span {
   border-bottom-color: #387EF5;
 }
-
 .payment-field {
   background: transparent;
   width: 100%;
@@ -54,10 +86,9 @@
 
 /* IE doesn't show placeholders when empty+focused */
 .payment-field:-ms-input-placeholder { color: #424770; }
-.payment-label:not(.is-focused) .payment-field {
+.payment-label:not(.is-focused) .payment-field.ng-empty {
   opacity: 0;
 }
-
 /* ---------------------------------------------------------*/
 
 /* Intro Page Info--------------------------------------------------*/
@@ -161,18 +192,21 @@ body {
   border-style: solid !important;
   border-width: 5px !important;
   border-color: white !important;
+  margin: 10px;
 }
 
 .validation-red {
   border-style: solid !important;
   border-width: 5px !important;
   border-color: red !important;
+  margin: 10px;
 }
 
 .validation-green {
   border-style: solid !important;
   border-width: 5px !important;
   border-color: green !important;
+  margin: 10px ;
 }
 
 .highlight-positive {
@@ -296,6 +330,16 @@ body {
   border-radius: 5px;
 }
 
+.cardflat-margin15 {
+  margin-top: 5px; 
+  margin-bottom: 5px; 
+  margin-left: 15%;
+  margin-right: 15%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  border-radius: 5px;
+}
+
 .cardflat-bigmargin {
   margin-top: 20px; 
   margin-bottom: 10px; 
@@ -362,6 +406,18 @@ body {
 
 li {
   margin-left: 10px;
+}
+
+.payment-icon {
+  position: absolute;
+  font-size: 150%;
+  left: -13%;
+  bottom: 4px;
+}
+
+.payment-stripe {
+  font-size: 100%;
+  text-align: center;
 }
 
 .left-margin {
