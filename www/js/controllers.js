@@ -202,7 +202,7 @@ angular.module('starter.controllers', [])
 		$scope.SelectedCity = SelectedCity;
 	};
 	$scope.closePayment = function() {
-		$scope.ResponseData = {closingWindow: 'wiping private data...'};
+		$scope.ResponseData = {closingWindow: 'discarding private data...'};
 		$scope.FormData = {number: '', cvc: '', exp_year: '', exp_month: ''};
 		$scope.submitAttempt = false;
 		$timeout( function(){
@@ -225,24 +225,20 @@ angular.module('starter.controllers', [])
 		$scope.UserRecord = $firebaseObject(firebase.database().ref('/User/' + FirebaseUser.uid + '/Record/'));
 		$scope.UserUnlockedToken = $firebaseObject(firebase.database().ref('/User/' + FirebaseUser.uid + '/Unlocked/Token/'));
 		UserID = FirebaseUser.uid;
-
 		//Flag for user's login status
 		if (user) {
 			$rootScope.userSignedIn = true;
 		} else {
 			$rootScope.userSignedIn = false;
 		}
-
 		//Warm up firebase functions by input triggers
 		firebase.database().ref('/User/'+ UserID +'/Input/' + '/EnrollMission/').set('warmUp_' + Date.now());
 		firebase.database().ref('/User/'+ UserID +'/Input/' + '/ClaimToken/').set('warmUp,' + Date.now());
-
 		// CLOUD FUNCTION RESPONSES FOR GLYPH UNLOCK--------------------------------------------
 		firebase.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').on('value', function(snapshot) {
 			var Output = snapshot.val();
 			var Result = Output.substring(0,Output.indexOf(","));
 			console.log ('GlyphValidation Result is:', Result);
-
 			if (Result==1) {
 				$scope.glyphCodeSubmitMessage = 'unlocked';
 				$scope.$apply();
@@ -351,10 +347,23 @@ angular.module('starter.controllers', [])
       function(response){
         $scope.ResponseData['loading'] = false;
         if(response.hasOwnProperty('id')) {
-        	console.log('stripe charge is successful.');
+					console.log('stripe charge is successful.', response);
 					$scope.txnStatus = 'txnRegistered';
-          var paymentId = response.id;
-          $scope.ResponseData['paymentId'] = paymentId;
+          var paymentID = response.id;
+
+          var transactionRecord = {};
+          transactionRecord['/User/' + UserID + '/Transactions/' + paymentID + '/Type/'] = response.object;
+          transactionRecord['/User/' + UserID + '/Transactions/' + paymentID + '/Amount/'] = response.amount;
+          transactionRecord['/User/' + UserID + '/Transactions/' + paymentID + '/Mission/'] = SelectedMission;
+          firebase.database().ref().update(transactionRecord);
+
+          var transactionRecordAll = {};
+          transactionRecordAll[paymentID + '/Type/'] = response.object;
+          transactionRecordAll[paymentID + '/Amount/'] = response.amount;
+          transactionRecordAll[paymentID + '/Mission/'] = SelectedMission;
+          transactionRecordAll[paymentID + '/User/'] = UserID;
+          firebase.database().ref().update(transactionRecordAll);
+
           $scope.enrollMission(SelectedMission);
 					$timeout( function(){
 						$scope.txnStatus = '';
@@ -374,12 +383,12 @@ angular.module('starter.controllers', [])
     ).error(
 				function(response){
 					console.log(response);
-					$scope.ResponseData['paymentId'] = 'Error 4, see console';
+					$scope.ResponseData['paymentID'] = 'Error 4, see console';
 					$scope.ResponseData['loading'] = false;
 					$scope.txnStatus = 'Error4';
 				}
 			);
-  };
+  }
   //Payment UI
 	$scope.currentYear = new Date().getFullYear();
 	$scope.currentMonth = new Date().getMonth() + 1;
