@@ -164,6 +164,10 @@ exports.UnlockToken = functions.database.ref('/User/{UserID}/Input/ClaimToken/')
 									}
 								});
 							}
+							var newPostKey = admin.database.ref().child('/AllTokenClaimRecord/').push().key;
+							var updates = {};
+							updates['/AllTokenClaimRecord/' + Token + '/' + newPostKey] = new Date();
+							admin.database().ref().update(updates);
 						}
 					});
 				} else {
