@@ -3,6 +3,17 @@
   display: none !important;
 }
 
+
+/*
+.scroll {
+height: 100%;
+}*/
+
+#map {
+  height: 100%;
+}
+
+
 /* Payment Form--------------------------------------------------*/
 input.ng-invalid.ng-dirty {
   background-color: #FFEBE6;

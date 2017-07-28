@@ -191,6 +191,21 @@ angular.module('starter.controllers', [])
 	};
 	// ---------------------------------------------------------------------------------
 
+	// Image HINTS MODAL----------------------------------------------------------------
+	$ionicModal.fromTemplateUrl('templates/mapPage.html', {
+		scope: $scope
+	}).then(function(modal) {
+		$scope.mapPage = modal;
+	});
+	$scope.closeMap = function() {
+		$scope.mapPage.hide();
+	};
+	$scope.openMap = function() {
+		$scope.mapPage.show();
+	};
+	// ---------------------------------------------------------------------------------
+
+
 	// Payment MODAL----------------------------------------------------------------
 	$ionicModal.fromTemplateUrl('templates/payment.html', {
 		scope: $scope
@@ -465,6 +480,39 @@ angular.module('starter').directive('creditCardType', function(){
       }
     };
   return directive;
+})
+.controller('MapCtrl', function($scope, $state, $stateParams) {
+	var map;
+	var mapOptions = {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 8
+  };
+	$scope.initMap = function() {
+		map = new google.maps.Map(document.getElementById("map"), mapOptions);
+	};
+
+	//Wait until the map is loaded
+	// google.maps.event.addListenerOnce($scope.map, 'idle', function(){
+	 
+	//   var marker = new google.maps.Marker({
+	//       map: $scope.map,
+	//       animation: google.maps.Animation.DROP,
+	//       position: latLng
+	//   });      
+	 
+	//   var infoWindow = new google.maps.InfoWindow({
+	//       content: "Here I am!"
+	//   });
+	 
+	//   google.maps.event.addListener(marker, 'click', function () {
+	//       infoWindow.open($scope.map, marker);
+	//   });
+	 
+	// });
+
+
+
+
 });
 
 // Currently not used

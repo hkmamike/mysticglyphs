@@ -69,7 +69,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.DatabaseUplo
       }
     }
   })
-  //Mission Info
+  //MissionInfo Info
   .state('app.MissionInfo', {
     url: '/List/City/:CityID/MissionInfo/:MissionID',
     views: {
@@ -86,6 +86,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.DatabaseUplo
       'menuContent': {
         templateUrl: 'templates/Mission.html',
         controller: 'ListCtrl'
+      }
+    }
+  })
+  //Map Page
+  .state('app.map', {
+    url: '/map',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/mapPage.html',
+        controller: 'MapCtrl'
       }
     }
   });
