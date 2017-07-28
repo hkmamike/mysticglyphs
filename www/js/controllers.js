@@ -64,6 +64,7 @@ angular.module('starter.controllers', [])
 		window.localStorage['hideLogin'] = false;
 		$rootScope.userSignedIn = false;
 		$rootScope.hideLogin = false;
+		$state.go('app.List');
 	};
 
   // Check if the user is logging in
@@ -341,7 +342,7 @@ angular.module('starter.controllers', [])
       currency: "hkd",
       description: "mission enrollment",
       stripe_account: STRIPE_ACCOUNT_ID,
-      test: TEST_MODE,
+      test: TEST_ ,
     };
     $http.post(NOODLIO_PAY_API_URL + "/charge/token", param).success(
       function(response){

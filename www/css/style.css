@@ -92,16 +92,13 @@ ul {
 /* ---------------------------------------------------------*/
 
 /* Intro Page Info--------------------------------------------------*/
-
 body {
   cursor: url('https://ionicframework.com/img/finger.png'), auto;
 }
-
 /*Item Accordion*/
 .accordion-name {
   padding: 5px;
 }
-
 .list .item.item-accordion {
   line-height: 20px;
   padding-top: 0;
@@ -115,22 +112,18 @@ body {
 .list .item.item-accordion.ng-hide-remove {
   display: block !important;
 }
-
 .slider {
   height: 100%;
 }
-
 .scroll {
   height: 100%;
 }
-
 .button-intro {
   position: absolute;
   left: 10% !important;
   bottom: 40px;
   width: 80% !important;
 }
-
 .slider-slide, .glyphsList {
   padding-top: 20px;
   color: #000;
@@ -139,15 +132,15 @@ body {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
   font-weight: 300;
 }
-
 .introPNG {
   margin: 10px 0;
 }
-
 /* ---------------------------------------------------------*/
 
-/* Mission Enroll & Play--------------------------------------------------*/
-
+/* City Page--------------------------------------------------*/
+.item-select-mission {
+  line-height: 50%;
+}
 .enroll-bar{
   margin-top: 0 !important;
   margin-bottom: 0 !important;
@@ -159,7 +152,6 @@ body {
   line-height: 20px;
   text-align: center;
 }
-
 .complete-bar{
   margin-top: 0 !important;
   margin-bottom: 0 !important;
@@ -171,7 +163,6 @@ body {
   line-height: 20px;
   text-align: center;
 }
-
 .play-bar {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
@@ -183,10 +174,9 @@ body {
   line-height: 20px;
   text-align: center;
 }
-
 /* ---------------------------------------------------------*/
 
-/* Border COlor--------------------------------------------------*/
+/* Border Color--------------------------------------------------*/
 
 .validation-white {
   border-style: solid !important;
