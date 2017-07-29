@@ -254,7 +254,6 @@ angular.module('starter.controllers', [])
 		firebase.database().ref('/User/'+ UserID +'/Output/GlyphUnlock').on('value', function(snapshot) {
 			var Output = snapshot.val();
 			var Result = Output.substring(0,Output.indexOf(","));
-			console.log ('GlyphValidation Result is:', Result);
 			if (Result==1) {
 				$scope.glyphCodeSubmitMessage = 'unlocked';
 				$scope.$apply();
@@ -357,7 +356,7 @@ angular.module('starter.controllers', [])
       currency: "hkd",
       description: "mission enrollment",
       stripe_account: STRIPE_ACCOUNT_ID,
-      test: TEST_ ,
+      test: TEST_MODE,
     };
     $http.post(NOODLIO_PAY_API_URL + "/charge/token", param).success(
       function(response){
@@ -434,13 +433,11 @@ angular.module('starter.controllers', [])
 		//Get mission start time		
 		firebase.database().ref('/User/'+ UserID +'/Record/' + $scope.SelectedCity + '/Mission/' + $scope.SelectedMission + '/StartTimeStamp/').on('value', function(snapshot) {
 			startTime = snapshot.val();
-			console.log('startTime: ',startTime);
 		});
 
 		//Get mission Duration
 		firebase.database().ref('/User/'+ UserID +'/Record/' + $scope.SelectedCity + '/Mission/' + $scope.SelectedMission + '/Duration/').on('value', function(snapshot) {
 			var duration = snapshot.val();
-			console.log ('duration: ', duration);
 			if (duration !== null) {
 				// Time calculations for days, hours, minutes and seconds
 				$scope.durationDays = Math.floor(duration / (60 * 60 * 24));
@@ -482,36 +479,79 @@ angular.module('starter').directive('creditCardType', function(){
   return directive;
 })
 .controller('MapCtrl', function($scope, $state, $stateParams) {
-	var map;
-	var mapOptions = {
-    center: {lat: -34.397, lng: 150.644},
-    zoom: 8
-  };
-	$scope.initMap = function() {
+	function makeMap (position) {
+		console.log('2');
+		// console.log ('position is : ', position);
+		// var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+		var latLng = new google.maps.LatLng(22.300042, 114.170304);
+		console.log('3');
+		console.log('latLng is :', latLng);
+		var mapOptions = {
+			center: latLng,
+			zoom: 16,
+			mapTypeID: 'roadmap'
+		};
+
 		map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+		var triangleCoords = [
+      {lat: 22.302167, lng: 114.171452},
+      {lat: 22.302111, lng: 114.169376},
+      {lat: 22.300620, lng: 114.168951},
+      {lat: 22.298138, lng: 114.169844},
+      {lat: 22.298253, lng: 114.171629}
+		];
+
+		var marker = new google.maps.Marker({
+			position: latLng,
+			map: map,
+			label: "start here"
+		});
+
+		var polygon = new google.maps.Polygon({
+      paths: triangleCoords,
+      strokeColor: '#FF0000',
+      strokeOpacity: 0.8,
+      strokeWeight: 3,
+      fillColor: '#FF0000',
+      fillOpacity: 0.35
+		});
+
+		polygon.setMap(map);
+
+		polygon.addListener('click', showArrays);
+
+		infoWindow = new google.maps.InfoWindow;
+
+		/** @this {google.maps.Polygon} */
+    function showArrays(event) {
+      // Since this polygon has only one path, we can call getPath() to return the
+      // MVCArray of LatLngs.
+      var vertices = this.getPath();
+
+      var contentString = '<b>polygon</b><br>' +
+          'Clicked location: <br>' + event.latLng.lat() + ',' + event.latLng.lng() +
+          '<br>';
+
+      // Iterate over the vertices.
+      for (var i =0; i < vertices.getLength(); i++) {
+        var xy = vertices.getAt(i);
+        contentString += '<br>' + 'Coordinate ' + i + ':<br>' + xy.lat() + ',' +
+            xy.lng();
+      }
+
+      // Replace the info window's content and position.
+      infoWindow.setContent(contentString);
+      infoWindow.setPosition(event.latLng);
+      infoWindow.open(map);
+    }
+
 	};
 
-	//Wait until the map is loaded
-	// google.maps.event.addListenerOnce($scope.map, 'idle', function(){
-	 
-	//   var marker = new google.maps.Marker({
-	//       map: $scope.map,
-	//       animation: google.maps.Animation.DROP,
-	//       position: latLng
-	//   });      
-	 
-	//   var infoWindow = new google.maps.InfoWindow({
-	//       content: "Here I am!"
-	//   });
-	 
-	//   google.maps.event.addListener(marker, 'click', function () {
-	//       infoWindow.open($scope.map, marker);
-	//   });
-	 
-	// });
-
-
-
+	$scope.initMap = function () {
+		console.log('1');
+		navigator.geolocation.getCurrentPosition(makeMap);
+	};
 
 });
 
