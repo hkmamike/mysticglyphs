@@ -478,43 +478,61 @@ angular.module('starter').directive('creditCardType', function(){
     };
   return directive;
 })
-.controller('MapCtrl', function($scope, $state, $stateParams) {
-	function makeMap (position) {
+
+.controller('MapCtrl', function($scope, $firebaseObject, $state, $stateParams) {
+	$scope.SelectedCity = $stateParams.CityID;
+	$scope.SelectedMission = $stateParams.MissionID;
+
+	function makeMap (position, MissionCoords) {
 		console.log('2');
+		console.log('MissionCoords: ', MissionCoords);
 		// console.log ('position is : ', position);
 		// var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-		var latLng = new google.maps.LatLng(22.300042, 114.170304);
+		var latLng = new google.maps.LatLng(MissionCoords.centerLat, MissionCoords.centerLng);
 		console.log('3');
-		console.log('latLng is :', latLng);
 		var mapOptions = {
 			center: latLng,
-			zoom: 16,
+			zoom: MissionCoords.zoom,
 			mapTypeID: 'roadmap'
 		};
 		map = new google.maps.Map(document.getElementById("map"), mapOptions);
-		var triangleCoords = [
-      {lat: 22.302167, lng: 114.171452},
-      {lat: 22.302111, lng: 114.169376},
-      {lat: 22.300620, lng: 114.168951},
-      {lat: 22.298138, lng: 114.169844},
-      {lat: 22.298253, lng: 114.171629}
-		];
+
+
+		var rawPolygonCoords = MissionCoords.polygonCoords;
+		var split = rawPolygonCoords.split("-");
+		var polygonCoords = [];
+
+		for (var i = 0; i < split.length; i++) {
+			var temp = split[i].split(",");
+			var obj = {lat: parseFloat(temp[0]), lng: parseFloat(temp[1])};
+			polygonCoords.push(obj);
+		}
+
+// 22.302167,114.171452-22.302111,114.169376-22.300620,114.168951-22.298138,114.169844-22.298253,114.171629
+
+
+
+// {"lat":"22.302167","lng":"114.171452"}-{"lat":"22.302111","lng": "114.169376"}-{"lat":"22.300620","lng":"114.168951"}-{"lat":"22.298138","lng":"114.169844"}-{"lat":"22.298253","lng":"114.171629"}
+
+
+
+
 		var marker = new google.maps.Marker({
 			position: latLng,
 			map: map,
 			label: "start here"
 		});
 		var polygon = new google.maps.Polygon({
-      paths: triangleCoords,
-      strokeColor: '#FF0000',
+      paths: polygonCoords,
+      strokeColor: '#00B300',
       strokeOpacity: 0.8,
-      strokeWeight: 3,
-      fillColor: '#FF0000',
-      fillOpacity: 0.35
+      strokeWeight: 2,
+      fillColor: '#00B300',
+      fillOpacity: 0.2
 		});
 
 		polygon.setMap(map);
-		polygon.addListener('click', showArrays);
+		// polygon.addListener('click', showArrays);
 		infoWindow = new google.maps.InfoWindow;
 		/** @this {google.maps.Polygon} */
     function showArrays(event) {
@@ -535,10 +553,27 @@ angular.module('starter').directive('creditCardType', function(){
       infoWindow.setPosition(event.latLng);
       infoWindow.open(map);
     }
-	};
+	}
+
 
 	$scope.initMap = function () {
-		console.log('1');
-		navigator.geolocation.getCurrentPosition(makeMap);
+		var MissionCoords = $firebaseObject(firebase.database().ref('/DatabaseInfo/MissionInfo/' + $scope.SelectedCity + '/' + $scope.SelectedMission + '/Coordinates/'));
+		MissionCoords.$loaded().then(function() {
+
+			console.log ('A :', MissionCoords);
+
+			navigator.geolocation.getCurrentPosition(function(position) {
+				console.log ('B');
+				foundLoc(position, MissionCoords);
+      });
+
+			function foundLoc (position, MissionCoords) {
+				console.log ('C');
+				makeMap(position, MissionCoords);
+			}
+
+		});
+
 	};
+
 });

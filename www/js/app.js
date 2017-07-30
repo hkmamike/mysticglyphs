@@ -91,7 +91,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.DatabaseUplo
   })
   //Map Page
   .state('app.map', {
-    url: '/map',
+    url: '/List/City/:CityID/Map/:MissionID',
     views: {
       'menuContent': {
         templateUrl: 'templates/mapPage.html',
