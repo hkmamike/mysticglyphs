@@ -489,6 +489,7 @@ angular.module('starter').directive('creditCardType', function(){
 		// console.log ('position is : ', position);
 		// var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 		var latLng = new google.maps.LatLng(MissionCoords.centerLat, MissionCoords.centerLng);
+		var markerlatLng = new google.maps.LatLng(MissionCoords.markerLat, MissionCoords.markerLng);
 		console.log('3');
 		var mapOptions = {
 			center: latLng,
@@ -510,15 +511,8 @@ angular.module('starter').directive('creditCardType', function(){
 
 // 22.302167,114.171452-22.302111,114.169376-22.300620,114.168951-22.298138,114.169844-22.298253,114.171629
 
-
-
-// {"lat":"22.302167","lng":"114.171452"}-{"lat":"22.302111","lng": "114.169376"}-{"lat":"22.300620","lng":"114.168951"}-{"lat":"22.298138","lng":"114.169844"}-{"lat":"22.298253","lng":"114.171629"}
-
-
-
-
 		var marker = new google.maps.Marker({
-			position: latLng,
+			position: markerlatLng,
 			map: map,
 			label: "start here"
 		});
