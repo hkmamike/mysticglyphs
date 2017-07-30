@@ -491,9 +491,7 @@ angular.module('starter').directive('creditCardType', function(){
 			zoom: 16,
 			mapTypeID: 'roadmap'
 		};
-
 		map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
 		var triangleCoords = [
       {lat: 22.302167, lng: 114.171452},
       {lat: 22.302111, lng: 114.169376},
@@ -501,13 +499,11 @@ angular.module('starter').directive('creditCardType', function(){
       {lat: 22.298138, lng: 114.169844},
       {lat: 22.298253, lng: 114.171629}
 		];
-
 		var marker = new google.maps.Marker({
 			position: latLng,
 			map: map,
 			label: "start here"
 		});
-
 		var polygon = new google.maps.Polygon({
       paths: triangleCoords,
       strokeColor: '#FF0000',
@@ -518,63 +514,31 @@ angular.module('starter').directive('creditCardType', function(){
 		});
 
 		polygon.setMap(map);
-
 		polygon.addListener('click', showArrays);
-
 		infoWindow = new google.maps.InfoWindow;
-
 		/** @this {google.maps.Polygon} */
     function showArrays(event) {
       // Since this polygon has only one path, we can call getPath() to return the
       // MVCArray of LatLngs.
       var vertices = this.getPath();
-
       var contentString = '<b>polygon</b><br>' +
           'Clicked location: <br>' + event.latLng.lat() + ',' + event.latLng.lng() +
           '<br>';
-
       // Iterate over the vertices.
       for (var i =0; i < vertices.getLength(); i++) {
         var xy = vertices.getAt(i);
         contentString += '<br>' + 'Coordinate ' + i + ':<br>' + xy.lat() + ',' +
             xy.lng();
       }
-
       // Replace the info window's content and position.
       infoWindow.setContent(contentString);
       infoWindow.setPosition(event.latLng);
       infoWindow.open(map);
     }
-
 	};
 
 	$scope.initMap = function () {
 		console.log('1');
 		navigator.geolocation.getCurrentPosition(makeMap);
 	};
-
 });
-
-// Currently not used
-// angular.module('starter').directive('cardExpiration', function(){
-//   var directive = { require: 'ngModel', link: function(scope, elm, attrs, ctrl){
-//         scope.$watch('[FormData.exp_month,FormData.exp_year]',function(value){
-//           ctrl.$setValidity('invalid',true);
-//           if ( scope.FormData.exp_year == scope.currentYear && scope.FormData.exp_month <= scope.currentMonth) {
-//             ctrl.$setValidity('invalid',false);
-//           }
-//           return value;
-//         },true);
-//       }
-//     };
-//   return directive;
-// });
-
-// Currently not used
-// angular.module('starter').filter( 'range', function() {
-//       var filter = function(arr, lower, upper) {
-//							for (var i = lower; i <= upper; i++) arr.push(i);
-//							return arr;
-//						};
-//       return filter;
-// });
