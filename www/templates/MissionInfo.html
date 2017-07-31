@@ -63,13 +63,13 @@
   </div>
 
   <div class="item item-text-wrap" ng-class="{'validation-white' : enrollMissionMessage == 'ready' || enrollMissionMessage == 'processing' || enrollMissionMessage == 'requestingServer', 'validation-green' : enrollMissionMessage == 'unlocked'}">
-    
-      <div ng-if="UserRecord[SelectedCity].Mission[SelectedMission] != null && UserRecord[SelectedCity].Mission[SelectedMission].StartTimeStamp" ui-sref="app.Mission({CityID: SelectedCity, MissionID: SelectedMission})" href="#/app/List/City/{{SelectedCity}}/MissionInfo/{{SelectedMission}}"class="button button-block button-positive" ng-click="TokenNumber = null"><strong>Play</strong></div>
-      <div ng-if="UserRecord[SelectedCity].Mission[SelectedMission] != null && UserRecord[SelectedCity].Mission[SelectedMission].StartTimeStamp == null" ui-sref="app.Mission({CityID: SelectedCity, MissionID: SelectedMission})" href="#/app/List/City/{{SelectedCity}}/MissionInfo/{{SelectedMission}}"class="button button-block button-positive" ng-click="startTimer(SelectedMission)"><strong>Begin Mission (start timer)</strong></div>
+
+      <button ng-if="UserRecord[SelectedCity].Mission[SelectedMission] != null" class="button button-block button-positive" ui-sref="app.map({CityID: SelectedCity, MissionID: SelectedMission})" href="#/app/List/City/{{SelectedCity}}/Map/{{SelectedMission}}">View Map</button> 
+
 
       <div ng-if="UserRecord[SelectedCity].Mission[SelectedMission] == null && MissionList[SelectedCity][SelectedMission].MissionType == 'Free'" ng-click="enrollMission(SelectedMission)" class="button button-block button-assertive"><strong>Enroll Now [Free]</strong></div>
 
-      <div ng-if="UserRecord[SelectedCity].Mission[SelectedMission] == null && MissionList[SelectedCity][SelectedMission].MissionType == '80'" ng-click="openPayment(SelectedMission, SelectedCity)" class="button button-block button-positive"><strong>Enroll Now [HK$80.0]</strong></div>
+      <div ng-if="UserRecord[SelectedCity].Mission[SelectedMission] == null && MissionList[SelectedCity][SelectedMission].MissionType == '80'" ng-click="openPayment(SelectedMission, SelectedCity)" class="button button-block button-assertive"><strong>Enroll Now [HK$80.0]</strong></div>
 
       <div ng-show="enrollMissionMessage == 'ready'">
         <h4 class="center-align"><br></h4>

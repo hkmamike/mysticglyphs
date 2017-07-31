@@ -75,7 +75,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.DatabaseUplo
     views: {
       'menuContent': {
         templateUrl: 'templates/MissionInfo.html',
-        controller: 'ListCtrl'
+        controller: 'MapCtrl'
       }
     }
   })

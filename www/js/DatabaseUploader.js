@@ -36,6 +36,12 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Terrain' ] = 'Indoor';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Hours' ] = '10:00 - 18:00';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/GlyphTypes' ] = 'Magnetic Case, Hanging Case';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/MissionType' ] = '80';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Coordinates/centerLat' ] = '22.301883';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Coordinates/centerLng' ] = '114.177437';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Coordinates/markerLng' ] = '114.177264';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Coordinates/markerLat' ] = '22.301457';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Coordinates/polygonCoords' ] = '22.301320,114.176978-22.301446,114.176864-22.301678,114.176878-22.302473,114.177335-22.302544,114.177512-22.302183,114.177840-22.301832,114.177792-22.301620,114,177976-22.301407,114.177726-22.301697,114.177435';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Coordinates/zoom' ] = '18';
 
 /*HK History Museum Glyph #1*/
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_1/Order' ] = '1';
@@ -159,6 +165,12 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Terrain' ] = 'Outdoor (
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Hours' ] = '10:00 - 18:00 (some glyphs can be found 24/7)';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/GlyphTypes' ] = 'Magnetic Case, Hanging Case';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/MissionType' ] = '80';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Coordinates/centerLat' ] = '22.300124';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Coordinates/centerLng' ] = '114.170364';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Coordinates/markerLng' ] = '114.169069';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Coordinates/markerLat' ] = '22.300838';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Coordinates/polygonCoords' ] = '22.302167,114.171452-22.302111,114.169376-22.300620,114.168951-22.298138,114.169844-22.298253,114.171629';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Coordinates/zoom' ] = '17';
 
 /*Kowloon Park Glyph #1*/
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_1/Order' ] = '1';
@@ -280,6 +292,12 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Terrain' ] = 'Outdoor (
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Hours' ] = '10:00 - 22:00 (some glyphs can be found 24/7)';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/GlyphTypes' ] = 'Magnetic Case, Hanging Case, Sticker';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/MissionType' ] = 'Free';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Coordinates/centerLat' ] = '22.295775';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Coordinates/centerLng' ] = '114.171158';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Coordinates/markerLng' ] = '114.172276';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Coordinates/markerLat' ] = '22.293257';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Coordinates/polygonCoords' ] = '22.294877,114.164575-22.294227,114.164742-22.294937,114.168290-22.294282,114.168432-22.293560,114.167811-22.292912,114.168485-22.293388,114.168928-22.293437,114.169335-22.292929,114.169539-22.293003,114.170897-22.293254,114.172734-22.294583,114.172348-22.295771,114.175503-22.296333,114.176309-22.296982,114.175710-22.296072,114.175569-22.294796,114.172312-22.294706,114.170596-22.295839,114.170248-22.295785,114.169440-22.294579,114.169683-22.294395,114.168637-22.295674,114.168308';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Coordinates/zoom' ] = '16';
 
 /*Harbour Side MIssion #1*/
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_1/Order' ] = '1';
