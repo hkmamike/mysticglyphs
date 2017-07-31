@@ -493,7 +493,7 @@ angular.module('starter').directive('creditCardType', function(){
 		console.log('3');
 		var mapOptions = {
 			center: latLng,
-			zoom: MissionCoords.zoom,
+			zoom: parseInt(MissionCoords.zoom),
 			mapTypeID: 'roadmap'
 		};
 		map = new google.maps.Map(document.getElementById("map"), mapOptions);
