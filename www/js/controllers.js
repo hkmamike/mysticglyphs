@@ -515,7 +515,7 @@ angular.module('starter').directive('creditCardType', function(){
 		polygon.setMap(map);
 		$rootScope.mapIsLoading = false;
 		var infowindow = new google.maps.InfoWindow({
-          content: '<p><strong>Recommended starting location</strong></p>'
+          content: '<strong>Recommended starting location</strong><br><p>Area shaded in green shows the mission boundary.</p>'
      });
     marker.addListener('click', function() {
       infowindow.open(map, marker);
