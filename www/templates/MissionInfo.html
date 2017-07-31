@@ -64,7 +64,7 @@
 
   <div class="item item-text-wrap" ng-class="{'validation-white' : enrollMissionMessage == 'ready' || enrollMissionMessage == 'processing' || enrollMissionMessage == 'requestingServer', 'validation-green' : enrollMissionMessage == 'unlocked'}">
 
-      <button ng-if="UserRecord[SelectedCity].Mission[SelectedMission] != null" class="button button-block button-positive" ui-sref="app.map({CityID: SelectedCity, MissionID: SelectedMission})" href="#/app/List/City/{{SelectedCity}}/Map/{{SelectedMission}}">View Map</button> 
+      <button ng-if="UserRecord[SelectedCity].Mission[SelectedMission] != null" class="button button-block button-positive" ui-sref="app.map({CityID: SelectedCity, MissionID: SelectedMission})" href="#/app/List/City/{{SelectedCity}}/Map/{{SelectedMission}}" ng-click="initMap()">View Map</button> 
 
 
       <div ng-if="UserRecord[SelectedCity].Mission[SelectedMission] == null && MissionList[SelectedCity][SelectedMission].MissionType == 'Free'" ng-click="enrollMission(SelectedMission)" class="button button-block button-assertive"><strong>Enroll Now [Free]</strong></div>

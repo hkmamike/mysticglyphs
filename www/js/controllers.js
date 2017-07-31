@@ -479,7 +479,7 @@ angular.module('starter').directive('creditCardType', function(){
   return directive;
 })
 
-.controller('MapCtrl', function($scope, $firebaseObject, $state, $stateParams) {
+.controller('MapCtrl', function($scope, $rootScope, $firebaseObject, $state, $stateParams) {
 	$scope.SelectedCity = $stateParams.CityID;
 	$scope.SelectedMission = $stateParams.MissionID;
 
@@ -511,8 +511,6 @@ angular.module('starter').directive('creditCardType', function(){
 
 		console.log('polygonCoords is : ', polygonCoords);
 
-// 22.302167,114.171452-22.302111,114.169376-22.300620,114.168951-22.298138,114.169844-22.298253,114.171629
-
 		var marker = new google.maps.Marker({
 			position: markerlatLng,
 			map: map,
@@ -529,7 +527,7 @@ angular.module('starter').directive('creditCardType', function(){
 
 		polygon.setMap(map);
 
-		$scope.mapIsLoading = false;
+		$rootScope.mapIsLoading = false;
 		// polygon.addListener('click', showArrays);
 		infoWindow = new google.maps.InfoWindow;
 		/** @this {google.maps.Polygon} */
@@ -552,13 +550,11 @@ angular.module('starter').directive('creditCardType', function(){
       infoWindow.open(map);
     }
 	}
-
-
 	$scope.initMap = function () {
 		var MissionCoords = $firebaseObject(firebase.database().ref('/DatabaseInfo/MissionInfo/' + $scope.SelectedCity + '/' + $scope.SelectedMission + '/Coordinates/'));
 		MissionCoords.$loaded().then(function() {
 
-			$scope.mapIsLoading = true;
+			$rootScope.mapIsLoading = true;
 
 			console.log ('A :', MissionCoords);
 

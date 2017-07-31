@@ -4,7 +4,7 @@
 
     <div class="loader-container" ng-show="mapIsLoading" ng-cloak><div class="loader"></div></div>
      
-    <div id="map" data-tap-disabled="true" ng-init="initMap()"></div>
+    <div id="map" data-tap-disabled="true"></div>
 
     <div ng-if="UserRecord[SelectedCity].Mission[SelectedMission].StartTimeStamp == null" id="map-button" ui-sref="app.Mission({CityID: SelectedCity, MissionID: SelectedMission})" href="#/app/List/City/{{SelectedCity}}/MissionInfo/{{SelectedMission}}" class="button button-block button-positive" ng-click="startTimer(SelectedMission); TokenNumber = null"><strong>Begin (start timer)</strong></div>
 
