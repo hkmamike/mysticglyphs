@@ -147,7 +147,10 @@ body {
   font-weight: 300;
 }
 .introPNG {
-  margin: 10px 0;
+  margin: 30px 0;
+}
+.intro-text {
+  margin: 10%;
 }
 /* ---------------------------------------------------------*/
 
