@@ -479,42 +479,30 @@ angular.module('starter').directive('creditCardType', function(){
   return directive;
 })
 
-.controller('MapCtrl', function($scope, $rootScope, $firebaseObject, $state, $stateParams) {
+.controller('MapCtrl', function($scope, $rootScope, $timeout, $firebaseObject, $state, $stateParams) {
 	$scope.SelectedCity = $stateParams.CityID;
 	$scope.SelectedMission = $stateParams.MissionID;
-
-	function makeMap (position, MissionCoords) {
-		console.log('2');
-		console.log('MissionCoords: ', MissionCoords);
-		// console.log ('position is : ', position);
-		// var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+	function makeMap (MissionCoords) {
 		var latLng = new google.maps.LatLng(MissionCoords.centerLat, MissionCoords.centerLng);
 		var markerlatLng = new google.maps.LatLng(MissionCoords.markerLat, MissionCoords.markerLng);
-		console.log('3');
 		var mapOptions = {
 			center: latLng,
-			zoom: parseInt(MissionCoords.zoom),
+			zoom: parseInt(MissionCoords.zoom,10),
 			mapTypeID: 'roadmap'
 		};
 		map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
-
 		var rawPolygonCoords = MissionCoords.polygonCoords;
 		var split = rawPolygonCoords.split("-");
 		var polygonCoords = [];
-
 		for (var i = 0; i < split.length; i++) {
 			var temp = split[i].split(",");
 			var obj = {lat: parseFloat(temp[0]), lng: parseFloat(temp[1])};
 			polygonCoords.push(obj);
 		}
-
-		console.log('polygonCoords is : ', polygonCoords);
-
 		var marker = new google.maps.Marker({
 			position: markerlatLng,
 			map: map,
-			label: "start here"
+			label: "*"
 		});
 		var polygon = new google.maps.Polygon({
       paths: polygonCoords,
@@ -524,52 +512,32 @@ angular.module('starter').directive('creditCardType', function(){
       fillColor: '#00B300',
       fillOpacity: 0.2
 		});
-
 		polygon.setMap(map);
-
 		$rootScope.mapIsLoading = false;
-		// polygon.addListener('click', showArrays);
-		infoWindow = new google.maps.InfoWindow;
-		/** @this {google.maps.Polygon} */
-    function showArrays(event) {
-      // Since this polygon has only one path, we can call getPath() to return the
-      // MVCArray of LatLngs.
-      var vertices = this.getPath();
-      var contentString = '<b>polygon</b><br>' +
-          'Clicked location: <br>' + event.latLng.lat() + ',' + event.latLng.lng() +
-          '<br>';
-      // Iterate over the vertices.
-      for (var i =0; i < vertices.getLength(); i++) {
-        var xy = vertices.getAt(i);
-        contentString += '<br>' + 'Coordinate ' + i + ':<br>' + xy.lat() + ',' +
-            xy.lng();
-      }
-      // Replace the info window's content and position.
-      infoWindow.setContent(contentString);
-      infoWindow.setPosition(event.latLng);
-      infoWindow.open(map);
-    }
+		var infowindow = new google.maps.InfoWindow({
+          content: '<p><strong>Recommended starting location</strong></p>'
+     });
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
 	}
 	$scope.initMap = function () {
 		var MissionCoords = $firebaseObject(firebase.database().ref('/DatabaseInfo/MissionInfo/' + $scope.SelectedCity + '/' + $scope.SelectedMission + '/Coordinates/'));
 		MissionCoords.$loaded().then(function() {
-
 			$rootScope.mapIsLoading = true;
-
-			console.log ('A :', MissionCoords);
-
-			navigator.geolocation.getCurrentPosition(function(position) {
-				console.log ('B');
-				foundLoc(position, MissionCoords);
-      });
-
-			function foundLoc (position, MissionCoords) {
-				console.log ('C');
-				makeMap(position, MissionCoords);
-			}
-
+			//timeout prevents loading bug
+			$timeout( function(){
+				makeMap(MissionCoords);
+			},300);
+			//	Use if current position is required
+			//	navigator.geolocation.getCurrentPosition(function(position) {
+			//		console.log ('B');
+			//		foundLoc(position, MissionCoords);
+			//	});
+			//	function foundLoc (position, MissionCoords) {
+			//		console.log ('C');
+			//		makeMap(position, MissionCoords);
+			//	}
 		});
-
 	};
-
 });
