@@ -46,9 +46,10 @@ height: 100%;
 /* --------------------------------------------------*/
 
 /* Payment Form--------------------------------------------------*/
-input.ng-invalid.ng-dirty {
+/*Disabled invalid highlight
+/*input.ng-invalid.ng-dirty {
   background-color: #FFEBE6;
-}
+}*/
 input.ng-valid.ng-dirty {
   background-color: #E6FFEE;
 }
