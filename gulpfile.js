@@ -51,22 +51,18 @@ gulp.task('sass', function(done) {
 });
 
 gulp.task('css', function() {
-
   gulp.src(['./sourcewww/css/style.css','./lib/ionic/css/ionic.css'])
   .pipe(concat('style.min.css'))
   .pipe(cssMin())
   .pipe(gulp.dest('./www/css/'));
-
 });
 
 gulp.task('scripts', function() {
-
   gulp.src(['./sourcewww/js/app.js', './sourcewww/js/controllers.js', './sourcewww/js/DatabaseUploader.js'])
   .pipe(concat('app.min.js'))
   .pipe(ngAnnotate())
   .pipe(uglify())
   .pipe(gulp.dest('./www/js/'));
-
 });
 
 gulp.task('default', ['sass', 'css', 'scripts']);
