@@ -448,6 +448,7 @@ angular.module('starter.controllers', [])
 				// Time calculations for days, hours, minutes and seconds (H M S system)- simplified for performance
 				$scope.durationHours = ("0" + Math.floor(duration/3600)).slice(-2);
 				$scope.durationMinutes = ("0" + Math.floor((duration % 3600)/60)).slice(-2);
+				$scope.durationSeconds = ("0" + Math.floor(duration % 60)).slice(-2);
 			}
 		});
 	});
@@ -470,8 +471,9 @@ angular.module('starter.controllers', [])
 		// Time calculations for days, hours, minutes and seconds (H M S system)- simplified for performance
 		$scope.timerHours = ("0" + Math.floor(timer/3600000)).slice(-2);
 		$scope.timerMinutes = ("0" + Math.floor((timer % 3600000)/60000)).slice(-2);
+		$scope.timerSeconds = ("0" + Math.floor((timer % 60000)/1000)).slice(-2);
 	};
-	$interval(tick, 3000);
+	$interval(tick, 1000);
 });
 
 angular.module('starter').directive('creditCardType', function(){
