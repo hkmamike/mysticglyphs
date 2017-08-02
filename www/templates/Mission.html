@@ -2,14 +2,14 @@
 
 <ion-content>
 
+  <div class="item-text-wrap timer-box" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Duration==null" ng-cloak>
+    <div><i class="icon ion-ios-stopwatch-outline timer-icon"></i>{{timerHours}} <strong>:</strong> {{timerMinutes}} <strong>'</strong> {{timerSeconds}}</div>
+  </div>
+  <div class="item-text-wrap timer-box timer-box-complete" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Duration" ng-cloak>
+    <div>Complete: {{durationHours}} <strong>:</strong> {{durationMinutes}} <strong>'</strong></div>
+  </div>
   <div class="cardflat item-text-wrap highlight-positive" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].Tips">
     <div><strong>Tips:</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].Tips}}</div>
-  </div>
-  <div class="cardflat item-text-wrap" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Duration==null && timerDays <= 2" ng-cloak>
-    <div><strong>Timer:</strong> {{timerDays}} <strong>D</strong> {{timerHours}} <strong>H</strong> {{timerMinutes}} <strong>m</strong> {{timerSeconds}} <strong>s</strong></div>
-  </div>
-  <div class="cardflat item-text-wrap" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Duration" ng-cloak>
-    <div><strong>Mission Completed:</strong> {{durationDays}} <strong>D</strong> {{durationHours}} <strong>H</strong> {{durationMinutes}} <strong>m</strong> {{durationSeconds}} <strong>s</strong></div>
   </div>
 
   <div class="cardflat item-text-wrap">

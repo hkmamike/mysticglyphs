@@ -3,6 +3,34 @@
   display: none !important;
 }
 
+/* Timer--------------------------------------------------*/
+.timer-box {
+margin-top: 10px;
+margin-bottom: 10px;
+color: green;
+font-weight: bold;
+text-align: center;
+line-height: 120%;
+font-size: 200%;
+font-family: 'Orbitron';
+}
+
+.timer-box-complete {
+  border-style: solid !important;
+  border-width: 5px !important;
+  border-color: green !important;
+  margin: 10px;
+  padding: 5px;
+}
+
+@font-face {
+  font-family: 'Orbitron';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Orbitron Regular'), local('Orbitron-Regular'), url(https://fonts.gstatic.com/s/orbitron/v8/HmnHiRzvcnQr8CjBje6GQnYhjbSpvc47ee6xR_80Hnw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/* --------------------------------------------------*/
 
 /* Map--------------------------------------------------*/
 .scroll {

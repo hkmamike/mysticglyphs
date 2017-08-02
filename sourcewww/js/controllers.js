@@ -422,7 +422,7 @@ angular.module('starter.controllers', [])
 	// ---------------------------------------------------------
 })
 
-.controller('ListCtrl', function($scope, $interval, $stateParams) {
+.controller('ListCtrl', function($scope, $timeout, $interval, $stateParams) {
 	$scope.SelectedCity = $stateParams.CityID;
 	$scope.SelectedMission = $stateParams.MissionID;
 
@@ -440,10 +440,14 @@ angular.module('starter.controllers', [])
 			var duration = snapshot.val();
 			if (duration !== null) {
 				// Time calculations for days, hours, minutes and seconds
-				$scope.durationDays = Math.floor(duration / (60 * 60 * 24));
-				$scope.durationHours = Math.floor((duration % (60 * 60 * 24)) / (60 * 60));
-				$scope.durationMinutes = Math.floor((duration % (60 * 60)) / 60);
-				$scope.durationSeconds = duration % 60;
+				// $scope.durationDays = Math.floor(duration / (60 * 60 * 24));
+				// $scope.durationHours = Math.floor((duration % (60 * 60 * 24)) / (60 * 60));
+				// $scope.durationMinutes = Math.floor((duration % (60 * 60)) / 60);
+				// $scope.durationSeconds = duration % 60;
+
+				// Time calculations for days, hours, minutes and seconds (H M S system)- simplified for performance
+				$scope.durationHours = ("0" + Math.floor(duration/3600)).slice(-2);
+				$scope.durationMinutes = ("0" + Math.floor((duration % 3600)/60)).slice(-2);
 			}
 		});
 	});
@@ -452,14 +456,22 @@ angular.module('starter.controllers', [])
 	var tick = function () {
 		var clock = Date.now();
 		var timer = (clock - startTime);
-		// Time calculations for days, hours, minutes and seconds
-		$scope.timerDays = Math.floor(timer / (60 * 60 * 24 * 1000));
-		$scope.timerHours = Math.floor((timer % (60 * 60 * 24 * 1000)) / (60 * 60 * 1000));
-		$scope.timerMinutes = Math.floor((timer % (60 * 60 * 1000)) / (60 * 1000));
-		$scope.timerSeconds = Math.floor((timer % (60 * 1000))/1000);
+		// Time calculations for days, hours, minutes and seconds (D H M S system)
+		// $scope.timerDays = Math.floor(timer / (60 * 60 * 24 * 1000));
+		// $scope.timerHours = Math.floor((timer % (60 * 60 * 24 * 1000)) / (60 * 60 * 1000));
+		// $scope.timerMinutes = Math.floor((timer % (60 * 60 * 1000)) / (60 * 1000));
+		// $scope.timerSeconds = Math.floor((timer % (60 * 1000))/1000);
+
+		// Time calculations for days, hours, minutes and seconds (H M S system)
+		// $scope.timerHours = Math.floor(timer / (60 * 60 * 1000));
+		// $scope.timerMinutes = Math.floor((timer % (60 * 60 * 1000)) / (60 * 1000));
+		// $scope.timerSeconds = Math.floor((timer % (60 * 1000))/1000);
+
+		// Time calculations for days, hours, minutes and seconds (H M S system)- simplified for performance
+		$scope.timerHours = ("0" + Math.floor(timer/3600000)).slice(-2);
+		$scope.timerMinutes = ("0" + Math.floor((timer % 3600000)/60000)).slice(-2);
 	};
-	tick();
-	$interval(tick, 1000);
+	$interval(tick, 3000);
 });
 
 angular.module('starter').directive('creditCardType', function(){
