@@ -1,0 +1,59 @@
+<ion-view view-title="{{UserRecord[SelectedCity].Mission[SelectedMission].Location}}" hide-nav-bar="false">
+
+<ion-content>
+
+  <div class="cardflat item-text-wrap highlight-positive" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].Tips">
+    <div><strong>Tips:</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].Tips}}</div>
+  </div>
+  <div class="cardflat item-text-wrap" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Duration==null && timerDays <= 2" ng-cloak>
+    <div><strong>Timer:</strong> {{timerDays}} <strong>D</strong> {{timerHours}} <strong>H</strong> {{timerMinutes}} <strong>m</strong> {{timerSeconds}} <strong>s</strong></div>
+  </div>
+  <div class="cardflat item-text-wrap" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Duration" ng-cloak>
+    <div><strong>Mission Completed:</strong> {{durationDays}} <strong>D</strong> {{durationHours}} <strong>H</strong> {{durationMinutes}} <strong>m</strong> {{durationSeconds}} <strong>s</strong></div>
+  </div>
+
+  <div class="cardflat item-text-wrap">
+		<div class ='oneSixth' ng-repeat="n in [1,2,3,4,5,6]" >
+			<div class='oneSixthCenter'><strong>{{n}}</strong></div>
+		</div>
+		<div ng-repeat="n in [1,2,3,4,5,6]" ng-init = "glyphSelection">
+			<div ng-click = "selectGlyph(SelectedMission, n); scrollResize()">
+				<img ng-if="UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].ClaimStatus.toString() == 'Unlocked' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenUnlocked.png?alt=media&token=cc970ad1-4cea-4964-943c-1e02eb9dd451' class='oneSixth' ng-class="{'selectedHighlight' : glyphSelection == n, 'notSelected' : glyphSelection != n}">
+				<img ng-if="UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].ClaimStatus.toString() == 'Pending' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenLocked.png?alt=media&token=cc5d4654-d4f7-430f-bf36-0f4c36fc5e8d' class='oneSixth' ng-class="{'selectedHighlight' : glyphSelection == n, 'notSelected' : glyphSelection != n}">
+			</div>
+		</div>
+	</div> 
+
+	<div class="cardflat item-text-wrap" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].ClaimStatus == 'Pending' || TokenNumber == null">
+		<h4 ng-show="TokenNumber == null">Select a glyph for information</h4>
+
+		<div ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].ClaimStatus == 'Pending'">
+			<strong>Glyph Name :</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].TokenName}} <br>
+			<strong>Glyph Message :</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].TokenMsg}} <br>
+			<strong>Search Hints :</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].SearchHints}} <br>
+			<br>
+		</div>
+
+		<div ng-if="TokenNumber" class="inline-block-container">
+	 		<div ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].ClaimStatus == 'Pending'" class="inline-block">
+					<button class="button button-positive" ng-click='openTokenClaim(TokenNumber,SelectedMission, SelectedCity)'>Claim Glyph</button>
+			</div>
+			<div ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].TokenImg != '<img>'" class="inline-block">
+				<button class="button button-positive" ng-click='openImageHint(TokenNumber,SelectedMission, SelectedCity)'>See Image Hint</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="cardflat item-text-wrap" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].ClaimStatus == 'Unlocked'">
+		<p>Good Job! Solving each glyph unlocks clues for other glyphs.</p>
+		<button class="button center-align button-positive" ng-click='openUnlockedHints(SelectedMission, SelectedCity)'> See All Unlocked Hints</button>
+	</div>
+
+<!-- 
+
+  <div ng-show="SelectedMission.substr(length-1) == UserRecord[SelectedCity].Campaign[SelectedCampaign].MissionCount && UserRecord[SelectedCity].Campaign[SelectedCampaign].Mission[SelectedMission].TokenUnlocked > 3">
+		<button class="button center-align button-balanced" ui-sref="app.City({CityID: SelectedCity})" href="#/app/List/City/{{SelectedCity}}" menu-close>Campaign Completed!</button>
+  </div> -->
+
+
+</ion-content>

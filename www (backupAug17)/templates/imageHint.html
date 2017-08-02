@@ -1,0 +1,24 @@
+<ion-modal-view>
+
+  <ion-header-bar>
+    <h1 class="title">Image Hint</h1>
+    <div class="buttons">
+      <button class="button button-cross button-positive" ng-click="closeImageHint()">Close</button>
+    </div>
+  </ion-header-bar>
+
+  <ion-content>
+
+    <div class="cardflat item-text-wrap">
+      <div class="pictureFrame" style="background-image: url({{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].TokenImg}});">
+        <img src={{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].TokenImg}} style="visibility: hidden; width: 100%">
+      </div>
+    </div>
+
+    <div class="cardflat item-text-wrap" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].TokenImgMessage">
+      <div><strong>Message:</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].TokenImgMessage}}</div>
+    </div>
+
+  </ion-content>
+
+</ion-modal-view>

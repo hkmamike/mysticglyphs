@@ -1,0 +1,66 @@
+<ion-side-menus enable-menu-with-back-views="true" >
+
+  <ion-side-menu-content drag-content="false">
+
+    <ion-nav-bar class="bar-positive" icon="ion-navicon">
+
+      <ion-nav-back-button class="button"></ion-nav-back-button>
+
+      <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-home" ui-sref="app.List" href="#/app/List/"></button>
+      </ion-nav-buttons>
+
+      <ion-nav-buttons side="secondary">
+        <button class="button button-icon button-clear ion-navicon-round" menu-toggle="right" ng-click="toggleRightSideMenu()"></button>
+      </ion-nav-buttons>
+
+    </ion-nav-bar>
+
+    <!-- MENUCONTENT FROM APP.JS ====================================================================-->
+    <ion-nav-view name="menuContent"></ion-nav-view>
+    <!-- MENUCONTENT FROM APP.JS ====================================================================-->
+
+  </ion-side-menu-content>
+
+  <!-- SIDEMENU =======================================================================================-->
+  <ion-side-menu side="right">
+
+    <ion-content>
+
+      <div class="sidemenu-content" ui-sref="app.profile({'foodieKey':user.info.foodieID})" menu-close>
+        <div class="sidemenu-avatar" >
+          <img src= "{{UserInfo.UserPict}}">
+          <h3>{{UserInfo.UserName}}</h3>
+        </div>
+      </div>
+
+      <div ng-show='!userSignedIn'>
+        <button class="button button-block button-dark " ng-click="openlogin()" menu-close>Login</button>
+      </div>
+
+      <div ng-show='userSignedIn'>
+        <button class="button button-block button-dark" ng-click="signOut()" menu-close>Log Out</button>
+      </div>
+ 
+      <button class="button button-block button-dark" ng-click="toIntro()" menu-close>Introduction</button>
+
+      <ion-list>
+        <!-- <ion-item menu-close ui-sref="app.completedMissions">Activites</ion-item> -->
+        <!-- <ion-item menu-close ui-sref="app.selections">Editor's Selections</ion-item> -->
+        <!-- <ion-item menu-close ui-sref="app.favourites">Temp</ion-item> -->
+        <!-- <ion-item menu-close ui-sref="app.favourites">My Followings</ion-item> -->
+        <!-- <ion-item menu-close ui-sref="app.favourites">My Points</ion-item> -->
+        <!-- <ion-item menu-close ng-click="openNewArticle()">Recommand</ion-item> -->
+
+        <!-- <ion-item menu-close ng-click="openlogin()">Login</ion-item> -->
+        <!-- <ion-item menu-close ng-click="CopyDatabase()">CopyDatabase</ion-item> -->
+        <!-- <ion-item menu-close ng-click="updateDatabase()">UpdateDatabase</ion-item> -->
+      </ion-list>
+
+    </ion-content>
+
+  </ion-side-menu>
+  <!-- SIDEMENU =======================================================================================-->
+
+</ion-side-menus>
+

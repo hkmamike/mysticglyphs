@@ -1,0 +1,26 @@
+<ion-modal-view>
+
+  <ion-header-bar>
+    <h1 class="title">All Unlocked Hints</h1>
+    <div class="buttons">
+      <button class="button button-cross button-positive" ng-click="closeUnlockedHints()">Close</button>
+    </div>
+  </ion-header-bar>
+
+  <ion-content>
+
+    <div class="cardflat item-text-wrap lastcard">
+      <div ng-repeat="n in [1,2,3,4,5,6]">
+        <li ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintA && UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].ClaimStatus == 'Unlocked'">{{UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintA}}</li>
+        <li ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintB && UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].ClaimStatus == 'Unlocked'">{{UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintB}}</li>
+        <li ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintC && UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].ClaimStatus == 'Unlocked'">{{UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintC}}</li>
+        <li ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintD && UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].ClaimStatus == 'Unlocked'">{{UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintD}}</li>
+        <li ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintE && UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].ClaimStatus == 'Unlocked'">{{UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].HintE}}</li>
+      </div>
+    </div>
+
+    <button class="button center-align button-positive" ng-click='closeUnlockedHints()'>Close</button>
+
+  </ion-content>
+
+</ion-modal-view>
