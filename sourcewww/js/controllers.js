@@ -352,7 +352,7 @@ angular.module('starter.controllers', [])
   function proceedCharge (SelectedMission, token) {
     var param = {
       source: token,
-      amount: 8000,
+      amount: 4800,
       currency: "hkd",
       description: "mission enrollment",
       stripe_account: STRIPE_ACCOUNT_ID,

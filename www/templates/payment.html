@@ -36,7 +36,7 @@
           <input type="text" class="payment-field" name="year" ng-model="FormData.exp_year" ng-focus="yearFocused=true" ng-blur="yearFocused=false" placeholder="YYYY" required data-ng-pattern="/^[0-9]+$/" data-ng-minlength="4" maxlength="4"/>
           <span><span>Expiring Year</span></span>
         </label>
-        <button class="button button-block button-balanced" ng-click="submitAttemptFunction(); savePaymentForm(paymentForm.$valid, SelectedMission, FormData)" type="submit"><i class="icon ion-checkmark-circled button-icon"></i><strong>Pay HK$80.0</strong></button>
+        <button class="button button-block button-balanced" ng-click="submitAttemptFunction(); savePaymentForm(paymentForm.$valid, SelectedMission, FormData)" type="submit"><i class="icon ion-checkmark-circled button-icon"></i><strong>Pay HK$48.0</strong></button>
         <ul ng-if="submitAttempt && !paymentForm.$valid">
           <li ng-show="paymentForm.creditCard.$error.minlength">Credit card must be 15-19 digits.</li>
           <li ng-show="paymentForm.creditCard.$error.pattern">Credit card must consist of only numbers.</li>
