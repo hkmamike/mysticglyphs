@@ -19,6 +19,16 @@
       <div><strong>Message:</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].TokenImgMessage}}</div>
     </div>
 
+    <div class="cardflat item-text-wrap" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].TokenImg2">
+      <div class="pictureFrame" style="background-image: url({{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].TokenImg2}});">
+        <img src={{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].TokenImg2}} style="visibility: hidden; width: 100%">
+      </div>
+    </div>
+
+    <div class="cardflat item-text-wrap" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].TokenImgMessage2">
+      <div><strong>Message:</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].TokenImgMessage2}}</div>
+    </div>
+
   </ion-content>
 
 </ion-modal-view>

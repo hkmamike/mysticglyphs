@@ -24,8 +24,8 @@
 
 	<!--Upcoming-->
 	<div class="cardflat item-text-wrap opaque" ng-show='userSignedIn'>
-		<div class="pictureFrame" style="background-image: url(https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TaiwanComingSoon.png?alt=media&token=b8cd436d-ff90-4cf8-ab18-dc7f96657eaa);">
-			<img src="https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TaiwanComingSoon.png?alt=media&token=b8cd436d-ff90-4cf8-ab18-dc7f96657eaa" style="visibility: hidden; width: 100%">
+		<div class="pictureFrame" style="background-image: url(https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TaiwanComingSoon.png?alt=media&token=cd5bf1b5-f2e9-4bb2-bf52-2a3659eb0283);">
+			<img src="https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TaiwanComingSoon.png?alt=media&token=cd5bf1b5-f2e9-4bb2-bf52-2a3659eb0283" style="visibility: hidden; width: 100%">
 			<div class="backgroundGradient"></div>
 			<div class="textShadow">Taiwan</div>
 		</div>
@@ -38,7 +38,6 @@
 		</div>
 	</div>	
 
-
 	<!--If not logged in-->
   <div class="glyphsList" ng-show='!userSignedIn && !hideLogin' ng-cloak>
     <div class="introPNG"><img src="https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/Intro%2FGlyphsIntro.png?alt=media&token=553b2d3f-0c34-4930-a9d1-2d9f2bc7a809"></div>
@@ -47,8 +46,8 @@
       <label class="item item-text wrap">
         <button class="button button-block button-fbblue" ng-click="authPopup(); loadingLogin()">Facebook Login</button>
       </label>
-      <div class ="item item-divider">
-        <p>This doesn't let the app post to Facebook</p>
+      <div class ="item item-divider center-align-nomargin">
+        <p><i class="icon ion-locked"></i>  This doesn't let the app post to Facebook</p>
       </div>
     </div>
   </div>

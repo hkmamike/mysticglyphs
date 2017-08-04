@@ -485,6 +485,11 @@ li {
   margin-bottom: 10px;
 }
 
+.center-align-nomargin {
+  display: block;
+  text-align: center;
+}
+
 .list-align {
   text-align: left;
   margin-top: 10px;
