@@ -22,31 +22,29 @@
 				<img ng-if="UserRecord[SelectedCity].Mission[SelectedMission].Token[SelectedMission + '_' + n].ClaimStatus.toString() == 'Pending' " src='https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/TokenLocked.png?alt=media&token=cc5d4654-d4f7-430f-bf36-0f4c36fc5e8d' class='oneSixth' ng-class="{'selectedHighlight' : glyphSelection == n, 'notSelected' : glyphSelection != n}">
 			</div>
 		</div>
-	</div> 
-
-	<div class="cardflat item-text-wrap" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].ClaimStatus == 'Pending' || TokenNumber == null">
-		<h4 ng-show="TokenNumber == null">Select a glyph for information</h4>
-
+		<h4 ng-show="TokenNumber == null" class="float-left">You can solve glyphs in any order</h4>
 		<div ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].ClaimStatus == 'Pending'">
-			<strong>Glyph Name :</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].TokenName}} <br>
-			<strong>Glyph Message :</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].TokenMsg}} <br>
-			<strong>Search Hints :</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].SearchHints}} <br>
+			<div class="float-left">
+				<br>
+				<strong>Glyph Name :</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].TokenName}} <br>
+				<strong>Glyph Message :</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].TokenMsg}} <br>
+				<strong>Search Hints :</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].SearchHints}} <br>
+				<br>
+			</div>
+			<div class="inline-block-container">
+		 		<div class="inline-block">
+						<button class="button button-positive" ng-click='openTokenClaim(TokenNumber,SelectedMission, SelectedCity)'>Claim Glyph</button>
+				</div>
+				<div ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].TokenImg != '<img>'" class="inline-block">
+					<button class="button button-positive" ng-click='openImageHint(TokenNumber,SelectedMission, SelectedCity)'>See Image Hint</button>
+				</div>
+			</div>
+		</div>
+		<div ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].ClaimStatus == 'Unlocked'" class="float-left">
 			<br>
+			<p><strong>Good job!</strong> Solving each glyph unlocks clues for other glyphs.</p>
+			<button class="button center-align button-positive" ng-click='openUnlockedHints(SelectedMission, SelectedCity)'> See All Unlocked Hints</button>
 		</div>
-
-		<div ng-if="TokenNumber" class="inline-block-container">
-	 		<div ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].ClaimStatus == 'Pending'" class="inline-block">
-					<button class="button button-positive" ng-click='openTokenClaim(TokenNumber,SelectedMission, SelectedCity)'>Claim Glyph</button>
-			</div>
-			<div ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].TokenImg != '<img>'" class="inline-block">
-				<button class="button button-positive" ng-click='openImageHint(TokenNumber,SelectedMission, SelectedCity)'>See Image Hint</button>
-			</div>
-		</div>
-	</div>
-
-	<div class="cardflat item-text-wrap" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].ClaimStatus == 'Unlocked'">
-		<p>Good Job! Solving each glyph unlocks clues for other glyphs.</p>
-		<button class="button center-align button-positive" ng-click='openUnlockedHints(SelectedMission, SelectedCity)'> See All Unlocked Hints</button>
 	</div>
 
 <!-- 

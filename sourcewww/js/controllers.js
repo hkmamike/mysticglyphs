@@ -457,23 +457,17 @@ angular.module('starter.controllers', [])
 	var tick = function () {
 		var clock = Date.now();
 		var timer = (clock - startTime);
-		// Time calculations for days, hours, minutes and seconds (D H M S system)
-		// $scope.timerDays = Math.floor(timer / (60 * 60 * 24 * 1000));
-		// $scope.timerHours = Math.floor((timer % (60 * 60 * 24 * 1000)) / (60 * 60 * 1000));
-		// $scope.timerMinutes = Math.floor((timer % (60 * 60 * 1000)) / (60 * 1000));
-		// $scope.timerSeconds = Math.floor((timer % (60 * 1000))/1000);
 
-		// Time calculations for days, hours, minutes and seconds (H M S system)
-		// $scope.timerHours = Math.floor(timer / (60 * 60 * 1000));
-		// $scope.timerMinutes = Math.floor((timer % (60 * 60 * 1000)) / (60 * 1000));
-		// $scope.timerSeconds = Math.floor((timer % (60 * 1000))/1000);
+		console.log('startTime is: ', startTime);
 
 		// Time calculations for days, hours, minutes and seconds (H M S system)- simplified for performance
 		$scope.timerHours = ("0" + Math.floor(timer/3600000)).slice(-2);
 		$scope.timerMinutes = ("0" + Math.floor((timer % 3600000)/60000)).slice(-2);
 		$scope.timerSeconds = ("0" + Math.floor((timer % 60000)/1000)).slice(-2);
 	};
-	$interval(tick, 1000);
+
+		$interval(tick, 1000);
+
 });
 
 angular.module('starter').directive('creditCardType', function(){

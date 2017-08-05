@@ -7,7 +7,10 @@
 .timer-box {
 margin-top: 10px;
 margin-bottom: 10px;
-color: green;
+padding-top: 10px;
+padding-bottom: 5px;
+background-color: #444;
+color: white;
 font-weight: bold;
 text-align: center;
 line-height: 120%;
@@ -349,14 +352,14 @@ body {
 
 .sidemenu-button {
   text-align: left !important;
+  margin-left: 5%;
   border-bottom: 3px;
   border-color: #FFF;
 }
 
 .sidemenu-icon {
   position: absolute;
-  right: 10%;
-  font-size: 150%;
+  right: 15%;
 }
 
 /* ---------------------------------------------------------*/
@@ -526,6 +529,11 @@ li {
   display: inline-block;
   margin: 10px;
   height: 30px;
+}
+
+
+.float-left {
+  float: left;
 }
 
 .half {
