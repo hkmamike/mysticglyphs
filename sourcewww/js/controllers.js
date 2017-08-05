@@ -277,7 +277,7 @@ angular.module('starter.controllers', [])
 			}
 		});
 
-		
+
 		$scope.enrollMissionMessage = 'ready';
 		// CLOUD FUNCTION RESPONSES FOR ENROLL MISSION--------------------------------------------
 		firebase.database().ref('/User/'+ UserID +'/Output/EnrollMission').on('value', function(snapshot) {
@@ -459,17 +459,12 @@ angular.module('starter.controllers', [])
 	var tick = function () {
 		var clock = Date.now();
 		var timer = (clock - startTime);
-
-		console.log('startTime is: ', startTime);
-
 		// Time calculations for days, hours, minutes and seconds (H M S system)- simplified for performance
 		$scope.timerHours = ("0" + Math.floor(timer/3600000)).slice(-2);
 		$scope.timerMinutes = ("0" + Math.floor((timer % 3600000)/60000)).slice(-2);
 		$scope.timerSeconds = ("0" + Math.floor((timer % 60000)/1000)).slice(-2);
 	};
-
-		$interval(tick, 1000);
-
+	$interval(tick, 1000);
 });
 
 angular.module('starter').directive('creditCardType', function(){

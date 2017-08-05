@@ -6,8 +6,19 @@
     <div><i class="icon ion-ios-stopwatch-outline timer-icon"></i> {{timerHours}} <strong>:</strong> {{timerMinutes}}<strong>' :</strong> {{timerSeconds}}<strong>''</strong><strong class="glyph-count">{{UserRecord[SelectedCity].Mission[SelectedMission].TokenUnlocked}}/4</strong></div>
   </div>
   <div class="item-text-wrap timer-box timer-box" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Duration && durationHours" ng-cloak>
+  	<div><strong class="timer-missioncomplete">Mission Complete!</strong></div>
     <div><i class="icon ion-flag timer-icon"></i> {{durationHours}} <strong>:</strong> {{durationMinutes}}<strong>' :</strong> {{durationSeconds}}<strong>''</strong></div>
   </div>
+
+	<div class="inline-block-container" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Duration && durationHours" ng-cloak>
+		<div class="inline-block">
+			<button class="button button-positive" ng-click='openSubmitScore(SelectedMission, SelectedCity)'>Submit Score</button>
+		</div>
+		<div class="inline-block">
+			<button class="button button-positive" ng-click='openLeaderboard(SelectedMission, SelectedCity)'>Leaderboard</button>
+		</div>
+	</div>
+
   <div class="cardflat item-text-wrap highlight-positive" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].Tips">
     <div><strong>Tips:</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].Tips}}</div>
   </div>
