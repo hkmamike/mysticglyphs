@@ -277,6 +277,8 @@ angular.module('starter.controllers', [])
 			}
 		});
 
+		
+		$scope.enrollMissionMessage = 'ready';
 		// CLOUD FUNCTION RESPONSES FOR ENROLL MISSION--------------------------------------------
 		firebase.database().ref('/User/'+ UserID +'/Output/EnrollMission').on('value', function(snapshot) {
 			var Output = snapshot.val();
