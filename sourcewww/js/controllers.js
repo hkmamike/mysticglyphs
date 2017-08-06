@@ -424,17 +424,16 @@ angular.module('starter.controllers', [])
 	// ---------------------------------------------------------
 })
 
-.controller('ListCtrl', function($scope, $timeout, $interval, $stateParams) {
+.controller('ListCtrl', function($scope, $timeout, $ionicModal, $interval, $stateParams) {
 	$scope.SelectedCity = $stateParams.CityID;
 	$scope.SelectedMission = $stateParams.MissionID;
 
-	var startTime;
 	firebase.auth().onAuthStateChanged(function (user) {
 		var UserID = firebase.auth().currentUser.uid;
 
 		//Get mission start time		
 		firebase.database().ref('/User/'+ UserID +'/Record/' + $scope.SelectedCity + '/Mission/' + $scope.SelectedMission + '/StartTimeStamp/').on('value', function(snapshot) {
-			startTime = snapshot.val();
+			$scope.startTime = snapshot.val();
 		});
 
 		//Get mission Duration
@@ -455,10 +454,39 @@ angular.module('starter.controllers', [])
 		});
 	});
 
+
+	// Image Leader Board MODAL----------------------------------------------------------------
+	$ionicModal.fromTemplateUrl('templates/leaderboard.html', {
+		scope: $scope
+	}).then(function(modal) {
+		$scope.leaderboard = modal;
+	});
+	$scope.closeLeaderboard = function() {
+		$scope.leaderboard.hide();
+	};
+	$scope.openLeaderboard = function() {
+		$scope.leaderboard.show();
+	};
+	// ---------------------------------------------------------------------------------
+
+	// Image submitScore MODAL----------------------------------------------------------------
+	$ionicModal.fromTemplateUrl('templates/submitScore.html', {
+		scope: $scope
+	}).then(function(modal) {
+		$scope.submitScore = modal;
+	});
+	$scope.closeSubmitScore = function() {
+		$scope.submitScore.hide();
+	};
+	$scope.openSubmitScore = function() {
+		$scope.submitScore.show();
+	};
+	// ---------------------------------------------------------------------------------
+
 	//Running clock
 	var tick = function () {
 		var clock = Date.now();
-		var timer = (clock - startTime);
+		var timer = (clock - $scope.startTime);
 		// Time calculations for days, hours, minutes and seconds (H M S system)- simplified for performance
 		$scope.timerHours = ("0" + Math.floor(timer/3600000)).slice(-2);
 		$scope.timerMinutes = ("0" + Math.floor((timer % 3600000)/60000)).slice(-2);

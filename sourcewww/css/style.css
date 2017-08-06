@@ -3,6 +3,16 @@
   display: none !important;
 }
 
+/* Image Hint--------------------------------------------------*/
+/*.button-imageHint {
+  left: 20% !important;
+  bottom: 5%;
+  position: absolute;
+  width: 60% !important;
+}*/
+
+/* --------------------------------------------------*/
+
 /* Timer--------------------------------------------------*/
 .timer-box {
 margin-top: 10px;
@@ -364,7 +374,6 @@ body {
 /* ---------------------------------------------------------*/
 
 /* Basic ---------------------------------------------*/
-
 .no-wrap {
   white-space: nowrap !important;
 }

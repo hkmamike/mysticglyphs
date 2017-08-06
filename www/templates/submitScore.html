@@ -1,0 +1,32 @@
+<ion-modal-view>
+
+  <ion-header-bar>
+    <h1 class="title">Submit Score</h1>
+    <div class="buttons">
+      <button class="button button-cross button-positive" ng-click="closeSubmitScore()">Close</button>
+    </div>
+  </ion-header-bar>
+
+  <ion-content>
+
+
+    <div class="item-text-wrap timer-box timer-box">
+      <div><strong class="timer-missioncomplete">Mission Complete!</strong></div>
+      <div><i class="icon ion-flag timer-icon"></i> {{durationHours}} <strong>:</strong> {{durationMinutes}}<strong>' :</strong> {{durationSeconds}}<strong>''</strong></div>
+    </div>
+
+    <div class="card">
+      <div class="item item-text-wrap" ng-class="{'validation-white' : glyphCodeSubmitMessage == 'ready' || glyphCodeSubmitMessage == 'submitting', 'validation-green' : glyphCodeSubmitMessage == 'unlocked', 'validation-red' : glyphCodeSubmitMessage == 'unsuccessful'}">
+
+        <label class="item item-input item-floating-label">
+          <div class="input-label no-wrap">Group Name</div>
+          <input type="text" ng-model="submitScoreName" placeholder="enter your group's name...">
+        </label>
+
+        <button type="submit" class="button button-block button-positive" ng-click="submitScore(submitScoreName); scoreSubmitMessage();">Submit Score</button>
+      </div>
+    </div>
+
+  </ion-content>
+
+</ion-modal-view>
