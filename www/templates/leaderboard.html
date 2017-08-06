@@ -9,6 +9,10 @@
 
   <ion-content>
 
+  	<div class="cardflat item-text-wrap" ng-repeat="(scoreID, Score) in Leaderboard[SelectedMission]" ng-cloak>
+  		<div class="half">{{Score.groupName}}</div>
+  		<div class="half">{{Score.Score}}</div>
+		</div>
 
     <button class="button button-positive button-block button-intro" ng-click='closeLeaderboard()'>Close</button>
 

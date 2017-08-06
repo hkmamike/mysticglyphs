@@ -12,6 +12,7 @@ angular.module('starter.controllers', [])
 	// City & Mission List Objects------------------------------------------------------
 	$scope.CityList = $firebaseObject(firebase.database().ref('/DatabaseInfo/' + '/CityCampaignInfo/'));
 	$scope.MissionList = $firebaseObject(firebase.database().ref('/DatabaseInfo/' + '/MissionInfo/'));
+	$scope.Leaderboard = $firebaseObject(firebase.database().ref('/Leaderboard/'));
 	// ---------------------------------------------------------------------------------
 
 	// INTRO------------------------------------------------------------------------
@@ -454,7 +455,6 @@ angular.module('starter.controllers', [])
 		});
 	});
 
-
 	// Image Leader Board MODAL----------------------------------------------------------------
 	$ionicModal.fromTemplateUrl('templates/leaderboard.html', {
 		scope: $scope
@@ -469,7 +469,7 @@ angular.module('starter.controllers', [])
 	};
 	// ---------------------------------------------------------------------------------
 
-	// Image submitScore MODAL----------------------------------------------------------------
+	// submitScore MODAL----------------------------------------------------------------
 	$ionicModal.fromTemplateUrl('templates/submitScore.html', {
 		scope: $scope
 	}).then(function(modal) {
@@ -481,7 +481,18 @@ angular.module('starter.controllers', [])
 	$scope.openSubmitScore = function() {
 		$scope.submitScore.show();
 	};
+
+	$scope.scoreSubmitMessage = 'ready';
+	$scope.scoreSubmitMessage = function() {
+		$scope.scoreSubmitMessage = 'submitting';
+	};
 	// ---------------------------------------------------------------------------------
+
+	$scope.submitScore = function(SelectedMission, groupName) {
+		console.log('Score submittion from group: ', groupName, ', for mission ' , TokenPW);
+		console.log('UserID: ', UserID);
+		firebase.database().ref('/User/'+ UserID +'/Input/' + '/SubmitScore/').set(SelectedMission + ',' + groupName + '@' + Date.now());
+	};
 
 	//Running clock
 	var tick = function () {

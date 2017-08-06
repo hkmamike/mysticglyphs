@@ -4,6 +4,33 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
 
+exports.SubmitScore = functions.database.ref('/User/{UserID}/Input/SubmitScore/').onWrite(event => {
+	var Input = event.data.val();
+	var City = Input.substring(0, Input.indexOf('_'));
+	var Mission = Input.substring(0, Input.indexOf(','));
+	var groupName = Input.substring(Input.indexOf(',') + 1,Input.indexOf('@'));
+
+	if (Mission=='warmUp') {
+		console.log ('warm up condition');
+		return 'warming up function - SubmitScore';
+	} else {
+			var UserID = event.params.UserID;
+			admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/ScoreSubmitted/').once('value', function(snapshot) {
+				if (snapshot.val()==null) {
+					//Submit Score
+					var newPostKey = admin.database().ref().child('/Leaderboard/'+ Mission).push().key;
+					var updates = {};
+					admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/Duration/').once('value', function(snapshot) {
+						var Duration = snapshot.val();
+						updates['/Leaderboard/' + Mission + '/' + newPostKey + '/GroupName/'] = groupName;
+						updates['/Leaderboard/' + Mission + '/' + newPostKey + '/Score/'] = Duration;
+						admin.database().ref().update(updates);
+					});
+				}
+			});
+		}
+});
+
 exports.EnrollMission = functions.database.ref('/User/{UserID}/Input/EnrollMission/').onWrite(event => {
 
 	var Input = event.data.val();
