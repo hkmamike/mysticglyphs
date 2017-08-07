@@ -510,7 +510,7 @@ angular.module('starter.controllers', [])
 		$scope.submitScore.show();
 	};
 	$scope.scoreSubmitMessage = 'ready';
-	$scope.scoreSubmitMessage = function() {
+	$scope.scoresSubmitMessage = function() {
 		$scope.scoreSubmitMessage = 'submitting';
 	};
 	// ---------------------------------------------------------------------------------

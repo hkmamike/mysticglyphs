@@ -12,13 +12,13 @@
   	<h1 class="center-align timer-box"><strong>{{UserRecord[SelectedCity].Mission[SelectedMission].Location}}</strong></h1>
 
   	<div class="item-text-wrap card-margin-standard" ng-cloak>
-  		<div ng-repeat="(scoreID, Score) in Leaderboard[SelectedMission]" class="border-bottom">
-	  		<div class="half text-align-left"><strong>{{$index+1}}</strong> {{Score.GroupName}}</div>
+  		<div ng-repeat="(scoreID, Score) in Leaderboard[SelectedMission]" id="leaderboard-items">
+	  		<div class="half text-align-left"><strong>{{$index+1}}</strong>   {{Score.GroupName}}</div>
 	  		<div class="half text-align-right"><i class="icon ion-ios-stopwatch-outline timer-icon"></i>  {{Score.Score | hourfilter}} <strong>:</strong> {{Score.Score | minutefilter}} <strong>' :</strong> {{Score.Score | secondfilter}}<strong>''</strong></div>
 	  	</div>
 		</div>
 
-    <button class="button button-positive button-block button-intro" ng-click='closeLeaderboard()'>Close</button>
+<!--     <button class="button button-positive button-block button-intro" ng-click='closeLeaderboard()'>Close</button> -->
 
   </ion-content>
 

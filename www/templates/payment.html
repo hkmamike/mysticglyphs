@@ -18,7 +18,7 @@
         <label class="payment-label" ng-class="{'is-focused': cardFocused==true}">
           <i class="icon ion-card payment-icon"></i>
           <div class="card-type">{{FormData.type}}</div>
-          <input type="text" class="payment-field" name="creditCard" ng-model="FormData.number" ng-focus="cardFocused=true" ng-blur="cardFocused=false" placeholder="4012 8888 8888 1881" required data-credit-card-type data-ng-pattern="/^[0-9]+$/" data-ng-minlength="15" maxlength="19"/>
+          <input type="text" class="payment-field" name="creditCard" ng-model="FormData.number" ng-focus="cardFocused=true" ng-blur="cardFocused=false" placeholder="4242 4242 4242 4242" required data-credit-card-type data-ng-pattern="/^[0-9]+$/" data-ng-minlength="15" maxlength="19"/>
           <span><span>Card Number</span></span>
         </label>
         <label class="payment-label" ng-class="{'is-focused': cvcFocused==true}">

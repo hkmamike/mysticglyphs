@@ -1,9 +1,9 @@
 
 {
-  "name": "My Ionic App",
-  "short_name": "My Ionic App",
+  "name": "Mystic Glyphs",
+  "short_name": "MG",
   "start_url": "index.html",
-  "display": "standalone",
+  "display": "fullscreen",
   "icons": [{
     "src": "icon.png",
     "sizes": "512x512",
