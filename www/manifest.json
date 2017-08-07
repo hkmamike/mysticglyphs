@@ -1,13 +1,13 @@
 
 {
   "name": "Mystic Glyphs",
-  "short_name": "MG",
+  "short_name": "Mystic Glyphs",
   "start_url": "index.html",
   "display": "fullscreen",
   "orientation": "portrait",
   "icons": [{
-    "src": "icon.png",
-    "sizes": "512x512",
+    "src": "img/MysticGlyphsIcon.png",
+    "sizes": "144x144",
     "type": "image/png"
   }]
 }
