@@ -421,8 +421,8 @@ angular.module('starter.controllers', [])
 			console.log('PaymentForm data is invalid');
 		}
 	};
+	// ------------------------------------------------------------------------------
 
-	// ---------------------------------------------------------
 })
 
 .controller('ListCtrl', function($scope, $timeout, $ionicModal, $interval, $stateParams) {
@@ -455,7 +455,7 @@ angular.module('starter.controllers', [])
 		});
 	});
 
-	// Image Leader Board MODAL----------------------------------------------------------------
+	// Image Leader Board MODAL---------------------------------------------------------
 	$ionicModal.fromTemplateUrl('templates/leaderboard.html', {
 		scope: $scope
 	}).then(function(modal) {
@@ -470,6 +470,7 @@ angular.module('starter.controllers', [])
 	// ---------------------------------------------------------------------------------
 
 	// submitScore MODAL----------------------------------------------------------------
+	$scope.Math = window.Math;
 	$ionicModal.fromTemplateUrl('templates/submitScore.html', {
 		scope: $scope
 	}).then(function(modal) {
@@ -481,18 +482,43 @@ angular.module('starter.controllers', [])
 	$scope.openSubmitScore = function() {
 		$scope.submitScore.show();
 	};
-
 	$scope.scoreSubmitMessage = 'ready';
 	$scope.scoreSubmitMessage = function() {
 		$scope.scoreSubmitMessage = 'submitting';
 	};
 	// ---------------------------------------------------------------------------------
-
-	$scope.submitScore = function(SelectedMission, groupName) {
-		console.log('Score submittion from group: ', groupName, ', for mission ' , TokenPW);
+	$scope.submitScores = function(SelectedMission, groupName) {
+		console.log('Score submittion from group: ', groupName, ', for mission ' , SelectedMission);
 		console.log('UserID: ', UserID);
 		firebase.database().ref('/User/'+ UserID +'/Input/' + '/SubmitScore/').set(SelectedMission + ',' + groupName + '@' + Date.now());
 	};
+
+	// CLOUD FUNCTION RESPONSES FOR GLYPH UNLOCK--------------------------------------------
+	firebase.database().ref('/User/'+ UserID +'/Output/SubmitScore').on('value', function(snapshot) {
+		var Output = snapshot.val();
+		var Result = Output.substring(0,Output.indexOf(","));
+		if (Result==1) {
+			$scope.scoreSubmitMessage = 'success';
+			$scope.$apply();
+			console.log('Submit Score Successful');
+			$timeout( function(){
+				/*Reset Output node*/
+				firebase.database().ref('/User/'+ UserID +'/Output/SubmitScore').set('2,'+ Date.now());
+				$scope.closeSubmitScore();
+			},3000);
+		} else if (Result==0) {
+			$scope.scoreSubmitMessage = 'unsuccessful';
+			$scope.$apply();
+			console.log('Submit Score Unsuccessful');
+			$timeout( function(){
+				/*Reset Output node*/
+				firebase.database().ref('/User/'+ UserID +'/Output/SubmitScore').set('2,'+ Date.now());
+			},3000);
+		} else {
+			$scope.scoreSubmitMessage = 'ready';
+			$scope.$apply();
+		}
+	});
 
 	//Running clock
 	var tick = function () {
@@ -504,23 +530,7 @@ angular.module('starter.controllers', [])
 		$scope.timerSeconds = ("0" + Math.floor((timer % 60000)/1000)).slice(-2);
 	};
 	$interval(tick, 1000);
-});
 
-angular.module('starter').directive('creditCardType', function(){
-  var directive = { require: 'ngModel', link: function(scope, elm, attrs, ctrl){
-        ctrl.$parsers.unshift(function(value){
-          scope.FormData.type =
-            (/^5[1-5]/.test(value)) ? "mastercard"
-            : (/^4/.test(value)) ? "visa"
-            : (/^3[47]/.test(value)) ? 'amex'
-            : (/^6011|65|64[4-9]|622(1(2[6-9]|[3-9]\d)|[2-8]\d{2}|9([01]\d|2[0-5]))/.test(value)) ? 'discover'
-            : undefined;
-          ctrl.$setValidity('invalid', !!scope.FormData.type);
-          return value;
-        });
-      }
-    };
-  return directive;
 })
 
 .controller('MapCtrl', function($scope, $rootScope, $timeout, $firebaseObject, $state, $stateParams) {
@@ -584,4 +594,39 @@ angular.module('starter').directive('creditCardType', function(){
 			//	}
 		});
 	};
+});
+
+angular.module('starter').directive('creditCardType', function(){
+  var directive = { require: 'ngModel', link: function(scope, elm, attrs, ctrl){
+        ctrl.$parsers.unshift(function(value){
+          scope.FormData.type =
+            (/^5[1-5]/.test(value)) ? "mastercard"
+            : (/^4/.test(value)) ? "visa"
+            : (/^3[47]/.test(value)) ? 'amex'
+            : (/^6011|65|64[4-9]|622(1(2[6-9]|[3-9]\d)|[2-8]\d{2}|9([01]\d|2[0-5]))/.test(value)) ? 'discover'
+            : undefined;
+          ctrl.$setValidity('invalid', !!scope.FormData.type);
+          return value;
+        });
+      }
+    };
+  return directive;
+});
+
+angular.module('starter').filter('hourfilter', function() {
+    return function(input) {
+        return (("00" + Math.floor(input/3600)).slice(-2));
+    };
+});
+
+angular.module('starter').filter('minutefilter', function() {
+    return function(input) {
+        return (("00" + Math.floor((input % 3600)/60)).slice(-2));
+    };
+});
+
+angular.module('starter').filter('secondfilter', function() {
+    return function(input) {
+        return (("00" + Math.floor(input % 60)).slice(-2));
+    };
 });

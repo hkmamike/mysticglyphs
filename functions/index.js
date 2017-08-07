@@ -20,12 +20,26 @@ exports.SubmitScore = functions.database.ref('/User/{UserID}/Input/SubmitScore/'
 					//Submit Score
 					var newPostKey = admin.database().ref().child('/Leaderboard/'+ Mission).push().key;
 					var updates = {};
+					var updatesUser = {};
+					var Duration;
 					admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/Duration/').once('value', function(snapshot) {
-						var Duration = snapshot.val();
+						Duration = snapshot.val();
 						updates['/Leaderboard/' + Mission + '/' + newPostKey + '/GroupName/'] = groupName;
 						updates['/Leaderboard/' + Mission + '/' + newPostKey + '/Score/'] = Duration;
 						admin.database().ref().update(updates);
+
+						updatesUser['/User/'+ UserID +'/Record/Leaderboard/' + newPostKey + '/GroupName/'] = groupName;
+						updatesUser['/User/'+ UserID +'/Record/Leaderboard/' + newPostKey + '/Score/'] = Duration;
+						admin.database().ref().update(updatesUser);
+
+						console.log ('Score has already been submitted');
+						admin.database().ref('/User/'+ UserID +'/Output/SubmitScore').set('1,'+ Date.now());
+						admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/ScoreSubmitted/').set('Yes');
+
 					});
+				} else {
+					console.log ('Score has already been submitted');
+					admin.database().ref('/User/'+ UserID +'/Output/SubmitScore').set('0,'+ Date.now());
 				}
 			});
 		}
