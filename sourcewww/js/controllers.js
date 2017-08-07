@@ -453,6 +453,33 @@ angular.module('starter.controllers', [])
 				$scope.durationSeconds = ("0" + Math.floor(duration % 60)).slice(-2);
 			}
 		});
+
+		// CLOUD FUNCTION RESPONSES FOR Submit Score--------------------------------------------
+		firebase.database().ref('/User/'+ UserID +'/Output/SubmitScore').on('value', function(snapshot) {
+			var Output = snapshot.val();
+			var Result = Output.substring(0,Output.indexOf(","));
+			if (Result==1) {
+				$scope.scoreSubmitMessage = 'success';
+				$scope.$apply();
+				console.log('Submit Score Successful');
+				$timeout( function(){
+					/*Reset Output node*/
+					firebase.database().ref('/User/'+ UserID +'/Output/SubmitScore').set('2,'+ Date.now());
+					$scope.closeSubmitScore();
+				},3000);
+			} else if (Result==0) {
+				$scope.scoreSubmitMessage = 'unsuccessful';
+				$scope.$apply();
+				console.log('Submit Score Unsuccessful');
+				$timeout( function(){
+					/*Reset Output node*/
+					firebase.database().ref('/User/'+ UserID +'/Output/SubmitScore').set('2,'+ Date.now());
+				},3000);
+			} else {
+				$scope.scoreSubmitMessage = 'ready';
+				$scope.$apply();
+			}
+		});
 	});
 
 	// Image Leader Board MODAL---------------------------------------------------------
@@ -492,33 +519,6 @@ angular.module('starter.controllers', [])
 		console.log('UserID: ', UserID);
 		firebase.database().ref('/User/'+ UserID +'/Input/' + '/SubmitScore/').set(SelectedMission + ',' + groupName + '@' + Date.now());
 	};
-
-	// CLOUD FUNCTION RESPONSES FOR GLYPH UNLOCK--------------------------------------------
-	firebase.database().ref('/User/'+ UserID +'/Output/SubmitScore').on('value', function(snapshot) {
-		var Output = snapshot.val();
-		var Result = Output.substring(0,Output.indexOf(","));
-		if (Result==1) {
-			$scope.scoreSubmitMessage = 'success';
-			$scope.$apply();
-			console.log('Submit Score Successful');
-			$timeout( function(){
-				/*Reset Output node*/
-				firebase.database().ref('/User/'+ UserID +'/Output/SubmitScore').set('2,'+ Date.now());
-				$scope.closeSubmitScore();
-			},3000);
-		} else if (Result==0) {
-			$scope.scoreSubmitMessage = 'unsuccessful';
-			$scope.$apply();
-			console.log('Submit Score Unsuccessful');
-			$timeout( function(){
-				/*Reset Output node*/
-				firebase.database().ref('/User/'+ UserID +'/Output/SubmitScore').set('2,'+ Date.now());
-			},3000);
-		} else {
-			$scope.scoreSubmitMessage = 'ready';
-			$scope.$apply();
-		}
-	});
 
 	//Running clock
 	var tick = function () {

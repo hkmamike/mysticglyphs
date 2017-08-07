@@ -24,6 +24,20 @@
         </label>
 
         <button class="button button-block button-positive" ng-click="submitScores(SelectedMission, submitScoreName); submitScoreMessage()">Submit Score</button>
+
+        <div ng-show="scoreSubmitMessage == 'ready'">
+          <h4 class="center-align"><br></h4>
+        </div>       
+        <div ng-show="scoreSubmitMessage == 'submitting'">
+          <h4 class="center-align">Submitting...</h4>
+        </div>
+        <div ng-show="scoreSubmitMessage == 'success'">
+          <h4 class="center-align">Success!</h4>
+        </div>
+        <div ng-show="scoreSubmitMessage == 'unsuccessful'">
+          <h4 class="center-align">Unsuccessful</h4>
+        </div>
+
       </div>
     </div>
 

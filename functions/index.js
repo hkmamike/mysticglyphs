@@ -103,6 +103,7 @@ exports.NewUser = functions.auth.user().onCreate(event => {
 	admin.database().ref('/User/'+ userInfo.uid +'/'+ 'UserInfo' + '/'+ 'UserPict'+'/').set(userInfo.photoURL);
 	admin.database().ref('/User/'+ userInfo.uid +'/' + 'Output' + '/' + 'GlyphUnlock' + '/').set('2,'+ Date.now());
 	admin.database().ref('/User/'+ userInfo.uid +'/' + 'Output' + '/' + 'EnrollMission' + '/').set('0,'+ Date.now());
+	admin.database().ref('/User/'+ uderInfo.uid +'/' + 'Output' + '/' + 'SubmitScore' + '/').set('2,'+ Date.now());
 
 });
 
