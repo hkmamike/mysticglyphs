@@ -15,14 +15,21 @@ angular.module('starter.controllers', [])
 	$scope.Leaderboard = $firebaseObject(firebase.database().ref('/Leaderboard/'));
 	// ---------------------------------------------------------------------------------
 
+	//hide address bar
+	window.addEventListener("load",function() {
+		$timeout(function(){
+		    window.scrollTo(0, 1);
+		}, 100);
+	});
+
 	// INTRO------------------------------------------------------------------------
-  // Called to navigate to the main app
-  $scope.startApp = function() {
+	// Called to navigate to the main app
+	$scope.startApp = function() {
     $state.go('app.List');
     // Set a flag that we finished the tutorial
     window.localStorage['didTutorial'] = true;
-  };
-  // Check if the user already did the tutorial and skip it if so
+	};
+	// Check if the user already did the tutorial and skip it if so
 	if(window.localStorage['didTutorial'] === "true") {
 			console.log('localStorage didTutorial = true, Skip intro');
 			$scope.startApp();
@@ -30,14 +37,14 @@ angular.module('starter.controllers', [])
 	$scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
 		$ionicSlideBoxDelegate.slide(0);
 	});
-  $scope.toIntro = function(){
-    window.localStorage['didTutorial'] = "false";
-    $state.go('intro');
-  };
-  // Move to the next slide
-  $scope.next = function() {
-    $scope.$broadcast('slideBox.nextSlide');
-  };
+	$scope.toIntro = function(){
+		window.localStorage['didTutorial'] = "false";
+		$state.go('intro');
+	};
+	// Move to the next slide
+	$scope.next = function() {
+		$scope.$broadcast('slideBox.nextSlide');
+	};
 	// SIDE MENU------------------------------------------------------------------------
 	$scope.toggleRightSideMenu = function() {
 	$ionicSideMenuDelegate.toggleRight();
