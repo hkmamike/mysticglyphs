@@ -10,9 +10,9 @@ self.addEventListener('install', function(event){
       return cache.addAll([
         './js/app.min.js',
         './css/style.min.css',
-        'manifest.json',
-        'index.html',
-        './intro.html'
+        '/manifest.json',
+        '/index.html',
+        './templates/intro.html'
       ]);
     })
     .then(function(){
