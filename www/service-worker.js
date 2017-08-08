@@ -29,4 +29,4 @@ self.addEventListener('install', function(event){
       console.log('Service worker is ready, and assets are cached');
     });
   );
-})
+});
