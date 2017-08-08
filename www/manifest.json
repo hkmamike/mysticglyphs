@@ -1,8 +1,10 @@
 
 {
   "name": "Mystic Glyphs",
-  "short_name": "Mystic Glyphs",
+  "short_name": "MysticGlyphs",
   "start_url": "index.html",
+  "background_color": "#0c60ee",
+  "theme_color" : "#0c60ee",
   "display": "fullscreen",
   "orientation": "portrait",
   "icons": [{
