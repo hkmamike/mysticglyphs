@@ -15,13 +15,6 @@ angular.module('starter.controllers', [])
 	$scope.Leaderboard = $firebaseObject(firebase.database().ref('/Leaderboard/'));
 	// ---------------------------------------------------------------------------------
 
-	//hide address bar
-	window.addEventListener("load",function() {
-		$timeout(function(){
-		    window.scrollTo(0, 1);
-		}, 100);
-	});
-
 	// INTRO------------------------------------------------------------------------
 	// Called to navigate to the main app
 	$scope.startApp = function() {
