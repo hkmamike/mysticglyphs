@@ -22,19 +22,23 @@ exports.SubmitScore = functions.database.ref('/User/{UserID}/Input/SubmitScore/'
 					var updates = {};
 					var updatesUser = {};
 					var Duration;
+					var CurrentTime;
 					admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/Duration/').once('value', function(snapshot) {
 						Duration = snapshot.val();
+						CurrentTime = new Date();
 						updates['/Leaderboard/' + Mission + '/' + newPostKey + '/GroupName/'] = groupName;
 						updates['/Leaderboard/' + Mission + '/' + newPostKey + '/Score/'] = Duration;
+						updates['/Leaderboard/' + Mission + '/' + newPostKey + '/Time/'] = CurrentTime;
 						admin.database().ref().update(updates);
 
 						updatesUser['/User/'+ UserID +'/Record/Leaderboard/' + newPostKey + '/GroupName/'] = groupName;
 						updatesUser['/User/'+ UserID +'/Record/Leaderboard/' + newPostKey + '/Score/'] = Duration;
+						updatesUser['/User/'+ UserID +'/Record/Leaderboard/' + newPostKey + '/Time/'] = CurrentTime;
+						updatesUser['/User/'+ UserID +'/Output/SubmitScore'] = '1,'+ Date.now();
+						updatesUser['/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/ScoreSubmitted/'] = 'Yes';
 						admin.database().ref().update(updatesUser);
 
-						console.log ('Score has already been submitted');
-						admin.database().ref('/User/'+ UserID +'/Output/SubmitScore').set('1,'+ Date.now());
-						admin.database().ref('/User/'+ UserID +'/Record/' + City + '/Mission/' + Mission + '/ScoreSubmitted/').set('Yes');
+						console.log ('Score submission success');
 
 					});
 				} else {
