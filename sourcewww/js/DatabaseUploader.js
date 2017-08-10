@@ -35,7 +35,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Direction' ] = 'MTR @ T
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Terrain' ] = 'Indoor';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Hours' ] = '10:00 - 18:00';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/GlyphTypes' ] = 'Magnetic Case, Hanging Case';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/MissionType' ] = '48';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/MissionType' ] = 'Free';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Coordinates/centerLat' ] = '22.301883';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Coordinates/centerLng' ] = '114.177437';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Coordinates/markerLng' ] = '114.177264';
@@ -166,7 +166,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Direction' ] = '15 mins
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Terrain' ] = 'Outdoor (easy)';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Hours' ] = '10:00 - 18:00 (some glyphs can be found 24/7)';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/GlyphTypes' ] = 'Magnetic Case, Hanging Case';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/MissionType' ] = '48';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/MissionType' ] = 'Free';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Coordinates/centerLat' ] = '22.300124';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Coordinates/centerLng' ] = '114.170364';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Coordinates/markerLng' ] = '114.169069';
@@ -380,7 +380,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_5/To
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_5/TokenImgMessage' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_5/SearchHints' ] = 'Find the biggest clock tower on the harbour side for this glyph';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_5/ClaimStatus' ] = 'Pending';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_5/HintA' ] = 'solar, meridian, northern, and night are the cool stars';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_5/HintA' ] = 'solar, meridian, northern, and silver are the cool stars';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_5/HintB' ] = 'Tree 66 is a cute tree';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_5/HintC' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_5/HintD' ] = '';
@@ -391,7 +391,7 @@ updates['/DatabaseInfo/TokenInfo/HongKong_1_3_5/TokenCode' ] = '1976';
 
 /*Harbour Side MIssion #6*/
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_6/Order' ] = '6';
-updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_6/TokenName' ] = 'Star Ferry';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_6/TokenName' ] = 'Star Ferries';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_6/TokenMsg' ] = 'Ferry is the cheapest way to cross the harbour, and the most fun way! You can ride the ferry to Central and Wan Chai from Tsim Sha Tsui';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_6/TokenImg' ] = 'https://firebasestorage.googleapis.com/v0/b/mysticglyphs.appspot.com/o/GlyphClues%2FFerriesfront.png?alt=media&token=b7966244-e28e-4869-b773-aa6c871e2a2d';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_6/TokenImgMessage' ] = 'The force is strong with these chairs';

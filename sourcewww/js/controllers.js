@@ -192,7 +192,7 @@ angular.module('starter.controllers', [])
 	};
 	// ---------------------------------------------------------------------------------
 
-	// Image HINTS MODAL----------------------------------------------------------------
+	// Map MODAL----------------------------------------------------------------
 	$ionicModal.fromTemplateUrl('templates/mapPage.html', {
 		scope: $scope
 	}).then(function(modal) {
@@ -206,6 +206,33 @@ angular.module('starter.controllers', [])
 	};
 	// ---------------------------------------------------------------------------------
 
+	// Contact MODAL----------------------------------------------------------------
+	$ionicModal.fromTemplateUrl('templates/contactUs.html', {
+		scope: $scope
+	}).then(function(modal) {
+		$scope.contactUs = modal;
+	});
+	$scope.closeContactUs = function() {
+		$scope.contactUs.hide();
+	};
+	$scope.openContactUs = function() {
+		$scope.contactUs.show();
+	};
+	// ---------------------------------------------------------------------------------
+
+	// Host MODAL----------------------------------------------------------------
+	$ionicModal.fromTemplateUrl('templates/host.html', {
+		scope: $scope
+	}).then(function(modal) {
+		$scope.hostModal = modal;
+	});
+	$scope.closeHostModal = function() {
+		$scope.hostModal.hide();
+	};
+	$scope.openHostModal = function() {
+		$scope.hostModal.show();
+	};
+	// ---------------------------------------------------------------------------------	
 
 	// Payment MODAL----------------------------------------------------------------
 	$ionicModal.fromTemplateUrl('templates/payment.html', {

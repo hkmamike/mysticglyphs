@@ -382,8 +382,17 @@ body {
 /* ---------------------------------------------------------*/
 
 /* Basic ---------------------------------------------*/
+
+.open-sans {
+  font-family: Open Sans Condensed,sans-serif;
+}
+
 .no-wrap {
   white-space: nowrap !important;
+}
+
+.card-padding {
+  padding: 5px;
 }
 
 .border-bottom {
