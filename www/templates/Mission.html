@@ -18,6 +18,9 @@
 		<div class="inline-block">
 			<button class="button button-positive" ng-click='openLeaderboard(SelectedMission, SelectedCity)'>Leaderboard</button>
 		</div>
+		<div class="inline-block" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].ScoreSubmitted">
+			<button class="button button-positive" onclick="window.open('https://mike1345.typeform.com/to/Q5Uvtx', '_system', 'location=yes')">Beta Survey</button>
+		</div>
 	</div>
 
   <div class="cardflat item-text-wrap highlight-positive" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].Tips">
