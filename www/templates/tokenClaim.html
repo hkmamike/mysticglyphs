@@ -9,20 +9,15 @@
 
   <ion-content>
 
-    <div class="card item-text-wrap">
-      <h2>Glyph Information</h2>
-      <div>
-        <strong>Glyph Name :</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].TokenName}} <br>
-        <strong>Glyph Message :</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].TokenMsg}} <br>
-        <strong>Search Hints :</strong> {{UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].SearchHints}} <br>
-      </div>
+    <div class="cardflat item-text-wrap highlight-positive" ng-show="UserRecord[SelectedCity].Mission[SelectedMission].Token[TokenNumber].Type='Case'">
+      <div><strong>Tips:</strong> Please remember to return glyphs to where they were found</div>
     </div>
 
     <div class="card">
       <div class="item item-text-wrap" ng-class="{'validation-white' : glyphCodeSubmitMessage == 'ready' || glyphCodeSubmitMessage == 'submitting', 'validation-green' : glyphCodeSubmitMessage == 'unlocked', 'validation-red' : glyphCodeSubmitMessage == 'unsuccessful'}">
         <label class="item item-input item-floating-label">
-          <div class="input-label no-wrap">Glyph code</div>
-          <input type="text" ng-model="TokenClaim.code" placeholder="enter glyph code...">
+          <div class="input-label no-wrap">Glyph Password</div>
+          <input type="text" ng-model="TokenClaim.code" placeholder="enter glyph password...">
         </label>
         <button type="submit" class="button button-block button-positive" ng-click="claimToken(TokenNumber, TokenClaim.code); codeSubmitMessage();"> Claim Glyph</button>
         <div ng-show="glyphCodeSubmitMessage == 'ready'">

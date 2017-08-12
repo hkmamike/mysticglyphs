@@ -57,6 +57,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_1/Hi
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_1/HintC' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_1/HintD' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_1/HintE' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_1/Type' ] = 'Virtual';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_1/Tips' ] = 'You dont have to solve glyphs in order. Solving glyphs unlock additional clues for other glyphs.';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_1_1/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_1_1/TokenCode' ] = 'winnowing';
@@ -74,6 +75,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/Hi
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/HintC' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/HintD' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/HintE' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/Type' ] = 'Case';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_2/Tips' ] = 'Sometimes, glyph codes are hints for other glyphs';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_1_2/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_1_2/TokenCode' ] = 'hakka';
@@ -93,6 +95,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_3/Hi
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_3/HintC' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_3/HintD' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_3/HintE' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_3/Type' ] = 'Virtual';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_3/Tips' ] = 'Solving 4 glyphs complete a mission. The timer stops once you complete 4 glyphs.';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_1_3/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_1_3/TokenCode' ] = 'bowen';
@@ -110,6 +113,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_4/Hi
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_4/HintC' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_4/HintD' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_4/HintE' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_4/Type' ] = 'Case';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_4/Tips' ] = 'Magnetic glyphs only stick to metal parts';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_1_4/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_1_4/TokenCode' ] = 'garment';
@@ -128,6 +132,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_5/Hi
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_5/HintC' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_5/HintD' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_5/HintE' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_5/Type' ] = 'Virtual';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_5/Tips' ] = '';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_1_5/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_1_5/TokenCode' ] = 'xuantong';
@@ -145,6 +150,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_6/Hi
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_6/HintC' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_6/HintD' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_6/HintE' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_6/Type' ] = 'Virtual';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_1/Token/HongKong_1_1_6/Tips' ] = 'The museum is generally organized chronologically';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_1_6/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_1_6/TokenCode' ] = '561563';
@@ -188,6 +194,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_1/Hi
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_1/HintC' ] = 'The southmost glyph is in the museum';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_1/HintD' ] = 'The eastmost glyph is in the maze';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_1/HintE' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_1/Type' ] = 'Case';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_1/Tips' ] = 'Read all the available glyph hints and solve the easiest ones first';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_2_1/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_2_1/TokenCode' ] = 'noclimbing';
@@ -205,6 +212,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_2/Hi
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_2/HintC' ] = 'The glyph in the maze is near the light pole';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_2/HintD' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_2/HintE' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_2/Type' ] = 'Case';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_2/Tips' ] = 'Ropes are not magnetic but sometimes magnetic parts are attached to them';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_2_2/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_2_2/TokenCode' ] = 'cannon';
@@ -222,6 +230,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_3/Hi
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_3/HintC' ] = 'The glyph in the museum is in the center of a room. How?';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_3/HintD' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_3/HintE' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_3/Type' ] = 'Case';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_3/Tips' ] = 'Taking photos might help you remember the surroundings of found glyphs';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_2_3/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_2_3/TokenCode' ] = 'prehistoric';
@@ -239,6 +248,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_4/Hi
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_4/HintC' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_4/HintD' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_4/HintE' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_4/Type' ] = 'Case';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_4/Tips' ] = 'Magnetic cases only stick to metals';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_2_4/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_2_4/TokenCode' ] = 'cagenorth';
@@ -256,6 +266,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_5/Hi
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_5/HintC' ] = 'Search under the cannon for glyph #1';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_5/HintD' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_5/HintE' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_5/Type' ] = 'Case';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_5/Tips' ] = 'Be careful and dont alert the guards when you take the glyph case';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_2_5/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_2_5/TokenCode' ] = 'wetfloor';
@@ -273,6 +284,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_6/Hi
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_6/HintC' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_6/HintD' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_6/HintE' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_6/Type' ] = 'Case';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_2/Token/HongKong_1_2_6/Tips' ] = '';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_2_6/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_2_6/TokenCode' ] = 'shadow';
@@ -316,6 +328,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_1/Hi
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_1/HintD' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_1/HintE' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_1/Tips' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_1/Type' ] = 'Case';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_3_1/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_3_1/TokenCode' ] = 'jetli';
 
@@ -333,6 +346,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_2/Hi
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_2/HintD' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_2/HintE' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_2/Tips' ] = 'Pay attention to white ropes';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_2/Type' ] = 'Case';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_3_2/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_3_2/TokenCode' ] = 'ferriesfront';
 
@@ -352,6 +366,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_3/Hi
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_3/HintD' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_3/HintE' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_3/Tips' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_3/Type' ] = 'Case';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_3_3/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_3_3/TokenCode' ] = 'signal';
 
@@ -368,6 +383,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_4/Hi
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_4/HintC' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_4/HintD' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_4/HintE' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_4/Type' ] = 'Case';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_4/Tips' ] = 'This glyph is 10 mins of walking away from the others. The other glyphs are quite clustered up together.';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_3_4/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_3_4/TokenCode' ] = 'whiterope';
@@ -385,6 +401,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_5/Hi
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_5/HintC' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_5/HintD' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_5/HintE' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_5/Type' ] = 'Virtual';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_5/Tips' ] = 'This glyph is not a case! You just need to find the solution';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_3_5/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_3_5/TokenCode' ] = '1976';
@@ -402,6 +419,7 @@ updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_6/Hi
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_6/HintC' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_6/HintD' ] = '';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_6/HintE' ] = '';
+updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_6/Type' ] = 'Case';
 updates['/DatabaseInfo/MissionInfo/HongKong/HongKong_1_3/Token/HongKong_1_3_6/Tips' ] = 'You can unlock hints to make sure you know which ferries have this glyph.';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_3_6/ClaimRecord' ] = 'xxx';
 updates['/DatabaseInfo/TokenInfo/HongKong_1_3_6/TokenCode' ] = 'thebell';
